@@ -1,0 +1,17 @@
+<mat-sidenav-container  class="example-container"  >
+  <mat-sidenav [disableClose]="true" #sidenav [ngClass]="{
+  'ancho-barra-lateral-iconos':mostrarMenuIconos,
+  'ancho-barra-lateral-completo':!mostrarMenuIconos
+  }" opened [mode]="mostrarMenuIconos?'side':'push'">
+    <ml-menu-panel (ampliarMenu)="ampliarMenuFull($event)" [items]="menu" [menuPanel]="!mostrarMenuIconos" ></ml-menu-panel>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="row justify-content-end">
+      <div class="col-sm-2 ">
+        <button class="btn btn-outline-info btn-block btn-sm" (click)="ocultarMenu(sidenav)">{{motrarTextoOcultar?'Mostrar menú': 'Ocultar menú'}}</button>
+      </div>
+    </div>
+
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

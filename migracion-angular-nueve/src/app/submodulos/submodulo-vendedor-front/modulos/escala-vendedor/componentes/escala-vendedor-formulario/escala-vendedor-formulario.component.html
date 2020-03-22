@@ -1,0 +1,156 @@
+
+<form novalidate [formGroup]="escalaVendedor.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="escalaVendedor.mensajesValidacionNombre.nombreInput">{{
+                        escalaVendedor.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="escalaVendedor.mensajesValidacionNombre.nombreInput"
+                                [name]="escalaVendedor.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="escalaVendedor.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="escalaVendedor.mensajesValidacionNombre.tooltip"
+                                [title]="escalaVendedor.mensajesValidacionNombre.title"
+                                aria-describedby="escalaVendedorNombreAyuda"
+                                
+                                
+                        >
+                        <small id="escalaVendedorNombreAyuda" class="form-text text-muted">{{escalaVendedor.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="escalaVendedor.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of escalaVendedor.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--minimo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Minimo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="escalaVendedor.mensajesValidacionMinimo.nombreInput">{{
+                        escalaVendedor.mensajesValidacionMinimo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="escalaVendedor.mensajesValidacionMinimo.nombreInput"
+                                [name]="escalaVendedor.mensajesValidacionMinimo.nombreInput"
+                                [textMask]="escalaVendedor.mensajesValidacionMinimo.mask"
+                                [formControlName]="escalaVendedor.mensajesValidacionMinimo.nombreInput"
+                                [placeholder]="escalaVendedor.mensajesValidacionMinimo.tooltip"
+                                [title]="escalaVendedor.mensajesValidacionMinimo.title"
+                                aria-describedby="escalaVendedorMinimoAyuda"
+                                
+                                
+                        >
+                        <small id="escalaVendedorMinimoAyuda" class="form-text text-muted">{{escalaVendedor.mensajesValidacionMinimo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="escalaVendedor.mensajesValidacionMinimo.mensajes.length>0">
+                            <div *ngFor="let mensaje of escalaVendedor.mensajesValidacionMinimo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--maximo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Maximo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="escalaVendedor.mensajesValidacionMaximo.nombreInput">{{
+                        escalaVendedor.mensajesValidacionMaximo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="escalaVendedor.mensajesValidacionMaximo.nombreInput"
+                                [name]="escalaVendedor.mensajesValidacionMaximo.nombreInput"
+                                [textMask]="escalaVendedor.mensajesValidacionMaximo.mask"
+                                [formControlName]="escalaVendedor.mensajesValidacionMaximo.nombreInput"
+                                [placeholder]="escalaVendedor.mensajesValidacionMaximo.tooltip"
+                                [title]="escalaVendedor.mensajesValidacionMaximo.title"
+                                aria-describedby="escalaVendedorMaximoAyuda"
+                                
+                                
+                        >
+                        <small id="escalaVendedorMaximoAyuda" class="form-text text-muted">{{escalaVendedor.mensajesValidacionMaximo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="escalaVendedor.mensajesValidacionMaximo.mensajes.length>0">
+                            <div *ngFor="let mensaje of escalaVendedor.mensajesValidacionMaximo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--porcentajeIndividual-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.PorcentajeIndividual.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="escalaVendedor.mensajesValidacionPorcentajeIndividual.nombreInput">{{
+                        escalaVendedor.mensajesValidacionPorcentajeIndividual.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="escalaVendedor.mensajesValidacionPorcentajeIndividual.nombreInput"
+                                [name]="escalaVendedor.mensajesValidacionPorcentajeIndividual.nombreInput"
+                                [textMask]="escalaVendedor.mensajesValidacionPorcentajeIndividual.mask"
+                                [formControlName]="escalaVendedor.mensajesValidacionPorcentajeIndividual.nombreInput"
+                                [placeholder]="escalaVendedor.mensajesValidacionPorcentajeIndividual.tooltip"
+                                [title]="escalaVendedor.mensajesValidacionPorcentajeIndividual.title"
+                                aria-describedby="escalaVendedorPorcentajeIndividualAyuda"
+                                
+                                
+                        >
+                        <small id="escalaVendedorPorcentajeIndividualAyuda" class="form-text text-muted">{{escalaVendedor.mensajesValidacionPorcentajeIndividual.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="escalaVendedor.mensajesValidacionPorcentajeIndividual.mensajes.length>0">
+                            <div *ngFor="let mensaje of escalaVendedor.mensajesValidacionPorcentajeIndividual.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--porcentajeMultiple-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.PorcentajeMultiple.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="escalaVendedor.mensajesValidacionPorcentajeMultiple.nombreInput">{{
+                        escalaVendedor.mensajesValidacionPorcentajeMultiple.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="escalaVendedor.mensajesValidacionPorcentajeMultiple.nombreInput"
+                                [name]="escalaVendedor.mensajesValidacionPorcentajeMultiple.nombreInput"
+                                [textMask]="escalaVendedor.mensajesValidacionPorcentajeMultiple.mask"
+                                [formControlName]="escalaVendedor.mensajesValidacionPorcentajeMultiple.nombreInput"
+                                [placeholder]="escalaVendedor.mensajesValidacionPorcentajeMultiple.tooltip"
+                                [title]="escalaVendedor.mensajesValidacionPorcentajeMultiple.title"
+                                aria-describedby="escalaVendedorPorcentajeMultipleAyuda"
+                                
+                                
+                        >
+                        <small id="escalaVendedorPorcentajeMultipleAyuda" class="form-text text-muted">{{escalaVendedor.mensajesValidacionPorcentajeMultiple.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="escalaVendedor.mensajesValidacionPorcentajeMultiple.mensajes.length>0">
+                            <div *ngFor="let mensaje of escalaVendedor.mensajesValidacionPorcentajeMultiple.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

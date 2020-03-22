@@ -1,0 +1,31 @@
+<button class="btn btn-info btn-block btn-sm boton-menu" (click)="cerrarMenu()">
+  <i class="fas fa-bars"></i>
+  <span
+    *ngIf="menuPanel" class="animated fadeInUp detener-animacion">
+    Cerrar
+  </span>
+</button>
+
+<form class="formulario-menu" autocomplete="off" [formGroup]="formBusqueda">
+  <div class="row ui-g ui-fluid barra-busqueda">
+    <!--<div class="col-md-2" (click)="menuPanel = !menuPanel"><i class="pi pi-pw pi-search"></i></div>-->
+
+    <div class="col-md-8">
+      <input class="animated fadeInLeft detener-animacion" *ngIf="menuPanel" type="text" pInputText
+             placeholder="Búsqueda...." formControlName="palabraBusqueda">
+    </div>
+
+  </div>
+
+  <div class="row ">
+    <div class="ui-fluid ui-g ancho-menu-iconos animated fadeInLeft" *ngIf="!menuPanel">
+      <ml-menu-lateral-iconos
+        [iconosItems]="iconosItems"
+        (itemSeleccionado)="expandirIconoEnMenuPanel($event)"
+      ></ml-menu-lateral-iconos>
+    </div>
+    <div style="padding-left: 0.5rem" class="col-sm-12 panel animated fadeInLeft detener-animacion" *ngIf="menuPanel">
+      <p-panelMenu [multiple]="false" [model]="items"></p-panelMenu>
+    </div>
+  </div>
+</form>

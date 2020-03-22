@@ -1,0 +1,2 @@
+export const RUTA_TRADUCCION_GESTION_SERVICIO_ESTABLECIMIENTO = 'submoduloEmpresa.moduloServicioEstablecimiento.rutas.rutaGestionServicioEstablecimiento';
+export const RUTA_TRADUCCION_ESTABLECIMIENTOS_CURSO = 'submoduloEmpresa.moduloServicioEstablecimiento.rutas.rutaEstablecimientosCurso';

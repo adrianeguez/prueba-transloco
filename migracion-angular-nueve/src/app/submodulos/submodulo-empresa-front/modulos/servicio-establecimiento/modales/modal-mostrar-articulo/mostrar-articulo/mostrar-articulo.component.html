@@ -1,0 +1,34 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: rutaTraduccion">
+
+    <h1 class="text-primary" mat-dialog-title>
+      <span class="bold">{{t('titulos.titulo')}} </span>
+    </h1>
+    <div mat-dialog-content>
+      <div class="row contenido-modal">
+        <div class="col-md-12">
+          <p class="descripcion-modal">{{t('descripciones.articulo')}}</p>
+        </div>
+        <div class="col-md-4">
+          <man-lab-esta-tipeando></man-lab-esta-tipeando>
+        </div>
+        <div class="col-md-12">
+          <ml-articulo-formulario [configuracionDisabled]="configuracionArticulo">
+          </ml-articulo-formulario>
+        </div>
+      </div>
+    </div>
+
+    <mat-dialog-actions class="justify-content-end">
+      <div>
+        <div class="d-flex flex-row-reverse">
+          <div class="p-2">
+            <button mat-button mat-dialog-close class="btn btn-primary boton-modal">
+              {{g('botones.aceptar')}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-actions>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="tipoVendedor.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoVendedor.mensajesValidacionNombre.nombreInput">{{
+                        tipoVendedor.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoVendedor.mensajesValidacionNombre.nombreInput"
+                                [name]="tipoVendedor.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="tipoVendedor.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="tipoVendedor.mensajesValidacionNombre.tooltip"
+                                [title]="tipoVendedor.mensajesValidacionNombre.title"
+                                aria-describedby="tipoVendedorNombreAyuda"
+                                
+                                
+                        >
+                        <small id="tipoVendedorNombreAyuda" class="form-text text-muted">{{tipoVendedor.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoVendedor.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoVendedor.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoVendedor.mensajesValidacionCodigo.nombreInput">{{
+                        tipoVendedor.mensajesValidacionCodigo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoVendedor.mensajesValidacionCodigo.nombreInput"
+                                [name]="tipoVendedor.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="tipoVendedor.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="tipoVendedor.mensajesValidacionCodigo.tooltip"
+                                [title]="tipoVendedor.mensajesValidacionCodigo.title"
+                                aria-describedby="tipoVendedorCodigoAyuda"
+                                
+                                
+                        >
+                        <small id="tipoVendedorCodigoAyuda" class="form-text text-muted">{{tipoVendedor.mensajesValidacionCodigo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoVendedor.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoVendedor.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

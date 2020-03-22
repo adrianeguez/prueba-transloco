@@ -1,0 +1,95 @@
+
+<form novalidate [formGroup]="areaPiso.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="areaPiso.mensajesValidacionNombre.nombreInput">{{
+                        areaPiso.mensajesValidacionNombre.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaPiso.mensajesValidacionNombre.nombreInput"
+                                [name]="areaPiso.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="areaPiso.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="areaPiso.mensajesValidacionNombre.tooltip"
+                                [title]="areaPiso.mensajesValidacionNombre.title"
+                                aria-describedby="areaPisoNombreAyuda"
+                                maxlength="30"
+
+
+                        >
+                        <small id="areaPisoNombreAyuda" class="form-text text-muted">{{areaPiso.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaPiso.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaPiso.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--descripcion-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="areaPiso.mensajesValidacionDescripcion.nombreInput">{{
+                        areaPiso.mensajesValidacionDescripcion.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaPiso.mensajesValidacionDescripcion.nombreInput"
+                                [name]="areaPiso.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="areaPiso.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="areaPiso.mensajesValidacionDescripcion.tooltip"
+                                [title]="areaPiso.mensajesValidacionDescripcion.title"
+                                aria-describedby="areaPisoDescripcionAyuda"
+                                maxlength="100"
+
+                        >
+                        <small id="areaPisoDescripcionAyuda" class="form-text text-muted">{{areaPiso.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaPiso.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaPiso.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nivel-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nivel.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="areaPiso.mensajesValidacionNivel.nombreInput">{{
+                        areaPiso.mensajesValidacionNivel.nombreAPresentarse  + ' *'}}</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaPiso.mensajesValidacionNivel.nombreInput"
+                                [name]="areaPiso.mensajesValidacionNivel.nombreInput"
+                                [formControlName]="areaPiso.mensajesValidacionNivel.nombreInput"
+                                [placeholder]="areaPiso.mensajesValidacionNivel.tooltip"
+                                [title]="areaPiso.mensajesValidacionNivel.title"
+                                aria-describedby="areaPisoNivelAyuda"
+
+
+                        >
+                        <small id="areaPisoNivelAyuda" class="form-text text-muted">{{areaPiso.mensajesValidacionNivel.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaPiso.mensajesValidacionNivel.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaPiso.mensajesValidacionNivel.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,10 @@
+<label for="movimiento">Tipo movimiento:</label>
+<p-dropdown
+  [options]="movimientos"
+  [(ngModel)]="movimiento"
+  (ngModelChange)="enviarMovimientoSeleccionado()"
+  id="movimiento"
+  placeholder="Movimientos"
+  optionLabel="nombre">
+</p-dropdown>
+<small _ngcontent-qni-c10="" class="form-text text-muted ayuda-span" id="movimientoHelp">Selecciona un movimientto</small>

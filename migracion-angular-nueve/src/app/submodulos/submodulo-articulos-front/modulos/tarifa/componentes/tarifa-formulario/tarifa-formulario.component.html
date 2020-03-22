@@ -1,0 +1,213 @@
+
+<form novalidate [formGroup]="tarifa.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionNombre.nombreInput">{{
+                        tarifa.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionNombre.nombreInput"
+                                [name]="tarifa.mensajesValidacionNombre.nombreInput"                                
+                                [formControlName]="tarifa.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionNombre.tooltip"
+                                [title]="tarifa.mensajesValidacionNombre.title"
+                                aria-describedby="tarifaNombreAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaNombreAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigoSri-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CodigoSri.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionCodigoSri.nombreInput">{{
+                        tarifa.mensajesValidacionCodigoSri.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionCodigoSri.nombreInput"
+                                [name]="tarifa.mensajesValidacionCodigoSri.nombreInput"
+                                [formControlName]="tarifa.mensajesValidacionCodigoSri.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionCodigoSri.tooltip"
+                                [title]="tarifa.mensajesValidacionCodigoSri.title"
+                                aria-describedby="tarifaCodigoSriAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaCodigoSriAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionCodigoSri.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionCodigoSri.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionCodigoSri.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionCodigo.nombreInput">{{
+                        tarifa.mensajesValidacionCodigo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionCodigo.nombreInput"
+                                [name]="tarifa.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="tarifa.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionCodigo.tooltip"
+                                [title]="tarifa.mensajesValidacionCodigo.title"
+                                aria-describedby="tarifaCodigoAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaCodigoAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionCodigo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--unidadMedida-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.UnidadMedida.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionUnidadMedida.nombreInput">{{
+                        tarifa.mensajesValidacionUnidadMedida.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionUnidadMedida.nombreInput"
+                                [name]="tarifa.mensajesValidacionUnidadMedida.nombreInput"
+                                [formControlName]="tarifa.mensajesValidacionUnidadMedida.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionUnidadMedida.tooltip"
+                                [title]="tarifa.mensajesValidacionUnidadMedida.title"
+                                aria-describedby="tarifaUnidadMedidaAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaUnidadMedidaAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionUnidadMedida.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionUnidadMedida.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionUnidadMedida.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--cantidad-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Cantidad.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionCantidad.nombreInput">{{
+                        tarifa.mensajesValidacionCantidad.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionCantidad.nombreInput"
+                                [name]="tarifa.mensajesValidacionCantidad.nombreInput"
+                                [textMask]="tarifa.mensajesValidacionCantidad.mask"
+                                [formControlName]="tarifa.mensajesValidacionCantidad.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionCantidad.tooltip"
+                                [title]="tarifa.mensajesValidacionCantidad.title"
+                                aria-describedby="tarifaCantidadAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaCantidadAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionCantidad.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionCantidad.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionCantidad.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--valorPorcentaje-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ValorPorcentaje.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionValorPorcentaje.nombreInput">{{
+                        tarifa.mensajesValidacionValorPorcentaje.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionValorPorcentaje.nombreInput"
+                                [name]="tarifa.mensajesValidacionValorPorcentaje.nombreInput"
+                                [textMask]="tarifa.mensajesValidacionValorPorcentaje.mask"
+                                [formControlName]="tarifa.mensajesValidacionValorPorcentaje.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionValorPorcentaje.tooltip"
+                                [title]="tarifa.mensajesValidacionValorPorcentaje.title"
+                                aria-describedby="tarifaValorPorcentajeAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaValorPorcentajeAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionValorPorcentaje.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionValorPorcentaje.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionValorPorcentaje.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--valor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tarifa.mensajesValidacionValor.nombreInput">{{
+                        tarifa.mensajesValidacionValor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tarifa.mensajesValidacionValor.nombreInput"
+                                [name]="tarifa.mensajesValidacionValor.nombreInput"
+                                [textMask]="tarifa.mensajesValidacionValor.mask"
+                                [formControlName]="tarifa.mensajesValidacionValor.nombreInput"
+                                [placeholder]="tarifa.mensajesValidacionValor.tooltip"
+                                [title]="tarifa.mensajesValidacionValor.title"
+                                aria-describedby="tarifaValorAyuda"
+                                
+                                
+                        >
+                        <small id="tarifaValorAyuda" class="form-text text-muted">{{tarifa.mensajesValidacionValor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tarifa.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of tarifa.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

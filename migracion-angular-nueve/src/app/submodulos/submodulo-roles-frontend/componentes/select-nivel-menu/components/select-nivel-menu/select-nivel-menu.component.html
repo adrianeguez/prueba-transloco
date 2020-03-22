@@ -1,0 +1,6 @@
+<p-dropdown [options]="niveles"
+            [(ngModel)]="nivelSeleccionado"
+            placeholder="Seleccione un nivel"
+            (onChange)="enviarNivelSeleccionado($event)"
+            [showClear]="true">
+</p-dropdown>

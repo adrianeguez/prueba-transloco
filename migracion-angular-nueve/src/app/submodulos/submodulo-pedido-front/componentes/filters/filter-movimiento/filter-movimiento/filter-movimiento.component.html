@@ -1,0 +1,18 @@
+<form novalidate (ngSubmit)="buscarMovimientosPorTipo()">
+  <div class="col-sm-12 form-group">
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             name="busquedaMovimientoPorTipo"
+             aria-describedby="ayudaBusquedaMovimiento"
+             placeholder="Ingrese su búsqueda..." [(ngModel)]="busqueda">
+      <div>
+        <button class="btn btn-outline-secondary" type="btn" (click)="buscarMovimiento()">
+          <i class="fas fa-search"></i>BUSCAR</button>
+      </div>
+    </div>
+    <small id="ayudaBusquedaMovimiento" class="form-text text-muted ayuda-span">
+      Busque un movimiento por su su código
+    </small>
+  </div>
+</form>

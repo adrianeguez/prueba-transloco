@@ -1,0 +1,129 @@
+
+<form novalidate [formGroup]="areaTrabajador.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--contactoEmpresa-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.ContactoEmpresa.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="areaTrabajador.mensajesValidacionContactoEmpresa.nombreInput">{{
+                        areaTrabajador.mensajesValidacionContactoEmpresa.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="areaTrabajador.mensajesValidacionContactoEmpresa.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            (onSelect) = "seleccionarUsuario($event)"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="areaTrabajador.mensajesValidacionContactoEmpresa.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.contactoEmpresas"
+                            (completeMethod)="buscarContactoEmpresas($event)"
+                            [placeholder]="areaTrabajador.mensajesValidacionContactoEmpresa.tooltip"
+                            delay="1000"
+                            field="datosUsuario.identificacionPais">
+                                <ng-template let-contactoEmpresa pTemplate="item">
+                                  {{ contactoEmpresa.datosUsuario.identificacionPais }}
+                                </ng-template>
+                        </p-autoComplete>
+                      <small id="areaTrabajadorAyuda" class="form-text text-muted">{{areaTrabajador.mensajesValidacionContactoEmpresa.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaTrabajador.mensajesValidacionContactoEmpresa.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaTrabajador.mensajesValidacionContactoEmpresa.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>               
+
+            <!--nombres-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombres.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="areaTrabajador.mensajesValidacionNombres.nombreInput">{{
+                        areaTrabajador.mensajesValidacionNombres.nombreAPresentarse}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaTrabajador.mensajesValidacionNombres.nombreInput"
+                                [name]="areaTrabajador.mensajesValidacionNombres.nombreInput"
+                                [formControlName]="areaTrabajador.mensajesValidacionNombres.nombreInput"
+                                [placeholder]="areaTrabajador.mensajesValidacionNombres.tooltip"
+                                [title]="areaTrabajador.mensajesValidacionNombres.title"
+                                aria-describedby="areaTrabajadorNombresAyuda"
+                                
+                                
+                        >
+                        <small id="areaTrabajadorNombresAyuda" class="form-text text-muted">{{areaTrabajador.mensajesValidacionNombres.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaTrabajador.mensajesValidacionNombres.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaTrabajador.mensajesValidacionNombres.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--apellidos-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Apellidos.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="areaTrabajador.mensajesValidacionApellidos.nombreInput">{{
+                        areaTrabajador.mensajesValidacionApellidos.nombreAPresentarse}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaTrabajador.mensajesValidacionApellidos.nombreInput"
+                                [name]="areaTrabajador.mensajesValidacionApellidos.nombreInput"
+                                [formControlName]="areaTrabajador.mensajesValidacionApellidos.nombreInput"
+                                [placeholder]="areaTrabajador.mensajesValidacionApellidos.tooltip"
+                                [title]="areaTrabajador.mensajesValidacionApellidos.title"
+                                aria-describedby="areaTrabajadorApellidosAyuda"
+                                
+                                
+                        >
+                        <small id="areaTrabajadorApellidosAyuda" class="form-text text-muted">{{areaTrabajador.mensajesValidacionApellidos.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaTrabajador.mensajesValidacionApellidos.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaTrabajador.mensajesValidacionApellidos.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--descripcionUbicacion-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.DescripcionUbicacion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="areaTrabajador.mensajesValidacionDescripcionUbicacion.nombreInput">{{
+                        areaTrabajador.mensajesValidacionDescripcionUbicacion.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="areaTrabajador.mensajesValidacionDescripcionUbicacion.nombreInput"
+                                [name]="areaTrabajador.mensajesValidacionDescripcionUbicacion.nombreInput"
+                                [formControlName]="areaTrabajador.mensajesValidacionDescripcionUbicacion.nombreInput"
+                                [placeholder]="areaTrabajador.mensajesValidacionDescripcionUbicacion.tooltip"
+                                [title]="areaTrabajador.mensajesValidacionDescripcionUbicacion.title"
+                                aria-describedby="areaTrabajadorDescripcionUbicacionAyuda"
+                                maxlength="100"
+                                
+                        >
+                        <small id="areaTrabajadorDescripcionUbicacionAyuda" class="form-text text-muted">{{areaTrabajador.mensajesValidacionDescripcionUbicacion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="areaTrabajador.mensajesValidacionDescripcionUbicacion.mensajes.length>0">
+                            <div *ngFor="let mensaje of areaTrabajador.mensajesValidacionDescripcionUbicacion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

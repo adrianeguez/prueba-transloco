@@ -1,0 +1,16 @@
+
+<p-autoComplete [(ngModel)]="usuarioEncontrado"
+                [suggestions]="usuarios"
+                (completeMethod)="buscarUsuarios($event)"
+                [emptyMessage]="'No se encontraron usuarios.'"
+                placeholder="Ingrese cédula o nombre"
+                [delay]="1500"
+                [dropdown]="true"
+                (onSelect)="emitirUsuarioSeleccionado($event)"
+                [size]="50"
+                field="identificacionPais"
+>
+  <ng-template let-usuario pTemplate="item">
+    <div>{{usuario.nombres}} {{usuario.apellidos}} - {{usuario.identificacionPais}}</div>
+  </ng-template>
+</p-autoComplete>

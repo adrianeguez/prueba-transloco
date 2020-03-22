@@ -1,0 +1,41 @@
+<ng-container *transloco="let g; read:'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCurso.modales.mapaEdificios'">
+    <h2 mat-dialog-title>{{t('titulo')}}</h2>
+    <mat-dialog-content class="mat-typography">
+      <div class="container">
+        <div>
+          <ml-formulario-buscar-edificio
+            class="full-width"
+            (edificioEmiter)="escucharFormulario($event)"
+            [consultaCustomizada]="consulta"
+          >
+          </ml-formulario-buscar-edificio>
+        </div>
+        <div class="row">
+          <div
+            [ngClass]="{'col-sm-7':informacionEdificio, 'col-sm-12': !informacionEdificio}"
+          >
+            <app-mapa
+              [configuracionMapa]="data.configuracionMapa"
+              [informacionGeograficaEntrada]="false"
+              [edificiosConLocalizacion]="data.configuracionMapa.edificios ? data.configuracionMapa.edificios : undefined"
+              (informacionEdificio)="escucharMapa($event)"
+            >
+            </app-mapa>
+          </div>
+          <div class="col-sm-5" *ngIf="informacionEdificio">
+            <ml-edficio-detalle
+              [edificio]="informacionEdificio"
+              [idCurso]="data.idCurso"
+            >
+            </ml-edficio-detalle>
+          </div>
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button class="btn btn-outline-danger" mat-dialog-close>{{g('botones.cancelar')}}</button>
+    </mat-dialog-actions>
+
+  </ng-container>
+</ng-container>

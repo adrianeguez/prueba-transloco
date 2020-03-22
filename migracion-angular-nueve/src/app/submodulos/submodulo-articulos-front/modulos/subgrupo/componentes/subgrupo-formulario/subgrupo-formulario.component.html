@@ -1,0 +1,123 @@
+
+<form novalidate [formGroup]="subgrupo.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subgrupo.mensajesValidacionNombre.nombreInput">{{
+                        subgrupo.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subgrupo.mensajesValidacionNombre.nombreInput"
+                                [name]="subgrupo.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="subgrupo.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="subgrupo.mensajesValidacionNombre.tooltip"
+                                [title]="subgrupo.mensajesValidacionNombre.title"
+                                aria-describedby="subgrupoNombreAyuda"
+                                
+                                
+                        >
+                        <small id="subgrupoNombreAyuda" class="form-text text-muted">{{subgrupo.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subgrupo.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of subgrupo.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subgrupo.mensajesValidacionDescripcion.nombreInput">{{
+                        subgrupo.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subgrupo.mensajesValidacionDescripcion.nombreInput"
+                                [name]="subgrupo.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="subgrupo.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="subgrupo.mensajesValidacionDescripcion.tooltip"
+                                [title]="subgrupo.mensajesValidacionDescripcion.title"
+                                aria-describedby="subgrupoDescripcionAyuda"
+                                
+                                
+                        >
+                        <small id="subgrupoDescripcionAyuda" class="form-text text-muted">{{subgrupo.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subgrupo.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of subgrupo.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--empresaProductora-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EmpresaProductora.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subgrupo.mensajesValidacionEmpresaProductora.nombreInput">{{
+                        subgrupo.mensajesValidacionEmpresaProductora.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subgrupo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [name]="subgrupo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [formControlName]="subgrupo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [placeholder]="subgrupo.mensajesValidacionEmpresaProductora.tooltip"
+                                [title]="subgrupo.mensajesValidacionEmpresaProductora.title"
+                                aria-describedby="subgrupoEmpresaProductoraAyuda"
+                                
+                                
+                        >
+                        <small id="subgrupoEmpresaProductoraAyuda" class="form-text text-muted">{{subgrupo.mensajesValidacionEmpresaProductora.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subgrupo.mensajesValidacionEmpresaProductora.mensajes.length>0">
+                            <div *ngFor="let mensaje of subgrupo.mensajesValidacionEmpresaProductora.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subgrupo.mensajesValidacionCodigo.nombreInput">{{
+                        subgrupo.mensajesValidacionCodigo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subgrupo.mensajesValidacionCodigo.nombreInput"
+                                [name]="subgrupo.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="subgrupo.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="subgrupo.mensajesValidacionCodigo.tooltip"
+                                [title]="subgrupo.mensajesValidacionCodigo.title"
+                                aria-describedby="subgrupoCodigoAyuda"
+                                
+                                
+                        >
+                        <small id="subgrupoCodigoAyuda" class="form-text text-muted">{{subgrupo.mensajesValidacionCodigo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subgrupo.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of subgrupo.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

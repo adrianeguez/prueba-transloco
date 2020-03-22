@@ -1,0 +1,38 @@
+
+<man-lab-modal-general
+  [nombreBotonAceptar]="data.tipoSistema?'EDITAR':'CREAR'"
+  [nombreBotonCancelar]="'Cancelar'"
+  [formularioValido]="formularioValido"
+  (dioClickEnCancelar)="cerrarModal()"
+  (dioClickEnAceptar)="editarOCrear()"
+>
+
+  <div class="titulo">{{data.tipoSistema ? 'EDITAR' : 'CREAR'}} TIPO SISTEMA</div>
+
+  <div class="contenido">
+
+    <div class="row">
+      <div class="col-md-12">
+        <man-lab-esta-tipeando></man-lab-esta-tipeando>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="descripcion-modal">{{descripcion}}</p>
+      </div>
+
+      <div class="col-sm-12">
+        <app-tipo-sistema-formulario
+          [configuracionDisabled]="configuracionDisabled"
+          (empezoATipear)="establecerFormularioInvalido()"
+          (tipoSistemaValido)="validarFormulario($event)"
+        ></app-tipo-sistema-formulario>
+      </div>
+      <div class="espacio"></div>
+    </div>
+
+  </div>
+</man-lab-modal-general>
+
+

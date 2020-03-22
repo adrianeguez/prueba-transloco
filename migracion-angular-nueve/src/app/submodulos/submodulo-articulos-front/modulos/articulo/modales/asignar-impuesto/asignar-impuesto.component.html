@@ -1,0 +1,36 @@
+<div style="margin-top: 0.5rem;margin-bottom: 0.5rem">
+  <h1 class="text-primary" mat-dialog-title>
+    <span class="bold">TIPO IMPUESTO</span>
+  </h1>
+</div>
+<mat-dialog-content flex>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Seleccione el Tipo de Impuesto necesaria para el articulo</p>
+    </div>
+    <div class="col-sm-12 contenido-modal">
+      <div style="margin-top: 0.5rem;margin-bottom: 2rem">
+        <ml-select-tipo-impuesto (tipoImpuestoSeleccionado)=seteoTipoImpuestoSeleccionado($event)>
+        </ml-select-tipo-impuesto>
+      </div>
+      <div style="margin-bottom: 0.5rem" *ngIf="this.tipoImpuestoSeleccionado">
+        <ml-select-tarifa
+          [idTipoImpuesto]="this.tipoImpuestoSeleccionado"
+          (tarifaSeleccionada)="seteoTarifaSeleccionado($event)">
+        </ml-select-tarifa>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearAsignacionTarifaImpuesto()" class="btn btn-primary boton-modal"
+              [disabled]="!tipoImpuestoSeleccionado">Asignar
+      </button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary boton-modal fondo-modal">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

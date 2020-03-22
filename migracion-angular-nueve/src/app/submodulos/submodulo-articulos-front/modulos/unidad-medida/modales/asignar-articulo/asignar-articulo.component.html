@@ -1,0 +1,31 @@
+<div style="margin-top: 0.5rem;margin-bottom: 0.5rem">
+    <h1 class="text-primary" mat-dialog-title>
+        <span class="bold">ARTICULO</span>
+    </h1>
+</div>
+<div mat-dialog-content>
+    <div class="row contenido-modal">
+        <div class="col-md-12">
+            <p class="descripcion-modal">Seleccione el Articulo necesaria para la unidad medida</p>
+        </div>
+        <div class="col-md-12">
+            <div style="margin-top: 0.5rem;margin-bottom: 5rem">
+                <ml-select-articulo (articuloSeleccionado)=seteoArticuloSeleccionado($event)>
+                </ml-select-articulo>
+            </div>
+        </div>
+    </div>
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2">
+            <button mat-button (click)="metodoCrearAsignacionArticulo()" class="btn btn-primary boton-modal"
+                [disabled]="!articuloSeleccionada">Asignar</button>
+        </div>
+        <div class="p-2">
+            <button mat-button mat-dialog-close
+                class="btn btn-outline-secondary boton-modal fondo-modal">Cancelar</button>
+        </div>
+    </div>
+</mat-dialog-actions>

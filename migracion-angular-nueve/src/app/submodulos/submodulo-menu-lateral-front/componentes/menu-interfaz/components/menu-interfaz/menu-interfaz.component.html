@@ -1,0 +1,52 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav (closedStart)="ejecutoEvento(sidenav,true)" [disableClose]="false" #sidenav [ngClass]="{
+  'ancho-barra-lateral-iconos':mostrarMenuIconos,
+  'ancho-barra-lateral-completo':!mostrarMenuIconos
+  }" opened [mode]="mostrarMenuIconos?'side':'push'">
+    <div *ngIf="menu">
+      <ml-menu-panel (ampliarMenu)="ampliarMenuFull($event)" [items]="menu"
+                     [menuPanel]="!mostrarMenuIconos"></ml-menu-panel>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer class="footer">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="espacio-boton-footer">
+
+      </div>
+    </div>
+    <div class="col-md-8 text-center">
+       <span class="text-muted">
+          <img class="imagen-logo-manticore"
+               src="https://ideas.manticore-labs.com/wp-content/uploads/2018/08/Logo-sitio.png" alt="">
+      <a target="_blank" href="https://manticore-labs.com">Desarrollado por <span class="bold">Manticore-Labs</span>.
+        Derechos reservados.</a>
+         </span>
+    </div>
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-12">
+          <!--          <div class="boton-espacio-ancho">-->
+          <!--            <button class="btn btn-outline-info btn-block btn-sm espacio-boton-footer"-->
+          <!--                    (click)="ocultarMenu(sidenav)">-->
+          <!--              <i [class]="motrarTextoOcultar ? 'fas fa-arrow-alt-circle-right' : 'fas fa-arrow-alt-circle-left'"></i>-->
+          <!--            </button>-->
+          <!--          </div>-->
+          <div class="boton-espacio-ancho">
+            <button class="btn btn-sm btn-block btn-outline-secondary espacio-boton-footer"
+                    [matTooltip]=" ambiente.nombreAplicativo + ' / ' + 'Versión: ' + ambiente.versionAplicativo + '. Icons made by http://www.freepik.com from https://www.flaticon.com/ is licensed by http://creativecommons.org/licenses/by/3.0/'">
+              <i class="fas fa-book-open"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+

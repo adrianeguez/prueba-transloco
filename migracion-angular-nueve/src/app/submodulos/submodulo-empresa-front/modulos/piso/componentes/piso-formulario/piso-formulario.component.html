@@ -1,0 +1,67 @@
+
+<form novalidate [formGroup]="piso.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="piso.mensajesValidacionNombre.nombreInput">{{
+                        piso.mensajesValidacionNombre.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="piso.mensajesValidacionNombre.nombreInput"
+                                [name]="piso.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="piso.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="piso.mensajesValidacionNombre.tooltip"
+                                [title]="piso.mensajesValidacionNombre.title"
+                                aria-describedby="pisoNombreAyuda"
+                                maxlength="30"
+                                
+                                
+                        >
+                        <small id="pisoNombreAyuda" class="form-text text-muted">{{piso.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="piso.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of piso.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--ordenPiso-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.OrdenPiso.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="piso.mensajesValidacionOrdenPiso.nombreInput">{{
+                        piso.mensajesValidacionOrdenPiso.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-9">
+                        <input type="number"
+                                class="form-control form-control-sm"
+                                [id]="piso.mensajesValidacionOrdenPiso.nombreInput"
+                                [name]="piso.mensajesValidacionOrdenPiso.nombreInput"
+                                [formControlName]="piso.mensajesValidacionOrdenPiso.nombreInput"
+                                [placeholder]="piso.mensajesValidacionOrdenPiso.tooltip"
+                                [title]="piso.mensajesValidacionOrdenPiso.title"
+                                aria-describedby="pisoOrdenPisoAyuda"
+                               min="0" step="1"
+
+
+                        >
+                        <small id="pisoOrdenPisoAyuda" class="form-text text-muted">{{piso.mensajesValidacionOrdenPiso.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="piso.mensajesValidacionOrdenPiso.mensajes.length>0">
+                            <div *ngFor="let mensaje of piso.mensajesValidacionOrdenPiso.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

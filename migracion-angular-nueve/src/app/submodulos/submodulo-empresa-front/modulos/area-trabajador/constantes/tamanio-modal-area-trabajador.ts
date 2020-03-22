@@ -1,0 +1,1 @@
+export const WIDTH_MODAL_AREA_TRABAJADOR = '500PX';

@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Cabecera de transferencias</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+  <p>Llena los datos para lograr hacer una transferencia.</p>
+  </div>
+  <div class="col-sm-12">
+    <ml-transferencia
+      [idEmpresa]="data.idEmpresa"
+      [bodegaOrigen]="data.bodegaOrigen"
+      (seleccionoDatosTransferencia)="cerrarModal($event)"
+    ></ml-transferencia>
+  </div>
+</div>
+
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-12 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

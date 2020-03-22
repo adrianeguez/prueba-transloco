@@ -1,0 +1,73 @@
+<h1 class="text-primary" mat-dialog-title><span class="bold">ASIGNAR PERIODO VENTA </span></h1>
+<div mat-dialog-content>
+  <div class="row contenido-modal" style="min-height: 300px">
+    <div class="col-md-12">
+     
+
+      <div *ngIf="!mostrarSelect">
+        <p class="descripcion-modal">{{descripcion}}</p>
+        
+        <div class="input-group mb-4">
+          <input class="form-control"
+                 type="date"
+                 id="filterFechaFinalizacion"
+                 readonly
+                 name="campoFechaFin"
+                 [(ngModel)]="fechaAbuscar"
+                 ngbDatepicker #fechaFinalizacion="ngbDatepicker"
+                 aria-describedby="ayudaFechaFinalizacion"
+                 (change)="borrarFechaSeleccionada($event)"
+                 (dateSelect)="detectarFechas($event)"
+                 #filterFechaFinalizacion>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="fechaFinalizacion.toggle()" type="button">
+              <i class="fas fa-calendar-day"></i>
+            </button>
+          </div>
+        </div>
+
+
+      
+
+      <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+        <button 
+        class="btn btn-block btn-info btn-sm"
+        [disabled]="!fechasValidas" 
+        (click)="cargarSelect()">Confirmar
+        </button>
+      </div>
+    
+    </div>
+
+      <div  *ngIf="mostrarSelect" style="margin-top: 2rem">
+
+        <p class="descripcion-modal">{{descripcion}}</p>
+        <ml-select-periodo-migrar
+          [idEmpresa]="data.empresa"
+          [fechaBuscar]="fecha"
+          (periodoVentaMigrarSeleccionado)="seteoPeriodoVentaSeleccionado($event)"
+        >
+        </ml-select-periodo-migrar>
+
+      </div>
+
+
+
+    </div>
+    <div class="espacio"></div>
+  </div>
+
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="cerrarPeriodo()" class="btn btn-primary"
+              [disabled]="!periodoVentaSeleccionado">Guardar
+      </button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

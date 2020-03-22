@@ -1,0 +1,126 @@
+
+<form novalidate [formGroup]="cabeceraCompra.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--numeroFactura-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroFactura.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="cabeceraCompra.mensajesValidacionNumeroFactura.nombreInput">{{
+                        cabeceraCompra.mensajesValidacionNumeroFactura.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="cabeceraCompra.mensajesValidacionNumeroFactura.nombreInput"
+                                [name]="cabeceraCompra.mensajesValidacionNumeroFactura.nombreInput"
+                                [formControlName]="cabeceraCompra.mensajesValidacionNumeroFactura.nombreInput"
+                                [placeholder]="cabeceraCompra.mensajesValidacionNumeroFactura.tooltip"
+                                [title]="cabeceraCompra.mensajesValidacionNumeroFactura.title"
+                               [textMask]="cabeceraCompra.mensajesValidacionNumeroFactura.mask"
+                                aria-describedby="cabeceraCompraNumeroFacturaAyuda"
+
+
+                        >
+                        <small id="cabeceraCompraNumeroFacturaAyuda" class="form-text text-muted">{{cabeceraCompra.mensajesValidacionNumeroFactura.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="cabeceraCompra.mensajesValidacionNumeroFactura.mensajes.length>0">
+                            <div *ngFor="let mensaje of cabeceraCompra.mensajesValidacionNumeroFactura.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--numeroSerie-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroSerie.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="cabeceraCompra.mensajesValidacionNumeroSerie.nombreInput">{{
+                        cabeceraCompra.mensajesValidacionNumeroSerie.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="cabeceraCompra.mensajesValidacionNumeroSerie.nombreInput"
+                                [name]="cabeceraCompra.mensajesValidacionNumeroSerie.nombreInput"
+                                [formControlName]="cabeceraCompra.mensajesValidacionNumeroSerie.nombreInput"
+                                [placeholder]="cabeceraCompra.mensajesValidacionNumeroSerie.tooltip"
+                                [title]="cabeceraCompra.mensajesValidacionNumeroSerie.title"
+                               [textMask]="cabeceraCompra.mensajesValidacionNumeroSerie.mask"
+                                aria-describedby="cabeceraCompraNumeroSerieAyuda"
+
+
+                        >
+                        <small id="cabeceraCompraNumeroSerieAyuda" class="form-text text-muted">{{cabeceraCompra.mensajesValidacionNumeroSerie.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="cabeceraCompra.mensajesValidacionNumeroSerie.mensajes.length>0">
+                            <div *ngFor="let mensaje of cabeceraCompra.mensajesValidacionNumeroSerie.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <!--tipoFactura-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TipoFactura.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="cabeceraCompra.mensajesValidacionTipoFactura.nombreInput">{{
+                  cabeceraCompra.mensajesValidacionTipoFactura.nombreAPresentarse }}</label>
+              <div class="col-sm-8">
+                <select class="form-control form-control-sm" [name]="cabeceraCompra.mensajesValidacionTipoFactura.nombreInput"
+                        [id]="cabeceraCompra.mensajesValidacionTipoFactura.nombreInput"
+                        [formControlName]="cabeceraCompra.mensajesValidacionTipoFactura.nombreInput"
+                        [title]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.title"
+                        aria-describedby="cabeceraCompraTipoFacturaAyuda"
+                >
+
+                  <option value="Electrónica">Electrónica</option>
+                  <option value="Física">Física</option>
+
+                </select>
+                <small id="cabeceraCompraTipoFacturaAyuda" class="form-text text-muted">{{cabeceraCompra.mensajesValidacionTipoFactura.title}}.</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="cabeceraCompra.mensajesValidacionTipoFactura.mensajes.length>0">
+                  <div *ngFor="let mensaje of cabeceraCompra.mensajesValidacionTipoFactura.mensajes">{{ mensaje }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <!--numeroAutorizacion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroAutorizacion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.nombreInput">{{
+                        cabeceraCompra.mensajesValidacionNumeroAutorizacion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.nombreInput"
+                                [name]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.nombreInput"
+                                [formControlName]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.nombreInput"
+                                [placeholder]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.tooltip"
+                                [title]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.title"
+                               [textMask]="cabeceraCompra.mensajesValidacionNumeroAutorizacion.mask"
+                               [maxLength]="longitudMaximaNumeroAutorizacion"
+                               [disabled]="seleccionoTipoFactura"
+                                aria-describedby="cabeceraCompraNumeroAutorizacionAyuda"
+
+
+                        >
+                        <small id="cabeceraCompraNumeroAutorizacionAyuda" class="form-text text-muted">{{cabeceraCompra.mensajesValidacionNumeroAutorizacion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="cabeceraCompra.mensajesValidacionNumeroAutorizacion.mensajes.length>0">
+                            <div *ngFor="let mensaje of cabeceraCompra.mensajesValidacionNumeroAutorizacion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

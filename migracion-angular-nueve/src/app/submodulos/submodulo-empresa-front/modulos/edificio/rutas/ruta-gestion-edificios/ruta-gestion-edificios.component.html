@@ -1,0 +1,140 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Edificios'"
+      [descripcion]="'Gestione las bodegas dentro de los edificios, los establecimientos, ' +
+       'puntos de emisión, administradores, operarios, pisos y más.'"
+      [imagen]="'assets/imagenes/sistema/empresa-edificio.svg'"
+      [ayuda]=" nombreModuloPadre + ' bodegas, establecimientos, pisos.'"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-lg-8" >
+        <form class="form-inline row" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  aria-describedby="busquedaEmpresaHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2" (click)="buscarPorNombre(busqueda.value)"><i class="fas fa-search"></i> BUSCAR</button>
+              </div>
+            </div>
+            <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Busque un edificio por nombre.
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-2">
+        <ml-select-estado
+          (estadoSeleccionado)="escucharEstadoSeleccionado($event)"
+        ></ml-select-estado>
+      </div>
+      <div class="col-lg-2">
+        <button class="btn btn-outline-primary  btn-block"
+                (click)="abrirModalCrearEdificio()"
+        ><i class="fas fa-plus"></i> NUEVO</button>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatosLazy($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [first]="this.queryParams.skip"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? null : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.indexOf(rowData)+1}}
+                  </div>
+                  <div *ngIf="col.field==='nombre'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.header === 'Es Matriz'">
+                    <button class="btn btn-block btn-success btn-sm"
+                            (click)="actualizarEsMatriz(rowData)"
+                            [ngClass]="{
+                  'btn-danger':rowData[col.field] === 0,
+                  'btn-success':rowData[col.field] === 1
+                  }"
+                    >{{rowData[col.field]  === 1? 'SI':'NO'}}</button>
+                  </div>
+                  <div *ngIf="col.field==='ruta' && idEmpresaClientes">
+                    <div class="" *ngIf="rowData?.ediCliRuta?.length > 0">
+                      <div class="" *ngFor="let ediCliRuta of rowData.ediCliRuta">
+                        <div class="" *ngIf="ediCliRuta?.empresa == idEmpresaPadre && ediCliRuta?.edificioCliente?.id == rowData.id">
+                          {{ediCliRuta.ruta?.nombre}}
+                        </div>
+                      </div>
+                    </div>
+                    <div class="" *ngIf="!rowData?.ediCliRuta || rowData?.ediCliRuta?.length === 0">
+                        {{'NO TIENE'}}
+                    </div>
+                  </div>
+                  <div *ngIf="col.header === 'Estado'">
+                    <button class="btn btn-block btn-success btn-sm"
+                            (click)="actualizarEstado(rowData)"
+                            [ngClass]="{
+                  'btn-danger':rowData[col.field] === estados.Inactivo,
+                  'btn-success':rowData[col.field] === estados.Activo
+                  }"
+                    >{{rowData[col.field]  === estados.Activo? 'ACTIVO':'INACTIVO'}}</button>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem" *ngIf="!idEmpresaClientes">
+                      <button class="btn btn-block btn-info btn-sm" (click)="abrirModalEditarEdificio(rowData)" >EDITAR</button>
+                      <button class="btn btn-block btn-info btn-sm"  (click)="irAGestionModuloHijo(rowData.id, 'bodega', 'bodegas')">GESTIONAR BODEGAS</button>
+                      <button class="btn btn-block btn-info btn-sm" (click)="irAGestionModuloHijo(rowData.id, 'establecimiento', 'establecimientos')">GESTIONAR ESTABLECIMIENTOS</button>
+                      <button class="btn btn-block btn-info btn-sm" (click)="irAGestionModuloHijo(rowData.id, 'piso', 'pisos')">GESTIONAR PISOS</button>
+                    </div>
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem"  *ngIf="idEmpresaClientes">
+                      <button class="btn btn-block btn-info btn-sm" (click)="abrirModalEditarEdificio(rowData)" >EDITAR</button>
+                      <button class="btn btn-block btn-info btn-sm"  (click)="abrirModalSeleccionarZonaPorEmpresa(rowData)">ASIGNAR ZONA</button>
+                    </div>
+
+                  </div>
+
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</app-ruta-general>

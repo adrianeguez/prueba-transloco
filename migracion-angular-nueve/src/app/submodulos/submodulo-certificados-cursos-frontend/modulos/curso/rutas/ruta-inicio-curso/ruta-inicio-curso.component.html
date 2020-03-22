@@ -1,0 +1,40 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: rutaTraduccion">
+    <app-ruta-general [migasDePan]="migasDePan">
+      <div class="contenido">
+
+        <mlab-titulo-pantalla
+          [imagen]="'assets/imagenes/sistema/cursos.icono.svg'"
+          [titulo]="t('migasDePan.menuInicio')"
+          [descripcion]="t('descripciones.menuInicio')"
+          [ayuda]="''"
+        >
+        </mlab-titulo-pantalla>
+
+
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+            <div class="row espaciado-menu">
+              <div class="col-lg-4">
+                <mlab-item-menu
+                  [texto]="t('migasDePan.seleccionarCurso')"
+                  [descripcion]="t('descripciones.seleccionarCurso')"
+                  [url]="['/cliente-modulo', 'curso-modulo', 'inicio-curso', 'seleccionar-curso']"
+                ></mlab-item-menu>
+              </div>
+              <div class="col-lg-4">
+                <mlab-item-menu
+                  [texto]="t('migasDePan.menuMisCursos')"
+                  [descripcion]="t('descripciones.menuMisCursos')"
+                  [url]="['/cliente-modulo', 'curso-modulo', 'inicio-curso', 'menu-mis-cursos']"
+                ></mlab-item-menu>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-1"></div>
+        </div>
+      </div>
+    </app-ruta-general>
+  </ng-container>
+</ng-container>

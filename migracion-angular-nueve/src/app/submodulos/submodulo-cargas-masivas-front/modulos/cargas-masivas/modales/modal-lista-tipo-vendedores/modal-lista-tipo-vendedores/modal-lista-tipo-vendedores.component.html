@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Lista de tipos de vendedores</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-12">
+  <ml-filter-tipo-vendedores
+    (tipoVendedorEncontrado)="setearTipoVendedor($event)"
+  ></ml-filter-tipo-vendedores>
+</div>
+
+<div class="row">
+  <ml-tabla-tipo-vendedores
+    [tipoVendedorEncontrado]="tipoVendedorEncontrado"
+    [totalRegistros]="totalRegistros"
+    [columnas]="columnas"
+    (emitirSkip)="setearSkip($event)"
+    (tipoVendedorSeleccionado)="obtenerTipoVendedor($event)"
+  ></ml-tabla-tipo-vendedores>
+</div>
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-12 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

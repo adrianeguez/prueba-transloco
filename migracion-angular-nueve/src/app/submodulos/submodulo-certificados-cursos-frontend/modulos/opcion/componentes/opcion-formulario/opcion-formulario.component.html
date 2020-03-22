@@ -1,0 +1,109 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.opcionModulo.opcionFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="opcion.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--descripcion-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+            <div class="row">
+              <label class="col-sm-3 control-label" [for]="opcion.mensajesValidacionDescripcion.nombreInput">
+                {{
+                t('descripcion.' + opcion.mensajesValidacionDescripcion.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-9">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="opcion.mensajesValidacionDescripcion.nombreInput"
+                       [name]="opcion.mensajesValidacionDescripcion.nombreInput"
+                       [formControlName]="opcion.mensajesValidacionDescripcion.nombreInput"
+                       [placeholder]="t('descripcion.' + opcion.mensajesValidacionDescripcion.tooltip)"
+                       [title]="t('descripcion.' + opcion.mensajesValidacionDescripcion.title)"
+                       aria-describedby="opcionDescripcionAyuda"
+
+
+                >
+                <small id="opcionDescripcionAyuda" class="form-text text-muted">
+                  {{
+                  t('descripcion.' + opcion.mensajesValidacionDescripcion.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="opcion.mensajesValidacionDescripcion.mensajes.length>0">
+                  <div *ngFor="let mensaje of opcion.mensajesValidacionDescripcion.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('descripcion.descripcion'),
+                        minLength: opcion.mensajesValidacionDescripcion.minlength.valor,
+                        maxLength: opcion.mensajesValidacionDescripcion.maxlength.valor,
+                        min: opcion.mensajesValidacionDescripcion.min.valor,
+                        max: opcion.mensajesValidacionDescripcion.max.valor,
+                        patternMensaje: t('descripcion.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--esRespuesta-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EsRespuesta.hidden">
+            <div class="row">
+              <label class="col-sm-3 control-label" [for]="opcion.mensajesValidacionEsRespuesta.nombreInput">
+                {{
+                t('esRespuesta.' + opcion.mensajesValidacionEsRespuesta.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-9">
+                <select class="form-control form-control-sm"
+                        [name]="opcion.mensajesValidacionEsRespuesta.nombreInput"
+                        [id]="opcion.mensajesValidacionEsRespuesta.nombreInput"
+                        [title]="t('esRespuesta.' + opcion.mensajesValidacionEsRespuesta.title)"
+                        [formControlName]="opcion.mensajesValidacionEsRespuesta.nombreInput"
+                >
+
+                  <option value="1"> {{ t('esRespuesta.opciones.' + 'YES') }}</option>
+                  <option value="0"> {{ t('esRespuesta.opciones.' + 'NO') }}</option>
+
+                </select>
+                <small id="opcionEsRespuestaAyuda" class="form-text text-muted">
+                  {{
+                  t('esRespuesta.' + opcion.mensajesValidacionEsRespuesta.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="opcion.mensajesValidacionEsRespuesta.mensajes.length>0">
+                  <div *ngFor="let mensaje of opcion.mensajesValidacionEsRespuesta.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('esRespuesta.esRespuesta'),
+                        minLength: opcion.mensajesValidacionEsRespuesta.minlength.valor,
+                        maxLength: opcion.mensajesValidacionEsRespuesta.maxlength.valor,
+                        min: opcion.mensajesValidacionEsRespuesta.min.valor,
+                        max: opcion.mensajesValidacionEsRespuesta.max.valor,
+                        patternMensaje: t('esRespuesta.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

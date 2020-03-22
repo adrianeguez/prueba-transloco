@@ -1,0 +1,7 @@
+<div *ngIf="vendedores">
+    <p-dropdown
+    [options]="vendedores" placeholder="Seleccione un vendedor"
+    (onChange)="enviarVendedoreSeleccionado($event)"
+        [showClear]="true" [filter]="true" filterBy="label">
+    </p-dropdown>
+</div>

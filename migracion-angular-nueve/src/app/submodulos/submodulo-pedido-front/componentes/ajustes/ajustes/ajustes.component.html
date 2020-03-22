@@ -1,0 +1,53 @@
+<div class="col-sm-12">
+  <form novalidate
+        (ngSubmit)="emitirDatosAjustesSeleccionados(formularioDatosAjuste)"
+        #formularioDatosAjuste="ngForm">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="motivo">Motivo:</label>
+          <select class="form-control"
+                  id="motivo"
+                  name="motivo"
+                  aria-describedby="ayudaMotivo"
+                  required
+                  [(ngModel)]="formulario.motivo">
+            <option  *ngFor="let tipo of tipoSistema" value="{{tipo.valor}}">{{tipo.valor}}</option>
+          </select>
+        </div>
+        <small id="ayudaMotivo" class="form-text text-muted ayuda-span">
+          Seleccione un motivo.
+        </small>
+      </div>
+
+
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="observacion">Observación:</label>
+          <input id="observacion"
+                 type="text"
+                 class="form-control"
+                 aria-describedby="ayudaObservacion"
+                 name="observacion"
+                 [(ngModel)]="formulario.observacion1"
+                 placeholder="Ej: No se encontro el  ..."
+          >
+        </div>
+        <small id="ayudaObservacion" class="form-text text-muted ayuda-span">
+          Ingrese una observación.
+        </small>
+      </div>
+
+    </div>
+
+    <br>
+
+    <button class="btn btn-block btn-info"
+            [disabled]="formularioDatosAjuste.invalid"
+    >
+      Aceptar
+    </button>
+
+  </form>
+</div>
+

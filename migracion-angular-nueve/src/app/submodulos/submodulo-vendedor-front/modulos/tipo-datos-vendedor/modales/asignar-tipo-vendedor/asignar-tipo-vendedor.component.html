@@ -1,0 +1,28 @@
+<h1 class="text-primary" mat-dialog-title><span class="bold">ASIGNAR TIPO VENDEDOR </span></h1>
+<div mat-dialog-content>
+  <div class="row contenido-modal" style="min-height: 300px">
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}}</p>
+      <ml-select-tipo-vendedor
+        [idEmpresa]="data.idEmpresa"
+        (tipoVendedorSeleccionado)="seteoTipoVendedorSeleccionado($event)"
+      >
+      </ml-select-tipo-vendedor>
+    </div>
+    <div class="espacio"></div>
+  </div>
+</div>
+
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoActualizarTipoVendedor()" class="btn btn-primary"
+              [disabled]="!tipoVendedorSeleccionado">Guardar
+      </button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

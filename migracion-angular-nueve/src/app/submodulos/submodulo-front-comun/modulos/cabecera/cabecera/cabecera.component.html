@@ -1,0 +1,28 @@
+<div class="row espaciado-arriba">
+  <a [routerLink]="['/inicio']" class="col-md-2 d-flex align-items-center">
+    <img class="icono-aplicativo img-fluid mx-auto d-block" src="assets/imagenes/petro3.jpg" alt="">
+  </a>
+  <div class="col-md-4 d-flex align-items-center">
+    <div class="text-center anchura">
+      {{_auth0Service?.empresaSeleccionada?.datoUsuario?.nombres}}
+      {{_auth0Service?.empresaSeleccionada?.datoUsuario?.apellidos}}
+      {{_auth0Service?.empresaSeleccionada?.empresa?.nombreComercial
+      ? _auth0Service?.empresaSeleccionada?.empresa?.nombreComercial + ' /'
+      : ''}}
+      {{fechaActual.format('LLL')}}
+    </div>
+  </div>
+  <div class="col-md-2 d-flex align-items-center">
+    <app-cambiar-idioma style="width: 100%"></app-cambiar-idioma>
+  </div>
+  <div class="col-md-2 d-flex align-items-center">
+    <button class="btn btn-outline-info btn-block btn-sm espaciado"
+            (click)="abrirEditarPerfil()"
+    >
+      Editar mis datos
+    </button>
+  </div>
+  <div class="col-md-2 d-flex align-items-center">
+    <button class="btn btn-outline-warning btn-block btn-sm espaciado" (click)="cerrarSesion()">Salir</button>
+  </div>
+</div>

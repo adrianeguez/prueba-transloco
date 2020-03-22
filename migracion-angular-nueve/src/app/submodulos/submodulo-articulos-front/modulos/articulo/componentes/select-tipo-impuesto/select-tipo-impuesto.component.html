@@ -1,0 +1,17 @@
+<p-autoComplete
+  [suggestions]="tiposImpuestos"
+  (completeMethod)="obtenerTiposImpuesto($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [emptyMessage]="noExistenRegistros"
+  (onSelect)="enviarTipoImpuestoSeleccionado($event)"
+  field="nombre"
+  [size]="tamanioAutocomplete">
+  <ng-template let-tipoImpuesto pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <div>{{tipoImpuesto.nombre}}</div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+
+

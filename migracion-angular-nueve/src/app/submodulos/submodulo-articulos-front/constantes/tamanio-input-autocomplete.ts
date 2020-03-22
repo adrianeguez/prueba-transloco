@@ -1,0 +1,1 @@
+export const TAMANIO_AUTOCOMPLETE = 35;

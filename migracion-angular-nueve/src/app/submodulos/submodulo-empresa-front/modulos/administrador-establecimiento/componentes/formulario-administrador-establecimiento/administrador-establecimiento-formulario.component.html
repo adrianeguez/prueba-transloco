@@ -1,0 +1,127 @@
+
+<form novalidate [formGroup]="administradorEstablecimiento.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--contactoEmpresa-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.ContactoEmpresa.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="administradorEstablecimiento.mensajesValidacionContactoEmpresa.nombreInput">{{
+                        administradorEstablecimiento.mensajesValidacionContactoEmpresa.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="administradorEstablecimiento.mensajesValidacionContactoEmpresa.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            (onSelect) = "seleccionarContacto($event)"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="administradorEstablecimiento.mensajesValidacionContactoEmpresa.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.contactoEmpresas"
+                            (completeMethod)="buscarContactoEmpresas($event)"
+                            [placeholder]="administradorEstablecimiento.mensajesValidacionContactoEmpresa.tooltip"
+                            delay="1000"
+                            field="datosUsuario.identificacionPais">
+                                <ng-template let-contactoEmpresa pTemplate="item">
+                                    {{ contactoEmpresa.datosUsuario.nombres }} {{ contactoEmpresa.datosUsuario.apellidos }}
+                                </ng-template>
+                        </p-autoComplete>
+                      <small id="administradorEstablecimientoContactoAyuda" class="form-text text-muted">{{administradorEstablecimiento.mensajesValidacionContactoEmpresa.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="administradorEstablecimiento.mensajesValidacionContactoEmpresa.mensajes.length>0">
+                            <div *ngFor="let mensaje of administradorEstablecimiento.mensajesValidacionContactoEmpresa.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombreContacto-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.NombreContacto.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="administradorEstablecimiento.mensajesValidacionNombreContacto.nombreInput">{{
+                        administradorEstablecimiento.mensajesValidacionNombreContacto.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="administradorEstablecimiento.mensajesValidacionNombreContacto.nombreInput"
+                                [name]="administradorEstablecimiento.mensajesValidacionNombreContacto.nombreInput"
+                                [formControlName]="administradorEstablecimiento.mensajesValidacionNombreContacto.nombreInput"
+                                [placeholder]="administradorEstablecimiento.mensajesValidacionNombreContacto.tooltip"
+                                [title]="administradorEstablecimiento.mensajesValidacionNombreContacto.title"
+                               maxlength="80"
+                                aria-describedby="administradorEstablecimientoNombreContactoAyuda"
+
+
+                        >
+                        <small id="administradorEstablecimientoNombreContactoAyuda" class="form-text text-muted">{{administradorEstablecimiento.mensajesValidacionNombreContacto.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="administradorEstablecimiento.mensajesValidacionNombreContacto.mensajes.length>0">
+                            <div *ngFor="let mensaje of administradorEstablecimiento.mensajesValidacionNombreContacto.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--documentoContacto-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.DocumentoContacto.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.nombreInput">{{
+                        administradorEstablecimiento.mensajesValidacionDocumentoContacto.nombreAPresentarse+ ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.nombreInput"
+                                [name]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.nombreInput"
+                                [formControlName]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.nombreInput"
+                                [placeholder]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.tooltip"
+                                [title]="administradorEstablecimiento.mensajesValidacionDocumentoContacto.title"
+                               maxlength="15"
+                                aria-describedby="administradorEstablecimientoDocumentoContactoAyuda"
+
+
+                        >
+                        <small id="administradorEstablecimientoDocumentoContactoAyuda" class="form-text text-muted">{{administradorEstablecimiento.mensajesValidacionDocumentoContacto.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="administradorEstablecimiento.mensajesValidacionDocumentoContacto.mensajes.length>0">
+                            <div *ngFor="let mensaje of administradorEstablecimiento.mensajesValidacionDocumentoContacto.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--gestionaPtoEmision-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.GestionaPtoEmision.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.nombreInput">{{
+                    administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.nombreInput"
+                                [id]="administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.nombreInput"
+                                [formControlName]="administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.nombreInput"
+                        >
+
+                            <option value=1>Si</option>
+                            <option value=0>No</option>
+
+                        </select>
+                      <small id="administradorEstablecimientoGestinPtoEMisionAyuda" class="form-text text-muted">{{administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.mensajes.length>0">
+                            <div *ngFor="let mensaje of administradorEstablecimiento.mensajesValidacionGestionaPtoEmision.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

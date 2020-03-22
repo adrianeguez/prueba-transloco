@@ -1,0 +1,16 @@
+<div *transloco="let g; read: 'generales'">
+  <div *transloco="let t; read: 'submoduloEmpresa.moduloContactoEmoresa.componentes.filterContactoEmpresa'">
+    <div class="col-sm-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-describedby="busquedaContactoHelp"
+               placeholder="{{g('descripciones.busqueda')}}" #busqueda>
+        <div>
+          <button class="btn btn-outline-secondary" (click)="buscarContactoPorNombreOIdentificacion(busqueda.value)"><i
+            class="fas fa-search"></i> {{g('botones.buscar')}}</button>
+        </div>
+      </div>
+      <small id="busquedaContactoHelp" class="form-text text-muted ayuda-span"> {{g('descripciones.busqueda')}}
+      </small>
+    </div>
+  </div>
+</div>

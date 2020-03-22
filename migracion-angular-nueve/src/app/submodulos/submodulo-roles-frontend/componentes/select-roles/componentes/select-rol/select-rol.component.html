@@ -1,0 +1,6 @@
+<div *ngIf="roles.length > 0">
+  <p-dropdown [options]="roles" [(ngModel)]="rolSeleccionado" optionLabel="nombre" placeholder="Seleccione un rol" (onChange)="enviarRolSeleccionado($event)" ></p-dropdown>
+  <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Seleccione un rol de la lista.
+  </small>
+</div>
+

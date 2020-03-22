@@ -1,0 +1,48 @@
+<ng-container *transloco="let g; read:'generales'">
+  <ng-container  *transloco="let t; read:'submoduloCertificadosCuros.diapositiva.rutas.rutaGestionDiapositiva'">
+    <man-lab-modal-general
+      [nombreBotonAceptar]="t('botones.guardarAsignacion')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="formularioValido"
+      (dioClickEnCancelar)="cancelarModal()"
+      (dioClickEnAceptar)="editar()"
+    >
+
+      <div class="titulo">{{data.configuracion.tituloModal ? data.configuracion.tituloModal : 'ASIGNACION PRUEBAS'}} </div>
+
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+            <p class="descripcion-modal">{{data.configuracion.descripcionModal ? data.configuracion.descripcionModal : ''}}</p>
+          </div>
+
+          <div class="col-sm-12">
+            <p-pickList
+              [source]="listaOrigen"
+              [target]="listaDestino"
+              [responsive]="true"
+              [sourceHeader]="data.configuracion.tituloOrigen"
+              [targetHeader]="data.configuracion.tituloDestino"
+              [dragdrop]="data.configuracion.dragdrop"
+              [showTargetControls]="false"
+              [showSourceControls]="false"
+              (onMoveToTarget)="validar($event)"
+              (onMoveToSource)="validar($event)"
+            >
+              <ng-template let-item pTemplate="item">
+                <div *ngFor="let atributoMostrar of data.configuracion.atributosMostrar "
+                     class="ui-helper-clearfix">
+                  {{item[atributoMostrar]}}
+                </div>
+              </ng-template>
+            </p-pickList>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+
+  </ng-container>
+</ng-container>

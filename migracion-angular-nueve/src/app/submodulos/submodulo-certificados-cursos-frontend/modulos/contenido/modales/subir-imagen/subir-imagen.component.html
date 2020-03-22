@@ -1,0 +1,79 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.contenido.rutas.rutaGestionContenido'">
+
+    <h5 mat-dialog-title>
+      {{t('titulos.imagenTitulo')}} {{_data.titulo }}</h5>
+    <div mat-dialog-content>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-sm-12 text-center"
+                 *ngIf="imagen"
+            >
+              {{t('descripciones.imagenSeleccionada')}} {{imagen.name}}
+            </div>
+            <div class="col-sm-12">
+              <input id="urlImagen"
+                     class="inputfile"
+                     name="urlImagen"
+                     type="file"
+                     (change)="seleccionoArchivoImagen($event)"
+                     placeholder="{{t('descripciones.seleccionaImagen')}}"
+                     accept="image/png, image/jpeg">
+            </div>
+            <div class="col-sm-6 mx-auto">
+              <label for="urlImagen" class="btn btn-info btn-block">
+                {{t('botones.subirImagen')}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h4>{{t('titulos.imagenEnUso')}}</h4>
+          <div *ngIf="_data.contenido.urlImagen1 || _data.contenido.urlImagen2">
+            <img
+              [src]="url +'/'+_data.nombreTabla + _data.id + _data.numeroImagen"
+              class="imagen"
+            >
+
+          </div>
+          <p *ngIf="!_data.contenido.urlImagen1 || !_data.contenido.urlImagen2">
+            {{t('descripciones.imagenNoSubida')}}
+          </p>
+        </div>
+
+        <div class="col-md-6">
+          <h4>{{t('titulos.imagenNuevo')}}</h4>
+          <div>
+            <img *ngIf="src"
+                 [src]="src"
+                 class="imagen"
+            >
+            <p *ngIf="!src">{{t('descripciones.imagenNoSeleccionada')}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-start" mat-dialog-actions>
+      <button
+        class="btn btn-secondary"
+        (click)="cancelarModal()"
+      >
+        {{g('botones.cancelar')}}
+      </button>
+      <div>
+        <button
+          class="btn btn-success"
+          [disabled]="!formularioValido"
+          (click)="enviarDatosFormulario()"
+        >
+          {{g('botones.editar')}}
+        </button>
+      </div>
+    </div>
+
+  </ng-container>
+</ng-container>

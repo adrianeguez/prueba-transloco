@@ -1,0 +1,480 @@
+
+<form novalidate [formGroup]="movimiento.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionNombre.nombreInput">{{
+                        movimiento.mensajesValidacionNombre.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="movimiento.mensajesValidacionNombre.nombreInput"
+                                [name]="movimiento.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="movimiento.mensajesValidacionNombre.tooltip"
+                                [title]="movimiento.mensajesValidacionNombre.title"
+                                aria-describedby="movimientoNombreAyuda"
+                                maxlength="50"
+
+
+                        >
+                        <small id="movimientoNombreAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionCodigo.nombreInput">{{
+                        movimiento.mensajesValidacionCodigo.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="movimiento.mensajesValidacionCodigo.nombreInput"
+                                [name]="movimiento.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="movimiento.mensajesValidacionCodigo.tooltip"
+                                [title]="movimiento.mensajesValidacionCodigo.title"
+                                aria-describedby="movimientoCodigoAyuda"
+                                maxlength="3"
+
+
+                        >
+                        <small id="movimientoCodigoAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionCodigo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionDescripcion.nombreInput">{{
+                        movimiento.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="movimiento.mensajesValidacionDescripcion.nombreInput"
+                                [name]="movimiento.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="movimiento.mensajesValidacionDescripcion.tooltip"
+                                [title]="movimiento.mensajesValidacionDescripcion.title"
+                                aria-describedby="movimientoDescripcionAyuda"
+                                maxlength="50"
+
+
+                        >
+                        <small id="movimientoDescripcionAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--numero-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Numero.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionNumero.nombreInput">{{
+                        movimiento.mensajesValidacionNumero.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="movimiento.mensajesValidacionNumero.nombreInput"
+                                [name]="movimiento.mensajesValidacionNumero.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionNumero.nombreInput"
+                                [placeholder]="movimiento.mensajesValidacionNumero.tooltip"
+                                [title]="movimiento.mensajesValidacionNumero.title"
+                                aria-describedby="movimientoNumeroAyuda"
+                                maxlength="4"
+
+
+                        >
+                        <small id="movimientoNumeroAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionNumero.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionNumero.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionNumero.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          <!--numeroInventario-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroInventario.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionNumeroInventario.nombreInput">{{
+                  movimiento.mensajesValidacionNumeroInventario.nombreAPresentarse  + ' *' }}</label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="movimiento.mensajesValidacionNumeroInventario.nombreInput"
+                       [name]="movimiento.mensajesValidacionNumeroInventario.nombreInput"
+                       [formControlName]="movimiento.mensajesValidacionNumeroInventario.nombreInput"
+                       [placeholder]="movimiento.mensajesValidacionNumeroInventario.tooltip"
+                       [title]="movimiento.mensajesValidacionNumeroInventario.title"
+                       aria-describedby="movimientoNumeroInventarioAyuda"
+
+
+                >
+                <small id="movimientoNumeroInventarioAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionNumeroInventario.title}}.</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="movimiento.mensajesValidacionNumeroInventario.mensajes.length>0">
+                  <div *ngFor="let mensaje of movimiento.mensajesValidacionNumeroInventario.mensajes">{{ mensaje }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--nombreReferencia-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreReferencia.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionNombreReferencia.nombreInput">{{
+                        movimiento.mensajesValidacionNombreReferencia.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="movimiento.mensajesValidacionNombreReferencia.nombreInput"
+                                [name]="movimiento.mensajesValidacionNombreReferencia.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionNombreReferencia.nombreInput"
+                                [placeholder]="movimiento.mensajesValidacionNombreReferencia.tooltip"
+                                [title]="movimiento.mensajesValidacionNombreReferencia.title"
+                                aria-describedby="movimientoNombreReferenciaAyuda"
+                                maxlength="50"
+
+
+                        >
+                        <small id="movimientoNombreReferenciaAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionNombreReferencia.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionNombreReferencia.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionNombreReferencia.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--formaNumerar-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FormaNumerar.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionFormaNumerar.nombreInput">{{
+                    movimiento.mensajesValidacionFormaNumerar.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionFormaNumerar.nombreInput"
+                                [id]="movimiento.mensajesValidacionFormaNumerar.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionFormaNumerar.nombreInput"
+                        >
+
+                            <option value=0>automático</option>
+                            <option value=1>manual</option>
+
+                        </select>
+                        <small id="movimientoFormaNumerarAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionFormaNumerar.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionFormaNumerar.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionFormaNumerar.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--factorStock-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FactorStock.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionFactorStock.nombreInput">{{
+                    movimiento.mensajesValidacionFactorStock.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionFactorStock.nombreInput"
+                                [id]="movimiento.mensajesValidacionFactorStock.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionFactorStock.nombreInput"
+                        >
+
+                            <option value=1>1</option>
+                            <option value=0>0</option>
+                            <option value=-1> -1</option>
+
+                        </select>
+                        <small id="movimientofactorStockAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionFactorStock.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionFactorStock.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionFactorStock.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--afectaCostoPromedio-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AfectaCostoPromedio.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionAfectaCostoPromedio.nombreInput">{{
+                    movimiento.mensajesValidacionAfectaCostoPromedio.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionAfectaCostoPromedio.nombreInput"
+                                [id]="movimiento.mensajesValidacionAfectaCostoPromedio.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionAfectaCostoPromedio.nombreInput"
+                        >
+
+                            <option value=1>si</option>
+                            <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoafectaCostoPormedioAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionAfectaCostoPromedio.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionAfectaCostoPromedio.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionAfectaCostoPromedio.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--afectaCostoUltimo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AfectaCostoUltimo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionAfectaCostoUltimo.nombreInput">{{
+                    movimiento.mensajesValidacionAfectaCostoUltimo.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionAfectaCostoUltimo.nombreInput"
+                                [id]="movimiento.mensajesValidacionAfectaCostoUltimo.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionAfectaCostoUltimo.nombreInput"
+                        >
+
+                            <option value=1>si</option>
+                            <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoafectaCostoUltimoAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionAfectaCostoUltimo.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionAfectaCostoUltimo.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionAfectaCostoUltimo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--afectaCostoUltimaTransaccion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AfectaCostoUltimaTransaccion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.nombreInput">{{
+                    movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.nombreInput"
+                                [id]="movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoafectaCostoUltimaTransaccionAAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionAfectaCostoUltimaTransaccion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--cobrarIVA-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CobrarIVA.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionCobrarIVA.nombreInput">{{
+                    movimiento.mensajesValidacionCobrarIVA.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionCobrarIVA.nombreInput"
+                                [id]="movimiento.mensajesValidacionCobrarIVA.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionCobrarIVA.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoCobrarIVAAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionCobrarIVA.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionCobrarIVA.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionCobrarIVA.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--retencionIVA-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.RetencionIVA.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionRetencionIVA.nombreInput">{{
+                    movimiento.mensajesValidacionRetencionIVA.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionRetencionIVA.nombreInput"
+                                [id]="movimiento.mensajesValidacionRetencionIVA.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionRetencionIVA.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoRetencionIVAAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionRetencionIVA.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionRetencionIVA.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionRetencionIVA.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--retencionRenta-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.RetencionRenta.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionRetencionRenta.nombreInput">{{
+                    movimiento.mensajesValidacionRetencionRenta.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionRetencionRenta.nombreInput"
+                                [id]="movimiento.mensajesValidacionRetencionRenta.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionRetencionRenta.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoRetencionRentaAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionRetencionRenta.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionRetencionRenta.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionRetencionRenta.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--formaValorarInventario-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FormaValorarInventario.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionFormaValorarInventario.nombreInput">{{
+                    movimiento.mensajesValidacionFormaValorarInventario.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionFormaValorarInventario.nombreInput"
+                                [id]="movimiento.mensajesValidacionFormaValorarInventario.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionFormaValorarInventario.nombreInput"
+                        >
+
+                            <option value=1>1</option>
+                            <option value=0>0</option>
+                            <option value=-1> -1</option>
+
+                        </select>
+                        <small id="movimientoFormaValorarInventarioAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionFormaValorarInventario.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionFormaValorarInventario.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionFormaValorarInventario.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--afectaDatosUltimaCompra-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AfectaDatosUltimaCompra.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionAfectaDatosUltimaCompra.nombreInput">{{
+                    movimiento.mensajesValidacionAfectaDatosUltimaCompra.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionAfectaDatosUltimaCompra.nombreInput"
+                                [id]="movimiento.mensajesValidacionAfectaDatosUltimaCompra.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionAfectaDatosUltimaCompra.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoAfectaDatosUltimaCompraAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionAfectaDatosUltimaCompra.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionAfectaDatosUltimaCompra.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionAfectaDatosUltimaCompra.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--afectaDatosUltimaVenta-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AfectaDatosUltimaVenta.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="movimiento.mensajesValidacionAfectaDatosUltimaVenta.nombreInput">{{
+                    movimiento.mensajesValidacionAfectaDatosUltimaVenta.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="movimiento.mensajesValidacionAfectaDatosUltimaVenta.nombreInput"
+                                [id]="movimiento.mensajesValidacionAfectaDatosUltimaVenta.nombreInput"
+                                [formControlName]="movimiento.mensajesValidacionAfectaDatosUltimaVenta.nombreInput"
+                        >
+
+                        <option value=1>si</option>
+                        <option value=0>no</option>
+
+                        </select>
+                        <small id="movimientoAfectaDatosUltimaVentaAyuda" class="form-text text-muted">{{movimiento.mensajesValidacionAfectaDatosUltimaVenta.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="movimiento.mensajesValidacionAfectaDatosUltimaVenta.mensajes.length>0">
+                            <div *ngFor="let mensaje of movimiento.mensajesValidacionAfectaDatosUltimaVenta.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,36 @@
+
+<form novalidate [formGroup]="modulosSistema.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombreModulo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreModulo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="modulosSistema.mensajesValidacionNombreModulo.nombreInput">{{
+                        modulosSistema.mensajesValidacionNombreModulo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="modulosSistema.mensajesValidacionNombreModulo.nombreInput"
+                                [name]="modulosSistema.mensajesValidacionNombreModulo.nombreInput"
+                                [formControlName]="modulosSistema.mensajesValidacionNombreModulo.nombreInput"
+                                [placeholder]="modulosSistema.mensajesValidacionNombreModulo.tooltip"
+                                [title]="modulosSistema.mensajesValidacionNombreModulo.title"
+                                aria-describedby="modulosSistemaNombreModuloAyuda"
+                                
+                                
+                        >
+                        <small id="modulosSistemaNombreModuloAyuda" class="form-text text-muted">{{modulosSistema.mensajesValidacionNombreModulo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="modulosSistema.mensajesValidacionNombreModulo.mensajes.length>0">
+                            <div *ngFor="let mensaje of modulosSistema.mensajesValidacionNombreModulo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

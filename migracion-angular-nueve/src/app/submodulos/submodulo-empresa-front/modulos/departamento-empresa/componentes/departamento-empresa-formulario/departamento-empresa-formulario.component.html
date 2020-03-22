@@ -1,0 +1,94 @@
+
+<form novalidate [formGroup]="departamentoEmpresa.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="departamentoEmpresa.mensajesValidacionNombre.nombreInput">{{
+                        departamentoEmpresa.mensajesValidacionNombre.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="departamentoEmpresa.mensajesValidacionNombre.nombreInput"
+                                [name]="departamentoEmpresa.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="departamentoEmpresa.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="departamentoEmpresa.mensajesValidacionNombre.tooltip"
+                                [title]="departamentoEmpresa.mensajesValidacionNombre.title"
+                                aria-describedby="departamentoEmpresaNombreAyuda"
+                                maxlength="30"
+                                
+                        >
+                        <small id="departamentoEmpresaNombreAyuda" class="form-text text-muted">{{departamentoEmpresa.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="departamentoEmpresa.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of departamentoEmpresa.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--descripcion-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="departamentoEmpresa.mensajesValidacionDescripcion.nombreInput">{{
+                        departamentoEmpresa.mensajesValidacionDescripcion.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="departamentoEmpresa.mensajesValidacionDescripcion.nombreInput"
+                                [name]="departamentoEmpresa.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="departamentoEmpresa.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="departamentoEmpresa.mensajesValidacionDescripcion.tooltip"
+                                [title]="departamentoEmpresa.mensajesValidacionDescripcion.title"
+                                aria-describedby="departamentoEmpresaDescripcionAyuda"
+                                maxlength="100"
+                                
+                        >
+                        <small id="departamentoEmpresaDescripcionAyuda" class="form-text text-muted">{{departamentoEmpresa.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="departamentoEmpresa.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of departamentoEmpresa.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--nivel-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nivel.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="departamentoEmpresa.mensajesValidacionNivel.nombreInput">{{
+                        departamentoEmpresa.mensajesValidacionNivel.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="departamentoEmpresa.mensajesValidacionNivel.nombreInput"
+                                [name]="departamentoEmpresa.mensajesValidacionNivel.nombreInput"
+                                [formControlName]="departamentoEmpresa.mensajesValidacionNivel.nombreInput"
+                                [placeholder]="departamentoEmpresa.mensajesValidacionNivel.tooltip"
+                                [title]="departamentoEmpresa.mensajesValidacionNivel.title"
+                                aria-describedby="departamentoEmpresaNivelAyuda"
+                                
+                                
+                        >
+                        <small id="departamentoEmpresaNivelAyuda" class="form-text text-muted">{{departamentoEmpresa.mensajesValidacionNivel.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="departamentoEmpresa.mensajesValidacionNivel.mensajes.length>0">
+                            <div *ngFor="let mensaje of departamentoEmpresa.mensajesValidacionNivel.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,96 @@
+<h1 class="text-primary" mat-dialog-title><span class="bold">AÑADIR VENDEDORES</span></h1>
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}}</p>
+    </div>
+    <div class="row" style="margin-left: 2rem; margin-bottom: 3rem">
+      <div class="row" style="margin-right: 5rem">
+        <div class="col-md-12">
+          Seleccione el tipo vendedor a crear.
+        </div>
+        <div class="col-sm-12">
+          <ml-select-tipo-vendedor
+            [idEmpresa]="data.idEmpresa"
+            (tipoVendedorSeleccionado)="seteoTipoVendedorSeleccionado($event)">
+          </ml-select-tipo-vendedor>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <ml-filter-contacto-empresa
+          [idEmpresa]="data.idEmpresa"
+          (contactosEmpresaEncontrados)="seteoContactosEmpresa($event)"
+        >
+        </ml-filter-contacto-empresa>
+        <div class="col-sm-12">
+          <div *ngIf="contactosEmpresa.length > 0" class="col-sm-12">
+            <p-table
+              [columns]="columnas"
+              [value]="contactosEmpresa[0]"
+              [(selection)]="contactosEmpresaSeleccinados"
+              [paginator]="true"
+              [rows]="rows"
+              [responsive]="true"
+              [resizableColumns]="true"
+            >
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th style="width: 3em">
+                    <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                  </th>
+                  <th *ngFor="let col of columns">
+                    {{col.header}}
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr [pSelectableRow]="rowData">
+                  <td>
+                    <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+                  </td>
+                  <td class="text-center" *ngFor="let col of columns">
+                    <div *ngIf="col.field==='nombres'">
+                      {{rowData.datosUsuario?.nombres}}
+                    </div>
+                    <div *ngIf="col.field==='apellidos'">
+                      {{rowData.datosUsuario?.apellidos}}
+                    </div>
+                    <div *ngIf="col.field==='identificacionPais'">
+                      {{rowData.datosUsuario?.identificacionPais}}
+                    </div>
+                    <div *ngIf="col.field==='tipoCargo'">
+                      {{rowData.tipoCargo?.nombre}}
+                    </div>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                  <td [attr.colspan]="columnas.length">
+                    No existen registros
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="espacio"></div>
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearVendedor()" class="btn btn-primary"
+              [disabled]="!(this.tipoVendedor && contactosEmpresaSeleccinados.length > 0)">Guardar
+      </button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

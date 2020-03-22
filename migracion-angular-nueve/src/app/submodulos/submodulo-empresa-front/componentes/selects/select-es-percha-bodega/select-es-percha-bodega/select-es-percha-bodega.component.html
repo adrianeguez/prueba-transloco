@@ -1,0 +1,11 @@
+<div class="col-sm-12">
+  <div class="input-group mb-3" >
+    <p-dropdown [options]="opcionesDropdown"
+                placeholder="Filtre por si es percha"
+                (onChange)="enviarOpcionSeleccionada($event)"
+                [showClear]="true">
+    </p-dropdown>
+  </div>
+  <small id="busquedaSugerenciaAyuda" class="form-text text-muted"> Filtre por si es  percha.
+  </small>
+</div>

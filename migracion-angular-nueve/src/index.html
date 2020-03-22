@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>FrontPruebaSubmodulos</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css"/>
+  <script src='assets/sql.js/sql-debug.js'></script>
+  <script type="text/javascript" src="assets/open-layers/open-layers-js/ol.js"></script>
+  <script type="text/javascript" src="assets/open-layers/open-layers-js/ol-ext.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--  <link rel="stylesheet" href="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.css"/>-->
+  <script type="text/javascript" src="assets/open-layers/open-layers-js/ol.js"></script>
+  <script type="text/javascript" src="assets/open-layers/open-layers-js/ol-ext.min.js"></script>
+  <script>
+      let styleCache = {};
+  </script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <link rel="stylesheet" href="https://ianlunn.github.io/Hover/css/hover.css">
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <!--EMPIEZA COPIAR-->
+  <script>
+    const username = "1718137159";
+    const user_id = "auth0|5de1979e8b59b10e198567da"; //
+    const email = "ristian89lara@gmail.com"; //
+    const email_verified = "true";
+    const datosEmpresa = JSON.stringify([{
+      "datoUsuario": {
+        "nombres": "Cesar",
+        "apellidos": "Salazar",
+        "identificacionPais": "1718137159",
+        "celular": "0983456732",
+        "direccion": "La gasca",
+        "id": 10
+      },
+      "contactoEmpresa": {
+        "esOperario": 1, "esAdminPtoEmi": 1, "id": 1, tipoCargo: {
+          nombre: "vendedor1",
+          codigo: "001",
+          habilitado: 1,
+          id: 8
+        },
+      },
+      "empresa": {
+        "id": 1, "ruc": "0148628258611", nombreComercial: "PDVSA", razonSocial: "PDVSA."
+      },
+      "datosVendedor": [{"id": 1}],
+      "operarioEn": [{"id": 1}],
+      "administradorEn": [{"id": 1}]
+    }, {
+      "datoUsuario": {
+        "nombres": "Vicente Adrian",
+        "apellidos": "Eguez Sarzosa",
+        "identificacionPais": "1547489690",
+        "id": 3
+      },
+      "contactoEmpresa": {
+        "esOperario": 1, "esAdminPtoEmi": 1, "id": 1, tipoCargo: {
+          "nombre": "vendedor1",
+          "codigo": "001",
+          "habilitado": 1,
+          "id": 8
+        },
+      },
+      "empresa": {
+        "id": 1, "ruc": "0148628258611", nombreComercial: "PDVSA", razonSocial: "PDVSA."
+      },
+      "datosVendedor": [{"id": 1}],
+      "operarioEn": [{"id": 1}],
+      "administradorEn": [{"id": 1}],
+      "permisosUsuario": [
+        {
+          "rolId": 1,
+          "nombreRol": "Administrador",
+          "permisoId": 1,
+          "nombrePermiso": "crear",
+          "nombreModulo": "Horario",
+          "empresId": 1
+        },
+        {
+          "rolId": 1,
+          "nombreRol": "Administrador",
+          "permisoId": 2,
+          "nombrePermiso": "editar",
+          "nombreModulo": "Horario",
+          "empresId": 1
+        },
+        {
+          "rolId": 1,
+          "nombreRol": "Administrador",
+          "permisoId": 3,
+          "nombrePermiso": "Ver Gestion de empresas",
+          "nombreModulo": "Empresa",
+          "empresId": 1
+        }]
+    },
+    ]);
+    const permisos = JSON.stringify(  [
+      {"rolId":1,
+        "nombreRol":"Usuario",
+        "permisoId":1,
+        "nombrePermiso":"Crear",
+        "nombreModulo":"Horario",
+        "empresId":1},
+      {"rolId":1,
+        "nombreRol":"Usuario",
+        "permisoId":2,
+        "nombrePermiso":"Listar",
+        "nombreModulo":"Ventas","empresId":1},
+      {"rolId":2,
+        "nombreRol":"Vendedor",
+        "permisoId":2,
+        "nombrePermiso":"Listar",
+        "nombreModulo":"Ventas",
+        "empresId":1}
+    ]);
+  </script>
+
+  <!--TERMINA COPIAR-->
+
+
+</head>
+<body>
+<app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/pedido-listar.svg'"
+      [titulo]="'Lista de pedidos'"
+      [descripcion]="'Transfiera artículos, realice ingresos o egresos y compre a proveedores.'"
+      [ayuda]="'compras, ingresos, egresos, transferencias'"
+    >
+    </mlab-titulo-pantalla>
+
+
+    <div class="row">
+      <div class="col-md-9"></div>
+      <div class="col-md-3">
+        <button
+          class="btn btn-outline-primary btn-block btn-sm"
+          (click)="irANuevoPedido()"
+        >
+          Crear pedido <i class="far fa-plus-square"></i>
+        </button>
+        <br>
+      </div>
+      <div class="col-md-6">
+        <div *ngIf="seEscogioMovimiento" class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-lg-12">
+                <label for="busqueda-pedidos" class="control-label">Busqueda:</label>
+              </div>
+            </div>
+            <form class="form-inline row" novalidate>
+              <div class="col-sm-12">
+                <div class="input-group mb-3">
+                  <input id="busqueda-pedidos"
+                         type="text"
+                         class="form-control"
+                         aria-describedby="busquedaPedidoHelp"
+                         name="busquedaPedidos"
+                         placeholder="Ej: 10020312" #busqueda>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                            (click)="buscarPedido(busqueda.value)"><i class="fas fa-search"></i>
+                      Buscar
+                    </button>
+                  </div>
+                </div>
+                <small id="busquedaPedidoHelp" class="form-text text-muted ayuda-span">
+                  Busque por numero de documento.
+                  <!--<div *ngIf="movimiento.codigo === '01' || movimiento.codigo === '05'">
+                    Busque un pedido por su número de documento
+                  </div>
+
+                  <div *ngIf="movimiento.codigo === '10'">
+                    Busque un pedido por su número de documento o por el id de la bodega destino
+                  </div>
+
+                  <div *ngIf="movimiento.codigo === '11'">
+                    Busque un pedido por su número de documento o por el id del proveedor
+                  </div>-->
+                </small>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row" *ngIf="seEscogioMovimiento">
+          <div class="col-sm-12">
+            <ml-select-estado-pedido
+              [movimiento]="movimiento.nombre"
+              (estadoAFiltrar)="filtrarPorEstado($event)">
+            </ml-select-estado-pedido>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <ml-select-movimientos
+          (movimientoSeleccionado)="recibirMovimientoSeleccionado($event)"
+        ></ml-select-movimientos>
+      </div>
+    </div>
+    <br>
+
+
+    <div *ngIf="seEscogioMovimiento" class="row separacion-top-1">
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <p-table [responsive]="true"
+                   [columns]="columnas"
+                   [value]="pedidosEncontrados"
+                   [lazy]="true"
+                   (onLazyLoad)="cargarDatosLazy($event)"
+                   [paginator]="true"
+                   [rows]="rows"
+                   [totalRecords]="totalRegistros"
+                   [loading]="loading"
+                   [resizableColumns]="true"
+                   [first]="skip"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+              <tr [pSelectableRow]="rowData">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{pedidosEncontrados.indexOf(rowData) + 1}}
+                  </div>
+                  <div *ngIf="col.field ==='numeroDocumentoMovimiento'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field ==='estatus'">
+                    {{rowData[col.field] | estadoPedido: rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field === 'subtotal'">
+                    {{rowData['totalNeto'] || rowData['valorNeto']}}
+                  </div>
+                  <div *ngIf="col.field ==='fechaPedido'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field ==='descripcionPeriodo'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field ==='idBodegaOrigen'">
+                    {{rowData['bodega']?.nombre}}
+                  </div>
+                  <div *ngIf="col.field ==='idProveedor'">
+                    {{rowData['empresaProveedor']?.nombreComercial}}
+                  </div>
+                  <div *ngIf="col.field ==='idBodegaDestino'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field === 'acciones'">
+                    <button type="button" class="btn btn-info btn-block btn-sm" (click)="verPedido(rowData)">
+                      Ver
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

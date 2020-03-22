@@ -1,0 +1,24 @@
+<mlab-titulo-pantalla
+  [imagen]="'assets/imagenes/sistema/404-error.svg'"
+  [titulo]="'Página no encontrada'"
+  [descripcion]="'Lo sentimos, no encontramos tu página.'"
+  [ayuda]="'Regresa o ve al menú'"
+>
+</mlab-titulo-pantalla>
+
+<div class="row espaciado-menu">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <img class="img-fluid imagen mx-auto d-block" src="assets/imagenes/sistema/404-imagen.svg" alt="">
+    <div class="row">
+      <div class="col-sm-6">
+        <button class="btn-outline-info btn btn-block" (click)="irAUrl()">Atrás</button>
+      </div>
+      <div class="col-sm-6">
+        <button class="btn-outline-secondary btn btn-block" (click)="irAUrl()">Menú</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+

@@ -1,0 +1,29 @@
+<!--<p-dropdown-->
+<!--[options]="periodosVenta"-->
+<!--[filter]="true"-->
+<!--(onChange)="enviarPeriodoVentaSeleccionado($event)"-->
+<!--filterBy="label"-->
+<!--[showClear]="true"-->
+<!--placeholder="Seleccione el periodo de venta"-->
+<!--&gt;-->
+
+<!--</p-dropdown>-->
+
+
+<p-autoComplete
+  [suggestions]="periodosVenta"
+  (completeMethod)="buscarPeriodosVenta($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [emptyMessage]="noExistenRegistros"
+  (onSelect)="enviarPeriodoVentaSeleccionado($event)"
+  field="nombre"
+
+>
+  <ng-template let-periodo pTemplate="item">
+    <div class="ui-helper-clearfix" style="text-align: center">
+      <div>{{periodo.nombre}} </div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+

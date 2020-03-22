@@ -1,0 +1,143 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/compras.svg'"
+      [titulo]="'Compras'"
+      [descripcion]="'Registre las compras para añadir stock en el inventario de la bodega.'"
+      [ayuda]="'# ' + pedidoCompra?.numeroDocumentoMovimiento + ' - ' +
+       pedidoCompra?.numeroDocumentoCartera + ' - ' +
+        (pedidoCompra?.facturaElectronica === 1 ? 'Electrónica': 'Física' )"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row separacion-top-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <h3>Datos compra:</h3>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Movimiento: </strong> {{pedidoCompra?.tipoMovimiento}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Bodega: </strong> {{pedidoCompra?.bodega.codigo}}-{{pedidoCompra?.bodega.nombre}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Proveedor: </strong> {{pedidoCompra?.empresaProveedor.nombreComercial}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Número de factura: </strong>{{pedidoCompra?.numeroDocumentoCartera}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Número de serie: </strong>{{pedidoCompra?.numeroSerie}}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <span *ngIf="pedidoCompra?.facturaElectronica">
+                    <p><strong>Tipo de factura: </strong> Electrónica</p>
+                  </span>
+
+                  <span *ngIf="!pedidoCompra?.facturaElectronica">
+                    <p><strong>Tipo de factura: </strong> Física</p>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <p><strong>Número de autorización: </strong>{{pedidoCompra?.numeroAutorizacion}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <div class="row">
+            <!--<div *ngIf="pedidoCompra.compraDetalles.length === 0">
+              <div class="col-sm-12">
+                <div class="text-center">El pedido de compra {{pedidoCompra.numeroDocumentoMovimiento}} no posee artículos</div>
+              </div>
+            </div>-->
+
+            <div *ngIf="pedidoCompra?.estatus === 'CR'">
+              <ml-articulos
+                [idProveedor]="pedidoCompra.idProveedor"
+                (enviarArticulos)="recibirArticulos($event)"
+                (enviarArregloArticulos)="recibirArregloArticulos($event)"
+                [articulosEnDetalle]="arregloArticulosDetalle"
+                [idBodega]="+pedidoCompra.idBodegaOrigen"
+                [idEmpresa]="idEmpresa"
+                [esVenta]="false"
+                [compraDevolucionProveedores]="columnasCompra"
+                [detalleCreado]="detalleCreado"
+                [pedidoGuardado]="pedidoGuardado"
+                [valores]="pedidoCompra.compraDetalles">
+              </ml-articulos>
+
+              <div class="row separacion-top-1">
+                <div class="col-md-6"></div>
+                <div class="col-md-3">
+                  <button *ngIf="crearDetalle" class="btn btn-warning btn-block btn-sm animated fadeInUp"
+                          (click)="guardarDetalle()">
+                    Guardar cambios artículo
+                  </button>
+                </div>
+                <div class="col-md-3">
+                  <button *ngIf="!pedidoGuardado" class="btn btn-success btn-block btn-sm"
+                          [disabled]="!detalleCreado || pedidoCompra.compraDetalles.length === 0"
+                          (click)="guardarPedido(pedidoCompra.id)">Guardar compra
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="pedidoCompra?.estatus === 'EN'">
+              <ml-articulos-detalle
+                [compraDetalle]="columnasCompraDetalle"
+                [valores]="pedidoCompra.compraDetalles"
+              >
+              </ml-articulos-detalle>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

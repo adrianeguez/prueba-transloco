@@ -1,0 +1,76 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/transferencia.svg'"
+      [titulo]="'Transferencia'"
+      [descripcion]="'Disminuya stock en una bodega origen y aumente stock en una bodega destino.'"
+      [ayuda]="'# ' + pedidoTransferencia?.numeroDocumentoMovimiento"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row separacion-top-1">
+      <div class="col-md-4">
+        <p><strong>Movimiento: </strong> {{pedidoTransferencia?.tipoMovimiento}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Bodega de origen: </strong> {{pedidoTransferencia?.bodega.codigo}}
+          - {{pedidoTransferencia?.bodega.nombre}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Bodega de destino: </strong>{{bodegaDestino?.codigo}} - {{bodegaDestino?.nombre}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Fecha tentativa llegada: </strong>{{pedidoTransferencia?.fechaLlegada | date}}</p>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2">
+      <div class="col-sm-12">
+        <div class="row">
+          <div *ngIf="pedidoTransferencia?.estatus === 'CR'">
+            <ml-articulos
+              (enviarArticulos)="recibirArticulos($event)"
+              (enviarArregloArticulos)="recibirArregloArticulos($event)"
+              [articulosEnDetalle]="arregloArticulosDetalle"
+              [idBodega]="+pedidoTransferencia.idBodegaOrigen"
+              [idBodegaDestino]="+pedidoTransferencia.idBodegaDestino "
+              [idEmpresa]="idEmpresa"
+              [esVenta]="false"
+              [transferenciaBodegas]="columnasTransferencia"
+              [pedidoGuardado]="pedidoGuardado"
+              [valores]="pedidoTransferencia.transferenciaDetalles">
+            </ml-articulos>
+
+            <div class="row separacion-top-1">
+              <div class="col-md-6"></div>
+              <div class="col-md-3">
+                <button *ngIf="crearDetalle"
+                        class="btn btn-warning btn-block btn-sm animated fadeInUp"
+                        (click)="guardarDetalle(pedidoTransferencia)">
+                  Guardar cambios artículo
+                </button>
+              </div>
+              <div class="col-md-3">
+                <button *ngIf="!pedidoGuardado"
+                        class="btn btn-sm btn-block btn-success"
+                        [disabled]="!detalleCreado"
+                        (click)="guardarPedido(pedidoTransferencia.id)">
+                  Guardar transferencia
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="pedidoTransferencia?.estatus === 'EN'">
+            <ml-articulos-detalle
+              [transferenciaBodegasDetalle]="columnasTransferenciaDetalle"
+              [valores]="pedidoTransferencia.transferenciaDetalles"
+            >
+            </ml-articulos-detalle>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>
+

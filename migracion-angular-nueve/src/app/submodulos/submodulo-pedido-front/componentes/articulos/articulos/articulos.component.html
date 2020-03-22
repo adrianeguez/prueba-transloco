@@ -1,0 +1,442 @@
+<div class="row">
+  <div class="col-md-9"></div>
+  <div class="col-md-3">
+    <button *ngIf="!pedidoGuardado" class="btn btn-info btn-block btn-sm" (click)="abrirModalArticulo()">AÑADIR
+      ARTICULO
+    </button>
+  </div>
+
+  <!-- <div class="col-md-10" *ngIf="valores.length > 0 && (compraDevolucionProveedores || facturaDevolucionClientes)">
+    <div class="row">
+      <div class="col-md-3">
+        <button class="btn btn-danger btn-block" (click)="darBajaPedido()">DAR DE BAJA PEDIDO</button>
+      </div>
+
+      <div class="col-md-3">
+        <button class="btn btn-success btn-block" (click)="entregarPedido()">ENTREGAR PEDIDO</button>
+      </div>
+    </div>
+  </div> -->
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-md-12">
+    <p-table
+      [responsive]="true"
+      [columns]="columnas"
+      [value]="valores"
+      (onEditComplete)="efectuarCalculos($event)"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columnas.length">
+            No existen registros
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+        <tr>
+          <td class="text-center" *ngFor="let col of columns"
+              [pEditableColumn]="valores"
+              [pEditableColumnField]="col.field">
+            <span class="ui-column-title">{{col.header}}</span>
+            <div *ngIf="col.header === '#'">
+
+              <div class="row">
+                <div class="col-sm-4 quitar-padding texto-bolita">
+                  {{valores.indexOf(rowData) + 1}} -
+                </div>
+                <div class="col-sm-8 quitar-padding">
+                  <div *ngIf="!rowData.id"
+                       [class]="rowData.valido ? 'animated slideInUp circulo-verde' : 'animated slideInUp circulo-amarillo'">
+                  </div>
+
+                  <div *ngIf="rowData.id"
+                       class="animated slideInUp cuadrado-azul">
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="col.field === 'codigo'">
+              {{rowData.codigo}}
+            </div>
+
+            <div *ngIf="col.field === 'descripcion'">
+              {{rowData['nombreArticulo'] || rowData['subgrupo']}}
+            </div>
+
+            <div *ngIf="col.field === 'unidadMedida'">
+              Aquí unidad medida
+            </div>
+
+            <div *ngIf="col.field === 'cantidad'">
+              <div
+                *ngIf="rowData['formaCalculo']?.formaCalculo === 'Sin forma de cálculo' || rowData['estatus'] === 'CR' || detalleCreado || pedidoGuardado; else ingresarCantidad">
+                <!--<mlab-stock-articulo
+                  [idBodegaASuscribirse]="idBodega"
+                  [idArticuloASuscribirse]="rowData.articuloEmpresa.articulo.id"
+                >
+                </mlab-stock-articulo>-->
+                {{rowData.cantidad || '0'}}
+              </div>
+
+              <ng-template #ingresarCantidad>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      [textMask]="mascaraNumerica"
+                      [(ngModel)]="rowData[col.field]"
+                      required
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    <mlab-stock-articulo
+                      [idBodegaASuscribirse]="idBodega"
+                      [esDestino]="false"
+                      [idArticuloASuscribirse]="rowData.articuloEmpresa.articulo.id"
+                      (emitirCantidadBodegaArticulo)="cambioCantidadBodegaDestino(rowData, $event)"
+                    ></mlab-stock-articulo>
+
+                    <mlab-stock-articulo
+                      *ngIf="idBodegaDestino"
+                      [esDestino]="true"
+                      [idBodegaASuscribirse]="idBodegaDestino"
+                      [idArticuloASuscribirse]="rowData.articuloEmpresa.articulo.id"
+                      (emitirCantidadBodegaArticulo)="cambioCantidadBodegaDestino(rowData, $event)"
+                    ></mlab-stock-articulo>
+
+                    <span [class]="estaValidoCantidad(rowData) ?'':'texto-rojo'">
+                        {{rowData.cantidad || '0'}}
+                      <i class="fas fa-edit icono"></i>
+
+                    </span>
+                  </ng-template>
+                </p-cellEditor>
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'cantidadPromocion'">
+              <div
+                *ngIf="!habilitarCantidadPromocion(rowData); else ingresarPromocion">
+                {{rowData.cantidadPromocion || '0'}}
+              </div>
+
+              <ng-template #ingresarPromocion>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      [textMask]="mascaraNumerica"
+                      [(ngModel)]="rowData.cantidadPromocion">
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    <span>
+                    {{rowData.cantidadPromocion || '0'}} <i class="fas fa-edit icono"></i>
+                    </span>
+                  </ng-template>
+                </p-cellEditor>
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'valorUnitario'">
+              <div
+                *ngIf="!habilitarValorUnitario(rowData);else ingresarValorUnitario">
+                <span [class]="rowData.valido && this.compraDevolucionProveedores? 'texto-calculado' : ''">
+                  {{(rowData.valorUnitario | currency: '': '$ ':'1.4-4') || '$ 0.0000'}}
+                </span>
+              </div>
+
+              <ng-template #ingresarValorUnitario>
+                <p-cellEditor>
+                  <div *ngIf="compraDevolucionProveedores">
+                    <ng-template pTemplate="input">
+                      <input
+                        type="text"
+                        currencyMask
+                        [options]="mascaraDinero"
+                        [(ngModel)]="rowData[col.field]"
+                        required
+                      >
+                    </ng-template>
+
+                    <ng-template pTemplate="output">
+                      <span [class]="rowData.valido?'':'texto-rojo'">
+                      {{(rowData[col.field] | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+                        <i *ngIf="rowData?.formaCalculo?.formaCalculo === 'Valor unitario'"
+                           class="fas fa-edit icono"></i>
+                      </span>
+                    </ng-template>
+                  </div>
+
+                  <div *ngIf="facturaDevolucionClientes">
+                    <ng-template pTemplate="input">
+                      <p-dropdown
+                        [options]="rowData.articuloEmpresa.valoresUnitarios"
+                        [(ngModel)]="rowData[col.field]"
+                        placeholder="Seleccione el valor unitario"
+                        optionLabel="valorUnitario"
+                        (onChange)="efectuarCalculos($event)">
+                      </p-dropdown>
+                    </ng-template>
+
+                    <ng-template pTemplate="output">
+                      {{(rowData[col.field].valorUnitario | number: '1.4-4') || '0.0000'}}
+                    </ng-template>
+                  </div>
+                </p-cellEditor>
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'descuentoPorcentual'">
+              <div
+                *ngIf="!habilitarDescuentoPorcentual(rowData);else mostrarDescuentoPorcentual">
+                {{(calcularDescuentoDeBackend(rowData, true) | number: '1.4-4') || '0.0000'}} %
+              </div>
+
+              <ng-template #mostrarDescuentoPorcentual>
+
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      currencyMask
+                      [options]="mascaraPorcentajes"
+                      [(ngModel)]="rowData.descuentoPorcentual"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData.descuentoPorcentual | number: '1.4-4') || '0.0000'}} % <i class="fas fa-edit icono"></i>
+                  </ng-template>
+                </p-cellEditor>
+
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'descuento'">
+              <div
+                *ngIf="!habilitarDescuento(rowData);else mostrarDescuento">
+
+                <span
+                  class="bold">Descuento:</span> {{(calcularDescuentoDeBackend(rowData)  | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+                <br>
+                <span
+                  class="bold">Promoción:</span>  {{(calcularDescuentoPromocionCreado(rowData)  | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+              </div>
+
+              <ng-template #mostrarDescuento>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      currencyMask
+                      [options]="mascaraDinero"
+                      [(ngModel)]="rowData.descuento"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData.descuento | currency: '':'$ ':'1.4-4') || '$ 0.0000'}} <i class="fas fa-edit icono"></i>
+                  </ng-template>
+                </p-cellEditor>
+
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'ingresarDescuentos'">
+              <button pButton type="button" class="btn btn-primary"
+                      [disabled]="!(rowData['cantidad'] > 0 && rowData['valorUnitario'].valorUnitario)"
+                      (click)="abrirModalListaDescuentosArticulo(rowData)">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+
+            <div *ngIf="col.field === 'descuentos'">
+              <div *ngIf="rowData['cantidad'] > 0 && rowData['valorUnitario'].valorUnitario; else mostrarDescuentos">
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      readonly
+                      (click)="abrirModalListaDescuentosArticulo(rowData)"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+                  </ng-template>
+                </p-cellEditor>
+              </div>
+
+              <ng-template #mostrarDescuentos>
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'descuentosPorcentuales'">
+              <div *ngIf="ingresoValoresRequeridos; else mostrarDescuentosPorcentuales">
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      [textMask]="mascaraPorcentajes"
+                      [(ngModel)]="rowData[col.field]"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData[col.field] | number: '1.4-4') || '0.0000'}} %
+                  </ng-template>
+                </p-cellEditor>
+              </div>
+
+              <ng-template #mostrarDescuentosPorcentuales>
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}} %
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'totalDescuentos'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'totalBruto'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'descuentoValor'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'descuentoPromocion'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'subtotal'">
+              <div
+                *ngIf="rowData['formaCalculo']?.formaCalculo !== 'Subtotal' || rowData['estatus'] === 'CR' || detalleCreado || pedidoGuardado; else ingresarSubtotal">
+                <span [class]="rowData.valido ? 'texto-calculado' : ''">
+                  {{(rowData.subtotal || rowData.subtotalNeto  | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+                </span>
+              </div>
+
+              <ng-template #ingresarSubtotal>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      currencyMask
+                      [options]="mascaraDinero"
+                      [(ngModel)]="rowData.subtotal">
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData.subtotal || rowData.subtotalNeto | currency: '':'$ ':'1.4-4') || '$ 0.0000'}} <i
+                    class="fas fa-edit icono"></i>
+                  </ng-template>
+                </p-cellEditor>
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'formaCalculo'">
+              <div *ngIf="rowData['estatus'] === 'CR' || detalleCreado || pedidoGuardado; else cambiarFormaCalculo">
+                {{rowData[col.field]?.formaCalculo || 'Valor unitario'}}
+              </div>
+
+              <ng-template #cambiarFormaCalculo>
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <p-dropdown
+                      [options]="formasCalculo"
+                      [(ngModel)]="rowData[col.field]"
+                      placeholder="Seleccione la forma de cálculo"
+                      optionLabel="formaCalculo"
+                      (onChange)="encerarValoresArticulo(rowData)">
+                    </p-dropdown>
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{rowData[col.field]?.formaCalculo}}
+                  </ng-template>
+                </p-cellEditor>
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'acciones'">
+              <button pButton type="button" class="btn btn-danger" [disabled]="pedidoGuardado"
+                      (click)="eliminarRegistro(rowData, valores.indexOf(rowData))">
+                <i class="fa fa-window-close"></i>
+              </button>
+            </div>
+
+            <div *ngIf="col.field === 'cantidadPedida'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'cantidadPendiente'">
+              {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+            </div>
+
+            <div *ngIf="col.field === 'cantidadDadaBaja'">
+              <div *ngIf="rowData['cantidadPendiente'] > 0; else mostrarCantidadDadaBaja">
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      readonly
+                      (click)="abrirModalCantidadDarBaja(rowData)"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+                  </ng-template>
+                </p-cellEditor>
+              </div>
+
+              <ng-template #mostrarCantidadDadaBaja>
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </ng-template>
+            </div>
+
+            <div *ngIf="col.field === 'cantidadEntregada'">
+              <div *ngIf="rowData['cantidadPendiente'] > 0; else mostrarCantidadEntregada">
+                <p-cellEditor>
+                  <ng-template pTemplate="input">
+                    <input
+                      type="text"
+                      readonly
+                      (click)="abrirModalCantidadEntregada(rowData)"
+                    >
+                  </ng-template>
+
+                  <ng-template pTemplate="output">
+                    {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+                  </ng-template>
+                </p-cellEditor>
+              </div>
+
+              <ng-template #mostrarCantidadEntregada>
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </ng-template>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

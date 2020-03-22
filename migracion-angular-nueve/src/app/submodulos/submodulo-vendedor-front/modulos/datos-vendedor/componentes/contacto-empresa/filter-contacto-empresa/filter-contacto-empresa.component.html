@@ -1,0 +1,15 @@
+<form>
+  <div class="col-sm-12">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" aria-describedby="busquedaArticuloHelp"
+             placeholder="Ingrese su búsqueda....." #busqueda >
+      <div>
+        <button type="btn" id="button-addon2" class="btn btn-outline-secondary" (click)="buscarContactoEmpresaPorNombreOIdentificacion(busqueda.value)"><i
+          class="fas fa-search"></i> BUSCAR</button>
+      </div>
+    </div>
+    <small id="busquedaArticuloHelp" class="form-text text-muted ayuda-span"> Busque un vendedor por nombres, apellido o identificación.
+    </small>
+  </div>
+</form>
+

@@ -1,0 +1,66 @@
+
+<form novalidate [formGroup]="nombrePermiso.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="nombrePermiso.mensajesValidacionNombre.nombreInput">{{
+                        nombrePermiso.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="nombrePermiso.mensajesValidacionNombre.nombreInput"
+                                [name]="nombrePermiso.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="nombrePermiso.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="nombrePermiso.mensajesValidacionNombre.tooltip"
+                                [title]="nombrePermiso.mensajesValidacionNombre.title"
+                                aria-describedby="nombrePermisoNombreAyuda"
+
+
+                        >
+                        <small id="nombrePermisoNombreAyuda" class="form-text text-muted">{{nombrePermiso.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="nombrePermiso.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of nombrePermiso.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombreModulo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreModulo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="nombrePermiso.mensajesValidacionNombreModulo.nombreInput">{{
+                        nombrePermiso.mensajesValidacionNombreModulo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                      <select [name]="nombrePermiso.mensajesValidacionNombreModulo.nombreInput"
+                              [id]="nombrePermiso.mensajesValidacionNombreModulo.nombreInput"
+                              [formControlName]="nombrePermiso.mensajesValidacionNombreModulo.nombreInput"
+                              [title]="nombrePermiso.mensajesValidacionNombreModulo.title"
+                              aria-describedby="nombrePermisoNombreModuloAyuda"
+                      >
+                        <option *ngFor="let modulo of modulos" [value]="modulo">
+                          <div >
+                            {{modulo}}
+                          </div>
+                        </option>
+                      </select>
+                        <small id="nombrePermisoNombreModuloAyuda" class="form-text text-muted">{{nombrePermiso.mensajesValidacionNombreModulo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="nombrePermiso.mensajesValidacionNombreModulo.mensajes.length>0">
+                            <div *ngFor="let mensaje of nombrePermiso.mensajesValidacionNombreModulo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

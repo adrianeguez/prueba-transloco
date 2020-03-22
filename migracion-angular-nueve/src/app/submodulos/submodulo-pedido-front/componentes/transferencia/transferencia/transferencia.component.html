@@ -1,0 +1,185 @@
+<div class="row">
+  <div class="col-sm-6">
+    <p *ngIf="!formulario.idBodegaDestino">
+      Seleccione una bodega de destino
+    </p>
+    <p *ngIf="formulario.idBodegaDestino">
+      <span class="bold">Bodega:</span> {{formulario.idBodegaDestino.codigo}} - {{formulario.idBodegaDestino.nombre}}
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <button
+
+      [class]="!formulario.idBodegaDestino ?
+              'btn btn-block btn-warning btn-sm' :
+              'btn btn-block btn-outline-secondary btn-sm'"
+      (click)="abrirModalSeleccionarBodega()"
+    >
+      Bodega destino <i class="fas fa-pen"></i>
+    </button>
+  </div>
+</div>
+
+<form novalidate
+      (ngSubmit)="emitirDatosTransferencia(formularioDatosTransferencia)"
+      #formularioDatosTransferencia="ngForm">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="numeroDocumentoGuiaRemision">Num. Doc. Guia remisión:</label>
+        <input id="numeroDocumentoGuiaRemision"
+               type="text"
+               class="form-control"
+               aria-describedby="ayudaNumeroDocumentoGuiaRemision"
+               name="numeroDocumentoGuiaRemision"
+               placeholder="Ej: 000231928379812..."
+        >
+
+      </div>
+      <small id="ayudaNumeroDocumentoGuiaRemision" class="form-text text-muted ayuda-span">
+        Ingrese el número de documento de guía de remisión.
+      </small>
+    </div>
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="fechaLlegada">Fecha de llegada:</label>
+        <div class="input-group">
+          <input class="form-control"
+                 id="fechaLlegada"
+                 type="date"
+                 readonly
+                 ngbDatepicker #fechaLlegadaToggle="ngbDatepicker"
+                 aria-describedby="ayudaFechaLlegada"
+                 (dateSelect)="setearFechaLlegada($event)"
+          >
+
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="fechaLlegadaToggle.toggle()">
+              <i class="fas fa-calendar-day"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <small id="ayudaFechaCaducidad" class="form-text text-muted ayuda-span">
+        Seleccione la fecha de llegada para la transferencia.
+      </small>
+    </div>
+
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <label for="observacion">Observación:</label>
+        <input id="observacion"
+               type="text"
+               class="form-control"
+               aria-describedby="ayudaObservacion"
+               name="observacion"
+               placeholder="Ej: No se encontro el  ..."
+        >
+      </div>
+      <small id="ayudaObservacion" class="form-text text-muted ayuda-span">
+        Ingrese una observación.
+      </small>
+    </div>
+
+  </div>
+
+  <button class="btn btn-block btn-info"
+          [disabled]="!formulario.fechaLlegada || !formulario.idBodegaDestino"
+  >
+    Aceptar
+  </button>
+</form>
+
+
+<!--<div class="row">-->
+<!--  <div class="col-sm-6">-->
+<!--    <div class="input-group-append">-->
+<!--      <div class="col-sm-11">-->
+<!--        Bodega de origen:-->
+<!--      </div>-->
+
+<!--      <div class="col-sm-1">-->
+<!--        <button class="btn btn-outline-secondary btn-sm" id="button-bodega-origen">-->
+<!--          <i class="fas fa-pen"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-sm-6">-->
+<!--    <div class="input-group-append">-->
+<!--      <div class="col-sm-11">-->
+<!--        Bodega de destino:-->
+<!--      </div>-->
+
+<!--      <div class="col-sm-1">-->
+<!--        <button class="btn btn-outline-secondary btn-sm" id="button-bodega-destino">-->
+<!--          <i class="fas fa-pen"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<br>-->
+
+<!--<div class="row">-->
+<!--  <div class="col-sm-4">-->
+<!--    <br>-->
+<!--    <div class="input-group-append">-->
+<!--      <div class="col-sm-11">-->
+<!--        Transportista:-->
+<!--      </div>-->
+
+<!--      <div class="col-sm-1">-->
+<!--        <button class="btn btn-outline-secondary btn-sm" id="button-transportista">-->
+<!--          <i class="fas fa-pen"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-sm-4">-->
+<!--    Fecha actual:-->
+<!--    <div class="input-group mb-3">-->
+<!--      <input class="form-control"-->
+<!--             type="date"-->
+<!--             readonly-->
+<!--             ngbDatepicker #fechaActualToggle="ngbDatepicker"-->
+<!--             aria-describedby="ayudaFechaFinalizacion"-->
+<!--             [value]="this.fechaActualAMostrar"-->
+<!--             disabled>-->
+
+<!--      <div class="input-group-append">-->
+<!--        <button class="btn btn-outline-secondary" disabled>-->
+<!--          <i class="fas fa-calendar-day"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="col-sm-4">-->
+<!--    Fecha llegada:-->
+<!--    <div class="input-group mb-3">-->
+<!--      <input class="form-control"-->
+<!--             type="date"-->
+<!--             readonly-->
+<!--             ngbDatepicker #fechaLlegadaToggle="ngbDatepicker"-->
+<!--             aria-describedby="ayudaFechaLlegada"-->
+<!--             (dateSelect)="detectarFecha($event)"-->
+<!--             #fechaLLegada>-->
+
+<!--      <div class="input-group-append">-->
+<!--        <button class="btn btn-outline-secondary" (click)="fechaLlegadaToggle.toggle()">-->
+<!--          <i class="fas fa-calendar-day"></i>-->
+<!--        </button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <small id="ayudaFechaLlegada" class="form-text text-muted ayuda-span">-->
+<!--      Seleccione la fecha de llegada-->
+<!--    </small>-->
+<!--  </div>-->
+<!--</div>-->

@@ -1,0 +1,24 @@
+<form novalidate (ngSubmit)="buscarCedulaRucOPasporte()">
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <div class="input-group mb-3">
+        <input id="buscar-cliente-proveedor"
+               class="form-control"
+               type="text"
+               name="cedulaRucPasaporte"
+               placeholder="Ingrese su búsqueda..."
+               [(ngModel)]="busqueda.cedulaRucPasaporte"
+        >
+        <div>
+          <button class="btn btn-outline-secondary" type="btn" (click)="buscarClienteOProveedorPorCedulaRucOPasaporte()">
+            <i class="fas fa-search"></i>BUSCAR</button>
+        </div>
+      </div>
+      <small id="ayuda-cliente-proveedor" class="form-text text-muted">Busque por cédula, RUC o pasaporte</small>
+    </div>
+    <div class="col-sm-3" *ngIf="esVenta">
+      <button class="btn btn-sm btn-block btn-info" (click)="abrirModalCrearInformacionTributaria()" >Crear</button>
+    </div>
+  </div>
+</form>
+

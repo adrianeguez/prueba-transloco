@@ -1,0 +1,164 @@
+<ng-container *transloco="let t; read: 'submoduloArticulos.moduloGrupo.grupoFormulario'">
+  <form novalidate [formGroup]="grupo.formGroup">
+    <fieldset class="col-md-12">
+      <div class="row">
+        <!--nombre-->
+        <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+          <div class="row">
+            <label class="col-sm-4 control-label" [for]="grupo.mensajesValidacionNombre.nombreInput">
+              {{
+                t('nombre.' + grupo.mensajesValidacionNombre.nombreInput)
+              }}
+            </label>
+            <div class="col-sm-8">
+              Titulo {{grupo.mensajesValidacionNombre.title}}
+              Tooltip {{grupo.mensajesValidacionNombre.tooltip}}
+              Ejemplo {{grupo.mensajesValidacionNombre.ejemplo}}
+              <input type="text"
+                     class="form-control form-control-sm"
+                     [id]="grupo.mensajesValidacionNombre.nombreInput"
+                     [name]="grupo.mensajesValidacionNombre.nombreInput"
+                     [formControlName]="grupo.mensajesValidacionNombre.nombreInput"
+                     [placeholder]="t('nombre.' + grupo.mensajesValidacionNombre.tooltip)"
+                     [title]="grupo.mensajesValidacionNombre.title"
+                     aria-describedby="grupoNombreAyuda"
+
+
+              >
+              <small id="grupoNombreAyuda"
+                     class="form-text text-muted">{{
+                t('nombre.' + grupo.mensajesValidacionNombre.title)
+                }}.
+              </small>
+            </div>
+            <div class="col-sm-12">
+              <ng-container *transloco="let m; read: 'formularios.comunes'">
+              <div class="animated fadeInUp alert alert-warning" role="alert"
+                   *ngIf="grupo.mensajesValidacionNombre.mensajes.length>0">
+                <div *ngFor="let mensaje of grupo.mensajesValidacionNombre.mensajes">
+                  {{
+                  m(
+                    mensaje,
+                    {
+                      nombre: t('nombre.nombre'),
+                      minLength: grupo.mensajesValidacionNombre.minlength.valor
+                    }
+                  )
+                  }}</div>
+              </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <!--descripcion-->
+        <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+          <div class="row">
+            <label class="col-sm-4 control-label" [for]="grupo.mensajesValidacionDescripcion.nombreInput">{{
+              grupo.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+            <div class="col-sm-8">
+              <input type="text"
+                     class="form-control form-control-sm"
+                     [id]="grupo.mensajesValidacionDescripcion.nombreInput"
+                     [name]="grupo.mensajesValidacionDescripcion.nombreInput"
+                     [formControlName]="grupo.mensajesValidacionDescripcion.nombreInput"
+                     [placeholder]="grupo.mensajesValidacionDescripcion.tooltip"
+                     [title]="grupo.mensajesValidacionDescripcion.title"
+                     aria-describedby="grupoDescripcionAyuda"
+
+
+              >
+              <small id="grupoDescripcionAyuda"
+                     class="form-text text-muted">{{grupo.mensajesValidacionDescripcion.title}}.
+              </small>
+            </div>
+            <div class="col-sm-12">
+
+              <div class="animated fadeInUp alert alert-warning" role="alert"
+                   *ngIf="grupo.mensajesValidacionDescripcion.mensajes.length>0">
+                <div *ngFor="let mensaje of grupo.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--empresaProductora-->
+        <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EmpresaProductora.hidden">
+          <div class="row">
+            <label class="col-sm-4 control-label" [for]="grupo.mensajesValidacionEmpresaProductora.nombreInput">{{
+              grupo.mensajesValidacionEmpresaProductora.nombreAPresentarse }}</label>
+            <div class="col-sm-8">
+              <input type="text"
+                     class="form-control form-control-sm"
+                     [id]="grupo.mensajesValidacionEmpresaProductora.nombreInput"
+                     [name]="grupo.mensajesValidacionEmpresaProductora.nombreInput"
+                     [formControlName]="grupo.mensajesValidacionEmpresaProductora.nombreInput"
+                     [placeholder]="grupo.mensajesValidacionEmpresaProductora.tooltip"
+                     [title]="grupo.mensajesValidacionEmpresaProductora.title"
+                     aria-describedby="grupoEmpresaProductoraAyuda"
+
+
+              >
+              <small id="grupoEmpresaProductoraAyuda"
+                     class="form-text text-muted">{{grupo.mensajesValidacionEmpresaProductora.title}}.
+              </small>
+            </div>
+            <div class="col-sm-12">
+
+              <div class="animated fadeInUp alert alert-warning" role="alert"
+                   *ngIf="grupo.mensajesValidacionEmpresaProductora.mensajes.length>0">
+                <div *ngFor="let mensaje of grupo.mensajesValidacionEmpresaProductora.mensajes">{{ mensaje }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--codigo-->
+        <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+          <div class="row">
+            <label class="col-sm-4 control-label" [for]="grupo.mensajesValidacionCodigo.nombreInput">{{
+              grupo.mensajesValidacionCodigo.nombreAPresentarse }}</label>
+            <div class="col-sm-8">
+              <input type="text"
+                     class="form-control form-control-sm"
+                     [id]="grupo.mensajesValidacionCodigo.nombreInput"
+                     [name]="grupo.mensajesValidacionCodigo.nombreInput"
+                     [formControlName]="grupo.mensajesValidacionCodigo.nombreInput"
+                     [placeholder]="grupo.mensajesValidacionCodigo.tooltip"
+                     [title]="grupo.mensajesValidacionCodigo.title"
+                     aria-describedby="grupoCodigoAyuda"
+
+
+              >
+              <small id="grupoCodigoAyuda" class="form-text text-muted">{{grupo.mensajesValidacionCodigo.title}}.
+              </small>
+            </div>
+            <div class="col-sm-12">
+              <ng-container *transloco="let m; read: 'formularios.comunes'">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="grupo.mensajesValidacionCodigo.mensajes.length>0">
+                  <div *ngFor="let mensaje of grupo.mensajesValidacionCodigo.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('grupo.nombre'),
+                        minLength: grupo.mensajesValidacionNombre.minlength.valor,
+                        maxLength: grupo.mensajesValidacionNombre.maxlength.valor,
+                        min: grupo.mensajesValidacionNombre.min.valor,
+                        max: grupo.mensajesValidacionNombre.max.valor,
+                        pattern: grupo.mensajesValidacionNombre.pattern.pattternMensaje
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </fieldset>
+  </form>
+</ng-container>

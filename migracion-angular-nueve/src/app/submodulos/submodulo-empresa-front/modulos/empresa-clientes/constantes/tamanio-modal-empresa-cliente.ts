@@ -1,0 +1,1 @@
+export const WIDTH_MODAL_EMPRESA_CLIENTE = '600px';

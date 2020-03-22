@@ -1,0 +1,32 @@
+<h1 class="text-primary" mat-dialog-title> <span class="bold">{{data.departamentoTrabajador?'EDITAR':'CREAR'}} TRABAJADOR DE DEPARTAMENTO </span> </h1>
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}}</p>
+    </div>
+    <div class="col-md-12">
+      <man-lab-esta-tipeando></man-lab-esta-tipeando>
+    </div>
+    <div class="col-md-12">
+      <ml-departamento-trabajador-formulario
+        (empezoATipear)="establecerFormularioInvalido()"
+        [configuracionDisabled]="configuracionDepartamentoTrabajador"
+        (departamentoTrabajadorValido)="validarFormulario($event)"
+        [idEmpresa]="data.idEmpresa"
+      ></ml-departamento-trabajador-formulario>
+    </div>
+    <div class="espacio"></div>
+  </div>
+
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearEditar()" class="btn btn-primary" [disabled]="!formularioValido">GUARDAR</button>
+    </div>
+    <div class="p-2">
+      <button   mat-button mat-dialog-close class="btn btn-outline-secondary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

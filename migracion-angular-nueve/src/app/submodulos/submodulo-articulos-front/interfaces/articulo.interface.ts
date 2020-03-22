@@ -1,0 +1,30 @@
+import { SubgrupoInterface } from './subgrupo.interface';
+import {CursoInterface} from '../../submodulo-certificados-cursos-frontend/modulos/curso/interfaces/curso.interface';
+export interface ArticuloInterface {
+  id?: number;
+  subgrupo?: SubgrupoInterface | number | string;
+  nombre?: string;
+  nombreCorto?: string;
+  descripcion?: string;
+  codigo?: number;
+  codigoAuxiliar?: number;
+  codigoBarras?: number;
+  peso?: number;
+  diasRotacion?: number;
+  maximo?: number;
+  minimo?: number;
+  minimoAlerta?: number | boolean;
+  maximoPerchas?: number;
+  minimoPerchas?: number;
+  minimoPerchasAlerta?: number | boolean;
+  ultimaFechaCompra?: Date | string;
+  habilitado?: number | boolean;
+  habilitadoStock?: number | boolean;
+  empresaProductora?: number;
+  esIncentivo?: number | boolean;
+  esServicio?: number | boolean;
+  tipoImpuesto?: any;
+  tarifa?: any;
+  unidadMedida?: any;
+  esCurso?: 1 | 0;
+}

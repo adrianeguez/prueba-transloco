@@ -1,0 +1,1737 @@
+{
+  "moduloPrincipal": {
+    "cabecera": {
+      "botonPerfil": "Perfil"
+    }
+  },
+  "formularios": {
+    "comunes": {
+      "requerido": "El campo \"{{nombre}}\" es requerido.",
+      "minLength": "El campo \"{{nombre}}\" debe terer más de {{minLength}} caracteres.",
+      "maxLength": "El campo \"{{nombre}}\" debe terer menos de {{maxLength}} caracteres.",
+      "min": "El campo \"{{nombre}}\" debe tener un valor minimo de {{min}}.",
+      "max": "El campo \"{{nombre}}\" debe tener un valor máximo de {{max}}.",
+      "ngbDate": "El campo  \"{{nombre}}\" no es válido. Formato incorrecto, formato: YYYY-MM-DD",
+      "pattern": "El campo  \"{{nombre}}\" no es válido. {{patternMensaje}}",
+      "correo": "El campo  \"{{nombre}}\" no parece un email.",
+      "valido": "Valido",
+      "cuidado": "Cuidado",
+      "autocompleteSinRegistros": "No hay registros"
+    }
+  },
+  "componentes": {
+  },
+  "generales": {
+    "sinRegistros": "No hay registros",
+    "idioma": "Cambiar idioma",
+    "botones": {
+      "activo": "ACTIVO",
+      "inactivo": "INACTIVO",
+      "nuevo": "NUEVO",
+      "editar": "EDITAR",
+      "buscar": "BUSCAR",
+      "aceptar": "ACEPTAR",
+      "cancelar": "CANCELAR",
+      "crear": "CREAR",
+      "asignar": "ASIGNAR",
+      "desasignar": "DESASIGNAR"
+    },
+    "titulos": {
+      "crearVacio": "CREAR",
+      "crear": "CREAR {{nombreModulo}}",
+      "editarVacio": "EDITAR",
+      "editar": "EDITAR {{nombreModulo}}",
+      "gestion": "Gestión de {{nombreModulos}}",
+      "gestionVacio": "Gestión",
+      "asignacion": "Asignación de {{nombreModulos}}",
+      "asignacionVacio": "Asignación"
+    },
+    "descripciones": {
+      "modal": "Llene los campos requeridos. ",
+      "gestion": "Gestione {{nombreModulos}}",
+      "asignacion": "Asigne {{nombreModulos}}",
+      "busqueda": "Ingrese su búsqueda",
+      "cliente": "Revisa {{nombreModulos}}"
+    },
+    "toasters": {
+      "toastExitoCrear": {
+        "title": "Success",
+        "body": "{{nombre}} created succesfully"
+      },
+      "toastExitoEditar": {
+        "title": "Success",
+        "body": "{{nombre}} edited succesfully"
+      },
+      "toastExitoEliminar": {
+        "title": "Success",
+        "body": "{{nombre}} deleted succesfully"
+      },
+      "toastErrorCrear": {
+        "title": "Error",
+        "body": "Error creating {{nombre}}"
+      },
+      "toastErrorEditar": {
+        "title": "Error",
+        "body": "Error uploading {{nombre}}"
+      },
+      "toastErrorEliminar": {
+        "title": "Error",
+        "body": "Error deleting {{nombre}}"
+      },
+      "toastExitoEstado": {
+        "title": "Success",
+        "body": "{{nombre}} state updated"
+      },
+      "toastErrorEstado": {
+        "title": "Error",
+        "body": "Error updating {{nombre}}"
+      },
+      "toastErrorConexionServidor": {
+        "title": "Error",
+        "body": "Failed conection {{nombre}}"
+      },
+      "toastErrorMostrar": {
+        "title": "Error",
+        "body": "Error displaying {{nombre}}"
+      },
+      "toastExitoReset": {
+        "title": "Success",
+        "body": "{{nombre}} was successfully restored"
+      },
+      "toastErrorCrearCampoRequerido": {
+        "title": "Error",
+        "body": "Error creating, maybe the field {{campo}} is already registered"
+      },
+      "toastErrorEditarCampoRequerido": {
+        "title": "Error",
+        "body": "Error updating, maybe the field {{campo}} is already registered"
+      },
+      "toastExitoEliminarVacio": {
+        "title": "Success",
+        "body": "Deleted succesfully"
+      },
+      "toastExitoCrearVacio": {
+        "title": "Success",
+        "body": "Created succesfully"
+      },
+      "toastExitoEditarVacio": {
+        "title": "Success",
+        "body": "Edited succesfully"
+      },
+      "toastErrorCrearVacio": {
+        "title": "Error",
+        "body": "Error creating"
+      },
+      "toastErrorEditarVacio": {
+        "title": "Error",
+        "body": "Error uploading"
+      },
+      "toastErrorEliminarVacio": {
+        "title": "Error",
+        "body": "Error deleting"
+      },
+      "toastExitoEstadoVacio": {
+        "title": "Success",
+        "body": "State updated"
+      },
+      "toastErrorEstadoVacio": {
+        "title": "Error",
+        "body": "Error updating"
+      },
+      "toastErrorConexionServidorVacio": {
+        "title": "Error",
+        "body": "Failed conection"
+      },
+      "toastErrorMostrarVacio": {
+        "title": "Error",
+        "body": "Error displaying registry"
+      },
+      "toastErrorReset": {
+        "title": "Error",
+        "body": "Reset error"
+      },
+      "ToastErrorTrayendoDatos": {
+        "title": "Error",
+        "body": "Error reading data"
+      },
+      "toastExitoCargarDatos": {
+        "title": "Success",
+        "body": "Successful loading data"
+      },
+      "toastErrorCargarDatos": {
+        "title": "Error",
+        "body": "Error loading data"
+      },
+      "toastExitoOrdenVacio": {
+        "title": "Success",
+        "body": "Order Edited succesfully"
+      },
+      "toastErrorOrdenVacio": {
+        "title": "Error",
+        "body": "Error edit order"
+      },
+      "toastExitoReverso": {
+        "title": "Success",
+        "body": "Pago cancelado"
+      },
+      "toastExitoPagar": {
+        "title": "Success",
+        "body": "Pago realizado"
+      },
+      "toastErrorPagar": {
+        "title": "Error",
+        "body": "Pago no realizado"
+      },
+      "toastExitoTarjeta": {
+        "title": "Success",
+        "body": "Tarjeta correcta, por favor verifica el pago"
+      },
+      "toastErrorServicio": {
+        "title": "Error",
+        "body": "El servicio ya fue añadido"
+      },
+      "toastErrorCargarArchivo": {
+        "title": "Error",
+        "body": "El archivo que desea cargar no coincide con el formato aceptado"
+      },
+      "toastErrorClienteStripe": {
+        "title": "Error",
+        "body": "Error loading client data"
+      }
+    },
+    "otros": {
+      "estadoFiltro": {
+        "opciones": {
+          "defaut": "Filter by state",
+          "activo": "Active",
+          "inactivo": "Inactive"
+        },
+        "ayuda": "Filtre por estado"
+      },
+      "sinRegistros": "No se encontraron registros",
+      "nombre": "{{nombre}}",
+      "opcionesSiNo": {
+        "si": "Yes",
+        "no": "No"
+      }
+    }
+  },
+  "modulosGenerales": {
+    "clienteModulo": {
+      "titulos": {
+        "pantalla": "Menú del Cliente",
+        "itemCurso": "Cursos"
+      },
+      "descripciones": {
+        "pantalla": "Escoge una de las siguientes opciones",
+        "itemCurso": "Visita nuestros cursos en línea"
+      },
+      "migasDePan": {
+        "inicio": "Menú del Cliente"
+      }
+    }
+  },
+  "submoduloFrontComun": {
+    "idiomas": {
+      "es": {
+        "nombre": "Español",
+        "codigo": "es"
+      },
+      "en": {
+        "nombre": "Ingles",
+        "codigo": "en"
+      }
+    }
+  },
+  "submoduloArticulos": {
+    "moduloGrupo": {
+      "grupoFormulario": {
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "EJ: Grasas",
+          "ayuda": "Ingrese el nombre del grupo",
+          "patternMensaje": "Ingrese solo letras espacios y numeros"
+        },
+        "grupo": {
+          "nombre": "Grupo *",
+          "ejemplo": "EJ: GRU-PO01",
+          "ayuda": "Ingrese el codigo del grupo",
+          "patternMensaje": "Ingrese solo letras espacios y numeros"
+        }
+      }
+    },
+    "articulo": {
+      "articuloFormulario": {
+        "toasterGeneral": "Valid item",
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "GRASA INDUSTRIAL EP 2",
+          "ayuda": "Ingrese el nombre del artículo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa un nombre valido"
+        },
+        "nombreCorto": {
+          "nombreCorto": "Nombre corto *",
+          "ejemplo": "INDUSTRIAL EP 2",
+          "ayuda": "Ingrese el nombre corto del artículo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa un nombre corto valido"
+        },
+        "descripcion": {
+          "descripcion": "Description",
+          "ejemplo": "This is a course item...",
+          "ayuda": "Enter the description for the item",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una descripcion valida"
+        },
+        "codigo": {
+          "codigo": "Código *",
+          "ejemplo": "C001",
+          "ayuda": "Ingrese el código del artículo",
+          "patternMensaje": "Ingresa solo letras y numeros",
+          "toaster": "Ingresa un código valido"
+        },
+        "codigoAuxiliar": {
+          "codigoAuxiliar": "Código auxiliar",
+          "ejemplo": "S009",
+          "ayuda": "Ingrese el código auxiliar del artículo",
+          "patternMensaje": "Ingresa solo letras y numeros",
+          "toaster": "Ingresa un código auxiliar valido"
+        },
+        "codigoBarras": {
+          "codigoBarras": "Código de barras *",
+          "ejemplo": "01235467",
+          "ayuda": "Ingrese el código de barras del artículo",
+          "patternMensaje": "Ingresa solo letras y numeros",
+          "toaster": "Ingresa un código de barras valido"
+        },
+        "peso": {
+          "peso": "Peso *",
+          "ejemplo": "10.3",
+          "ayuda": "Ingrese el peso del artículo",
+          "patternMensaje": "Ingresa solo numeros",
+          "toaster": "Ingresa un peso valido"
+        },
+        "empresaProductora": {
+          "empresaProductora": "Empresa productora *",
+          "ejemplo": "PetroEcuador",
+          "ayuda": "Ingrese la empresa productora del artículo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una empresa valida"
+        },
+        "habilitadoStock": {
+          "habilitadoStock": "Habilitado stock *",
+          "ejemplo": "Si",
+          "ayuda": "Is the stock available for this item?",
+          "patternMensaje": "Ingrese solo Si o no",
+          "toaster": "Ingresa un valor valido",
+          "opciones": {
+            "si": "YES",
+            "no": "NO"
+          }
+        },
+        "esServicio": {
+          "esServicio": "Es servicio *",
+          "ejemplo": "Si",
+          "ayuda": "Es el artículo un servicio?",
+          "patternMensaje": "Ingrese solo si o no",
+          "toaster": "Ingresa un valor valido",
+          "opciones": {
+            "si": "YES",
+            "no": "NO"
+          }
+        },
+        "unidadMedida": {
+          "unidadMedida": "Unidad medida *",
+          "ejemplo": "Kg",
+          "ayuda": "Ingrese la unidad de medida del artículo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una unidad de medida valida"
+        },
+        "esCurso": {
+          "esCurso": "Es curso",
+          "ejemplo": "Es el artículo curso",
+          "ayuda": "Indique si el artículo es curso",
+          "patternMensaje": "Ingrese solo si o no",
+          "toaster": "Ingresa un curso valido",
+          "opciones": {
+            "si": "SI",
+            "no": "NO"
+          }
+        },
+        "tipoImpuesto": {
+          "tipoImpuesto": "Tipo de impuesto *",
+          "ejemplo": "I.V.A",
+          "ayuda": "Ingrese el tipo de impuesto",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa un tipo de impuesto valido"
+        },
+        "tarifa": {
+          "tarifa": "Tarifa *",
+          "ejemplo": "12%",
+          "ayuda": "Ingrese la tarifa del articulo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una tarifa valida"
+        }
+      },
+      "componentes": {
+        "filterArticuloServicio": {
+          "descripciones": {
+            "busqueda": "Busque un artículo por nombre o código."
+          }
+        },
+        "listaArticuloServicio": {
+          "titulos": {
+            "titulo": "Lista de artículos"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "codigo": "Codigo",
+            "descripcion": "Descripción"
+          }
+        },
+        "mostrarArticulo": {
+          "titulos": {
+            "titulo": "Detalles del servicio"
+          },
+          "descripciones": {
+            "articulo": "Mire los detalles del servicio"
+          }
+        }
+      }
+    }
+  },
+  "submoduloCertificadosCuros": {
+    "moduloCurso": {
+      "fomularioBuscarEdificio": {
+        "edificio": {
+          "label": "Edificio",
+          "placeholder": "EJ: ROXOR",
+          "hint": "Busca un edificio por nombre"
+        }
+      },
+      "componentes": {
+        "edificioDetalle": {
+          "edificio": "Edificio",
+          "establecimiento": "Establecimientos",
+          "direccion": "Direccion",
+          "botonHorarios": "Ir a Horarios"
+        }
+      },
+      "modales": {
+        "mapaEdificios": {
+          "titulo": "Edificios Disponibles"
+        }
+      },
+      "rutas": {
+        "rutaGestionCurso": {
+          "titulos": {
+            "nombreModulo": "Curso",
+            "nombreModulos": "Cursos",
+            "irModulos": "Modulos",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Busque Cursos por nombre",
+            "menuInicio": "Escoje una de las opciones",
+            "seleccionarCurso": "Escoge y regístrate en uno de nuestros cursos",
+            "menuMisCursos": "Aquí puedes ver los cursos en los que estas registrado"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripción",
+            "duracion": "Duración",
+            "habilitado": "Estado",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "menu": "Menú Cursos",
+            "gestion": "Gestión de Cursos",
+            "menuInicio": "Menu Inicio Cursos",
+            "inicio": "Modulo Curso",
+            "menuMisCursos": "Menu Mis Cursos",
+            "seleccionarCurso": "Menu Seleccionar Curso"
+          }
+        },
+        "rutaSeleccionarCurso": {
+          "botones": {
+            "registrarse": "Registrarse"
+          },
+          "titulos": {
+            "nombreModulo": "Curso",
+            "nombreModulos": "Cursos",
+            "irModulos": "Modulos",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Busque Cursos por nombre",
+            "menuInicio": "Escoje una de las opciones",
+            "seleccionarCurso": "Escoge y regístrate en uno de nuestros cursos",
+            "menuMisCursos": "Aquí puedes ver los cursos en los que estas registrado"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripción",
+            "duracion": "Duración",
+            "valor": "Precio",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "menu": "Menú Cursos",
+            "gestion": "Gestión de Cursos",
+            "menuInicio": "Menu Inicio Cursos",
+            "inicio": "Modulo Curso",
+            "menuMisCursos": "Menu Mis Cursos",
+            "seleccionarCurso": "Menu Seleccionar Curso"
+          }
+        },
+        "rutaMisCursos": {
+          "titulos": {
+            "nombreModulo": "Curso",
+            "nombreModulos": "Cursos",
+            "irModulos": "Ir a Modulos",
+            "verEstablecimientos": "Ver Establecimientos",
+            "mapa": "Mapa Establecimientos",
+            "verCertificado": "Ver Certificado",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Busque Cursos por nombre",
+            "menuInicio": "Escoje una de las opciones",
+            "seleccionarCurso": "Escoge y regístrate en uno de nuestros cursos",
+            "menuMisCursos": "Aquí puedes ver los cursos en los que estas registrado"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripción",
+            "progreso": "Progreso",
+            "estado": "Estado",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "menu": "Menú Cursos",
+            "gestion": "Gestión de Cursos",
+            "menuInicio": "Menu Inicio Cursos",
+            "inicio": "Modulo Curso",
+            "menuMisCursos": "Menu Mis Cursos",
+            "seleccionarCurso": "Menu Seleccionar Curso"
+          }
+        }
+      },
+      "cursoFormulario": {
+        "toasterGeneral": "valido",
+        "descripcion": {
+          "descripcion": "Descripcion *",
+          "ejemplo": "EJ: Curso divertido",
+          "ayuda": "Ingresa la descripcion del curso",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una descripcion"
+        },
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "EJ: Primeros pasos",
+          "ayuda": "Ingresa el nombre del curso",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una nombre"
+        },
+        "imagen": {
+          "imagen": "Imagen *",
+          "ejemplo": "",
+          "ayuda": "Sube una imagen",
+          "toaster": "Sube una imagen"
+        },
+        "duracion": {
+          "duracion": "Duracion *",
+          "ejemplo": "EJ: 04:00:10",
+          "ayuda": "Duracion del curso",
+          "toaster": ""
+        },
+        "articulo": {
+          "articulo": "Artículo *",
+          "ejemplo": "Curso DIP",
+          "ayuda": "Selecciona el curso",
+          "patternMensaje": "Ingrese solo artículos validos",
+          "toaster": "Ingrese un artículo valido"
+        }
+      },
+      "idiomaCursoFormulario": {
+        "toasterGeneral": "valido",
+        "opciones": {
+          "en": "Ingles",
+          "es": "Español"
+        },
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "EJ: English",
+          "ayuda": "Select course language",
+          "toaster": "Select a languahe"
+        }
+      }
+    },
+    "moduloCursoModulo": {
+      "rutas": {
+        "rutaGestionModuloCurso": {
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripcion",
+            "tiempo": "Tiempo",
+            "habilitado": "Estado",
+            "acciones": "Acciones"
+          },
+          "botones": {
+            "editarSelecciona": "Edit",
+            "opcionesBatch": "Bulk actions",
+            "gestionOrden": "Gestionar Orden",
+            "gestionTemas": "Gestionar Temas",
+            "gestionPruebas": "Gestionar Pruebas",
+            "caratula": "Caratula"
+          },
+          "migasDePan": {
+            "segmentoRutaInicial": "Modulos Curso",
+            "segmentoRutaGestion": "Gestion Modulos Curso",
+            "segmentoRutaMenu": "Menu Modulos Curso"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Gestiona los modulos del curso",
+            "busqueda": "Busque modulos por nombre"
+          },
+          "titulos": {
+            "nombreModulo": "Modulo",
+            "nombreModulos": "MODULOS",
+            "ayuda": " ",
+            "modalCaratulaTitulo": "CARATULA",
+            "modalGestionOrden": "GESTIONAR ORDEN",
+            "ordenActual": "Orden Actual",
+            "ordenNuevo": "Nuevo Orden",
+            "caratulaActual": "Caratula Actual"
+          }
+        },
+        "rutaClienteModuloCurso": {
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripcion",
+            "imagen": "Imagen",
+            "estado": "Estado",
+            "fechaInicio": "Fecha Inicio",
+            "fechaFinalizacion": "Fecha Finalizacion",
+            "progresoDiapositivas": "Progreso Diapositivas",
+            "progresoPruebas": "Progreso Pruebas",
+            "diapositivaActual": "Diapositiva Actual",
+            "id": "Acciones"
+          },
+          "botones": {
+            "verTemas": "Ver Temas",
+            "revisarModulo": "Revisar Módulo",
+            "continuarModulo": "Continuar Módulo"
+          },
+          "migasDePan": {
+            "segmentoRutaMenu": "Menu Modulos Curso"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Menu Modulos",
+            "busqueda": "Busque modulos por nombre"
+          },
+          "titulos": {
+            "nombreModulo": "Modulo curso",
+            "nombreModulos": "Modulos cursos",
+            "ayuda": " "
+          }
+        }
+      },
+      "error": {
+        "validacionDuplicado": "You can not have multiple items."
+      },
+      "editarCaratulaFormulario": {
+        "label": "Caratula del modulo",
+        "hint": "Por favor una caratula",
+        "placeholder": "Agrega la caratula",
+        "errorMessages": {
+          "fileExtension": "Por favor seleccione archivos png, jpg or jpeg",
+          "required": "Archivo mandatorio",
+          "fileMaxSize": "El tamaño del archivo es mayor que 500 kilobytes",
+          "tableHeaders": {
+            "actions": "Operaciones",
+            "description": "Archivos entrantes"
+          }
+        }
+      },
+      "moduloCursoFormulario": {
+        "toasterGeneral": "valido",
+        "descripcion": {
+          "descripcion": "Descripcion *",
+          "ejemplo": "EJ: Modulo divertido",
+          "ayuda": "Ingresa la descripcion del curso",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una descripcion"
+        },
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "EJ: First Steps",
+          "ayuda": "Ingresa el nombre del modulo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una nombre"
+        },
+        "anteriorModulo": {
+          "anteriorModulo": "Anterior modulo *",
+          "ejemplo": "EJ: Zero Steps",
+          "ayuda": "Ingresa el nombre del anterior modulo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una nombre"
+        },
+        "siguienteModulo": {
+          "siguienteModulo": "Siguiente modulo *",
+          "ejemplo": "EJ: Second Steps",
+          "ayuda": "Ingresa el nombre del siguiente modulo",
+          "patternMensaje": "Ingresa solo letras, espacios y numeros",
+          "toaster": "Ingresa una nombre"
+        }
+      }
+    },
+    "diapositiva": {
+      "rutas": {
+        "rutaGestionDiapositiva": {
+          "tablas": {
+            "titulo": "Titulo",
+            "duracion": "Duracion",
+            "estado": "Estado",
+            "pruebas": "Prueba",
+            "id": "Acciones"
+          },
+          "botones": {
+            "gestionContenido": "Gestionar Contenido",
+            "gestionPreguntas": "Gestionar Preguntas",
+            "gestionOrden": "Gestionar Orden",
+            "asignarPrueba": "Asignar Prueba",
+            "guardarAsignacion": "Guardar Asignacion de prueba"
+          },
+          "migasDePan": {
+            "segmentoRutaInicial": "Modulo Diapositiva",
+            "segmentoRutaGestion": "Gestion Diapositivas",
+            "segmentoRutaMenu": "Menu Diapositivas"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Administra tus diapositivas",
+            "busqueda": "Busque diapositivas por nombre"
+          },
+          "titulos": {
+            "tituloPantalla": "Gestion de Diapositivas ",
+            "nombreModulo": "DIAPOSITIVA",
+            "nombreModulos": "Diapositivas",
+            "ayuda": " ",
+            "modalGestionOrden": "GESTIONAR ORDEN",
+            "modalAsignarPrueba": "ASIGNAR PRUEBA",
+            "descripcionPrueba": "Asigne las pruebas a la diapositiva: ",
+            "ordenActual": "Orden Actual",
+            "ordenNuevo": "Nuevo Orden",
+            "pruebasDisponibles": "Pruebas Disponibles",
+            "pruebasAsignadas": "Pruebas Asignadas"
+          }
+        },
+        "rutaClienteDiapositiva": {
+          "tablas": {
+          },
+          "botones": {
+            "hacerPrueba": "Hacer prueba"
+          },
+          "migasDePan": {
+            "segmentoRutaMenu": "Menu Diapositivas"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Menu Diapositivas",
+            "busqueda": ""
+          },
+          "titulos": {
+            "pruebaDiapositiva": "PRUEBA",
+            "nombreModulo": "Diapositivas",
+            "nombreModulos": "Diapositivas Modulo",
+            "ayuda": " "
+          }
+        }
+      },
+      "diapositivaFormulario": {
+        "toasterGeneral": "Diapositiva válida",
+        "toasterArchivo": "Espere a que la carga de su archivo finalice",
+        "toasterSelectDiapositiva": "'Diapositiva siguiente' y 'Diapositiva anterior' deben ser diferentes",
+        "titulo": {
+          "titulo": "Titulo *",
+          "ejemplo": "Test de aliento",
+          "ayuda": "Ingrese el título de la diapositiva",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Escriba un titulo"
+        },
+        "notas": {
+          "notas": "Notas",
+          "ejemplo": "No olvides tomar el EJamen final",
+          "ayuda": "Ingrese notas para la diapositiva",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Escriba una nota"
+        },
+        "segundoEmpieza": {
+          "segundoEmpieza": "Segundo empieza",
+          "ejemplo": "00:00:03",
+          "ayuda": "¿ A qué tiempo comienza?",
+          "patternMensaje": "Ingrese solo tiempo valido",
+          "toaster": "Ingrese el tiempo completo"
+        },
+        "duracion": {
+          "duracion": "Tiempo de duración",
+          "ejemplo": "00:01:03",
+          "ayuda": "¿Cuánto tiempo dura?",
+          "patternMensaje": "Ingrese solo tiempo valido",
+          "toaster": "Ingrese el tiempo de duración"
+        },
+        "siguienteDiapositiva": {
+          "siguienteDiapositiva": "Diapositiva siguiente",
+          "ejemplo": "¿Por qué estás aquí?",
+          "ayuda": "Seleccione la diapositiva que empieza después de está",
+          "patternMensaje": "Ingrese solo diapositivas válidas",
+          "toaster": "Ingrese una diapositiva válida"
+        },
+        "anteriorDiapositiva": {
+          "anteriorDiapositiva": "Diapositiva anterior",
+          "ejemplo": "¿Por qué estás aquí?",
+          "ayuda": "Seleccione la diapositiva que empieza después de está",
+          "patternMensaje": "Ingrese solo diapositivas válidas",
+          "toaster": "Ingrese una diapositiva válida"
+        }
+      }
+    },
+    "contenido": {
+      "rutas": {
+        "rutaGestionContenido": {
+          "botones": {
+            "archivoImagen": "ARCHIVO IMAGEN",
+            "subirImagen": "Subir una imagen",
+            "imagen1": "Archivo de imagen 1",
+            "imagen2": "Archivo de imagen 2"
+          },
+          "titulos": {
+            "nombreModulo": "Contenido",
+            "nombreModulos": "Contenidos",
+            "ayuda": " ",
+            "imagenTitulo": "ACTUALIZA LA IMAGEN:",
+            "imagenEnUso": "Imagen en uso",
+            "imagenNuevo": "Nueva imagen"
+          },
+          "descripciones": {
+            "busqueda": "Busque contenido por su texto",
+            "imagenSeleccionada": "Imagen seleccionada:",
+            "seleccionaImagen": "Selecciona una imagen",
+            "imagenNoSubida": "Aún no has subido una imagen todavía",
+            "imagenNoSeleccionada": "Aún no has seleccionado una imagen."
+          },
+          "tablas": {
+            "texto": "Texto",
+            "urlImagen1": "Imagen 1",
+            "urlImagen2": "Imagen 2",
+            "link": "Enlace",
+            "estado": "Estado",
+            "acciones": "Acciones"
+          }
+        }
+      },
+      "migasDePan": {
+        "gestion": "Gestión de Contenido",
+        "inicio": "Módulo de Contenido"
+      },
+      "contenidoFormulario": {
+        "toasterGeneral": "Contenido válido",
+        "texto": {
+          "texto": "Texto *",
+          "ejemplo": "Las señales de tránsito aparecieron...",
+          "ayuda": "Ingrese el texto que será el contenido",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Ingrese solo texto válido"
+        },
+        "link": {
+          "link": "Link",
+          "ejemplo": "google.com",
+          "ayuda": "Ingrese un link relacionado con el contenido",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Ingrese un link válido"
+        }
+      }
+    },
+    "tema": {
+      "rutas": {
+        "rutaGestionTema": {
+          "botones": {
+            "archivoAudio": "Archivo de audio",
+            "irDiapositivas": "Diapositivas",
+            "subirAudio": "Sube un archivo de audio"
+          },
+          "titulos": {
+            "nombreModulo": "Tema",
+            "nombreModulos": "Temas",
+            "ayuda": " ",
+            "audioTitulo": "ACTUALIZAR AUDIO:",
+            "audioEnUso": "Archivo de audio en uso",
+            "audioNuevo": "Nuevo archivo de audio"
+          },
+          "descripciones": {
+            "busqueda": "Busque temas por nombre o descripción",
+            "audioSeleccionado": "Audio seleccionado",
+            "audioNoSubido": "Todavía no has subido un archivo de audio.",
+            "audioNoSeleccionado": "Todavía no has seleccionado un archivo de audio."
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "descripcion": "Descripción",
+            "estado": "Estado",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "gestion": "Gestión de Tema",
+            "menu": "Menú Tema",
+            "inicio": "Módulo Tema"
+          }
+        },
+        "rutaMenuTema": {
+          "botones": {
+          },
+          "titulos": {
+            "nombreModulo": "Tema",
+            "nombreModulos": "Temas",
+            "ayuda": "Asegúrese de revisar todo el contenido y las páginas de cada módulo."
+          },
+          "descripciones": {
+            "menuTema": "Selecciona un tema para comenzar"
+          },
+          "migasDePan": {
+            "gestion": "Gestión de Temas",
+            "menu": "Menu de Temas",
+            "inicio": "Modulo de Temas"
+          }
+        }
+      },
+      "temaFormulario": {
+        "toasterGeneral": "Tema válido",
+        "toasterArchivo": "Espere a que la carga de su archivo finalice",
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "¿Por qué estas aquí?",
+          "ayuda": "Ingrese el nombre del tema",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Ingrese un nombre"
+        },
+        "descripcion": {
+          "descripcion": "Descripción *",
+          "ejemplo": "Este tema se trata de...",
+          "ayuda": "Ingrese una descripción para el tema",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Ingrese una descripción"
+        },
+        "urlAudio": {
+          "urlAudio": "Archivo de audio",
+          "ejemplo": "señales.mp3",
+          "ayuda": "Escoja un archivo de audio",
+          "patternMensaje": "Ingrese solo archivos mp3",
+          "toaster": "Seleccione un archivo"
+        }
+      }
+    },
+    "pruebaModulo": {
+      "componentes": {
+        "testPretestComponente": {
+          "botones": {
+            "intentaDeNuevo": "Intenta de nuevo",
+            "regresar": "Regresa a {{nombre}}",
+            "subirPrueba": "Terminar",
+            "diapositivas": "Diapositivas",
+            "modulos": "Modulos"
+          },
+          "descripciones": {
+            "descripcionPrueba": "Por favor responde las preguntas. ",
+            "tiempoRestante": "Tiempo restante:"
+          },
+          "mensajes": {
+            "mensajePruebaHecha": "Esta prueba ya fue enviada",
+            "mensajePretest": "(No te preocupes es un Pretest)",
+            "mensajePuntaje": "Puntaje: {{puntaje}}/100"
+          }
+        }
+      },
+      "rutas": {
+        "rutaGestionPrueba": {
+          "botones": {
+            "irPreguntas": "Asignación de preguntas"
+          },
+          "titulos": {
+            "nombreModulo": "Prueba",
+            "nombreModulos": "Pruebas",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Busque pruebas por nombre"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "tipo": "Tipo",
+            "tiempoMaximo": "Tiempo máximo",
+            "numeroIntentos": "Intentos",
+            "estado": "Estado",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "gestion": "Gestión Prueba",
+            "menu": "Pages Menu",
+            "inicio": "Modulo Prueba",
+            "prueba": "Prueba"
+          }
+        }
+      },
+      "pruebaFormulario": {
+        "toasterGeneral": "Cuestionario valido",
+        "nombre": {
+          "nombre": "Nombre *",
+          "ejemplo": "Prueba del Modulo 1",
+          "ayuda": "Ingrese el nombre del cuestionario",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Escriba un nombre"
+        },
+        "tipo": {
+          "tipo": "Tipo *",
+          "opciones": {
+            "test": "Test",
+            "pretest": "Pretest"
+          },
+          "ayuda": "Seleccione el tipo de cuestionario",
+          "patternMensaje": "Seleccione una opción",
+          "toaster": "Seleccione una opción válida"
+        },
+        "tiempoMaximo": {
+          "tiempoMaximo": "Tiempo máximo",
+          "ejemplo": "01:00:00",
+          "ayuda": "Ingrese el tiempo máximo del cuestionario",
+          "patternMensaje": "El formato del tiempo es: HH:MM:SS",
+          "toaster": "Ingrese una duración de tiempo"
+        },
+        "numeroIntentos": {
+          "numeroIntentos": "Número de intentos",
+          "ejemplo": "3",
+          "ayuda": "Ingrese el número de intentos del cuestionario",
+          "toaster": "Ingrese solo números",
+          "patternMensaje": "Ingrese solo números"
+        }
+      }
+    },
+    "opcionModulo": {
+      "migasDePan": {
+        "segmentoRutaInicial": "Modulo Opcion",
+        "segmentoRutaGestion": "Gestion Opcion"
+      },
+      "rutas": {
+        "botones": {
+          "si": "SI",
+          "no": "NO"
+        },
+        "rutaGestionOpcion": {
+          "descripciones": {
+            "parrafoTitulo": "Administra tus Opciones",
+            "busqueda": "Busque opciones por nombre"
+          },
+          "titulos": {
+            "tituloPantalla": "Gestion de Opciones ",
+            "nombreModulo": "Opción",
+            "nombreModulos": "Opciones",
+            "ayuda": " "
+          },
+          "tablas": {
+            "descripcion": "Descripcion",
+            "esRespuesta": "Es la respuesta",
+            "habilitado": "Estado",
+            "id": "Acciones"
+          }
+        }
+      },
+      "opcionFormulario": {
+        "toasterGeneral": "Opción válida",
+        "descripcion": {
+          "descripcion": "Descripción *",
+          "ejemplo": "Verdadero",
+          "ayuda": "Ingrese la descripción de la opción",
+          "toaster": "Escriba una descripción"
+        },
+        "Descripcion": {
+          "nombre": "Description",
+          "patternMensaje": "A description is required"
+        },
+        "esRespuesta": {
+          "esRespuesta": "Es la respuesta *",
+          "opciones": {
+            "YES": "SI",
+            "NO": "NO"
+          },
+          "ayuda": "¿Es la respuesta correcta?",
+          "toaster": "Seleccione una opción válida"
+        },
+        "EsRespuesta": {
+          "nombre": "Is the answer",
+          "patternMensaje": "Select one option"
+        }
+      },
+      "componentes": {
+        "mostrarOpciones": {
+          "titulos": {
+            "titulo": "Opciones"
+          },
+          "descripciones": {
+            "modal": "{pregunta}"
+          },
+          "tablas": {
+            "descripcion": "Descripción",
+            "esRespuesta": "Es la respuesta",
+            "#": "#"
+          }
+        }
+      }
+    },
+    "pregunta": {
+      "componentes": {
+        "filterComponente": {
+          "descripciones": {
+            "busqueda": "Busque preguntas por su descripción"
+          },
+          "listaComponente": {
+            "descripciones": {
+              "lista": "Lista de Preguntas"
+            }
+          }
+        }
+      },
+      "rutas": {
+        "rutaGestionPregunta": {
+          "botones": {
+            "irOpciones": "Gestión de Opciones",
+            "verOpciones": "Ver Opciones"
+          },
+          "titulos": {
+            "nombreModulo": "Pregunta",
+            "nombreModulos": "Preguntas",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Busca preguntas por su descripción",
+            "modalAsignacion": "Asigne preguntas a su prueba"
+          },
+          "tablas": {
+            "descripcion": "Descripción",
+            "valor": "Valor",
+            "tratarDeNuevo": "Intentar de Nuevo",
+            "estado": "Estado",
+            "acciones": "Acciones"
+          },
+          "migasDePan": {
+            "gestion": "Gestión de Preguntas",
+            "asignacion": "Asignación de Preguntas",
+            "inicio": "Módulo de Preguntas",
+            "pregunta": "Pregunta"
+          }
+        }
+      },
+      "preguntaFormulario": {
+        "toasterGeneral": "Pregunta válida",
+        "toasterArchivo": "Espere a que la carga de su archivo termine",
+        "preguntas": "Error añadiendo preguntas, tal vez algunas ya se añadieron",
+        "descripcion": {
+          "descripcion": "Descripción *",
+          "ejemplo": "EJ: ¿Qué son las señales de tránsito?",
+          "ayuda": "Ingrese la pregunta",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Escriba una pregunta"
+        },
+        "valor": {
+          "valor": "Valor",
+          "ejemplo": "1",
+          "ayuda": "Ingrese el valor de la pregunta",
+          "patternMensaje": "Ingrese solo números",
+          "toaster": "Escriba un número"
+        },
+        "tratarDeNuevo": {
+          "tratarDeNuevo": "Tratar de nuevo *",
+          "ejemplo": "Si",
+          "ayuda": "Habilite el tratar de nuevo",
+          "patternMensaje": "Enter only yes or no",
+          "toaster": "Ingrese si o no",
+          "opciones": {
+            "si": "SI",
+            "no": "NO"
+          }
+        }
+      }
+    },
+    "pedido": {
+      "pedidoFormulario": {
+        "toasterGeneral": "valid",
+        "curso": {
+          "curso": "Curso* :",
+          "ejemplo": "DIP",
+          "ayuda": "El curso que está comprando"
+        },
+        "valor": {
+          "valor": "Total",
+          "ejemplo": "$33.50",
+          "ayuda": "El valor a pagar"
+        },
+        "horarioServicio": {
+          "horarioServicio": "Horario* :",
+          "ejemplo": "Jueves de 5pm a 7pm",
+          "ayuda": "Horario seleccionado"
+        },
+        "nombres": {
+          "nombres": "Nombre",
+          "ejemplo": "Rose",
+          "ayuda": "Nombre del titular",
+          "patternMensaje": "Ingrese solo letras espacios"
+        },
+        "apellidos": {
+          "apellidos": "Apellido",
+          "ejemplo": "Dickens",
+          "ayuda": "Apellido del titular",
+          "patternMensaje": "Ingrese solo letras espacios"
+        }
+      },
+      "rutas": {
+        "rutaGestionpedidoCurso": {
+          "titulos": {
+            "tituloPantalla": "Pedidos",
+            "nombreModulo": "Pedido",
+            "nombreModulos": "Pedidos",
+            "ayuda": "Vea los pedidos de su servicio"
+          },
+          "descripciones": {
+            "busqueda": "Busque un pedido por el nombre del curso"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "fecha": "Fecha",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "migasDePan": {
+            "gestionPedidoCurso": "Pedidos",
+            "clientePedidoCurso": "Pedidos"
+          },
+          "botones": {
+            "verMas": "Detalles"
+          }
+        }
+      },
+      "componentes": {
+        "crearEditarPedido": {
+          "titulos": {
+            "verPedido": "Detalles del pedido",
+            "hacerPedido": "Crear pedido"
+          },
+          "descripciones": {
+            "descripcionDetalle": "Curso, horario y detalles del estudiante",
+            "descripcionPedido": "Llene los campos necesarios"
+          },
+          "botones": {
+            "pagar": "Pagar"
+          }
+        }
+      }
+    },
+    "stripeModulo": {
+      "componentes": {
+        "pagarStripe": {
+          "toasterGeneral": "Tarjeta válida",
+          "titulos": {
+            "titulo": "Pague con tarjeta",
+            "usarGuardada": "Utilice una tarjeta guardada",
+            "ingresarTarjeta": "Ingrese una tarjeta"
+          },
+          "descripciones": {
+            "guardarTarjeta": "Guardar tarjeta"
+          }
+        }
+      }
+    }
+  },
+  "submoduloMenu": {
+    "horario": {
+      "horarioFormulario": {
+        "toasterGeneral": "Horario valido",
+        "descripcion": {
+          "descripcion": "Descripción*:",
+          "ejemplo": "EJ: Todos los dias",
+          "ayuda": "Ingresa la descripción"
+        },
+        "empresa": {
+          "empresa": "Empresa*:",
+          "ejemplo": "EJ: Alitas",
+          "ayuda": "Selecciona un tipo de horario"
+        },
+        "horaInicia": {
+          "horaInicia": "Hora Inicio*:",
+          "ayuda": "Ingresa una hora en formato AM/PM "
+        },
+        "horaFinaliza": {
+          "horaFinaliza": "Hora Fin*:",
+          "ayuda": "Ingresa una hora en formato AM/PM ",
+          "toaster": "Seleccione una hora en un rango permitido (hora de inicio no puede ser mayor que hora de finalización)"
+        },
+        "fechaInicia": {
+          "fechaInicia": "Fecha Inicio:",
+          "ayuda": "Escoja una fecha"
+        },
+        "fechaFinaliza": {
+          "fechaFinaliza": "Fecha Fin:",
+          "ayuda": "Escoja una fecha",
+          "toaster": "Seleccione una fecha en un rango permitido (fecha de inicio no puede ser mayor que fecha de finalización)"
+        },
+        "lunes": {
+          "lunes": "Lunes",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "martes": {
+          "martes": "Martes",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "miercoles": {
+          "miercoles": "Miercoles",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "jueves": {
+          "jueves": "Jueves",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "viernes": {
+          "viernes": "Viernes",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "sabado": {
+          "sabado": "Sabado",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "domingo": {
+          "domingo": "Domingo",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "tipo": {
+          "tipo": "Tipo*:",
+          "ayuda": "Seleccione un tipo de horario",
+          "opciones": {
+            "d": "Dia",
+            "f": "Fecha Hora"
+          }
+        }
+      }
+    }
+  },
+  "submoduloEmpresa": {
+    "moduloContactoHorarioServicio": {
+      "rutas": {
+        "rutaGestionContactoHorarioServicio": {
+          "titulos": {
+            "tituloPantalla": "Asignación de contactos",
+            "nombreModulo": "Contactos",
+            "nombreModulos": "Contactos",
+            "ayuda": ""
+          },
+          "descripciones": {
+            "busqueda": "Busque un contacto por apellidos o nombres"
+          },
+          "tablas": {
+            "nombres": "Nombres",
+            "apellidos": "Apellidos",
+            "identificacionPais": "Identificación",
+            "tipoCargo": "Cargo",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "migasDePan": {
+            "contactoHorarioServicio": "Asignación de contactos"
+          },
+          "botones": {
+            "desasignar": "Desasignar contacto",
+            "irDatosContacto": "Datos de contacto"
+          }
+        }
+      }
+    },
+    "moduloHorarioServicio": {
+      "rutas": {
+        "rutaGestionHorarioServicio": {
+          "titulos": {
+            "tituloPantalla": "Horarios",
+            "nombreModulo": "Horario",
+            "nombreModulos": "Horarios",
+            "ayuda": "Cree horarios de atencion para su servicio"
+          },
+          "descripciones": {
+            "busqueda": "Busque un horario por su nombre"
+          },
+          "tablas": {
+            "descripcion": "Descripcion",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "migasDePan": {
+            "horarioServicio": "Horarios"
+          },
+          "botones": {
+            "editar": "Editar",
+            "irContactoEmpresa": "Gestion de Contactos"
+          }
+        },
+        "rutaHorarioServicioCurso": {
+          "titulos": {
+            "tituloPantalla": "Horarios del establecimiento",
+            "nombreModulo": "Horario del establecimiento",
+            "nombreModulos": "Horarios del establecimiento",
+            "ayuda": "Busque horarios para tomar el examen"
+          },
+          "descripciones": {
+            "busqueda": "Busque un horario por su nombre"
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "acciones": "Acciones",
+            "horario": "Horario"
+          },
+          "migasDePan": {
+            "menu": "Menú Cursos",
+            "menuInicio": "Menu Inicio Cursos",
+            "inicio": "Modulo Curso",
+            "menuMisCursos": "Menu Mis Cursos",
+            "seleccionarCurso": "Menu Seleccionar Curso",
+            "establecimientosCurso": "Establecimientos del curso",
+            "horarioEstablecimientoCurso": "Horarios del Establecimiento"
+          },
+          "botones": {
+            "buy": "Comprar"
+          }
+        }
+      }
+    },
+    "moduloServicioEstablecimiento": {
+      "rutas": {
+        "rutaGestionServicioEstablecimiento": {
+          "titulos": {
+            "tituloPantalla": "Servicio Establecimiento",
+            "nombreModulo": "Servicio Establecimiento",
+            "nombreModulos": "Servicios Establecimiento",
+            "ayuda": "Asigne servicios a su establecimiento"
+          },
+          "descripciones": {
+            "busqueda": "Busque un servicio por su nombre o nombre corto"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "nombreCorto": "Nombre corto",
+            "precio": "Precio",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "migasDePan": {
+            "gestionServicio": "Servicio por Establecimiento"
+          },
+          "botones": {
+            "verMas": "Detalles",
+            "precio": "Precio",
+            "irGestionHorarios": "Gestión de Horarios",
+            "irGestionPedidos": "Gestión de Pedidos"
+          }
+        },
+        "rutaEstablecimientosCurso": {
+          "titulos": {
+            "tituloPantalla": "Establecimiento",
+            "nombreModulo": "Establecimiento",
+            "nombreModulos": "Establecimientos",
+            "ayuda": "Busque establecimientos para tomar el examen"
+          },
+          "descripciones": {
+            "busqueda": "Busque un establecimiento por su nombre"
+          },
+          "tablas": {
+            "nombre": "Establecimiento",
+            "acciones": "Acciones",
+            "direccion": "Dirección"
+          },
+          "migasDePan": {
+            "menu": "Menú Cursos",
+            "menuInicio": "Menu Inicio Cursos",
+            "inicio": "Modulo Curso",
+            "menuMisCursos": "Menu Mis Cursos",
+            "seleccionarCurso": "Menu Seleccionar Curso",
+            "establecimientosCurso": "Establecimientos del curso"
+          },
+          "botones": {
+            "horario": "Horarios disponibles"
+          }
+        }
+      }
+    },
+    "moduloContactoEmpresa": {
+      "rutas": {
+        "rutaInicioContactoEmpresa": {
+          "migasDePan": {
+            "segmentoRutaInicio": "Módulo Contacto Empresa"
+          }
+        },
+        "rutaGestionContactoEmpresa": {
+          "titulos": {
+            "nombreModulo": "Trabajadores",
+            "nombreModal": "Contacto"
+          },
+          "descripciones": {
+            "gestion": "Gestiona los trabajadores de tu empresa, asignales un rol y si pueden ser operarios o administradores de un punto de emisión o un establecimiento",
+            "busqueda": "Busque un contacto por apellidos o identificación."
+          },
+          "migasDePan": {
+            "segmentoRutaGestionContactoEmpresa": "Gestión de Contactos"
+          },
+          "tablas": {
+            "nombres": "Nombres",
+            "apellidos": "Apellidos",
+            "identificacionPais": "Identificación",
+            "tipoCargo": "Cargo",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "botones": {
+            "irGestionDatosContacto": "DATOS CONTACTO"
+          }
+        }
+      },
+      "contactoEmpresaFormulario": {
+        "toasterGeneral": "Contacto empresa",
+        "datosUsuario": {
+          "nombre": "Usuario",
+          "ejemplo": "EJ: Adrían Eguez",
+          "ayuda": "Busque y seleccione el usuario",
+          "patternMensaje": "El usuario es incorrecto"
+        },
+        "nombres": {
+          "nombre": "Nombres",
+          "ejemplo": "EJ: Vicente Adrían",
+          "ayuda": "Ingrese los nombres del usuario",
+          "patternMensaje": "Los nombres son incorrectos"
+        },
+        "apellidos": {
+          "nombre": "Apellidos",
+          "ejemplo": "EJ: Eguez Sarzosa",
+          "ayuda": "Ingrese los apellidos del usuario",
+          "patternMensaje": "Los apellidos es incorrecto"
+        },
+        "tipoCargo": {
+          "nombre": "Cargo",
+          "ejemplo": "EJ: Vendedor",
+          "ayuda": "Busque y seleccione el cargo",
+          "patternMensaje": "El cargo es incorrecto"
+        },
+        "observacion": {
+          "nombre": "Observación",
+          "ejemplo": "EJ: Contratado a medio tiempo",
+          "ayuda": "Ingrese la observación del contacto",
+          "patternMensaje": "La observación es incorrecta"
+        },
+        "esOperario": {
+          "nombre": "Es operario",
+          "ayuda": "Indique si el contacto es un operario",
+          "patternMensaje": "La opción es incorrecta"
+        },
+        "esAdminPtoEmi": {
+          "nombre": "Es administrador de establecimientos",
+          "ayuda": "Indique si el contacto es un administrador de un establecimiento",
+          "patternMensaje": "La opción es incorrecta"
+        }
+      },
+      "componentes": {
+        "filtercontactosEmpresa": {
+          "descripciones": {
+            "busqueda": "Busque un contacto por su apellido o identificación."
+          },
+          "errores": {},
+          "tablas": {},
+          "botones": {},
+          "títulos": {},
+          "otros": {}
+        },
+        "listacontactosEmpresa": {
+          "descripciones": {
+            "busqueda": "Busque un contacto por su apellido o identificación.",
+            "modal": "Asigne contactos a su horario"
+          },
+          "tablas": {
+            "nombre": "Nombre",
+            "apellido": "Apellido",
+            "cargo": "Cargo"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Lista de contactos empresa"
+          },
+          "otros": {}
+        },
+        "modalSeleccionarcontactosEmpresa": {
+          "descripciones": {
+            "modal": "Asigne contactos a su horario"
+          },
+          "errores": {
+            "contactos": "Error añadiendo contactos, algunos de ellos ya están asignados"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Lista de contactos"
+          },
+          "otros": {}
+        }
+      }
+    },
+    "moduloDatosContacto": {
+      "rutas": {
+        "rutaInicioDatosContacto": {
+          "migasDePan": {
+            "segmentoRutaInicio": "Módulo Datos Contacto"
+          }
+        },
+        "rutaGestionDatosContacto": {
+          "titulos": {
+            "nombreModulo": "Datos de contacto",
+            "nombreModal": "Datos de contacto"
+          },
+          "descripciones": {
+            "gestion": "Gestiona los datos de contacto cómo dirección número y otros de este trabajador.",
+            "busqueda": "Busque un contacto por el telefóno, celular o email."
+          },
+          "migasDePan": {
+            "segmentoRutaGestionDatosContacto": "Gestión de Datos de Contacto"
+          },
+          "tablas": {
+            "telefono": "Teléfono",
+            "celular": "Celular",
+            "email": "Correo",
+            "esPrincipal": "Es principal",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          }
+        }
+      },
+      "componentes": {
+        "selectEsPrincipal": {
+          "pĺaceholder": "Filtre por si es contacto principal",
+          "descripcion": "Filtre por si es contacto principal."
+        }
+      },
+      "datosContactoFormulario": {
+        "toasterGeneral": "Datos contacto",
+        "telefono": {
+          "nombre": "Teléfono",
+          "ejemplo": "EJ: 2424158 ",
+          "ayuda": "Ingrese el telefóno del contacto",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "celular": {
+          "nombre": "Celular",
+          "ejemplo": "EJ: 09925587441 ",
+          "ayuda": "Ingrese el celular del contacto",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "email": {
+          "nombre": "Correo",
+          "ejemplo": "EJ: contacto@mi-empresa.com ",
+          "ayuda": "Ingrese el correo del contacto",
+          "patternMensaje": "El correo es incorrecto"
+        },
+        "fax": {
+          "nombre": "Fax",
+          "ejemplo": "EJ: 099999999",
+          "ayuda": "Ingrese el fax del contacto",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "esPrincipal": {
+          "nombre": "Es principal",
+          "ayuda": "Indique si este dato de contacto es principal",
+          "patternMensaje": "La opción es incorrecta"
+        }
+      }
+    },
+    "moduloPrecio": {
+      "rutas": {
+        "rutaInicioPrecio": {
+          "migasDePan": {
+            "segmentoRutaInicio": "Módulo Precio"
+          }
+        },
+        "rutaGestionPrecio": {
+          "titulos": {
+            "nombreModulo": "Precios",
+            "nombreModal": "Precio"
+          },
+          "descripciones": {
+            "gestion": "Agrega o elimina precios de un artículo."
+          },
+          "migasDePan": {
+            "segmentoRutaGestionPrecio": "Gestión de Precios"
+          },
+          "tablas": {
+            "valor": "Precio",
+            "esPrincipal": "Es Principal",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "otros": {
+            "modalConfirmacion": {
+              "mensaje": "¿Está seguro que desea eliminar este registro?",
+              "titulo": "Eliminar precio",
+              "nombreBotonTrue": "ACEPTAR",
+              "nombreBotonFalse": "CANCELAR"
+            }
+          }
+        }
+      },
+      "precioFormulario": {
+        "toasterGeneral": "Precio",
+        "valor": {
+          "nombre": "Valor",
+          "ejemplo": "EJ: 15.00",
+          "ayuda": "Ingrese el valor del precio",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "valorIncentivo": {
+          "nombre": "Valor",
+          "ejemplo": "EJ: 10.00",
+          "ayuda": "Ingrese el valor incentivo del precio",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "esPrincipal": {
+          "nombre": "Es principal",
+          "ayuda": "Indique si este precio es principal",
+          "patternMensaje": "La opción es incorrecta"
+        }
+      },
+      "componentes": {
+        "listaPrecios": {
+          "descripciones": {
+            "busqueda": "Busque un contacto por su apellido o identificación."
+          },
+          "tablas": {
+            "esPrincipal": "Es principal",
+            "valor": "Valor"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Lista de precios"
+          },
+          "otros": {}
+        },
+        "modalSeleccionarPrecios": {
+          "descripciones": {
+            "modal": "Asigne un precio a su servicio"
+          },
+          "errores": {
+            "precios": "Error asignando el precio"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "SELECCIONAR UN PRECIO"
+          },
+          "otros": {}
+        }
+      }
+    }
+  }
+}

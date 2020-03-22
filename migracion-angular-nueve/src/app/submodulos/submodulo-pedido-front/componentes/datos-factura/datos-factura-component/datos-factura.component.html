@@ -1,0 +1,60 @@
+<p-fieldset legend="Datos de la factura">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="col-sm-12">
+        <div class="input-group mb-3">
+          <input class="form-control"
+                 type="date"
+                 readonly
+                 ngbDatepicker #fechaDatosFacturaToggle="ngbDatepicker"
+                 aria-describedby="ayudaFechaFinalizacion"
+                 (dateSelect)="detectarFecha($event)"
+                 #fechaDatosFactura>
+
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="fechaDatosFacturaToggle.toggle()">
+              <i class="fas fa-calendar-day"></i>
+            </button>
+          </div>
+        </div>
+        <small id="ayudaFechaFinalizacion" class="form-text text-muted ayuda-span">
+          Seleccione la fecha de la factura
+        </small>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <form class="form-inline" novalidate>
+        <div class="input-group col-sm-12">
+          <input type="text" class="form-control" aria-describedby="ayudaNumeroSerie"
+                 placeholder="Ej: 12345678">
+        </div>
+      </form>
+
+      <br>
+
+      <div class="col-sm-12">
+        <small id="ayudaNumeroSerie" class="form-text text-muted ayuda-span">
+          Ingrese el número de serie
+        </small>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <form class="form-inline" novalidate>
+        <div class="input-group col-sm-12">
+          <input type="text" class="form-control" aria-describedby="ayudaNumeroFactura"
+                 placeholder="Ej: 000000001">
+        </div>
+      </form>
+
+      <br>
+
+      <div class="col-sm-12">
+        <small id="ayudaNumeroFactura" class="form-text text-muted ayuda-span">
+          Ingrese el número de la factura
+        </small>
+      </div>
+    </div>
+  </div>
+</p-fieldset>

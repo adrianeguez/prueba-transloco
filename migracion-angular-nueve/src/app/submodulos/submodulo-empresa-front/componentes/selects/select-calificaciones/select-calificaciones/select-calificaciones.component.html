@@ -1,0 +1,11 @@
+<div class="col-sm-12">
+  <div class="input-group mb-3" >
+    <p-dropdown [options]="opcionesCalificaciones"
+                placeholder="Filtre por calificación"
+                (onChange)="enviarOpcionSeleccionada($event)"
+                [showClear]="true">
+    </p-dropdown>
+  </div>
+  <small id="busquedaSugerenciaAyuda" class="form-text text-muted"> Filtre por calificación.
+  </small>
+</div>

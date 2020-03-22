@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Descuentos para el artículo</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Ingrese el descuento o descuentos para el artículo seleccionado en base a un motivo:</p>
+    </div>
+    <div class="col-sm-12">
+      <man-lab-esta-tipeando></man-lab-esta-tipeando>
+    </div>
+    <div class="col-sm-12">
+      <div *ngIf="configuracionIngresoDescuentoFactura">
+        <ml-ingresar-descuento-factura-formulario
+          (ingresarDescuentoFacturaValido)="establecerObjetoIngresoDescuentoFactura($event)"
+          (empezoATipear)="establecerFormularioInvalido()"
+          [configuracionDisabled]="configuracionIngresoDescuentoFactura"
+          [base]="data.base">
+        </ml-ingresar-descuento-factura-formulario>
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button class="btn btn-primary"  (click)="agregarDescuentoArticulo()" [disabled]="!formularioValido">GUARDAR</button>
+    </div>
+    <div class="p-2">
+      <button  mat-button mat-dialog-close class="btn btn-outline-secondary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>
+

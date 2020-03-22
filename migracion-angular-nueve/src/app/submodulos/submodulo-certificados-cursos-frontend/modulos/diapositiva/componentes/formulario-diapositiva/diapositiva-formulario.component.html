@@ -1,0 +1,317 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.diapositiva.diapositivaFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="diapositiva.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--titulo-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Titulo.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="diapositiva.mensajesValidacionTitulo.nombreInput">
+                {{
+                t('titulo.' + diapositiva.mensajesValidacionTitulo.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="diapositiva.mensajesValidacionTitulo.nombreInput"
+                       [name]="diapositiva.mensajesValidacionTitulo.nombreInput"
+                       [formControlName]="diapositiva.mensajesValidacionTitulo.nombreInput"
+                       [placeholder]="t('titulo.' + diapositiva.mensajesValidacionTitulo.tooltip)"
+                       [title]="t('titulo.' + diapositiva.mensajesValidacionTitulo.title)"
+                       aria-describedby="diapositivaTituloAyuda"
+
+
+                >
+                <small id="diapositivaTituloAyuda" class="form-text text-muted">
+                  {{
+                  t('titulo.' + diapositiva.mensajesValidacionTitulo.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionTitulo.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionTitulo.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('titulo.titulo'),
+                        minLength: diapositiva.mensajesValidacionTitulo.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionTitulo.maxlength.valor,
+                        min: diapositiva.mensajesValidacionTitulo.min.valor,
+                        max: diapositiva.mensajesValidacionTitulo.max.valor,
+                        patternMensaje: t('Titulo.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--notas-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Notas.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="diapositiva.mensajesValidacionNotas.nombreInput">
+                {{
+                t('notas.' + diapositiva.mensajesValidacionNotas.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="diapositiva.mensajesValidacionNotas.nombreInput"
+                       [name]="diapositiva.mensajesValidacionNotas.nombreInput"
+                       [formControlName]="diapositiva.mensajesValidacionNotas.nombreInput"
+                       [placeholder]="t('notas.' + diapositiva.mensajesValidacionNotas.tooltip)"
+                       [title]="t('notas.' + diapositiva.mensajesValidacionNotas.title)"
+                       aria-describedby="diapositivaNotasAyuda"
+
+
+                >
+                <small id="diapositivaNotasAyuda" class="form-text text-muted">
+                  {{
+                  t('notas.' + diapositiva.mensajesValidacionNotas.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionNotas.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionNotas.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('notas.notas'),
+                        minLength: diapositiva.mensajesValidacionNotas.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionNotas.maxlength.valor,
+                        min: diapositiva.mensajesValidacionNotas.min.valor,
+                        max: diapositiva.mensajesValidacionNotas.max.valor,
+                        patternMensaje: t('Notas.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--segundoEmpieza-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.SegundoEmpieza.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="diapositiva.mensajesValidacionSegundoEmpieza.nombreInput">
+                {{
+                t('segundoEmpieza.' + diapositiva.mensajesValidacionSegundoEmpieza.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <ngb-timepicker
+                  seconds="true"
+                  size="small"
+                  [id]="diapositiva.mensajesValidacionSegundoEmpieza.nombreInput"
+                  [formControlName]="diapositiva.mensajesValidacionSegundoEmpieza.nombreInput"
+                  [title]="t('segundoEmpieza.' + diapositiva.mensajesValidacionSegundoEmpieza.title)"
+                  aria-describedby="diapositivaSegundoEmpiezaAyuda"
+                >
+                  <small id="diapositivaSegundoEmpiezaAyuda" class="form-text text-muted">
+                    {{
+                    t('segundoEmpieza.' + diapositiva.mensajesValidacionSegundoEmpieza.title)
+                    }}
+                    .</small>
+                </ngb-timepicker>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionSegundoEmpieza.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionSegundoEmpieza.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('segundoEmpieza.segundoEmpieza'),
+                        minLength: diapositiva.mensajesValidacionSegundoEmpieza.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionSegundoEmpieza.maxlength.valor,
+                        min: diapositiva.mensajesValidacionSegundoEmpieza.min.valor,
+                        max: diapositiva.mensajesValidacionSegundoEmpieza.max.valor,
+                        patternMensaje: t('SegundoEmpieza.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--duracion-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Duracion.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="diapositiva.mensajesValidacionDuracion.nombreInput">
+                {{
+                t('duracion.' + diapositiva.mensajesValidacionDuracion.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <ngb-timepicker
+                  seconds="true"
+                  size="small"
+                  [id]="diapositiva.mensajesValidacionDuracion.nombreInput"
+                  [formControlName]="diapositiva.mensajesValidacionDuracion.nombreInput"
+                  [title]="t('duracion.' + diapositiva.mensajesValidacionDuracion.title)"
+                  aria-describedby="diapositivaDuracionAyuda"
+                >
+                  <small id="diapositivaDuracionAyuda" class="form-text text-muted">
+                    {{
+                    t('duracion.' + diapositiva.mensajesValidacionDuracion.title)
+                    }}
+                    .</small>
+                </ngb-timepicker>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionDuracion.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionDuracion.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('Duracion.nombre'),
+                        minLength: diapositiva.mensajesValidacionDuracion.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionDuracion.maxlength.valor,
+                        min: diapositiva.mensajesValidacionDuracion.min.valor,
+                        max: diapositiva.mensajesValidacionDuracion.max.valor,
+                        patternMensaje: t('Duracion.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--anteriorDiapositiva-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.AnteriorDiapositiva.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label"
+                     [for]="diapositiva.mensajesValidacionAnteriorDiapositiva.nombreInput">
+                {{
+                t('anteriorDiapositiva.' + diapositiva.mensajesValidacionAnteriorDiapositiva.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <p-autoComplete
+                  [inputId]="diapositiva.mensajesValidacionAnteriorDiapositiva.nombreInput"
+                  inputStyleClass="undefined"
+                  autoHighlight="true"
+                  [dropdown]="true"
+                  [emptyMessage]="m('autocompleteSinRegistros')"
+                  [formControlName]="diapositiva.mensajesValidacionAnteriorDiapositiva.nombreInput"
+                  [suggestions]="objetoVariablesGlobales.diapositivaInterfaces"
+                  (completeMethod)="buscarDiapositiva($event)"
+                  [placeholder]="t('anteriorDiapositiva.' + diapositiva.mensajesValidacionAnteriorDiapositiva.tooltip)"
+                  delay="1000"
+                  field="titulo">
+                  <ng-template let-anteriorDiapositiva pTemplate="item">
+                    {{ anteriorDiapositiva.titulo }} - {{ anteriorDiapositiva.duracion }}
+                  </ng-template>
+                </p-autoComplete>
+                <small id="diapositivaAnteriorDiapositivaAyuda" class="form-text text-muted">
+                  {{
+                  t('anteriorDiapositiva.' + diapositiva.mensajesValidacionAnteriorDiapositiva.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionAnteriorDiapositiva.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionAnteriorDiapositiva.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('AnteriorDiapositiva.nombre'),
+                        minLength: diapositiva.mensajesValidacionAnteriorDiapositiva.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionAnteriorDiapositiva.maxlength.valor,
+                        min: diapositiva.mensajesValidacionAnteriorDiapositiva.min.valor,
+                        max: diapositiva.mensajesValidacionAnteriorDiapositiva.max.valor,
+                        patternMensaje: t('AnteriorDiapositiva.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--siguienteDiapositiva-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.SiguienteDiapositiva.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label"
+                     [for]="diapositiva.mensajesValidacionSiguienteDiapositiva.nombreInput">
+                {{
+                t('siguienteDiapositiva.' + diapositiva.mensajesValidacionSiguienteDiapositiva.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <p-autoComplete
+                  [inputId]="diapositiva.mensajesValidacionSiguienteDiapositiva.nombreInput"
+                  inputStyleClass="undefined"
+                  autoHighlight="true"
+                  [dropdown]="true"
+                  [emptyMessage]="m('autocompleteSinRegistros')"
+                  [formControlName]="diapositiva.mensajesValidacionSiguienteDiapositiva.nombreInput"
+                  [suggestions]="objetoVariablesGlobales.diapositivaInterfaces"
+                  (completeMethod)="buscarDiapositiva($event)"
+                  [placeholder]="t('siguienteDiapositiva.' + diapositiva.mensajesValidacionSiguienteDiapositiva.tooltip)"
+                  delay="1000"
+                  field="titulo">
+                  <ng-template let-siguienteDiapositiva pTemplate="item">
+                    {{ siguienteDiapositiva.titulo }} - {{ siguienteDiapositiva.duracion }}
+                  </ng-template>
+                </p-autoComplete>
+                <small id="diapositivaSiguienteDiapositivaAyuda" class="form-text text-muted">
+                  {{
+                  t('siguienteDiapositiva.' + diapositiva.mensajesValidacionSiguienteDiapositiva.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="diapositiva.mensajesValidacionSiguienteDiapositiva.mensajes.length>0">
+                  <div *ngFor="let mensaje of diapositiva.mensajesValidacionSiguienteDiapositiva.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('SiguienteDiapositiva.nombre'),
+                        minLength: diapositiva.mensajesValidacionSiguienteDiapositiva.minlength.valor,
+                        maxLength: diapositiva.mensajesValidacionSiguienteDiapositiva.maxlength.valor,
+                        min: diapositiva.mensajesValidacionSiguienteDiapositiva.min.valor,
+                        max: diapositiva.mensajesValidacionSiguienteDiapositiva.max.valor,
+                        patternMensaje: t('SiguienteDiapositiva.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,140 @@
+
+
+
+<div *ngIf="habilitado">
+  <app-ruta-general [migasDePan]="migasDePan">
+    <div class="contenido">
+      <!--    titulo-->
+      <div class="row separacion-top-1 separacion-fondo-1">
+        <div class="col-sm-12">
+          <h3 class="text-primary text-center">Gestión de Permisos por rol.</h3>
+        </div>
+      </div>
+      <!--    busqueda-->
+      <div class="row">
+        <div class="col-sm-12">
+          <h3 class="text-primary">Filtros</h3>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-3">
+              Seleccione un rol:
+            </div>
+            <div class="col-sm-9">
+              <ml-select-rol (rolSeleccionadoEmitir)="setearRolSeleccionado($event)"></ml-select-rol>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="nombrePermisoEncontrados" class="col-sm-6">
+          <div class="row">
+            <div  class="col-sm-3">
+              Seleccione un módulo:
+            </div>
+            <div *ngIf="rolSeleccionado?.id"  class="col-sm-9 separacion-top-1">
+              <div>
+                <ml-filter-permiso [rol]="rolSeleccionado?.id" (permisosNombreEncontrados)="setearNombresPermisoEncontrados($event)"></ml-filter-permiso>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div  class="row">
+        <div class="col-sm-6">
+          <h5 class="text-primary">Nombre de permisos</h5>
+          <div class="separacion-top-1">
+            <p-table [responsive]="true"
+                     [columns]="columnas"
+                     [value]="nombrePermisoEncontrados"
+                     [lazy]="false"
+                     [paginator]="true"
+                     [rows]="rows"
+                     [totalRecords]="totalRegistros"
+                     selectionMode="multiple"
+                     [(selection)]="permisosSeleccionados"
+            >
+              <ng-template pTemplate="header" let-columns>
+                <tr >
+                  <th *ngFor="let col of columnas">
+                    {{col.header}}
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-menu  let-columns="columns" let-rowIndex="rowIndex">
+                <tr [pSelectableRow]="menu" [pSelectableRowIndex]="rowIndex">
+                  <td *ngFor="let col of columnas">
+
+                    <div *ngIf="col.header === 'Nombre'">
+                      {{menu.nombre}}
+                    </div>
+
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                  <td [attr.colspan]="columnas.length">
+                    No se encontraron registros
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+
+        </div>
+        <div class="col-sm-3 separacion-top-6">
+          <button [disabled]="permisosSeleccionados.length === 0" class="btn btn-block btn-info" (click)="agregarApermisoRol()">AGREGAR</button>
+        </div>
+      </div>
+      <div class="row separacion-top-2">
+        <div class="col-sm-12">
+          <h5 class="text-primary">Permisos del rol: {{rolSeleccionado?.nombre.toUpperCase()}}</h5>
+        </div>
+      </div>
+      <!--tabla-->
+      <div class="row">
+        <div class="col-sm-12">
+          <p-table [responsive]="true" [columns]="columnasPermisosRol" [value]="values" [lazy]="true"
+                   (onLazyLoad)="cargarDatos($event)"
+                   [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [first]="first">
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columns">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+              <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                <td *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+
+                  <div *ngIf="col.header==='Nombre'" class="text-center">
+                    {{rowData.nombrePermiso.nombre }}
+                  </div>
+                  <div *ngIf="col.header==='Módulo'" class="text-center">
+                    {{rowData.nombrePermiso.modulo.nombreModulo }}
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'" class="text-center">
+                    <button class="btn btn-dark btn-sm" (click)="quitarPermisoRol(rowData)">ELIMINAR</button>
+                  </div>
+
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columns.length">
+                  No se encontraron registros
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </app-ruta-general>
+</div>

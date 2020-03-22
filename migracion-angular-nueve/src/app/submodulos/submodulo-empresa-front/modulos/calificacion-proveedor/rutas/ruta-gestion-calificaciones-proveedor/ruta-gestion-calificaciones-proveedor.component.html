@@ -1,0 +1,85 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Calificación proveedor'"
+      [descripcion]="'Califica a tus clientes para conocer a los mejores.'"
+      [imagen]="'assets/imagenes/sistema/empresa-cliente-calificacion.svg'"
+      [ayuda]="nombreModuloPadre"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row separacion-top-2">
+      <div class="col-lg-9">
+        <ml-select-calificaciones
+          (calificacionSeleccionada)="buscarPorCalificacion($event)"></ml-select-calificaciones>
+      </div>
+      <div class="col-lg-3">
+        <button class="btn btn-outline-primary  btn-block"
+                (click)="abrirModalCrearCalificacionProveedor()"
+        ><i class="fas fa-plus"></i> NUEVO
+        </button>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatosLazy($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [first]="this.queryParams.skip"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? null : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.indexOf(rowData) + 1}}
+                  </div>
+                  <div *ngIf="col.field==='calificacion'">
+                    {{rowData[col.field] | number: '1.2-2'}}
+                  </div>
+                  <div *ngIf="col.field==='observacion'">
+                    {{rowData[col.field] ? rowData[col.field] : 'NO TIENE'}}
+                  </div>
+                  <div *ngIf="col.header==='Acciones'">
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                      <button class="btn btn-block btn-info btn-sm"
+                              (click)="abrirModalEditarCalificacionProveedor(rowData)">EDITAR
+                      </button>
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

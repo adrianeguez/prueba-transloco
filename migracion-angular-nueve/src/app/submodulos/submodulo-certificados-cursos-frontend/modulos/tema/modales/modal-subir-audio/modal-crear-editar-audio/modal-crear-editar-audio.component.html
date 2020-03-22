@@ -1,0 +1,79 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.tema.rutas.rutaGestionTema'">
+    <h5 mat-dialog-title>
+      {{t('titulos.audioTitulo')}} {{_data.titulo }}</h5>
+    <div mat-dialog-content>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-sm-12 text-center"
+                 *ngIf="audio"
+            >
+              {{t('descripciones.audioSeleccionado')}} {{audio.name}}
+            </div>
+            <div class="col-sm-12">
+              <input id="urlAudio"
+                     class="inputfile"
+                     name="urlAudio"
+                     type="file"
+                     (change)="seleccionoArchivoAudio($event)"
+                     placeholder="Select an audio file"
+                     accept="audio/mpeg">
+            </div>
+            <div class="col-sm-6 mx-auto">
+              <label for="urlAudio" class="btn btn-info btn-block">
+                {{t('botones.subirAudio')}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <h4>{{t('titulos.audioEnUso')}}</h4>
+          <div *ngIf="_data.nombreTabla">
+            <audio controls
+                   [src]="url +'/'+_data.nombreTabla + _data.id"
+                   type="audio/mpeg"
+                   class="audio"
+            >
+
+            </audio>
+          </div>
+          <p *ngIf="!_data.nombreTabla">{{t('descripciones.audioNoSubido')}}</p>
+        </div>
+
+        <div class="col-md-6">
+          <h4>{{t('titulos.audioNuevo')}}</h4>
+          <div>
+            <audio controls *ngIf="src"
+                   [src]="src"
+                   type="audio/mpeg"
+                   class="audio"
+            >
+            </audio>
+            <p *ngIf="!src">{{t('descripciones.audioNoSeleccionado')}}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-start" mat-dialog-actions>
+      <button
+        class="btn btn-secondary"
+        (click)="cancelarModal()"
+      >
+        {{g('botones.cancelar')}}
+      </button>
+      <div>
+        <button
+          class="btn btn-success"
+          [disabled]="!formularioValido"
+          (click)="enviarDatosFormulario()"
+        >
+          {{g('botones.editar')}}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

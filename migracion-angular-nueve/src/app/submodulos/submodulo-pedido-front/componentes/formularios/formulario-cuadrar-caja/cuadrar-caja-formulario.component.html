@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="cuadrarCaja.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--valorCuadre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.ValorCuadre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="cuadrarCaja.mensajesValidacionValorCuadre.nombreInput">{{
+                        cuadrarCaja.mensajesValidacionValorCuadre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="cuadrarCaja.mensajesValidacionValorCuadre.nombreInput"
+                                [name]="cuadrarCaja.mensajesValidacionValorCuadre.nombreInput"
+                                [formControlName]="cuadrarCaja.mensajesValidacionValorCuadre.nombreInput"
+                                [placeholder]="cuadrarCaja.mensajesValidacionValorCuadre.tooltip"
+                                [title]="cuadrarCaja.mensajesValidacionValorCuadre.title"
+                                aria-describedby="cuadrarCajaValorCuadreAyuda"
+                                currencyMask
+                                [options]="cuadrarCaja.mensajesValidacionValorCuadre.mask"
+                        >
+                        <small id="cuadrarCajaValorCuadreAyuda" class="form-text text-muted">{{cuadrarCaja.mensajesValidacionValorCuadre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="cuadrarCaja.mensajesValidacionValorCuadre.mensajes.length>0">
+                            <div *ngFor="let mensaje of cuadrarCaja.mensajesValidacionValorCuadre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--novedadCierre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.NovedadCierre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="cuadrarCaja.mensajesValidacionNovedadCierre.nombreInput">{{
+                        cuadrarCaja.mensajesValidacionNovedadCierre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="cuadrarCaja.mensajesValidacionNovedadCierre.nombreInput"
+                                [name]="cuadrarCaja.mensajesValidacionNovedadCierre.nombreInput"
+                                [formControlName]="cuadrarCaja.mensajesValidacionNovedadCierre.nombreInput"
+                                [placeholder]="cuadrarCaja.mensajesValidacionNovedadCierre.tooltip"
+                                [title]="cuadrarCaja.mensajesValidacionNovedadCierre.title"
+                                aria-describedby="cuadrarCajaNovedadCierreAyuda"
+                                
+                                
+                        >
+                        <small id="cuadrarCajaNovedadCierreAyuda" class="form-text text-muted">{{cuadrarCaja.mensajesValidacionNovedadCierre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="cuadrarCaja.mensajesValidacionNovedadCierre.mensajes.length>0">
+                            <div *ngFor="let mensaje of cuadrarCaja.mensajesValidacionNovedadCierre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,53 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.pedido.componentes.crearEditarPedido'">
+  <man-lab-modal-general
+    [nombreBotonAceptar]="data.pedidoCurso? g('botones.aceptar'):t('botones.pagar')"
+    [nombreBotonCancelar]="g('botones.cancelar')"
+    [formularioValido]="formularioValido || pagoValido"
+    (dioClickEnCancelar)="cerrarModal()"
+    (dioClickEnAceptar)="pagar()"
+
+  >
+
+    <div class="titulo">{{data.pedidoCurso ? t('titulos.verPedido') : t('titulos.hacerPedido')}} </div>
+
+    <div class="contenido">
+
+      <div class="row">
+        <div class="col-md-12">
+          <man-lab-esta-tipeando></man-lab-esta-tipeando>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p class="descripcion-modal">{{data.pedidoCurso? t('descripciones.descripcionDetalle'): t('descripciones.descripcionPedido')}}</p>
+        </div>
+
+        <div class="col-sm-12">
+          <ml-pedido-formulario
+            [configuracionDisabled]="configuracionDisabled"
+            (empezoATipear)="establecerFormularioInvalido()"
+            (pedidoValido)="validarFormulario($event)"
+          ></ml-pedido-formulario>
+
+          <div class="espacio"></div>
+
+          <div class="espacio"></div>
+
+          <div *ngIf="cargarPago">
+            <ml-pagar-stripe
+              (tarjetaValida)="formularioPagar($event)"
+              [metodosPago]="intentoPago"
+            >
+
+            </ml-pagar-stripe>
+          </div>
+
+        </div>
+        <div class="espacio"></div>
+      </div>
+
+    </div>
+  </man-lab-modal-general>
+</ng-container>

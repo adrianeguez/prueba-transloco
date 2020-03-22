@@ -1,0 +1,30 @@
+<div *transloco="let t; read: rutaTraduccion">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-12 ">
+            <h3 class="text-primary text-center">
+              {{t('titulos.titulo')}}
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <ml-filter-articulo-servicio
+      [idEmpresa]="idEmpresa"
+      (articulosEncontrados)="setearArticulosEmpresa($event)">
+    </ml-filter-articulo-servicio>
+  </div>
+</div>
+<br>
+<div class="row">
+  <ml-tabla-articulo-empresa [articulosEncontradas]="articulosEncontrados" [totalRegistros]="totalRegistros"
+                             [columnas]="columnas" (emitirSkip)="setearSkip($event)"
+                             (articulosSeleccionado)="obtenerArticuloEmpresaSeleccionado($event)"></ml-tabla-articulo-empresa>
+</div>

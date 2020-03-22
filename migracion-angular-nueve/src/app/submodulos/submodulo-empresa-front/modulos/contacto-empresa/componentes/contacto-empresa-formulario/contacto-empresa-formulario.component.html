@@ -1,0 +1,216 @@
+
+<form novalidate [formGroup]="contactoEmpresa.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--datosUsuario-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.DatosUsuario.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionDatosUsuario.nombreInput">{{
+              contactoEmpresa.mensajesValidacionDatosUsuario.nombreAPresentarse + ' *' }}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [inputId]="contactoEmpresa.mensajesValidacionDatosUsuario.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              (onSelect) = "seleccionarContacto($event)"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="contactoEmpresa.mensajesValidacionDatosUsuario.nombreInput"
+              [suggestions]="objetoVariablesGlobales.datosUsuarios"
+              (completeMethod)="buscarDatosUsuarios($event)"
+              [placeholder]="contactoEmpresa.mensajesValidacionDatosUsuario.tooltip"
+              [size]="80"
+              delay="1000"
+              field="identificacionPais">
+              <ng-template let-datosUsuario pTemplate="item">
+                {{ datosUsuario.apellidos }} {{ datosUsuario.nombres }} - {{ datosUsuario.identificacionPais }}
+              </ng-template>
+            </p-autoComplete>
+            <small id="contactoEmpresAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionDatosUsuario.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionDatosUsuario.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionDatosUsuario.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--nombres-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombres.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionNombres.nombreInput">{{
+              contactoEmpresa.mensajesValidacionNombres.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="contactoEmpresa.mensajesValidacionNombres.nombreInput"
+                   [name]="contactoEmpresa.mensajesValidacionNombres.nombreInput"
+                   [formControlName]="contactoEmpresa.mensajesValidacionNombres.nombreInput"
+                   [placeholder]="contactoEmpresa.mensajesValidacionNombres.tooltip"
+                   [title]="contactoEmpresa.mensajesValidacionNombres.title"
+                   aria-describedby="contactoEmpresaNombresAyuda"
+
+
+            >
+            <small id="contactoEmpresaNombresAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionNombres.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionNombres.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionNombres.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--apellidos-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Apellidos.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionApellidos.nombreInput">{{
+              contactoEmpresa.mensajesValidacionApellidos.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="contactoEmpresa.mensajesValidacionApellidos.nombreInput"
+                   [name]="contactoEmpresa.mensajesValidacionApellidos.nombreInput"
+                   [formControlName]="contactoEmpresa.mensajesValidacionApellidos.nombreInput"
+                   [placeholder]="contactoEmpresa.mensajesValidacionApellidos.tooltip"
+                   [title]="contactoEmpresa.mensajesValidacionApellidos.title"
+                   aria-describedby="contactoEmpresaApellidosAyuda"
+
+
+            >
+            <small id="contactoEmpresaApellidosAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionApellidos.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionApellidos.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionApellidos.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--tipoCargo-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.TipoCargo.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionTipoCargo.nombreInput">{{
+              contactoEmpresa.mensajesValidacionTipoCargo.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [inputId]="contactoEmpresa.mensajesValidacionTipoCargo.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="contactoEmpresa.mensajesValidacionTipoCargo.nombreInput"
+              [suggestions]="objetoVariablesGlobales.tipoCargos"
+              (completeMethod)="buscarTipoCargos($event)"
+              [placeholder]="contactoEmpresa.mensajesValidacionTipoCargo.tooltip"
+              delay="1000"
+              field="nombre">
+              <ng-template let-tipoCargo pTemplate="item">
+                {{ tipoCargo.nombre }}
+              </ng-template>
+            </p-autoComplete>
+            <small id="tipoCargoAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionTipoCargo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionTipoCargo.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionTipoCargo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--observacion-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Observacion.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionObservacion.nombreInput">{{
+              contactoEmpresa.mensajesValidacionObservacion.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="contactoEmpresa.mensajesValidacionObservacion.nombreInput"
+                   [name]="contactoEmpresa.mensajesValidacionObservacion.nombreInput"
+                   [formControlName]="contactoEmpresa.mensajesValidacionObservacion.nombreInput"
+                   [placeholder]="contactoEmpresa.mensajesValidacionObservacion.tooltip"
+                   [title]="contactoEmpresa.mensajesValidacionObservacion.title"
+                   aria-describedby="contactoEmpresaObservacionAyuda"
+                   maxlength="100"
+
+            >
+            <small id="contactoEmpresaObservacionAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionObservacion.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionObservacion.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionObservacion.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--esOperario-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EsOperario.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionEsOperario.nombreInput">{{
+              contactoEmpresa.mensajesValidacionEsOperario.nombreAPresentarse + ' *' }}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="contactoEmpresa.mensajesValidacionEsOperario.nombreInput"
+                    [id]="contactoEmpresa.mensajesValidacionEsOperario.nombreInput"
+                    [formControlName]="contactoEmpresa.mensajesValidacionEsOperario.nombreInput"
+            >
+
+              <option value=1>Si</option>
+              <option value=0>No</option>
+
+            </select>
+            <small id="contactoEmpresaEsOperarioAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionEsOperario.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionEsOperario.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionEsOperario.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--esAdminPtoEmi-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EsAdminPtoEmi.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="contactoEmpresa.mensajesValidacionEsAdminPtoEmi.nombreInput">{{
+              contactoEmpresa.mensajesValidacionEsAdminPtoEmi.nombreAPresentarse  + ' *'}}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="contactoEmpresa.mensajesValidacionEsAdminPtoEmi.nombreInput"
+                    [id]="contactoEmpresa.mensajesValidacionEsAdminPtoEmi.nombreInput"
+                    [formControlName]="contactoEmpresa.mensajesValidacionEsAdminPtoEmi.nombreInput"
+            >
+
+              <option value=1>Si</option>
+              <option value=0>No</option>
+
+            </select>
+            <small id="contactoEmpresaEsAdminAyuda" class="form-text text-muted">{{contactoEmpresa.mensajesValidacionEsAdminPtoEmi.title}}.</small>
+
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="contactoEmpresa.mensajesValidacionEsAdminPtoEmi.mensajes.length>0">
+              <div *ngFor="let mensaje of contactoEmpresa.mensajesValidacionEsAdminPtoEmi.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</form>

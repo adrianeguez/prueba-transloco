@@ -1,0 +1,106 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Periodos asignados'"
+      [descripcion]="'Gestione los periodos de trabajo asignados a su vendedor.'"
+      [imagen]="'assets/imagenes/sistema/empresa-cronograma-detalle.svg'"
+      [ayuda]="nombrePadre"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="form-inline row" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="busquedaPeriodosPorVendedorHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)=" buscarPorNombre(busqueda.value)"><i class="fas fa-search"></i> Buscar
+                </button>
+              </div>
+            </div>
+            <small id="busquedaPeriodosPorVendedorHelp" class="form-text text-muted ayuda-span"> Busque un periodo de
+              venta por periodo.
+            </small>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                 (onLazyLoad)="cargarDatosLazy($event)" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords"
+                 [loading]="loading" [first]="this.queryParams.skip" [resizableColumns]="true">
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                {{col.header}}
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+              <td [attr.colspan]="columnas.length">
+                No existen registros
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+            <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? '#b2ebff' : null}">
+              <td class="text-center" *ngFor="let col of columns">
+                <span class="ui-column-title">{{col.header}}</span>
+                <div *ngIf="col.header === '#'">
+                  {{values.indexOf(rowData) + 1}}
+                </div>
+                <div *ngIf="col.header==='Periodo'">
+                  {{rowData[col.field].nombre}}
+                </div>
+                <div *ngIf="col.header==='Fecha inicio'">
+                  {{rowData[col.field].fechaInicio}}
+                </div>
+                <div *ngIf="col.header==='Fecha fin'">
+                  {{rowData[col.field].fechaFin}}
+                </div>
+                <div *ngIf="col.field==='ventasTotales'">
+                  {{(rowData[col.field]?rowData[col.field]: 0 ) | currency}}
+
+                </div>
+                <div *ngIf="col.header === 'Estado'">
+                  <button class="btn btn-block btn-success btn-sm" [disabled]="true" [ngClass]="{
+                    'btn-danger':rowData[col.field].habilitado === estados.Inactivo,
+                    'btn-success':rowData[col.field].habilitado === estados.Activo,
+                    'btn-secondary':rowData[col.field].habilitado === estados.Cerrado
+                    }">{{
+                      rowData[col.field].habilitado === estados.Activo ? 'Activo' : rowData[col.field].habilitado === estados.Inactivo ? 'Inactivo' : rowData[col.field].habilitado === estados.Cerrado ? 'Cerrado' : 'Sin estado'
+                    }}</button>
+                </div>
+
+                <div *ngIf="col.header==='Acciones'">
+                  <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+
+                    <button class="btn btn-block btn-info btn-sm"
+                            (click)="abrirModalAsignarEscalaVendedor(rowData[col.field])">Asignar escala vendedor
+                    </button>
+                    <button class="btn btn-block btn-info btn-sm"
+                            (click)="irAGestionModuloHijo(rowData[col.field],'escala-vendedor-periodo','escalas-vendedor-periodo')">
+                      Escalas
+                      asignadas
+                    </button>
+
+
+                  </div>
+                </div>
+
+
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

@@ -1,0 +1,133 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <mlab-titulo-pantalla
+      [titulo]="'Datos de contacto'"
+      [descripcion]="'Gestiona los datos de contacto cómo dirección número y otros de este trabajador.'"
+      [imagen]="'assets/imagenes/sistema/empresa-datos-contacto.svg'"
+      [ayuda]="nombreModuloPadre"
+    >
+    </mlab-titulo-pantalla>
+
+
+    <div class="row">
+      <div class="col-lg-5">
+        <form class="form-inline row" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="busquedaEmpresaHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)="buscarPorTelefonoCelularEmail(busqueda.value)"><i class="fas fa-search"></i> BUSCAR
+                </button>
+              </div>
+            </div>
+            <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Busque un contacto por el telefóno,
+              celular o email ....
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3">
+        <div class="input-group mb-3">
+          <p-dropdown [options]="opcionesDropdown"
+                      placeholder="Filtre por si es contacto principal"
+                      (onChange)="escucharSiEsPrincipal($event)"
+                      [showClear]="true">
+          </p-dropdown>
+        </div>
+        <small id="busquedaSugerenciaAyuda" class="form-text text-muted"> Filtre por si es contacto principal.
+        </small>
+      </div>
+      <div class="col-lg-2">
+        <ml-select-estado
+          (estadoSeleccionado)="escucharEstadoSeleccionado($event)"
+        ></ml-select-estado>
+      </div>
+      <div class="col-lg-2">
+        <div class="col-sm-12">
+          <button class="btn btn-outline-primary  btn-block"
+                  (click)="abrirModalCrearDatoContacto()"
+          >
+            <i class="fas fa-plus"></i> NUEVO
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatos($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [first]="this.queryParams.skip"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? null : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.indexOf(rowData) + 1}}
+                  </div>
+                  <div *ngIf="col.header === 'Telefono'">
+                    {{rowData[col.field] ? rowData[col.field] : 'NO TIENE'}}
+                  </div>
+                  <div *ngIf="col.header === 'Celular'">
+                    {{rowData[col.field] ? rowData[col.field] : 'NO TIENE'}}
+                  </div>
+                  <div *ngIf="col.header === 'Email'">
+                    {{rowData[col.field] ? rowData[col.field] : 'NO TIENE'}}
+                  </div>
+                  <div *ngIf="col.field === 'esPrincipal'">
+                    {{rowData[col.field] ? 'Si' : 'No'}}
+                  </div>
+                  <div *ngIf="col.field === 'habilitado'">
+                    <button class="btn  btn-block btn-success btn-sm"
+                            (click)="actualizarEstado(rowData)"
+                            [ngClass]="{
+                  'btn-danger':rowData[col.field] === estados.Inactivo,
+                  'btn-success':rowData[col.field] === estados.Activo
+                  }"
+                    >{{rowData[col.field] === estados.Activo ? 'ACTIVO' : 'INACTIVO'}}</button>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                      <button class="btn btn-block btn-info btn-sm" (click)="abrirModalEditarDatoContacto(rowData)">
+                        EDITAR
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

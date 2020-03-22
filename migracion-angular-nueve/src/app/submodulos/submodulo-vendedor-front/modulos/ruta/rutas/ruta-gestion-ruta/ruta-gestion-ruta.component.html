@@ -1,0 +1,100 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Zonas de vendedor'"
+      [descripcion]="'Gestione las zonas de los vendedores, sus bodegas.'"
+      [imagen]="'assets/imagenes/sistema/vendedor-zona.svg'"
+      [ayuda]="nombrePapa"
+    >
+    </mlab-titulo-pantalla>
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form-inline row" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="busquedaRutasHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)="buscarPorNombre(busqueda.value)"><i class="fas fa-search"></i> Buscar
+                </button>
+              </div>
+            </div>
+            <small id="busquedaRutasHelp" class="form-text text-muted ayuda-span"> Busque una zona por lugar o nombre.
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3">
+        <ml-select-estado (estadoSeleccionado)="escucharEstadoSeleccionado($event)">
+        </ml-select-estado>
+      </div>
+      <div class="col-lg-3">
+        <button class="btn btn-outline-primary  btn-block" (click)="abrirModalCrearZonaVendedor()"><i
+          class="fas fa-plus"></i> Nuevo
+        </button>
+      </div>
+    </div>
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                   (onLazyLoad)="cargarDatosLazy($event)" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords"
+                   [loading]="loading" [first]="this.queryParams.skip" [resizableColumns]="true">
+
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? '#b2ebff' : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.indexOf(rowData) + 1}}
+                  </div>
+                  <div *ngIf="col.header==='Lugar'">
+                    {{rowData[col.field] ? rowData[col.field].nombre : 'No tiene'}}
+                  </div>
+                  <div *ngIf="col.field==='nombre'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.header==='Bodega'">
+                    {{rowData[col.field] ? rowData[col.field].nombre : 'No tiene'}}
+                  </div>
+
+                  <div *ngIf="col.header === 'Estado'">
+                    <button class="btn btn-block btn-success btn-sm" (click)="actualizarEstado(rowData)" [ngClass]="{
+                  'btn-danger':rowData[col.field] === estados.Inactivo,
+                  'btn-success':rowData[col.field] === estados.Activo
+                  }">{{rowData[col.field] === estados.Activo ? 'Activo' : 'Inactivo'}}</button>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                      <button class="btn btn-block btn-info btn-sm"
+                              (click)="abrirModalEditarZonaVendedor(rowData)">EDITAR
+                      </button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

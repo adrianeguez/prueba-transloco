@@ -1,0 +1,37 @@
+<man-lab-modal-general
+  [nombreBotonAceptar]="data.localizacion.localizacion && data.localizacion.localizacion.coordinates?'EDITAR':'CREAR'"
+  [nombreBotonCancelar]="'Cancelar'"
+  [formularioValido]="poligonoValido"
+  (dioClickEnCancelar)="cerrarModal()"
+  (dioClickEnAceptar)="editarOCrear()"
+>
+
+  <div class="titulo">{{data.localizacion.localizacion && data.localizacion.localizacion.coordinates ? 'EDITAR' : 'CREAR'}}
+    INFORMACIÓN GEOGRÁFICA
+  </div>
+
+  <div class="contenido">
+
+    <div class="row">
+      <div class="col-md-12">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="descripcion-modal">{{''}}</p>
+      </div>
+
+      <div class="col-sm-12">
+        <app-mapa
+          [configuracionMapa]="data.configuracionMapa"
+          [informacionGeograficaEntrada]="data.localizacion.localizacion ? data.localizacion.localizacion.coordinates : false"
+          (informacionGeografica)="escucharMapa($event)"
+        >
+        </app-mapa>
+      </div>
+      <div class="espacio"></div>
+    </div>
+
+  </div>
+</man-lab-modal-general>

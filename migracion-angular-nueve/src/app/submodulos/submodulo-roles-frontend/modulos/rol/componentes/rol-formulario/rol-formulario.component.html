@@ -1,0 +1,35 @@
+
+<form novalidate [formGroup]="rol.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="rol.mensajesValidacionNombre.nombreInput">{{
+                        rol.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="rol.mensajesValidacionNombre.nombreInput"
+                                [name]="rol.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="rol.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="rol.mensajesValidacionNombre.tooltip"
+                                [title]="rol.mensajesValidacionNombre.title"
+                                aria-describedby="rolNombreAyuda"
+                                
+                                
+                        >
+                        <small id="rolNombreAyuda" class="form-text text-muted">{{rol.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="rol.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of rol.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,36 @@
+<man-lab-modal-general
+  [nombreBotonAceptar]="undefined?'EDITAR':'CREAR'"
+  [nombreBotonCancelar]="'Cancelar'"
+  [formularioValido]="formularioValido"
+  (dioClickEnCancelar)="cerrarModal()"
+  (dioClickEnAceptar)="editarOCrear()"
+>
+
+  <div class="titulo">{{undefined ? 'EDITAR' : 'CREAR'}} CRONOGRAMA CABECERA</div>
+
+  <div class="contenido">
+
+    <div class="row">
+      <div class="col-md-12">
+        <man-lab-esta-tipeando></man-lab-esta-tipeando>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="descripcion-modal">{{descripcion}}</p>
+      </div>
+
+      <div class="col-sm-12">
+        <app-ingresar-kardex-caja-formulario
+          [configuracionDisabled]="configuracionDisabled"
+          (empezoATipear)="establecerFormularioInvalido()"
+          (ingresarKardexCajaValido)="validarFormulario($event)"
+        ></app-ingresar-kardex-caja-formulario>
+      </div>
+      <div class="espacio"></div>
+    </div>
+
+  </div>
+</man-lab-modal-general>
+

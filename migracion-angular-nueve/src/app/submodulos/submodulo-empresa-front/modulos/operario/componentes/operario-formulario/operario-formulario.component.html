@@ -1,0 +1,102 @@
+
+<form novalidate [formGroup]="operario.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--contactoEmpresa-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.ContactoEmpresa.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="operario.mensajesValidacionContactoEmpresa.nombreInput">{{
+                        operario.mensajesValidacionContactoEmpresa.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="operario.mensajesValidacionContactoEmpresa.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            size="33"
+                            [dropdown]="true"
+                            (onSelect) = "seleccionarContacto($event)"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="operario.mensajesValidacionContactoEmpresa.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.contactoEmpresas"
+                            (completeMethod)="buscarContactoEmpresas($event)"
+                            [placeholder]="operario.mensajesValidacionContactoEmpresa.tooltip"
+                            delay="1000"
+                            field="pene">
+                                <ng-template let-contactoEmpresa pTemplate="item">
+                                    {{ contactoEmpresa.datosUsuario?.identificacionPais }} + {{ contactoEmpresa.datosUsuario?.nombres }}
+                                </ng-template>
+                        </p-autoComplete>
+                      <small id="operarioContactoAyuda" class="form-text text-muted">
+                        {{operario.mensajesValidacionContactoEmpresa.title}}
+                      </small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="operario.mensajesValidacionContactoEmpresa.mensajes.length>0">
+                            <div *ngFor="let mensaje of operario.mensajesValidacionContactoEmpresa.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombres-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombres.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="operario.mensajesValidacionNombres.nombreInput">{{
+                        operario.mensajesValidacionNombres.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="operario.mensajesValidacionNombres.nombreInput"
+                                [name]="operario.mensajesValidacionNombres.nombreInput"
+                                [formControlName]="operario.mensajesValidacionNombres.nombreInput"
+                                [placeholder]="operario.mensajesValidacionNombres.tooltip"
+                                [title]="operario.mensajesValidacionNombres.title"
+                                aria-describedby="operarioNombresAyuda"
+
+
+                        >
+                        <small id="operarioNombresAyuda" class="form-text text-muted">{{operario.mensajesValidacionNombres.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="operario.mensajesValidacionNombres.mensajes.length>0">
+                            <div *ngFor="let mensaje of operario.mensajesValidacionNombres.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--apellidos-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Apellidos.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="operario.mensajesValidacionApellidos.nombreInput">{{
+                        operario.mensajesValidacionApellidos.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="operario.mensajesValidacionApellidos.nombreInput"
+                                [name]="operario.mensajesValidacionApellidos.nombreInput"
+                                [formControlName]="operario.mensajesValidacionApellidos.nombreInput"
+                                [placeholder]="operario.mensajesValidacionApellidos.tooltip"
+                                [title]="operario.mensajesValidacionApellidos.title"
+                                aria-describedby="operarioApellidosAyuda"
+
+
+                        >
+                        <small id="operarioApellidosAyuda" class="form-text text-muted">{{operario.mensajesValidacionApellidos.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="operario.mensajesValidacionApellidos.mensajes.length>0">
+                            <div *ngFor="let mensaje of operario.mensajesValidacionApellidos.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

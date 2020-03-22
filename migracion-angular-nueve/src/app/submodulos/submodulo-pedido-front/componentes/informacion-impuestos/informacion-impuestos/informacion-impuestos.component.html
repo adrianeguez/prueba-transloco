@@ -1,0 +1,46 @@
+<p-fieldset legend="Resumen"  [toggleable]="true">
+  <p-tabView>
+    <p-tabPanel header="Valores, ítems y totales">
+      <div class="row">
+        <div class="col-sm-4">
+          <p>Total bruto: {{0 | number : '1.4-4' }}</p>
+          <p>Desc1. item Calc: {{0 | number : '1.4-4' }}</p>
+          <p>Desc2. item Prod: {{0 | number : '1.4-4' }}</p>
+          <p>Total descuento: {{0 | number : '1.4-4' }}</p>
+          <p>Sin impuestos: {{8000 | number : '1.4-4' }}</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Base IVA 0%: {{7500 | number : '1.4-4'}}</p>
+          <p>Base IVA 12%: {{250 | number : '1.4-4'}}</p>
+          <p>Base IVA NO: {{250 | number : '1.4-4'}}</p>
+          <p>Base IVA Excenta: {{0 | number : '1.4-4' }}</p>
+          <p>T item Base ICE: {{0 | number : '1.4-4'}}</p>
+          <p>T item Base INC: {{0 | number : '1.4-4'}}</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Impuesto IVA 12%: {{160 | number : '1.4-4'}}</p>
+          <p>Impuesto ICE: {{0 | number : '1.4-4' }}</p>
+          <p>Impuesto IRBPNR: {{0 | number : '1.4-4'}}</p>
+          <p>Base IVA Excenta: {{0 | number : '1.4-4'}}</p>
+          <p>Base IVA Excenta: {{0 | number : '1.4-4'}}</p>
+          <p>Subtotal: {{ 9600 | number : '1.4-4'}}</p>
+          <p>Propina : {{9600 | number : '1.4-4' }}</p>
+          <p>A pagar: {{160 | number : '1.4-4' }}</p>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Retenciones">
+      <div class="col-sm-6">
+        <p>{{'Ret. IVA producto: ' +  '0.0000' }}</p>
+        <p>{{'Ret. IVA servicio: ' +  '0.0000' }}</p>
+        <p>{{'Desc2. item Prod: ' +  '0.0000' }}</p>
+        <p>{{'Ret. IR producto: ' +  '0.0000' }}</p>
+        <p>{{'Ret. IR servicio: ' +  '0.0000' }}</p>
+      </div>
+      <div class="col-sm-6">
+        <p>{{'Ret. IVA servicio: ' +  '0.0000' }}</p>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+</p-fieldset>
+

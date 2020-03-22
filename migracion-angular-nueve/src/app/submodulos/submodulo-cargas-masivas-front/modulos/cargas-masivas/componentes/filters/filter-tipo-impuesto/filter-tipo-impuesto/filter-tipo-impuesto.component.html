@@ -1,0 +1,12 @@
+<div class="col-sm-12">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" aria-describedby="busquedaArticuloHelp"
+           placeholder="Ingrese su búsqueda....." [(ngModel)]="busqueda">
+    <div>
+      <button class="btn btn-outline-secondary" (click)="buscarTipoImpuesto()"><i
+        class="fas fa-search"></i> BUSCAR</button>
+    </div>
+  </div>
+  <small id="busquedaArticuloHelp" class="form-text text-muted ayuda-span"> Busque un subgrupo por su código del SRI.
+  </small>
+</div>

@@ -1,0 +1,354 @@
+
+<form novalidate [formGroup]="empresa.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--nombreComercial-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreComercial.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionNombreComercial.nombreInput">{{
+              empresa.mensajesValidacionNombreComercial.nombreAPresentarse
+            }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionNombreComercial.nombreInput"
+                   [name]="empresa.mensajesValidacionNombreComercial.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionNombreComercial.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionNombreComercial.tooltip"
+                   [title]="empresa.mensajesValidacionNombreComercial.title"
+                   aria-describedby="empresaNombreComercialAyuda"
+                   maxlength="150"
+
+            >
+            <small id="empresaNombreComercialAyuda" class="form-text text-muted">{{empresa.mensajesValidacionNombreComercial.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionNombreComercial.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionNombreComercial.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--razonSocial-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.RazonSocial.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionRazonSocial.nombreInput">{{
+              empresa.mensajesValidacionRazonSocial.nombreAPresentarse + ' *'
+            }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionRazonSocial.nombreInput"
+                   [name]="empresa.mensajesValidacionRazonSocial.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionRazonSocial.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionRazonSocial.tooltip"
+                   [title]="empresa.mensajesValidacionRazonSocial.title"
+                   aria-describedby="empresaRazonSocialAyuda"
+                   maxlength="150"
+
+
+            >
+            <small id="empresaRazonSocialAyuda" class="form-text text-muted">{{empresa.mensajesValidacionRazonSocial.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionRazonSocial.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionRazonSocial.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--ruc-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Ruc.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionRuc.nombreInput">{{
+              empresa.mensajesValidacionRuc.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionRuc.nombreInput"
+                   [name]="empresa.mensajesValidacionRuc.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionRuc.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionRuc.tooltip"
+                   [title]="empresa.mensajesValidacionRuc.title"
+                   aria-describedby="empresaRucAyuda"
+                   maxlength="13"
+
+
+            >
+            <small id="empresaRucAyuda" class="form-text text-muted">{{empresa.mensajesValidacionRuc.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionRuc.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionRuc.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--direccionMatriz-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.DireccionMatriz.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionDireccionMatriz.nombreInput">{{
+              empresa.mensajesValidacionDireccionMatriz.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionDireccionMatriz.nombreInput"
+                   [name]="empresa.mensajesValidacionDireccionMatriz.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionDireccionMatriz.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionDireccionMatriz.tooltip"
+                   [title]="empresa.mensajesValidacionDireccionMatriz.title"
+                   aria-describedby="empresaDireccionMatrizAyuda"
+                   maxlength="100"
+
+
+            >
+            <small id="empresaDireccionMatrizAyuda" class="form-text text-muted">{{empresa.mensajesValidacionDireccionMatriz.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionDireccionMatriz.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionDireccionMatriz.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--telefono-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Telefono.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionTelefono.nombreInput">{{
+              empresa.mensajesValidacionTelefono.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionTelefono.nombreInput"
+                   [name]="empresa.mensajesValidacionTelefono.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionTelefono.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionTelefono.tooltip"
+                   [title]="empresa.mensajesValidacionTelefono.title"
+                   aria-describedby="empresaTelefonoAyuda"
+                   maxlength="10"
+
+
+            >
+            <small id="empresaTelefonoAyuda" class="form-text text-muted">{{empresa.mensajesValidacionTelefono.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionTelefono.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionTelefono.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--correo-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Correo.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionCorreo.nombreInput">{{
+              empresa.mensajesValidacionCorreo.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionCorreo.nombreInput"
+                   [name]="empresa.mensajesValidacionCorreo.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionCorreo.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionCorreo.tooltip"
+                   [title]="empresa.mensajesValidacionCorreo.title"
+                   aria-describedby="empresaCorreoAyuda"
+                   maxlength="60"
+
+
+            >
+            <small id="empresaCorreoAyuda" class="form-text text-muted">{{empresa.mensajesValidacionCorreo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionCorreo.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionCorreo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--codigo-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionCodigo.nombreInput">{{
+              empresa.mensajesValidacionCodigo.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionCodigo.nombreInput"
+                   [name]="empresa.mensajesValidacionCodigo.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionCodigo.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionCodigo.tooltip"
+                   [title]="empresa.mensajesValidacionCodigo.title"
+                   aria-describedby="empresaCodigoAyuda"
+                   maxlength="10"
+
+            >
+            <small id="empresaCodigoAyuda" class="form-text text-muted">{{empresa.mensajesValidacionCodigo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionCodigo.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--tipo-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Tipo.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionTipo.nombreInput">{{
+              empresa.mensajesValidacionTipo.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="empresa.mensajesValidacionTipo.nombreInput"
+                    [id]="empresa.mensajesValidacionTipo.nombreInput"
+                    [formControlName]="empresa.mensajesValidacionTipo.nombreInput"
+            >
+              <option value=null>ninguno</option>
+              <option value="reventa - estación de servicio">reventa - estación de servicio</option>
+              <option value="reventa - lubricadora">reventa - lubricadora</option>
+              <option value="estación de servicio EP petroecuador">estación de servicio EP petroecuador</option>
+              <option value="gerencia">gerencia</option>
+              <option value="empresa pública">empresa pública</option>
+              <option value="distribuidor">distribuidor</option>
+
+            </select>
+            <small id="empresaTipoAyuda" class="form-text text-muted">{{empresa.mensajesValidacionTipo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionTipo.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionTipo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--esEstacionServicioPropia-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EsEstacionServicioPropia.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionEsEstacionServicioPropia.nombreInput">{{
+              empresa.mensajesValidacionEsEstacionServicioPropia.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="empresa.mensajesValidacionEsEstacionServicioPropia.nombreInput"
+                    [id]="empresa.mensajesValidacionEsEstacionServicioPropia.nombreInput"
+                    [formControlName]="empresa.mensajesValidacionEsEstacionServicioPropia.nombreInput"
+            >
+
+              <option value=1>Si</option>
+              <option value=0>No</option>
+
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionEsEstacionServicioPropia.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionEsEstacionServicioPropia.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--tipoContribuyente-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TipoContribuyente.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionTipoContribuyente.nombreInput">{{
+              empresa.mensajesValidacionTipoContribuyente.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="empresa.mensajesValidacionTipoContribuyente.nombreInput"
+                    [id]="empresa.mensajesValidacionTipoContribuyente.nombreInput"
+                    [formControlName]="empresa.mensajesValidacionTipoContribuyente.nombreInput"
+            >
+
+              <option value="Sociedades">Sociedades</option>
+              <option value="Persona natural">Persona natural</option>
+              <option value="Especial">Especial</option>
+
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionTipoContribuyente.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionTipoContribuyente.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--obligadoContabilidad-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ObligadoContabilidad.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionObligadoContabilidad.nombreInput">{{
+              empresa.mensajesValidacionObligadoContabilidad.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="empresa.mensajesValidacionObligadoContabilidad.nombreInput"
+                    [id]="empresa.mensajesValidacionObligadoContabilidad.nombreInput"
+                    [formControlName]="empresa.mensajesValidacionObligadoContabilidad.nombreInput"
+            >
+
+              <option value=1>Si</option>
+              <option value=0>No</option>
+
+            </select>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionObligadoContabilidad.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionObligadoContabilidad.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--contribuyenteEspecial-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ContribuyenteEspecial.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresa.mensajesValidacionContribuyenteEspecial.nombreInput">{{
+              empresa.mensajesValidacionContribuyenteEspecial.nombreAPresentarse}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresa.mensajesValidacionContribuyenteEspecial.nombreInput"
+                   [name]="empresa.mensajesValidacionContribuyenteEspecial.nombreInput"
+                   [formControlName]="empresa.mensajesValidacionContribuyenteEspecial.nombreInput"
+                   [placeholder]="empresa.mensajesValidacionContribuyenteEspecial.tooltip"
+                   [title]="empresa.mensajesValidacionContribuyenteEspecial.title"
+                   aria-describedby="empresaContribuyenteEspecialAyuda"
+                   maxlength="5"
+
+
+            >
+            <small id="empresaContribuyenteEspecialAyuda" class="form-text text-muted">{{empresa.mensajesValidacionContribuyenteEspecial.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresa.mensajesValidacionContribuyenteEspecial.mensajes.length>0">
+              <div *ngFor="let mensaje of empresa.mensajesValidacionContribuyenteEspecial.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+</form>

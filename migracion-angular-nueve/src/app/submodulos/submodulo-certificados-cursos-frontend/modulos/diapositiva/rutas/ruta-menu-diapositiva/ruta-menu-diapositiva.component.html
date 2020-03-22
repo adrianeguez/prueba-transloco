@@ -1,0 +1,70 @@
+<ng-container  *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.diapositiva.rutas.rutaClienteDiapositiva'">
+    <app-ruta-general [migasDePan]="migasDePan">
+      <div class="contenido">
+        <mlab-titulo-pantalla
+          [imagen]="'assets/imagenes/sistema/articulos.svg'"
+          [titulo]="t('titulos.nombreModulo')"
+          [descripcion]="t('descripciones.parrafoTitulo')"
+          [ayuda]="t('titulos.ayuda')"
+        >
+        </mlab-titulo-pantalla>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4">
+<!--            <p-dropdown [options]="idiomas"  [(ngModel)]="idiomaaActual" placeholder="Idioma diapositiva" optionLabel="nombre" [showClear]="true"></p-dropdown>-->
+            <div id="google_translate_element"></div>
+          </div>
+          <div class="col-sm-4"></div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <app-barra-diapositivas
+              [diapositivas]="diapositvasFormateadas"
+              [idDiapositivaActual]="diapositivaActual ? diapositivaActual.id : 0 "
+              (diapositivaEmitter)="mostrarContenido($event)"
+            >
+            </app-barra-diapositivas>
+          </div>
+          <div class="col-sm-7">
+            <div>
+              <app-cronometro
+                [hidden]="true"
+                (tiempoString)="escucharCronometro($event)"
+              ></app-cronometro>
+              <div *ngIf="false">
+                <button (click)="empezarCronometro()">empezar desde servicio</button>
+                <button (click)="reiniciarConteo()">reiniciar desde servicio</button>
+              </div>
+            </div>
+            <app-visor-diapositiva
+              [diapositiva]="diapositivaActual"
+              [caratula]="caratulaModulo"
+              [cursoUsuario]="idCursoUsuario"
+              [moduloCurso]="idModuloCurso"
+              [tema]="idTema"
+              [moduloCursoUsuario]="idModuloCursoUsuario"
+            >
+            </app-visor-diapositiva>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <audio
+            class="p-2"
+            id="audio"
+            src="{{urlAudio}}"
+            controls
+            #audio
+            (timeupdate)="escuchadorTiempoAudio($event)"
+            (play)="escuchadorTiempoAudio($event)"
+            (loadedmetadata)="obtenerMetadataAudio($event, audio)"
+          >Audio
+          </audio>
+        </div>
+      </div>
+    </app-ruta-general>
+  </ng-container>
+</ng-container>
+
+

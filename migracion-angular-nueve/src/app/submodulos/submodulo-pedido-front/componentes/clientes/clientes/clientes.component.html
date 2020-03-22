@@ -1,0 +1,51 @@
+<div class="col-sm-12">
+  <form novalidate
+        (ngSubmit)="emitirDatosClienteSeleccionados(formularioDatosCliente)"
+        #formularioDatosCliente="ngForm">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="comentario">Comentario:</label>
+          <input id="comentario"
+                 type="text"
+                 class="form-control"
+                 aria-describedby="ayudaComentario"
+                 name="comentario"
+                 [(ngModel)]="formulario.comentario"
+                 placeholder="Ej: La orden va con 2 ..."
+          >
+        </div>
+        <small id="ayudaComentario" class="form-text text-muted ayuda-span">
+          Ingrese un comentario.
+        </small>
+      </div>
+
+
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label for="observacion">Observación:</label>
+          <input id="observacion"
+                 type="text"
+                 class="form-control"
+                 aria-describedby="ayudaObservacion"
+                 name="observacion"
+                 [(ngModel)]="formulario.observacion"
+                 placeholder="Ej: No se encontro el  ..."
+          >
+        </div>
+        <small id="ayudaObservacion" class="form-text text-muted ayuda-span">
+          Ingrese una observación.
+        </small>
+      </div>
+
+    </div>
+
+    <button class="btn btn-block btn-info"
+            [disabled]="formularioDatosCliente.invalid"
+    >
+      Aceptar
+    </button>
+
+  </form>
+</div>
+

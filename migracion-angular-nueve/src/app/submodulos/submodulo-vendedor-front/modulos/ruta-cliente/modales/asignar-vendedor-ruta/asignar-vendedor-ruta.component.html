@@ -1,0 +1,33 @@
+<h1 class="text-primary" mat-dialog-title> <span class="bold">ASIGNAR VENDEDORES A LA EMPRESA {{nombreEmpresa}}</span>
+</h1>
+<h6 class="text-secondary"> <span class="bold">EDIFICIO {{nombreEdificio}}</span>
+</h6>
+<mat-dialog-content flex>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Arrastre el vendedor</p>
+    </div>
+    <div class="col-sm-12 contenido-modal">
+      <div style="margin-top: 0.5rem;margin-bottom: 10rem">
+        <ml-drag-drop-vendedor-ruta 
+        (vendedoresSeleccionados)="seteoVendedores($event)" 
+        [idEmpresa]="data.idEmpresa"
+        [vendedoresAsigandoEdificio]="data.vendedores"
+        >
+        </ml-drag-drop-vendedor-ruta>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearVendedoresAsignacion()" class="btn btn-primary"
+        [disabled]="arregloVendedores.length <= 0">Guardar</button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

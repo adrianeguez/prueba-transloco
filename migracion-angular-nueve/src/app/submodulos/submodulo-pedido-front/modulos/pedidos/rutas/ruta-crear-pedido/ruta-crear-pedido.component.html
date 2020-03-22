@@ -1,0 +1,511 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/movimientos.svg'"
+      [titulo]="'Movimientos'"
+      [descripcion]="'Transfiera artículos, realice ingresos o egresos y compre a proveedores.'"
+      [ayuda]="'compras, ajustes, transferencias'"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6" *ngIf="!queryParams.tipoMovimiento">
+        <div>
+          <img class="imagen-numero" src="assets/imagenes/sistema/uno.svg" alt="">
+          <p class="text-center bold">Seleccione un tipo de movimiento</p>
+          <button class="btn btn-block btn-info" (click)="abrirModalSeleccionarTipoMovimiento()">Tipo movimiento
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-6" *ngIf="!queryParams.bodegaOrigen && queryParams.tipoMovimiento">
+        <div>
+          <img class="imagen-numero" src="assets/imagenes/sistema/dos.svg" alt="">
+          <p class="text-center bold">Seleccionar bodega</p>
+          <button class="btn btn-block btn-info" (click)="abrirModalSeleccionarBodega()">Seleccionar bodega</button>
+        </div>
+      </div>
+      <div class="col-sm-6"
+           *ngIf="queryParams.bodegaOrigen && queryParams.tipoMovimiento && !queryParams.clienteOProveedor">
+        <div>
+          <div *ngIf="tipoMovimiento === 'Clientes'">
+            <img class="imagen-numero" src="assets/imagenes/sistema/tres.svg" alt="">
+            <p class="text-center bold">Seleccionar cliente</p>
+            <button *ngIf="tipoMovimiento === 'Clientes'" (click)="abrirModalCliente()">Seleccione un cliente</button>
+          </div>
+
+          <div *ngIf="tipoMovimiento === 'Compras'">
+            <img class="imagen-numero" src="assets/imagenes/sistema/tres.svg" alt="">
+            <p class="text-center bold">Seleccionar proveedor</p>
+            <button class="btn btn-block btn-info" *ngIf="tipoMovimiento === 'Compras'" (click)="abrirModalProveedor()">
+              Seleccione un proveedor
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+
+      </div>
+    </div>
+
+
+    <div *ngIf="cabecera">
+      <h1 class="text-center">{{cabecera?.movimiento?.tipoMovimiento?.nombre}}</h1>
+      <div class="row">
+        <div class="col-sm-12">
+          <div>
+            <div
+              *ngIf="cabecera?.movimiento?.tipoMovimiento?.nombre === 'Ajustes'">
+              <img class="imagen-numero" src="assets/imagenes/sistema/ajustes.svg" alt="">
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <p class="text-center bold">
+                    Las transferencias sirven para <span
+                    class="color-text-importante">Agregar o Quitar inventario </span> de una bodega.
+                    Hay dos tipos: Ingresos, para aumentar y Egresos, para eliminar inventaio.
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-block animated fadeInUp"
+                          (click)="guardarCabecera()"
+                          [hidden]="crearDatosCabecera"
+                          *ngIf="datosCabeceraCompra || datosCabeceraCliente || datosCabeceraAjustes || datosCabeceraTransferencia || datosCabeceraPedidoCompra"
+                  >
+                    Crear
+                    <span *ngIf="datosCabeceraCompra">
+              compra
+            </span>
+                    <span *ngIf="datosCabeceraPedidoCompra">
+              pedido de compra
+            </span>
+                    <span *ngIf="datosCabeceraCliente">
+              cliente
+            </span>
+                    <span *ngIf="datosCabeceraAjustes">
+              ajustes
+            </span>
+                    <span *ngIf="datosCabeceraTransferencia">
+              transferencia
+            </span>
+                    <i class="fas fa-check-square"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="cabecera?.movimiento?.tipoMovimiento?.nombre === 'Compras'">
+              <img class="imagen-numero" src="assets/imagenes/sistema/compras.svg" alt="">
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <p class="text-center bold">
+                    Registre las <span class="color-text-importante">compras</span> de la empresa.
+                    Estas compras aumentan el inventario.
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-block animated fadeInUp"
+                          (click)="guardarCabecera()"
+                          [hidden]="crearDatosCabecera"
+                          *ngIf="datosCabeceraCompra || datosCabeceraCliente || datosCabeceraAjustes || datosCabeceraTransferencia || datosCabeceraPedidoCompra"
+                  >
+                    Crear documento
+                    <span *ngIf="datosCabeceraCompra">
+              compra
+            </span>
+                    <span *ngIf="datosCabeceraPedidoCompra">
+              pedido de compra
+            </span>
+                    <span *ngIf="datosCabeceraCliente">
+              cliente
+            </span>
+                    <span *ngIf="datosCabeceraAjustes">
+              ajustes
+            </span>
+                    <span *ngIf="datosCabeceraTransferencia">
+              transferencia
+            </span>
+                    <i class="fas fa-check-square"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngIf="cabecera?.movimiento?.tipoMovimiento?.nombre === 'Transferencias' ">
+              <img class="imagen-numero" src="assets/imagenes/sistema/transferencia.svg" alt="">
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                  <p class="text-center bold">Las transferencias <span
+                    class="color-text-importante">aumentan y disminuyen</span>
+                    la cantidad de una bodega de <span class="color-text-importante">origen y destino</span>
+                  </p>
+                </div>
+                <div class="col-md-3">
+                  <button class="btn btn-success btn-block animated fadeInUp"
+                          (click)="guardarCabecera()"
+                          [hidden]="crearDatosCabecera"
+                          *ngIf="datosCabeceraCompra || datosCabeceraCliente || datosCabeceraAjustes || datosCabeceraTransferencia || datosCabeceraPedidoCompra"
+                  >
+                    Crear documento
+                    <span *ngIf="datosCabeceraCompra">
+              compra
+            </span>
+                    <span *ngIf="datosCabeceraPedidoCompra">
+              pedido de compra
+            </span>
+                    <span *ngIf="datosCabeceraCliente">
+              cliente
+            </span>
+                    <span *ngIf="datosCabeceraAjustes">
+              ajustes
+            </span>
+                    <span *ngIf="datosCabeceraTransferencia">
+              transferencia
+            </span>
+                    <i class="fas fa-check-square"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="cabecera.movimiento">
+        <div class="col-md-6">
+          <div class="row espacio">
+            <div class="col-sm-6">
+              <!-- Mostrar movimiento-->
+              <strong>Movimiento:</strong> {{cabecera.movimiento.codigo}} / {{cabecera.movimiento.nombre}}
+              - {{cabecera.movimiento.tipoMovimiento.nombre}}
+            </div>
+            <div class="col-sm-6">
+              <button *ngIf="!crearDatosCabecera" class="btn btn-block btn-outline-secondary btn-sm"
+                      (click)="abrirModalSeleccionarTipoMovimiento()">
+                Modificar movimiento <i class="fas fa-pen"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row espacio">
+            <div class="col-sm-6">
+              <!-- Mostrar bodega -->
+              <p><strong>
+                {{cabecera?.movimiento?.tipoMovimiento?.nombre === 'Transferencias' ? 'Bodega origen' : 'Bodega'}}
+                :</strong>
+                {{cabecera.bodega.codigo}} - {{cabecera.bodega.direccion}}
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <button *ngIf="!crearDatosCabecera"
+                      class="btn btn-block btn-outline-secondary btn-sm"
+                      (click)="abrirModalSeleccionarBodega()"
+              >
+                Modificar
+                {{cabecera?.movimiento?.tipoMovimiento?.nombre === 'Transferencias' ? 'bodega' : 'bodega'}}
+
+                <i class="fas fa-pen"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6"
+             *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Compras' || cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'">
+          <div class="row">
+            <div class="col-sm-6"
+                 *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Compras' || cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'">
+              <!-- Mostrar Cliente o Proveedor -->
+              <p>
+                <span *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Compras'"><strong>Proveedor: </strong>
+                  {{cabecera.proveedor.empresaProveedor?.ruc}}
+                  - {{cabecera.proveedor.empresaProveedor?.nombreComercial}}
+                </span>
+                <span *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'"><strong>Cliente: </strong>
+                  {{cabecera.informacionTributaria?.documento}}
+                  - {{cabecera.informacionTributaria?.razonSocial}}
+                </span>
+              </p>
+            </div>
+            <div class="col-sm-6" *ngIf="!crearDatosCabecera">
+              <button *ngIf="!crearDatosCabecera && cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'"
+                      class="btn btn-block btn-outline-secondary btn-sm"
+                      (click)="abrirModalCliente()">
+                Modificar proveedor <i class="fas fa-pen"></i>
+              </button>
+              <button *ngIf="!crearDatosCabecera && cabecera.movimiento.tipoMovimiento.nombre === 'Compras'"
+                      class="btn btn-block btn-outline-secondary btn-sm"
+                      (click)="abrirModalProveedor()">
+                Modificar proveedor <i class="fas fa-pen"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Ajustes'">
+            <div class="row">
+              <div class="col-sm-6">
+
+                <div *ngIf="datosCabeceraAjustes">
+                  <p><strong>Motivo:</strong> {{datosCabeceraAjustes.motivo || 'Sin motivo'}}</p>
+                  <p><strong>Observación:</strong> {{datosCabeceraAjustes.observacion1 || 'Sin observaciones'}}</p>
+                  <!-- <p>Doc. Relacionado: {{datosCabeceraAjustes.documentoRelacionado}}</p>
+                  <p>Tipo Doc.: {{datosCabeceraAjustes.tipoDocumentoRelacionado}}</p> -->
+                  <div *ngIf="crearDatosCabecera">
+                    <p>
+                      <strong>Número documento:</strong> {{resultadoCabecera.numeroDocumentoMovimiento}}
+                    </p>
+                  </div>
+
+                </div>
+
+                <p class="bold color-text-importante" *ngIf="!datosCabeceraAjustes">
+                  Llenar ajustes:
+                </p>
+              </div>
+              <div class="col-sm-6">
+                <button *ngIf="!crearDatosCabecera"
+                        [class]="!datosCabeceraAjustes ?
+                        'btn btn-block btn-warning btn-sm' :
+                        'btn btn-block btn-outline-secondary btn-sm'"
+                        (click)=" abrirModalIngresarCabeceraMovimientoAjustes()"
+                >
+                  Modificar razón: <i class="fas fa-pen"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Compras'">
+            <div class="row">
+              <div class="col-sm-6">
+                <!-- Mostrar datos cabecera de compra -->
+
+                <p class="bold color-text-importante" *ngIf="!datosCabeceraCompra && !datosCabeceraPedidoCompra">
+                  Llenar datos de compra:</p>
+                <div *ngIf="datosCabeceraPedidoCompra">
+                  <p>
+                    <strong>Prioridad:</strong> {{datosCabeceraPedidoCompra.prioridad ? 'Urgente' : 'No urgente'}}
+                  </p>
+                </div>
+                <div *ngIf="datosCabeceraCompra">
+                  <p>
+                    <strong>Número de factura:</strong> {{datosCabeceraCompra.numeroFactura}}
+                  </p>
+                  <p>
+                    <strong>Número de serie:</strong> {{datosCabeceraCompra.numeroSerie}}
+                  </p>
+                  <p>
+                    <strong>Número de autorización:</strong> {{datosCabeceraCompra.numeroAutorizacion}}
+                  </p>
+                  <p>
+                    <strong>Factura electrónica:</strong> {{datosCabeceraCompra.facturaElectronica ? 'Si' : 'No'}}
+                  </p>
+                  <div *ngIf="crearDatosCabecera">
+                    <p>
+                      <strong>Número documento:</strong> {{resultadoCabecera.numeroDocumentoMovimiento}}
+                    </p>
+                  </div>
+                  <!-- <p>
+                    Prioridad: {{datosCabeceraCompra.prioridad ? 'Urgente' : 'No urgente'}}
+                  </p> -->
+                  <!-- <div *ngIf="datosCabeceraCompra.tipoFactura === 'electronica'">
+                    <p>
+                      Fecha Autorización: {{datosCabeceraCompra.fechaAutorizacion | date }}
+                    </p>
+                    <p>
+                      N. Autorización: {{datosCabeceraCompra.numeroAutorizacion }}
+                    </p>
+                    <p *ngIf="datosCabeceraCompra.numeroDocumentoBodega">
+                      N. Doc. Bodega: {{datosCabeceraCompra.numeroDocumentoBodega }}
+                    </p>
+                  </div> -->
+
+                  <!-- <div *ngIf="datosCabeceraCompra.tipoFactura === 'fisica'">
+                    <p>
+                      N. Serie: {{datosCabeceraCompra.datosFacturafisica.numeroSerie}}
+                    </p>
+                    <p>
+                      N. Desde: {{datosCabeceraCompra.datosFacturafisica.numeroDesde}}
+                    </p>
+                    <p>
+                      N. Hasta: {{datosCabeceraCompra.datosFacturafisica.numeroHasta}}
+                    </p>
+
+                    <p>
+                      N. Autorización: {{datosCabeceraCompra.datosFacturafisica.numeroAutorizacion}}
+                    </p>
+
+                    <p>
+                      Fecha impresión: {{datosCabeceraCompra.datosFacturafisica.fechaImpresion  | date}}
+                    </p>
+
+                    <p>
+                      Valido hasta: {{datosCabeceraCompra.datosFacturafisica.validoHasta  | date}}
+                    </p>
+
+                  </div> -->
+
+                </div>
+
+              </div>
+              <div class="col-sm-6">
+                <button *ngIf="!crearDatosCabecera"
+                        [class]="!datosCabeceraAjustes ?
+                        'btn btn-block btn-warning btn-sm' :
+                        'btn btn-block btn-outline-secondary btn-sm'"
+                        (click)="abrirModalIngresarCabeceraMovimientoCompras()"
+                >
+                  Modificar compra <i class="fas fa-pen"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'"
+          >
+            <div class="row">
+              <div class="col-sm-10">
+                <div *ngIf="!datosCabeceraCliente">
+                  <p class="bold color-text-importante">
+                    Llenar cabeceras de clientes
+                  </p>
+                </div>
+                <div *ngIf="datosCabeceraCliente">
+                  <p><strong>Comentario:</strong> {{datosCabeceraCliente.comentario || 'Sin comentarios'}}</p>
+                  <p><strong>Observación:</strong> {{datosCabeceraCliente.observacion || 'Sin observaciones'}}</p>
+                  <p><strong>Pedido:</strong> {{datosCabeceraCliente.numeroPedido}}</p>
+                  <div *ngIf="crearDatosCabecera">
+                    <p>
+                      <strong>Número documento:</strong> {{resultadoCabecera.numeroDocumentoMovimiento}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <button *ngIf="!crearDatosCabecera"
+                        [class]="!datosCabeceraAjustes ?
+                        'btn btn-block btn-warning btn-sm' :
+                        'btn btn-block btn-outline-secondary btn-sm'"
+                        (click)="abrirModalIngresarCabeceraMovimientoClientes()"
+                >
+                  <i class="fas fa-pen"></i>
+                </button>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Transferencias'">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="bold color-text-importante" *ngIf="!datosCabeceraTransferencia">
+                  Llenar datos de transferencia:
+                </p>
+                <div *ngIf="datosCabeceraTransferencia">
+                  <p><strong>Bodega destino:</strong> {{datosCabeceraTransferencia.idBodegaDestino.codigo}}
+                    - {{datosCabeceraTransferencia.idBodegaDestino.nombre}}</p>
+                  <p><strong>Fecha llegada:</strong> {{datosCabeceraTransferencia.fechaLlegada | date}}</p>
+                  <div *ngIf="crearDatosCabecera">
+                    <p>
+                      <strong>Número documento:</strong> {{resultadoCabecera.numeroDocumentoMovimiento}}
+                    </p>
+                  </div>
+                  <!-- <p>Num. Doc. Guía Remisión: {{datosCabeceraTransferencia.numeroDocumentoGuiaRemision}}</p>
+                  <p>Observación: {{datosCabeceraTransferencia.observacion}}</p> -->
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <button *ngIf="!crearDatosCabecera"
+                        [class]="!datosCabeceraAjustes ?
+                        'btn btn-block btn-warning btn-sm' :
+                        'btn btn-block btn-outline-secondary btn-sm'"
+                        (click)="abrirModalIngresarCabeceraMovimientoTransferencia()"
+                >
+                  Datos transferencia <i class="fas fa-pen"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <p>Puedes <span class="color-text-opaco">modificar</span> el movimiento en este instante.</p>
+    </div>
+
+    <div *ngIf="crearDatosCabecera">
+      <h1>Detalle</h1>
+      <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Compras' && cabecera.movimiento.codigo === '11'">
+        <div *ngIf="esPedido">
+          <ml-articulos
+            (enviarArticulos)="recibirArticulos($event)"
+            (enviarArregloArticulos)="recibirArregloArticulos($event)"
+            [articulosEnDetalle]="arregloArticulosDetalle"
+            [idEmpresa]="idEmpresa"
+            [idBodega]="idBodega"
+            [esVenta]="false"
+            [pedidoGuardado]="pedidoGuardado"
+            [detalleCreado]="detalleCreado"
+            [pedidoCompra]="pedidoCompra"
+          ></ml-articulos>
+        </div>
+        <div *ngIf="!esPedido">
+          <ml-articulos
+            (enviarArticulos)="recibirArticulos($event)"
+            (enviarArregloArticulos)="recibirArregloArticulos($event)"
+            [idEmpresa]="idEmpresa"
+            [idBodega]="idBodega"
+            [esVenta]="false"
+            [articulosEnDetalle]="arregloArticulosDetalle"
+            [pedidoGuardado]="pedidoGuardado"
+            [detalleCreado]="detalleCreado"
+            [compraDevolucionProveedores]="compraDevolucionProveedores"
+          ></ml-articulos>
+        </div>
+      </div>
+      <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Ajustes'">
+        <ml-articulos
+          (enviarArticulos)="recibirArticulos($event)"
+          (enviarArregloArticulos)="recibirArregloArticulos($event)"
+          [idEmpresa]="idEmpresa"
+          [idBodega]="idBodega"
+          [esVenta]="false"
+          [articulosEnDetalle]="arregloArticulosDetalle"
+          [pedidoGuardado]="pedidoGuardado"
+          [detalleCreado]="detalleCreado"
+          [ingresoEgreso]="ingresoEgreso">
+        </ml-articulos>
+      </div>
+      <div *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Transferencias'">
+        <ml-articulos
+          (enviarArticulos)="recibirArticulos($event)"
+          (enviarArregloArticulos)="recibirArregloArticulos($event)"
+          [idEmpresa]="idEmpresa"
+          [idBodega]="idBodega"
+          [esVenta]="false"
+          [articulosEnDetalle]="arregloArticulosDetalle"
+          [pedidoGuardado]="pedidoGuardado"
+          [detalleCreado]="detalleCreado"
+          [transferenciaBodegas]="transferenciaBodegas"
+          [idBodegaDestino]="idBodegaDestino"
+        ></ml-articulos>
+      </div>
+      <div class="row separacion-top-1">
+        <div class="col-md-6">
+          <button *ngIf="crearDetalle" class="btn btn-info" (click)="guardarDetalle(resultadoCabecera)">GUARDAR
+            DETALLE
+          </button>
+        </div>
+        <div class="col-md-6">
+          <button *ngIf="!pedidoGuardado" class="btn btn-success" [disabled]="!detalleCreado"
+                  (click)="guardarPedido(resultadoCabecera)">GUARDAR PEDIDO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="espacio-fondo"></div>
+  </div>
+</app-ruta-general>

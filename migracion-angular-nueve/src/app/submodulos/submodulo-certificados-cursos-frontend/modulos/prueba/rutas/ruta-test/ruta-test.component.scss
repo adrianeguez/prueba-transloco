@@ -1,0 +1,9 @@
+.mat-expansion-panel-header-description, .mat-expansion-panel-header-title {
+  display: flex;
+  flex-grow: 0;
+  margin-right: 16px;
+}
+.mat-expansion-panel-header-description {
+  color: rgba(33, 33, 33, 1);
+}
+

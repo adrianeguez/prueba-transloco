@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Buscar clientes o proveedores</h1>
+
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Ingrese la cantidad con que inicia la caja y una novedad si existe:</p>
+    </div>
+    <div class="col-sm-12">
+      <man-lab-esta-tipeando></man-lab-esta-tipeando>
+    </div>
+    <div class="col-sm-12">
+      <div *ngIf="configuracionPuntoEmisionOperario">
+        <ml-app-crear-pto-emi-ope-formulario
+          (crearPtoEmiOpeValido)="establecerObjetoPuntoEmisionOperario($event)"
+          (empezoATipear)="establecerFormularioInvalido()"
+          [configuracionDisabled]="configuracionPuntoEmisionOperario">
+        </ml-app-crear-pto-emi-ope-formulario>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<mat-dialog-actions class="justify-content-start">
+  <button mat-button mat-dialog-close class="btn btn-secondary boton-modal">CANCELAR</button>
+  <button mat-button class="btn btn-success boton-modal" [disabled]="!formularioValido"
+          (click)="creaPuntoEmisionOperario()">CREAR
+  </button>
+</mat-dialog-actions>
+

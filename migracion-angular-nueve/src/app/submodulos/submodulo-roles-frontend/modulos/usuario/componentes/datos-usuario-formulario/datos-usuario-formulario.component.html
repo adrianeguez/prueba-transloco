@@ -1,0 +1,181 @@
+
+<form novalidate [formGroup]="datosUsuario.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--nombres-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombres.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionNombres.nombreInput">{{
+              datosUsuario.mensajesValidacionNombres.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="datosUsuario.mensajesValidacionNombres.nombreInput"
+                   [name]="datosUsuario.mensajesValidacionNombres.nombreInput"
+                   [formControlName]="datosUsuario.mensajesValidacionNombres.nombreInput"
+                   [placeholder]="datosUsuario.mensajesValidacionNombres.tooltip"
+                   [title]="datosUsuario.mensajesValidacionNombres.title"
+                   aria-describedby="datosUsuarioNombresAyuda"
+            >
+            <small id="datosUsuarioNombresAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionNombres.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="datosUsuario.mensajesValidacionNombres.mensajes.length>0">
+              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionNombres.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--apellidos-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Apellidos.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionApellidos.nombreInput">{{
+              datosUsuario.mensajesValidacionApellidos.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="datosUsuario.mensajesValidacionApellidos.nombreInput"
+                   [name]="datosUsuario.mensajesValidacionApellidos.nombreInput"
+                   [formControlName]="datosUsuario.mensajesValidacionApellidos.nombreInput"
+                   [placeholder]="datosUsuario.mensajesValidacionApellidos.tooltip"
+                   [title]="datosUsuario.mensajesValidacionApellidos.title"
+                   aria-describedby="datosUsuarioApellidosAyuda"
+
+
+            >
+            <small id="datosUsuarioApellidosAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionApellidos.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="datosUsuario.mensajesValidacionApellidos.mensajes.length>0">
+              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionApellidos.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--identificacionPais-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.IdentificacionPais.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionIdentificacionPais.nombreInput">{{
+              datosUsuario.mensajesValidacionIdentificacionPais.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [textMask]="datosUsuario.mensajesValidacionIdentificacionPais.mask"
+                   [id]="datosUsuario.mensajesValidacionIdentificacionPais.nombreInput"
+                   [name]="datosUsuario.mensajesValidacionIdentificacionPais.nombreInput"
+                   [formControlName]="datosUsuario.mensajesValidacionIdentificacionPais.nombreInput"
+                   [placeholder]="datosUsuario.mensajesValidacionIdentificacionPais.tooltip"
+                   [title]="datosUsuario.mensajesValidacionIdentificacionPais.title"
+                   aria-describedby="datosUsuarioIdentificacionPaisAyuda"
+
+
+            >
+            <small id="datosUsuarioIdentificacionPaisAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionIdentificacionPais.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="datosUsuario.mensajesValidacionIdentificacionPais.mensajes.length>0">
+              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionIdentificacionPais.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--email-->
+<!--      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Email.hidden">-->
+<!--        <div class="row">-->
+<!--          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionEmail.nombreInput">{{-->
+<!--              datosUsuario.mensajesValidacionEmail.nombreAPresentarse }}</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input type="email"-->
+<!--                   class="form-control form-control-sm"-->
+<!--                   [id]="datosUsuario.mensajesValidacionEmail.nombreInput"-->
+<!--                   [name]="datosUsuario.mensajesValidacionEmail.nombreInput"-->
+<!--                   [formControlName]="datosUsuario.mensajesValidacionEmail.nombreInput"-->
+<!--                   [placeholder]="datosUsuario.mensajesValidacionEmail.tooltip"-->
+<!--                   [title]="datosUsuario.mensajesValidacionEmail.title"-->
+<!--                   aria-describedby="datosUsuarioEmailAyuda"-->
+
+
+<!--            >-->
+<!--            <small id="datosUsuarioEmailAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionEmail.title}}.</small>-->
+<!--          </div>-->
+<!--          <div class="col-sm-12">-->
+
+<!--            <div class="animated fadeInUp alert alert-warning" role="alert"-->
+<!--                 *ngIf="datosUsuario.mensajesValidacionEmail.mensajes.length>0">-->
+<!--              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionEmail.mensajes">{{ mensaje }}</div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+      <!--direccion-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Direccion.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionDireccion.nombreInput">{{
+              datosUsuario.mensajesValidacionDireccion.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="datosUsuario.mensajesValidacionDireccion.nombreInput"
+                   [name]="datosUsuario.mensajesValidacionDireccion.nombreInput"
+                   [formControlName]="datosUsuario.mensajesValidacionDireccion.nombreInput"
+                   [placeholder]="datosUsuario.mensajesValidacionDireccion.tooltip"
+                   [title]="datosUsuario.mensajesValidacionDireccion.title"
+                   aria-describedby="datosUsuarioDireccionAyuda"
+
+
+            >
+            <small id="datosUsuarioDireccionAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionDireccion.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="datosUsuario.mensajesValidacionDireccion.mensajes.length>0">
+              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionDireccion.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--celular-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Celular.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="datosUsuario.mensajesValidacionCelular.nombreInput">{{
+              datosUsuario.mensajesValidacionCelular.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [textMask]="datosUsuario.mensajesValidacionCelular.mask"
+                   [id]="datosUsuario.mensajesValidacionCelular.nombreInput"
+                   [name]="datosUsuario.mensajesValidacionCelular.nombreInput"
+                   [formControlName]="datosUsuario.mensajesValidacionCelular.nombreInput"
+                   [placeholder]="datosUsuario.mensajesValidacionCelular.tooltip"
+                   [title]="datosUsuario.mensajesValidacionCelular.title"
+                   aria-describedby="datosUsuarioCelularAyuda"
+
+
+            >
+            <small id="datosUsuarioCelularAyuda" class="form-text text-muted">{{datosUsuario.mensajesValidacionCelular.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="datosUsuario.mensajesValidacionCelular.mensajes.length>0">
+              <div *ngFor="let mensaje of datosUsuario.mensajesValidacionCelular.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

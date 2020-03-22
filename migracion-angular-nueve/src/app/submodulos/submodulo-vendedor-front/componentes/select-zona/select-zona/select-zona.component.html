@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-sm-12 form-group" >
+    <div class="row">
+      <label class="col-sm-3 control-label" [for]="'zona'">Zona</label>
+      <div class="col-sm-9">
+        <p-autoComplete
+          [suggestions]="arregloZonas"
+          (completeMethod)="obtenerZonas($event)"
+          [dropdown]="true"
+          [placeholder]="placeHolder"
+          [emptyMessage]="noExistenRegistros"
+          (onSelect)="enviarZonaSeleccionado($event)"
+          [(ngModel)]="placeHolder"
+          field="nombre">
+          <ng-template let-zonas pTemplate="item">
+            <div class="ui-helper-clearfix" style="text-align: center">
+              <div>{{zonas.nombre}} </div>
+            </div>
+          </ng-template>
+        </p-autoComplete>
+        <small id="zonaAyuda" class="form-text text-muted">Seleccione una zona.</small>
+      </div>
+    </div>
+  </div>
+</div>
+

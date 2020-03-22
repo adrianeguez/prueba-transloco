@@ -1,0 +1,58 @@
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+
+.stripe-pago {
+  padding: 10px 10px 10px 10px;
+  border-top-color: #FFB400;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+
+.ui-chkbox-label{
+  color: black;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  fontSmoothing: 'antialiased';
+  fontSize: '13px';
+  -webkit-font-smoothing: antialiased;
+  size: 16px;
+}
+
+.ui-radiobutton {
+  align-items: flex-start;
+  padding: 5px;
+}
+
+.iconos-tarjetas {
+  width: 5%;
+}

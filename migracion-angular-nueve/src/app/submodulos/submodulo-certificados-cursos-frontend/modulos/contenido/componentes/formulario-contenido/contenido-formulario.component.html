@@ -1,0 +1,113 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.contenido.contenidoFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="contenido.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--texto-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Texto.hidden">
+            <div class="row">
+              <label class="col-sm-2 control-label" [for]="contenido.mensajesValidacionTexto.nombreInput">
+                {{
+                t('texto.' + contenido.mensajesValidacionTexto.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-10">
+                <textarea type="text"
+                          cols="5"
+                          rows="5"
+                          class="form-control form-control-sm"
+                          [id]="contenido.mensajesValidacionTexto.nombreInput"
+                          [name]="contenido.mensajesValidacionTexto.nombreInput"
+                          [formControlName]="contenido.mensajesValidacionTexto.nombreInput"
+                          [placeholder]="t('texto.' + contenido.mensajesValidacionTexto.tooltip)"
+                          [title]="t('texto.' + contenido.mensajesValidacionTexto.title)"
+                          aria-describedby="contenidoTextoAyuda"
+
+
+                >
+                </textarea>
+                <small id="contenidoTextoAyuda" class="form-text text-muted">
+                  {{
+                  t('texto.' + contenido.mensajesValidacionTexto.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="contenido.mensajesValidacionTexto.mensajes.length>0">
+                  <div *ngFor="let mensaje of contenido.mensajesValidacionTexto.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('texto.texto'),
+                        minLength: contenido.mensajesValidacionTexto.minlength.valor,
+                        maxLength: contenido.mensajesValidacionTexto.maxlength.valor,
+                        min: contenido.mensajesValidacionTexto.min.valor,
+                        max: contenido.mensajesValidacionTexto.max.valor,
+                        patternMensaje: t('texto.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--link-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Link.hidden">
+            <div class="row">
+              <label class="col-sm-2 control-label" [for]="contenido.mensajesValidacionLink.nombreInput">
+                {{
+                t('link.' + contenido.mensajesValidacionLink.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-10">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="contenido.mensajesValidacionLink.nombreInput"
+                       [name]="contenido.mensajesValidacionLink.nombreInput"
+                       [formControlName]="contenido.mensajesValidacionLink.nombreInput"
+                       [placeholder]="t('link.' + contenido.mensajesValidacionLink.tooltip)"
+                       [title]="t('link.' + contenido.mensajesValidacionLink.title)"
+                       aria-describedby="contenidoLinkAyuda"
+
+
+                >
+                <small id="contenidoLinkAyuda" class="form-text text-muted">
+                  {{
+                  t('link.' + contenido.mensajesValidacionLink.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="contenido.mensajesValidacionLink.mensajes.length>0">
+                  <div *ngFor="let mensaje of contenido.mensajesValidacionLink.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('link.link'),
+                        minLength: contenido.mensajesValidacionLink.minlength.valor,
+                        maxLength: contenido.mensajesValidacionLink.maxlength.valor,
+                        min: contenido.mensajesValidacionLink.min.valor,
+                        max: contenido.mensajesValidacionLink.max.valor,
+                        patternMensaje: t('link.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,122 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: rutaTraduccion">
+
+    <app-ruta-general [migasDePan]="migasDePan">
+      <div class="contenido" *ngIf="test">
+        <mlab-titulo-pantalla
+          [imagen]="'assets/imagenes/tower.png'"
+          [titulo]="test.nombre"
+          [descripcion]="t('descripciones.descripcionPrueba') + mensajePuntaje + ' ' + this.mensajePretest "
+          [ayuda]="test.tipo.toUpperCase()"
+        >
+        </mlab-titulo-pantalla>
+        <div
+          class="row">
+          <div class="col-sm-6">
+            <span *ngIf="mensajeError" class="bold">
+          {{mensajeError}}
+        </span>
+          </div>
+          <div class="col-sm-6">
+        <span class="bold">
+          {{t('descripciones.tiempoRestante')}}
+        </span>
+            <countdown
+              #countdown
+              [config]="{
+            leftTime: tiempoLimite
+          }"
+              (event)="handleEvent($event, countdown)"
+            >
+            </countdown>
+          </div>
+        </div>
+        <div *ngIf="cargarPrueba"
+             class="row separacion-top-2">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+            <div class="row">
+              <mat-accordion>
+                <mat-expansion-panel
+                  *ngFor="let preguntas of test.preguntasPorPrueba; index as i; let last = last"
+                  (opened)="iniciaTiempoPregunta(i)"
+                  (closed)="terminaTiempoPregunta(i)"
+                >
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{i + 1}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{preguntas.pregunta.descripcion}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <form [formGroup]="formulario">
+                    <div class="form-check">
+
+                      <div *ngFor="let opcion of preguntas.pregunta.opciones; index as i2">
+                        <input
+                          type="radio"
+                          class="form-check-input"
+                          id="{{opcion.id}}"
+                          value="{{opcion.id + '/' + opcion.esRespuesta}}"
+                          formControlName="{{preguntas.pregunta.id}}"
+                          (click)="(test.tipo === 'pretest') ? comprobarRespuesta(opcion, i, i2) : true"
+                        >
+                        <label *ngIf="test.tipo === 'test'"
+                               class="form-check-label"
+                               for="{{opcion.id}}">
+                          <div
+                            *ngIf="termino"
+                            [ngClass]="{ 'btn-outline-success':opcion.esRespuesta,'btn-outline-danger':!opcion.esRespuesta}"
+                          >
+                            {{opcion.descripcion}}
+                          </div>
+                          <div
+                            *ngIf="!termino">
+                            {{opcion.descripcion}}
+                          </div>
+                        </label>
+                        <label *ngIf="test.tipo === 'pretest'"
+                               class="form-check-label"
+                               for="{{opcion.id}}">
+                          <div
+                            *ngIf="opcion.hizoCheck"
+                            [ngClass]="{ 'btn-outline-success':opcion.esRespuesta,'btn-outline-danger':!opcion.esRespuesta}"
+                          >
+                            {{opcion.descripcion}}
+                          </div>
+                          <div *ngIf="!opcion.hizoCheck">
+                            {{opcion.descripcion}}
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <button class="btn btn-sm btn-danger"
+                            *ngIf="preguntas.pregunta.habilitarBotonTratar && !termino && test.tipo === 'pretest'"
+                            (click)="limpiar(formulario, preguntas.pregunta.id)">
+                      {{t('botones.intentaDeNuevo')}}
+                    </button>
+                    <button *ngIf="last && !termino" class="btn btn-primary"
+                            (click)="comprobarResultadosYEnviar(); countdown.stop();">
+                      {{t('botones.subirPrueba')}}
+                    </button>
+                    <button *ngIf="termino && last"
+                            class="btn btn-primary"
+                            (click)="(test.tipo === 'pretest')? regresarPretest() : regresarTest()">
+                      {{t('botones.regresar', {
+                      nombre: (test.tipo === 'pretest')
+                        ? t('botones.diapositivas') : t('botones.modulos')
+                    }) }}
+                    </button>
+                  </form>
+                </mat-expansion-panel>
+              </mat-accordion>
+
+            </div>
+            <div class="col-lg-1"></div>
+          </div>
+        </div>
+      </div>
+    </app-ruta-general>
+  </ng-container>
+</ng-container>

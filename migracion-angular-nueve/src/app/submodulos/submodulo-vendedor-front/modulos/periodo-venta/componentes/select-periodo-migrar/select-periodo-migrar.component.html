@@ -1,0 +1,17 @@
+<p-autoComplete
+  [suggestions]="periodosVentaAmigrar"
+  (completeMethod)="buscarPeriodosVenta($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [emptyMessage]="noExistenRegistros"
+  (onSelect)="enviarPeriodoVentaSeleccionado($event)"
+  field="nombre"
+
+>
+  <ng-template let-periodo pTemplate="item">
+    <div class="ui-helper-clearfix" style="text-align: center">
+      <div>{{periodo.nombre}} </div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+

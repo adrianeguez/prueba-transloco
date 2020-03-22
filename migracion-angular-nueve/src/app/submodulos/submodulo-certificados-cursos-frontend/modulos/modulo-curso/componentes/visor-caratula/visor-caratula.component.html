@@ -1,0 +1,41 @@
+<div *ngIf="!imagenCargada && url && !pasoTiempoMaximo"
+     class="container"
+>
+  <div class="row">
+    <img
+      src="assets/imagenes/sistema/cargando-a.svg"
+      alt="loading"
+    />
+  </div>
+  <div class="row contenedor-mensaje">
+      Loading ..
+  </div>
+</div>
+<div class="">
+  <img
+    *ngIf="url"
+    [src]="url+generarRandomico()"
+    alt=""
+    class="img-fluid {{!imagenCargada ? 'oculto' : 'animated fadeIn'}}"
+    (load)="cargoImagen()"
+  >
+</div>
+
+<div
+  *ngIf="pasoTiempoMaximo && !imagenCargada"
+  class="container animated fadeIn"
+>
+  <div class="row">
+    <img
+      class="img-fluid {{!pasoTiempoMaximo ? 'oculto' : ''}}"
+      src="assets/imagenes/sistema/no-encontrado.svg"
+      alt="loading"
+    />
+  </div>
+  <div class="row contenedor-mensaje error">
+     Image not Found
+  </div>
+</div>
+
+
+

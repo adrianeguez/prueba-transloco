@@ -1,0 +1,57 @@
+<h1 class="text-primary" mat-dialog-title> <span class="bold">{{data.edificio?'EDITAR':'CREAR'}} EDIFICIO </span> </h1>
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <man-lab-esta-tipeando></man-lab-esta-tipeando>
+    </div>
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}} el edificio</p>
+    </div>
+    <div class="col-md-12">
+      <ml-edificio-formulario
+        (empezoATipear)="establecerFormularioEdificioInvalido()"
+        [configuracionDisabled]="configuracionEdificio"
+        (edificioValido)="validarFormularioEdificio($event)"
+      ></ml-edificio-formulario>
+    </div>
+    <div class="espacio"></div>
+  </div>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}} la dirección</p>
+    </div>
+    <div class="col-md-12">
+      <ml-direccion-formulario
+        (empezoATipear)="establecerFormularioDireccionInvalido()"
+        [configuracionDisabled]="configuracionDireccion"
+        (direccionValido)="validarFormularioDireccion($event)"
+      ></ml-direccion-formulario>
+    </div>
+    <div class="espacio"></div>
+  </div>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">{{descripcion}} la localización</p>
+    </div>
+    <div class="col-md-12">
+      <ml-localizacion-formulario
+        (empezoATipear)="establecerFormularioLocalizacionInvalido()"
+        [configuracionDisabled]="configuracionLocalizacion"
+        (localizacionValido)="validarFormularioLocalizacion($event)"
+      ></ml-localizacion-formulario>
+    </div>
+    <div class="espacio"></div>
+  </div>
+
+</div>
+
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearEditar()" class="btn btn-primary boton-modal" [disabled]="!(formularioEdificioValido && formularioDireccionValido && formularioLocalizacionValido)">GUARDAR</button>
+    </div>
+    <div class="p-2">
+      <button   mat-button mat-dialog-close class="btn btn-outline-secondary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

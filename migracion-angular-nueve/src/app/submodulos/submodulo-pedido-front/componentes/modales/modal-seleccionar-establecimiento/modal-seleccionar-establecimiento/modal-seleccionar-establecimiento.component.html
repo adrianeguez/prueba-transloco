@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Seleccionar establecimiento</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<p>Seleccione de que establecimiento quiere asignar operarios.</p>
+<div class="row">
+  <div class="col-md-6 text-center" *ngFor="let establecimiento of data.establecimientos">
+    <h4>Establecimiento: {{establecimiento.nombre}}</h4>
+    <h5>Edificio: {{establecimiento.edificio.nombre}}</h5>
+    <p><span class="bold">Codigo:</span>{{establecimiento.codigo}}</p>
+    <button class="btn btn-block btn-info" (click)="seleccionarEstablecimiento(establecimiento)">Seleccionar establecimiento</button>
+  </div>
+</div>
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-12 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

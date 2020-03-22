@@ -1,0 +1,156 @@
+
+<form novalidate [formGroup]="puntoEmision.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--nombre-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="puntoEmision.mensajesValidacionNombre.nombreInput">{{
+              puntoEmision.mensajesValidacionNombre.nombreAPresentarse + ' *' }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="puntoEmision.mensajesValidacionNombre.nombreInput"
+                   [name]="puntoEmision.mensajesValidacionNombre.nombreInput"
+                   [formControlName]="puntoEmision.mensajesValidacionNombre.nombreInput"
+                   [placeholder]="puntoEmision.mensajesValidacionNombre.tooltip"
+                   [title]="puntoEmision.mensajesValidacionNombre.title"
+                   aria-describedby="puntoEmisionNombreAyuda"
+                   maxlength="60"
+
+            >
+            <small id="puntoEmisionNombreAyuda" class="form-text text-muted">{{puntoEmision.mensajesValidacionNombre.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="puntoEmision.mensajesValidacionNombre.mensajes.length>0">
+              <div *ngFor="let mensaje of puntoEmision.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--codigo-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="puntoEmision.mensajesValidacionCodigo.nombreInput">{{
+              puntoEmision.mensajesValidacionCodigo.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="puntoEmision.mensajesValidacionCodigo.nombreInput"
+                   [name]="puntoEmision.mensajesValidacionCodigo.nombreInput"
+                   [formControlName]="puntoEmision.mensajesValidacionCodigo.nombreInput"
+                   [placeholder]="puntoEmision.mensajesValidacionCodigo.tooltip"
+                   [title]="puntoEmision.mensajesValidacionCodigo.title"
+                   aria-describedby="puntoEmisionCodigoAyuda"
+                   maxlength="30"
+
+
+            >
+            <small id="puntoEmisionCodigoAyuda" class="form-text text-muted">{{puntoEmision.mensajesValidacionCodigo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="puntoEmision.mensajesValidacionCodigo.mensajes.length>0">
+              <div *ngFor="let mensaje of puntoEmision.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--secuencialActual-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.SecuencialActual.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="puntoEmision.mensajesValidacionSecuencialActual.nombreInput">{{
+              puntoEmision.mensajesValidacionSecuencialActual.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="puntoEmision.mensajesValidacionSecuencialActual.nombreInput"
+                   [name]="puntoEmision.mensajesValidacionSecuencialActual.nombreInput"
+                   [formControlName]="puntoEmision.mensajesValidacionSecuencialActual.nombreInput"
+                   [placeholder]="puntoEmision.mensajesValidacionSecuencialActual.tooltip"
+                   [title]="puntoEmision.mensajesValidacionSecuencialActual.title"
+                   aria-describedby="puntoEmisionSecuencialActualAyuda"
+                   maxlength="30"
+
+
+            >
+            <small id="puntoEmisionSecuencialActualAyuda" class="form-text text-muted">{{puntoEmision.mensajesValidacionSecuencialActual.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="puntoEmision.mensajesValidacionSecuencialActual.mensajes.length>0">
+              <div *ngFor="let mensaje of puntoEmision.mensajesValidacionSecuencialActual.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--enUso-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EnUso.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="puntoEmision.mensajesValidacionEnUso.nombreInput">{{
+              puntoEmision.mensajesValidacionEnUso.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <select class="form-control form-control-sm" [name]="puntoEmision.mensajesValidacionEnUso.nombreInput"
+                    [id]="puntoEmision.mensajesValidacionEnUso.nombreInput"
+                    [formControlName]="puntoEmision.mensajesValidacionEnUso.nombreInput"
+            >
+
+              <option value=1>Si</option>
+              <option value=0>No</option>
+
+            </select>
+            <small id="puntoEmisionEnUsoAyuda" class="form-text text-muted">{{puntoEmision.mensajesValidacionEnUso.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="puntoEmision.mensajesValidacionEnUso.mensajes.length>0">
+              <div *ngFor="let mensaje of puntoEmision.mensajesValidacionEnUso.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--bodega-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Bodega.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="puntoEmision.mensajesValidacionBodega.nombreInput">{{
+              puntoEmision.mensajesValidacionBodega.nombreAPresentarse + ' *' }}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [inputId]="puntoEmision.mensajesValidacionBodega.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="puntoEmision.mensajesValidacionBodega.nombreInput"
+              [suggestions]="objetoVariablesGlobales.bodegas"
+              (completeMethod)="buscarBodegas($event)"
+              [placeholder]="puntoEmision.mensajesValidacionBodega.tooltip"
+              delay="1000"
+              field="nombre">
+              <ng-template let-bodega pTemplate="item">
+                {{ bodega.nombre }}
+              </ng-template>
+            </p-autoComplete>
+            <small id="puntoEmisionBodegaAyuda" class="form-text text-muted">{{puntoEmision.mensajesValidacionBodega.title}}.</small>
+
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="puntoEmision.mensajesValidacionBodega.mensajes.length>0">
+              <div *ngFor="let mensaje of puntoEmision.mensajesValidacionBodega.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

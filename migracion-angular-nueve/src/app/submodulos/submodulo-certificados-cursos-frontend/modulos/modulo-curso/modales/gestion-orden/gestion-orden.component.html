@@ -1,0 +1,65 @@
+<ng-container *transloco="let g; read:'generales'">
+  <ng-container *transloco="let t; read:'submoduloCertificadosCuros.moduloCursoModulo.rutas.rutaGestionModuloCurso'">
+    <man-lab-modal-general
+      [nombreBotonAceptar]="g('botones.editar')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="validarLista()"
+      (dioClickEnCancelar)="cancelarModal()"
+      (dioClickEnAceptar)="editar()"
+    >
+
+      <div class="titulo">{{data.configuracion.tituloModal ? data.configuracion.tituloModal : t('titulos.modalGestionOrden')}} </div>
+
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <p class="descripcion-modal">{{data.configuracion.descripcionModal ? data.configuracion.descripcionModal : ''}}</p>
+          </div>
+
+          <div class="col-sm-12">
+
+            <p-listbox *ngIf="data.configuracion.listaTotal"
+                       [options]="data.configuracion.listaTotal"
+                       readonly="true"
+            >
+              <p-header>
+                {{data.configuracion.tituloActual}}
+              </p-header>
+              <ng-template let-item let-i="index" pTemplate="item">
+                <div class="ui-helper-clearfix">
+                  <span style="float:right;margin:20px 10px 0 0">{{i+1}} - {{item[data.configuracion.atributoMostrar]}}</span>
+                </div>
+              </ng-template>
+            </p-listbox>
+
+            <p-pickList
+              [source]="listaOrigen"
+              [target]="listaDestino"
+              [responsive]="true"
+              [filterBy]="data.configuracion.atributoFiltrar"
+              [sourceHeader]="data.configuracion.tituloOrigen"
+              [targetHeader]="data.configuracion.tituloDestino"
+              [dragdrop]="true"
+              [showTargetControls]="true"
+              [showSourceControls]="false"
+            >
+              <ng-template let-item pTemplate="item">
+                <div class="ui-helper-clearfix">
+                  {{item[data.configuracion.atributoMostrar]}}
+                </div>
+              </ng-template>
+            </p-pickList>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

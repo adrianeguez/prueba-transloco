@@ -1,0 +1,39 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/configuracion-icono.svg'"
+      [titulo]="'Configuraciones'"
+      [descripcion]="'Configure el sistema.'"
+      [ayuda]="'Artículos del sistema'"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-lg-1">
+      </div>
+      <div class="col-lg-10">
+        <div class="row espaciado-menu">
+          <div class="col-lg-4">
+          </div>
+          <div class="col-lg-4">
+            <mlab-item-menu
+              [texto]="'Artículos'"
+              [descripcion]="'Gestione los artículos del sistema.'"
+              [url]="['/configuraciones/articulo']"
+              [imagen]="'assets/imagenes/sistema/articulos.svg'"
+            ></mlab-item-menu>
+          </div>
+          <div class="col-lg-4">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1">
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</app-ruta-general>
+
+
+
+

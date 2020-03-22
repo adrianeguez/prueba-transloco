@@ -1,0 +1,42 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCurso.rutas.rutaGestionCurso'">
+
+    <man-lab-modal-general
+      [nombreBotonAceptar]="data.curso?g('botones.editar'):g('botones.crear')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="formularioValido"
+      (dioClickEnCancelar)="cerrarModal()"
+      (dioClickEnAceptar)="editarOCrear()"
+    >
+
+      <div class="titulo">{{data.curso ? g('botones.editar') : g('botones.crear')}} {{t('titulos.nombreModulo')}}</div>
+
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+            <man-lab-esta-tipeando></man-lab-esta-tipeando>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <p class="descripcion-modal">{{g('descripciones.modal')}}</p>
+          </div>
+
+          <div class="col-sm-12">
+            <ml-curso-formulario
+              [configuracionDisabled]="configuracionDisabled"
+              (empezoATipear)="establecerFormularioInvalido()"
+              (cursoValido)="validarFormulario($event)"
+              [idEmpresa]="data.idEmpresa"
+              [cursosEnTabla]="data.cursosEnTabla"
+            ></ml-curso-formulario>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

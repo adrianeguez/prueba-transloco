@@ -1,0 +1,124 @@
+<div *ngIf="ruta && habilitar">
+  <ng-container *transloco="let g; read: 'generales'">
+    <ng-container *transloco="let t; read: rutaConTraduccion">
+      <app-ruta-general [migasDePan]="migasDePan">
+        <div class="contenido">
+
+          <mlab-titulo-pantalla
+            [titulo]="g('titulos.asignacion', {nombreModulos: t('titulos.nombreModulos')})"
+            [descripcion]="g('descripciones.asignacion', {nombreModulos: t('titulos.nombreModulos')})"
+            [imagen]="'assets/imagenes/sistema/vehiculos.svg'"
+            [ayuda]="t('titulos.ayuda')"
+          >
+          </mlab-titulo-pantalla>
+          <!--        [ayuda]="usuario?.apellidos + ' ' + usuario?.nombres + ' ' + usuario?.identificacionPais"-->
+          <!--    busqueda-->
+          <div class="row separacion-fondo-2">
+            <div class="col-sm-9">
+              <form class="form-inline" novalidate>
+                <div class="col-sm-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-describedby="busquedaVehiculoHelp"
+                           placeholder="{{g('descripciones.busqueda')}}" #busqueda>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                              (click)="buscarPorDescripcion(busqueda.value)"><i class="fas fa-search"></i>
+                        {{g('botones.buscar')}}
+                      </button>
+                    </div>
+                  </div>
+                  <small id="busquedaRolHelp" class="form-text text-muted ayuda-span">
+                    {{t('descripciones.busqueda')}}
+                  </small>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-outline-primary  btn-block"
+                      (click)="abrirModalAsignarPregunta()"
+              >
+                <i class="fas fa-plus"></i> {{g('botones.asignar')}}
+              </button>
+            </div>
+          </div>
+
+          <!--tabla-->
+          <div class="row">
+            <div class="col-sm-12">
+              <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                       (onLazyLoad)="cargarDatos($event)"
+                       [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [loading]="loading"
+                       [first]="first">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th *ngFor="let col of columns">
+                      {{col.traduccion}}
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                    <td *ngFor="let col of columns">
+                      <span class="ui-column-title">{{col.header}}</span>
+
+                      <div class="text-center" *ngIf="col.header==='Descripcion'">
+                        {{rowData?.pregunta?.descripcion}}
+                      </div>
+                      <div class="text-center" *ngIf="col.header==='Valor'">
+                        {{rowData?.pregunta?.valor}}
+                      </div>
+
+                      <div *ngIf="col.field ==='habilitado'">
+                        <button class="btn btn-block btn-sm"
+                                [ngClass]="{
+                            'btn-success': rowData[col.field] === 1,
+                            'btn-danger': rowData[col.field] === 0
+                            }"
+                                (click)="actualizarEstado(rowData)"
+                        >
+                          {{rowData[col.field] === 1 ? g('botones.activo') : g('botones.inactivo')}}
+                        </button>
+                      </div>
+
+                      <div *ngIf="col.header === 'Tratar de nuevo'">
+                        <button class="btn btn-block btn-sm"
+                                [ngClass]="{
+                            'btn-success': rowData?.pregunta?.tratarDeNuevo === 1,
+                            'btn-danger': rowData?.pregunta?.tratarDeNuevo === 0
+                            }"
+                        >
+                          {{rowData?.pregunta?.tratarDeNuevo === 1 ? g('botones.activo') : g('botones.inactivo')}}
+                        </button>
+                      </div>
+
+                      <div *ngIf="col.header==='Acciones'">
+
+                        <button class="btn btn-block btn-info btn-sm" (click)="abrirModalVerOpciones(rowData)">
+                          {{t('botones.verOpciones')}}
+                        </button>
+
+                        <button class="btn btn-block btn-danger btn-sm" (click)="desasignarPregunta(rowData)">
+                          {{g('botones.desasignar')}}
+                        </button>
+
+                      </div>
+
+                    </td>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                  <tr>
+                    <td [attr.colspan]="columns.length">
+                      {{g('otros.sinRegistros')}}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </app-ruta-general>
+    </ng-container>
+  </ng-container>
+</div>
+

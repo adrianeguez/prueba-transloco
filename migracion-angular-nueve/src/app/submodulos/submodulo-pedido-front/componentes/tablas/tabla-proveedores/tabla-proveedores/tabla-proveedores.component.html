@@ -1,0 +1,54 @@
+<div class="col-sm-12">
+  <div class="col-sm-12">
+    <p-table
+      [responsive]="true"
+      [columns]="columnas"
+      [value]="proveedores"
+      [lazy]="true"
+      (onLazyLoad)="cargarDatosLazy($event)"
+      [paginator]="true"
+      [rows]="rows"
+      [totalRecords]="totalRegistros"
+      [first]="skip"
+      [selectionMode]="'single'"
+      (onRowSelect) = "obtenerProveedorSeleccionado($event)"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="text-center" *ngFor="let col of columnas">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columnas.length">
+            No existen registros
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td class="text-center" *ngFor="let col of columnas">
+            <span class="ui-column-title">{{col.header}}</span>
+            <div *ngIf="col.header === '#'">
+              {{proveedores.indexOf(rowData)+1}}
+            </div>
+
+            <div *ngIf="col.field === 'nombreComercial'">
+              {{rowData['empresaProveedor'].nombreComercial}}
+            </div>
+
+            <div *ngIf="col.field === 'ruc'">
+              {{rowData['empresaProveedor'].ruc}}
+              <!--<button class="btn btn-sm btn-block btn-info" (click)="obtenerClienteOProveedorSeleccionado(rowData)">Seleccionar</button>-->
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+

@@ -1,0 +1,66 @@
+
+<form novalidate [formGroup]="crearPtoEmiOpe.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--valorInicia-->
+            <div class="col-lg-6 form-group" *ngIf="!configuracionDisabled.ValorInicia.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="crearPtoEmiOpe.mensajesValidacionValorInicia.nombreInput">{{
+                        crearPtoEmiOpe.mensajesValidacionValorInicia.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="crearPtoEmiOpe.mensajesValidacionValorInicia.nombreInput"
+                                [name]="crearPtoEmiOpe.mensajesValidacionValorInicia.nombreInput"
+                                [formControlName]="crearPtoEmiOpe.mensajesValidacionValorInicia.nombreInput"
+                                [placeholder]="crearPtoEmiOpe.mensajesValidacionValorInicia.tooltip"
+                                [title]="crearPtoEmiOpe.mensajesValidacionValorInicia.title"
+                                aria-describedby="crearPtoEmiOpeValorIniciaAyuda"
+                                currencyMask
+                                [options]="crearPtoEmiOpe.mensajesValidacionValorInicia.mask"
+                               required
+                        >
+                        <small id="crearPtoEmiOpeValorIniciaAyuda" class="form-text text-muted">{{crearPtoEmiOpe.mensajesValidacionValorInicia.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="crearPtoEmiOpe.mensajesValidacionValorInicia.mensajes.length>0">
+                            <div *ngFor="let mensaje of crearPtoEmiOpe.mensajesValidacionValorInicia.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--novedadInicio-->
+            <div class="col-lg-6 form-group" *ngIf="!configuracionDisabled.NovedadInicio.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.nombreInput">{{
+                        crearPtoEmiOpe.mensajesValidacionNovedadInicio.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.nombreInput"
+                                [name]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.nombreInput"
+                                [formControlName]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.nombreInput"
+                                [placeholder]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.tooltip"
+                                [title]="crearPtoEmiOpe.mensajesValidacionNovedadInicio.title"
+                                aria-describedby="crearPtoEmiOpeNovedadInicioAyuda"
+
+
+                        >
+                        <small id="crearPtoEmiOpeNovedadInicioAyuda" class="form-text text-muted">{{crearPtoEmiOpe.mensajesValidacionNovedadInicio.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="crearPtoEmiOpe.mensajesValidacionNovedadInicio.mensajes.length>0">
+                            <div *ngFor="let mensaje of crearPtoEmiOpe.mensajesValidacionNovedadInicio.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

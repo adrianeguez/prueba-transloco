@@ -1,0 +1,129 @@
+
+<form novalidate [formGroup]="subempresa.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--empresaHijo-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EmpresaHijo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subempresa.mensajesValidacionEmpresaHijo.nombreInput">{{
+                        subempresa.mensajesValidacionEmpresaHijo.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="subempresa.mensajesValidacionEmpresaHijo.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            (onSelect) = "seleccionarEmpresa($event)"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="subempresa.mensajesValidacionEmpresaHijo.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.subempresas"
+                            (completeMethod)="buscarSubempresas($event)"
+                            [placeholder]="subempresa.mensajesValidacionEmpresaHijo.tooltip"
+                            delay="1000"
+                            field="razonSocial">
+                                <ng-template let-empresa pTemplate="item">
+                                    {{ empresa.razonSocial }}
+                                </ng-template>
+                        </p-autoComplete>
+                      <small id="subempresaEmpresaAyuda" class="form-text text-muted">{{subempresa.mensajesValidacionEmpresaHijo.title}}.</small>
+
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subempresa.mensajesValidacionEmpresaHijo.mensajes.length>0">
+                            <div *ngFor="let mensaje of subempresa.mensajesValidacionEmpresaHijo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>               
+
+            <!--razonSocial-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.RazonSocial.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subempresa.mensajesValidacionRazonSocial.nombreInput">{{
+                        subempresa.mensajesValidacionRazonSocial.nombreAPresentarse}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subempresa.mensajesValidacionRazonSocial.nombreInput"
+                                [name]="subempresa.mensajesValidacionRazonSocial.nombreInput"
+                                [formControlName]="subempresa.mensajesValidacionRazonSocial.nombreInput"
+                                [placeholder]="subempresa.mensajesValidacionRazonSocial.tooltip"
+                                [title]="subempresa.mensajesValidacionRazonSocial.title"
+                                aria-describedby="subempresaRazonSocialAyuda"
+                                
+                                
+                        >
+                        <small id="subempresaRazonSocialAyuda" class="form-text text-muted">{{subempresa.mensajesValidacionRazonSocial.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subempresa.mensajesValidacionRazonSocial.mensajes.length>0">
+                            <div *ngFor="let mensaje of subempresa.mensajesValidacionRazonSocial.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--ruc-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Ruc.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subempresa.mensajesValidacionRuc.nombreInput">{{
+                        subempresa.mensajesValidacionRuc.nombreAPresentarse}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subempresa.mensajesValidacionRuc.nombreInput"
+                                [name]="subempresa.mensajesValidacionRuc.nombreInput"
+                                [formControlName]="subempresa.mensajesValidacionRuc.nombreInput"
+                                [placeholder]="subempresa.mensajesValidacionRuc.tooltip"
+                                [title]="subempresa.mensajesValidacionRuc.title"
+                                aria-describedby="subempresaRucAyuda"
+                                
+                                
+                        >
+                        <small id="subempresaRucAyuda" class="form-text text-muted">{{subempresa.mensajesValidacionRuc.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subempresa.mensajesValidacionRuc.mensajes.length>0">
+                            <div *ngFor="let mensaje of subempresa.mensajesValidacionRuc.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--nivel-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nivel.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="subempresa.mensajesValidacionNivel.nombreInput">{{
+                        subempresa.mensajesValidacionNivel.nombreAPresentarse}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="subempresa.mensajesValidacionNivel.nombreInput"
+                                [name]="subempresa.mensajesValidacionNivel.nombreInput"
+                                [formControlName]="subempresa.mensajesValidacionNivel.nombreInput"
+                                [placeholder]="subempresa.mensajesValidacionNivel.tooltip"
+                                [title]="subempresa.mensajesValidacionNivel.title"
+                                aria-describedby="subempresaNivelAyuda"
+                                
+                                
+                        >
+                        <small id="subempresaNivelAyuda" class="form-text text-muted">{{subempresa.mensajesValidacionNivel.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="subempresa.mensajesValidacionNivel.mensajes.length>0">
+                            <div *ngFor="let mensaje of subempresa.mensajesValidacionNivel.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control"  aria-describedby="busquedaEmpresaHelp"
+             placeholder="Ingrese su búsqueda....." #busqueda>
+      <div >
+        <button class="btn btn-outline-secondary" type="btn" (click)="buscarNombreCodigo(busqueda.value)"  ><i class="fas fa-search"></i> BUSCAR</button>
+      </div>
+    </div>
+    <small id="busquedaEmpresaProveedorHelp" class="form-text text-muted ayuda-span" > Busque una bodega por nombre o código.
+    </small>
+  </div>
+  <div class="col-sm-12 ">
+    <div class="row justify-content-center">
+      <div class="col-sm-3" *ngIf="mostrarSelectEsPercha">
+        <ml-select-es-percha-bodega
+          (esPerchaSeleccionado)="escucharEsPerchaSeleccionado($event)"
+        ></ml-select-es-percha-bodega>
+      </div>
+      <div class="col-sm-3" *ngIf="mostrarSelectEstado">
+        <ml-select-estado
+          (estadoSeleccionado)="escucharEstadoSeleccionado($event)"
+        ></ml-select-estado>
+      </div>
+    </div>
+  </div>
+</div>

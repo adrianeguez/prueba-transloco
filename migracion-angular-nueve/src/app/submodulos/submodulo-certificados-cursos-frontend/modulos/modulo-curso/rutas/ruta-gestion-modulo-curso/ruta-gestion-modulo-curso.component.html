@@ -1,0 +1,130 @@
+<div *ngIf="ruta && habilitar">
+  <ng-container  *transloco="let g; read: 'generales'">
+    <ng-container  *transloco="let t; read: rutaConTraduccion">
+      <app-ruta-general [migasDePan]="migasDePan">
+        <div class="contenido">
+          <toaster-container></toaster-container>
+
+          <mlab-titulo-pantalla
+                                [titulo]="g('titulos.gestion', {nombreModulos: t('titulos.nombreModulos')})"
+                                [descripcion]="g('descripciones.gestion', {nombreModulos: t('titulos.nombreModulos')})"
+                                [imagen]="'assets/imagenes/sistema/vehiculos.svg'"
+                                [ayuda]="t('titulos.ayuda')"
+          >
+          </mlab-titulo-pantalla>
+          <!--        [ayuda]="usuario?.apellidos + ' ' + usuario?.nombres + ' ' + usuario?.identificacionPais"-->
+          <!--    busqueda-->
+          <div class="row separacion-fondo-2">
+            <div class="col-sm-3">
+              <form class="form-inline" novalidate ngForm (ngSubmit)="buscarPorIdentificadorONombre(busqueda.value)">
+                <div class="col-sm-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-describedby="busquedaVehiculoHelp"
+                           [placeholder]="g('descripciones.busqueda')" #busqueda>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                              (click)="buscarPorIdentificadorONombre(busqueda.value)"><i class="fas fa-search"></i>
+                        {{g('botones.buscar')}}
+                      </button>
+                    </div>
+                  </div>
+                  <small id="busquedaRolHelp" class="form-text text-muted ayuda-span">
+                    {{t('descripciones.busqueda')}}
+                  </small>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-3">
+              <ml-select-estado
+                (estadoSeleccionado)="escucharEstadoSeleccionado($event, busqueda.value); estadoSeleccionado = $event"
+              ></ml-select-estado>
+            </div>
+            <div class="col-sm-3">
+              <button
+                class="btn btn-outline-info  btn-block"
+                (click)="gestionarOrden()"
+              >{{t('botones.gestionOrden')}}
+              </button>
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-outline-primary  btn-block"
+                      (click)="abrirModalCrearModuloCursoInterface()"
+              >
+                <i class="fas fa-plus"></i> {{g('botones.nuevo')}}
+              </button>
+            </div>
+          </div>
+          <!--tabla-->
+          <div class="row">
+            <div class="col-sm-12">
+              <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                       (onLazyLoad)="cargarDatos($event)"
+                       [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [loading]="loading" [first]="first">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th *ngFor="let col of columns">
+                      {{col.traduccion}}
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                    <td *ngFor="let col of columns">
+                      <span class="ui-column-title">{{col.header}}</span>
+
+                      <div *ngIf="col.header==='Nombre'">
+                        {{rowData[col.field]}}
+                      </div>
+                      <div *ngIf="col.header==='Descripcion'">
+                        {{rowData[col.field]}}
+                      </div>
+                      <div *ngIf="col.header==='Tiempo'">
+                        {{rowData[col.field]}}
+                      </div>
+                      <div *ngIf="col.header ==='Estado'">
+                        <button class="btn btn-block btn-sm"
+                                [ngClass]="{
+                            'btn-success': rowData[col.field] === 1,
+                            'btn-danger': rowData[col.field] === 0
+                            }"
+                                (click)="actualizarEstado(rowData)"
+                        >
+                          {{rowData[col.field] === 1 ?  g('botones.activo') : g('botones.inactivo')}}
+                        </button>
+                      </div>
+                      <div *ngIf="col.header==='Acciones'">
+
+                        <button class="btn btn-block btn-info btn-sm"
+                                (click)="abrirModalEditarModuloCursoInterface(rowData)">
+                          {{g('botones.editar')}}
+                        </button>
+                        <button class="btn btn-block btn-primary btn-sm" (click)="abriModalCrearEditarCaratula(rowData)">
+                          {{rowData.urlCaratula ? g('botones.editar') : g('botones.editar')}}
+                              {{t('botones.caratula')}}
+                        </button>
+                        <button class="btn btn-block btn-success btn-sm" (click)="irAGestionModuloHijo(rowData.id, 'tema', 'gestion temas')">
+                          {{t('botones.gestionTemas')}}
+                        </button>
+                        <button class="btn btn-block btn-success btn-sm" (click)="irAGestionModuloHijo(rowData.id, 'prueba', 'gestión pruebas')">
+                          {{t('botones.gestionPruebas')}}
+                        </button>
+                      </div>
+
+                    </td>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                  <tr>
+                    <td [attr.colspan]="columns.length">
+                      No se encontraron registros
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </app-ruta-general>
+    </ng-container>
+  </ng-container>
+</div>

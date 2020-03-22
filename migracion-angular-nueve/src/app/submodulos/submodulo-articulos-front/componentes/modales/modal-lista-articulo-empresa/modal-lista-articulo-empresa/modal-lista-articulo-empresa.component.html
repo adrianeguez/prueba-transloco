@@ -1,0 +1,15 @@
+<ml-lista-articulo-empresa
+  (articulosSeleccionado)="obtenerArticuloSeleccionado($event)">
+</ml-lista-articulo-empresa>
+<mat-dialog-actions class="justify-content-start">
+    <div class="d-flex flex-row-reverse">
+        <div class="p-2">
+            <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+        </div>
+        <div class="p-2">
+            <button mat-button class="btn btn-primary boton-modal" (click)="aceptarArticulosSeleccionados()"
+                [disabled]="!totalRegistros">
+                ACEPTAR</button>
+        </div>
+    </div>
+</mat-dialog-actions>

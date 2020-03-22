@@ -1,0 +1,92 @@
+
+<form novalidate [formGroup]="precio.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--valor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="precio.mensajesValidacionValor.nombreInput">{{
+                        precio.mensajesValidacionValor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="precio.mensajesValidacionValor.nombreInput"
+                                [name]="precio.mensajesValidacionValor.nombreInput"
+                                [textMask]="precio.mensajesValidacionValor.mask"
+                                [formControlName]="precio.mensajesValidacionValor.nombreInput"
+                                [placeholder]="precio.mensajesValidacionValor.tooltip"
+                                [title]="precio.mensajesValidacionValor.title"
+                                aria-describedby="precioValorAyuda"
+                                
+                                
+                        >
+                        <small id="precioValorAyuda" class="form-text text-muted">{{precio.mensajesValidacionValor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="precio.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of precio.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--valorIncentivo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ValorIncentivo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="precio.mensajesValidacionValorIncentivo.nombreInput">{{
+                        precio.mensajesValidacionValorIncentivo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="precio.mensajesValidacionValorIncentivo.nombreInput"
+                                [name]="precio.mensajesValidacionValorIncentivo.nombreInput"
+                                [textMask]="precio.mensajesValidacionValorIncentivo.mask"
+                                [formControlName]="precio.mensajesValidacionValorIncentivo.nombreInput"
+                                [placeholder]="precio.mensajesValidacionValorIncentivo.tooltip"
+                                [title]="precio.mensajesValidacionValorIncentivo.title"
+                                aria-describedby="precioValorIncentivoAyuda"
+                                
+                                
+                        >
+                        <small id="precioValorIncentivoAyuda" class="form-text text-muted">{{precio.mensajesValidacionValorIncentivo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="precio.mensajesValidacionValorIncentivo.mensajes.length>0">
+                            <div *ngFor="let mensaje of precio.mensajesValidacionValorIncentivo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--esPrincipal-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EsPrincipal.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="precio.mensajesValidacionEsPrincipal.nombreInput">{{
+                    precio.mensajesValidacionEsPrincipal.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="precio.mensajesValidacionEsPrincipal.nombreInput"
+                                [id]="precio.mensajesValidacionEsPrincipal.nombreInput"
+                                [formControlName]="precio.mensajesValidacionEsPrincipal.nombreInput"
+                        >
+
+                            <option value=1>Si</option>
+                            <option value=0>No</option>
+
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="precio.mensajesValidacionEsPrincipal.mensajes.length>0">
+                            <div *ngFor="let mensaje of precio.mensajesValidacionEsPrincipal.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                   
+
+        </div>
+    </fieldset>
+</form>

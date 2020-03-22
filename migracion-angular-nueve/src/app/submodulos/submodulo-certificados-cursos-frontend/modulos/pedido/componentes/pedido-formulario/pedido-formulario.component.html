@@ -1,0 +1,261 @@
+
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.pedido.pedidoFormulario'">
+    <ng-container *transloco="let m; read: 'formularios.comunes'">
+        <form novalidate [formGroup]="pedido.formGroup">
+            <fieldset class="col-md-12">
+                <div class="row">
+            <!--curso-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Curso.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="pedido.mensajesValidacionCurso.nombreInput">
+                        {{
+                            t('curso.' + pedido.mensajesValidacionCurso.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="pedido.mensajesValidacionCurso.nombreInput"
+                                [name]="pedido.mensajesValidacionCurso.nombreInput"
+                                [formControlName]="pedido.mensajesValidacionCurso.nombreInput"
+                                [placeholder]="t('curso.' + pedido.mensajesValidacionCurso.tooltip)"
+                                [title]="t('curso.' + pedido.mensajesValidacionCurso.title)"
+                                aria-describedby="pedidoCursoAyuda"
+
+
+                        >
+                        <small id="pedidoCursoAyuda" class="form-text text-muted">
+                        {{
+                            t('curso.' + pedido.mensajesValidacionCurso.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="pedido.mensajesValidacionCurso.mensajes.length>0">
+                            <div *ngFor="let mensaje of pedido.mensajesValidacionCurso.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('curso.curso'),
+                                          minLength: pedido.mensajesValidacionCurso.minlength.valor,
+                                          maxLength: pedido.mensajesValidacionCurso.maxlength.valor,
+                                          min: pedido.mensajesValidacionCurso.min.valor,
+                                          max: pedido.mensajesValidacionCurso.max.valor,
+                                          patternMensaje: t('curso.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--horarioServicio-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.HorarioServicio.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="pedido.mensajesValidacionHorarioServicio.nombreInput">
+                        {{
+                            t('horarioServicio.' + pedido.mensajesValidacionHorarioServicio.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="pedido.mensajesValidacionHorarioServicio.nombreInput"
+                                [name]="pedido.mensajesValidacionHorarioServicio.nombreInput"
+                                [formControlName]="pedido.mensajesValidacionHorarioServicio.nombreInput"
+                                [placeholder]="t('horarioServicio.' + pedido.mensajesValidacionHorarioServicio.tooltip)"
+                                [title]="t('horarioServicio.' + pedido.mensajesValidacionHorarioServicio.title)"
+                                aria-describedby="pedidoHorarioServicioAyuda"
+
+
+                        >
+                        <small id="pedidoHorarioServicioAyuda" class="form-text text-muted">
+                        {{
+                            t('horarioServicio.' + pedido.mensajesValidacionHorarioServicio.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="pedido.mensajesValidacionHorarioServicio.mensajes.length>0">
+                            <div *ngFor="let mensaje of pedido.mensajesValidacionHorarioServicio.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('horarioServicio.horarioServicio'),
+                                          minLength: pedido.mensajesValidacionHorarioServicio.minlength.valor,
+                                          maxLength: pedido.mensajesValidacionHorarioServicio.maxlength.valor,
+                                          min: pedido.mensajesValidacionHorarioServicio.min.valor,
+                                          max: pedido.mensajesValidacionHorarioServicio.max.valor,
+                                          patternMensaje: t('horarioServicio.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--valor-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="pedido.mensajesValidacionValor.nombreInput">
+                        {{
+                            t('valor.' + pedido.mensajesValidacionValor.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="pedido.mensajesValidacionValor.nombreInput"
+                                [name]="pedido.mensajesValidacionValor.nombreInput"
+                                [formControlName]="pedido.mensajesValidacionValor.nombreInput"
+                                [placeholder]="t('valor.' + pedido.mensajesValidacionValor.tooltip)"
+                                [title]="t('valor.' + pedido.mensajesValidacionValor.title)"
+                                aria-describedby="pedidoValorAyuda"
+
+
+                        >
+                        <small id="pedidoValorAyuda" class="form-text text-muted">
+                        {{
+                            t('valor.' + pedido.mensajesValidacionValor.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="pedido.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of pedido.mensajesValidacionValor.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('valor.valor'),
+                                          minLength: pedido.mensajesValidacionValor.minlength.valor,
+                                          maxLength: pedido.mensajesValidacionValor.maxlength.valor,
+                                          min: pedido.mensajesValidacionValor.min.valor,
+                                          max: pedido.mensajesValidacionValor.max.valor,
+                                          patternMensaje: t('valor.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombres-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombres.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="pedido.mensajesValidacionNombres.nombreInput">
+                        {{
+                            t('nombres.' + pedido.mensajesValidacionNombres.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="pedido.mensajesValidacionNombres.nombreInput"
+                                [name]="pedido.mensajesValidacionNombres.nombreInput"
+                                [formControlName]="pedido.mensajesValidacionNombres.nombreInput"
+                                [placeholder]="t('nombres.' + pedido.mensajesValidacionNombres.tooltip)"
+                                [title]="t('nombres.' + pedido.mensajesValidacionNombres.title)"
+                                aria-describedby="pedidoNombresAyuda"
+
+
+                        >
+                        <small id="pedidoNombresAyuda" class="form-text text-muted">
+                        {{
+                            t('nombres.' + pedido.mensajesValidacionNombres.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="pedido.mensajesValidacionNombres.mensajes.length>0">
+                            <div *ngFor="let mensaje of pedido.mensajesValidacionNombres.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('nombres.nombres'),
+                                          minLength: pedido.mensajesValidacionNombres.minlength.valor,
+                                          maxLength: pedido.mensajesValidacionNombres.maxlength.valor,
+                                          min: pedido.mensajesValidacionNombres.min.valor,
+                                          max: pedido.mensajesValidacionNombres.max.valor,
+                                          patternMensaje: t('nombres.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--apellidos-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Apellidos.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="pedido.mensajesValidacionApellidos.nombreInput">
+                        {{
+                            t('apellidos.' + pedido.mensajesValidacionApellidos.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="pedido.mensajesValidacionApellidos.nombreInput"
+                                [name]="pedido.mensajesValidacionApellidos.nombreInput"
+                                [formControlName]="pedido.mensajesValidacionApellidos.nombreInput"
+                                [placeholder]="t('apellidos.' + pedido.mensajesValidacionApellidos.tooltip)"
+                                [title]="t('apellidos.' + pedido.mensajesValidacionApellidos.title)"
+                                aria-describedby="pedidoApellidosAyuda"
+
+
+                        >
+                        <small id="pedidoApellidosAyuda" class="form-text text-muted">
+                        {{
+                            t('apellidos.' + pedido.mensajesValidacionApellidos.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="pedido.mensajesValidacionApellidos.mensajes.length>0">
+                            <div *ngFor="let mensaje of pedido.mensajesValidacionApellidos.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('apellidos.apellidos'),
+                                          minLength: pedido.mensajesValidacionApellidos.minlength.valor,
+                                          maxLength: pedido.mensajesValidacionApellidos.maxlength.valor,
+                                          min: pedido.mensajesValidacionApellidos.min.valor,
+                                          max: pedido.mensajesValidacionApellidos.max.valor,
+                                          patternMensaje: t('apellidos.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </ng-container>
+</ng-container>

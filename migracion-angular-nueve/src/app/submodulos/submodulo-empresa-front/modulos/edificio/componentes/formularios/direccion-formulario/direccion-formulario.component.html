@@ -1,0 +1,211 @@
+
+<form novalidate [formGroup]="direccion.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--numeroCalle-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroCalle.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionNumeroCalle.nombreInput">{{
+              direccion.mensajesValidacionNumeroCalle.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="direccion.mensajesValidacionNumeroCalle.nombreInput"
+                   [name]="direccion.mensajesValidacionNumeroCalle.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionNumeroCalle.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionNumeroCalle.tooltip"
+                   [title]="direccion.mensajesValidacionNumeroCalle.title"
+                   aria-describedby="direccionNumeroCalleAyuda"
+                   maxlength="10"
+
+            >
+            <small id="direccionNumeroCalleAyuda" class="form-text text-muted">{{direccion.mensajesValidacionNumeroCalle.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionNumeroCalle.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionNumeroCalle.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--callePrincipal-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CallePrincipal.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionCallePrincipal.nombreInput">{{
+              direccion.mensajesValidacionCallePrincipal.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="direccion.mensajesValidacionCallePrincipal.nombreInput"
+                   [name]="direccion.mensajesValidacionCallePrincipal.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionCallePrincipal.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionCallePrincipal.tooltip"
+                   [title]="direccion.mensajesValidacionCallePrincipal.title"
+                   aria-describedby="direccionCallePrincipalAyuda"
+                   maxlength="100"
+
+            >
+            <small id="direccionCallePrincipalAyuda" class="form-text text-muted">{{direccion.mensajesValidacionCallePrincipal.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionCallePrincipal.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionCallePrincipal.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--calleSecundaria-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CalleSecundaria.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionCalleSecundaria.nombreInput">{{
+              direccion.mensajesValidacionCalleSecundaria.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="direccion.mensajesValidacionCalleSecundaria.nombreInput"
+                   [name]="direccion.mensajesValidacionCalleSecundaria.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionCalleSecundaria.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionCalleSecundaria.tooltip"
+                   [title]="direccion.mensajesValidacionCalleSecundaria.title"
+                   aria-describedby="direccionCalleSecundariaAyuda"
+                   maxlength="100"
+
+            >
+            <small id="direccionCalleSecundariaAyuda" class="form-text text-muted">{{direccion.mensajesValidacionCalleSecundaria.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionCalleSecundaria.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionCalleSecundaria.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--nombreEdificio-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreEdificio.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionNombreEdificio.nombreInput">{{
+              direccion.mensajesValidacionNombreEdificio.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="direccion.mensajesValidacionNombreEdificio.nombreInput"
+                   [name]="direccion.mensajesValidacionNombreEdificio.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionNombreEdificio.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionNombreEdificio.tooltip"
+                   [title]="direccion.mensajesValidacionNombreEdificio.title"
+                   aria-describedby="direccionNombreEdificioAyuda"
+                   maxlength="50"
+            >
+            <small id="direccionNombreEdificioAyuda" class="form-text text-muted">{{direccion.mensajesValidacionNombreEdificio.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionNombreEdificio.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionNombreEdificio.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--piso-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Piso.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionPiso.nombreInput">{{
+              direccion.mensajesValidacionPiso.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm small-input "
+                   [id]="direccion.mensajesValidacionPiso.nombreInput"
+                   [name]="direccion.mensajesValidacionPiso.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionPiso.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionPiso.tooltip"
+                   [title]="direccion.mensajesValidacionPiso.title"
+                   aria-describedby="direccionPisoAyuda"
+                   maxlength="3"
+            >
+            <small id="direccionPisoAyuda" class="form-text text-muted">{{direccion.mensajesValidacionPiso.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionPiso.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionPiso.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--lugar-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Lugar.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionLugar.nombreInput">{{
+              direccion.mensajesValidacionLugar.nombreAPresentarse + ' *'}}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [inputId]="direccion.mensajesValidacionLugar.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="direccion.mensajesValidacionLugar.nombreInput"
+              [suggestions]="objetoVariablesGlobales.lugars"
+              (completeMethod)="buscarLugars($event)"
+              [placeholder]="direccion.mensajesValidacionLugar.tooltip"
+              delay="1000"
+              field="nombre">
+              <ng-template let-lugar pTemplate="item">
+                {{ lugar.nombre }}
+              </ng-template>
+            </p-autoComplete>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionLugar.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionLugar.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--referencia-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Referencia.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="direccion.mensajesValidacionReferencia.nombreInput">{{
+              direccion.mensajesValidacionReferencia.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="direccion.mensajesValidacionReferencia.nombreInput"
+                   [name]="direccion.mensajesValidacionReferencia.nombreInput"
+                   [formControlName]="direccion.mensajesValidacionReferencia.nombreInput"
+                   [placeholder]="direccion.mensajesValidacionReferencia.tooltip"
+                   [title]="direccion.mensajesValidacionReferencia.title"
+                   aria-describedby="direccionReferenciaAyuda"
+                   maxlength="60"
+
+            >
+            <small id="direccionReferenciaAyuda" class="form-text text-muted">{{direccion.mensajesValidacionReferencia.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="direccion.mensajesValidacionReferencia.mensajes.length>0">
+              <div *ngFor="let mensaje of direccion.mensajesValidacionReferencia.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

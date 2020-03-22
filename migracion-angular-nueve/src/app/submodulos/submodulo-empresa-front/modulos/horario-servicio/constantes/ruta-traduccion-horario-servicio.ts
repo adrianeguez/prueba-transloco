@@ -1,0 +1,2 @@
+export const RUTA_TRADUCCION_HORARIO_SERVICIO = 'submoduloEmpresa.moduloHorarioServicio.rutas.rutaGestionHorarioServicio';
+export const RUTA_TRADUCCION_HORARIO_SERVICIO_CURSO = 'submoduloEmpresa.moduloHorarioServicio.rutas.rutaHorarioServicioCurso';

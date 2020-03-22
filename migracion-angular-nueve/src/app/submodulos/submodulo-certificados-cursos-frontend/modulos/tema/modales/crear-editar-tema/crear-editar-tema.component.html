@@ -1,0 +1,39 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.tema.rutas.rutaGestionTema'">
+    <man-lab-modal-general
+      [nombreBotonAceptar]="data.tema?g('botones.editar'):g('botones.crear')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="formularioValido"
+      (dioClickEnCancelar)="cerrarModal()"
+      (dioClickEnAceptar)="editarOCrear()"
+    >
+
+      <div class="titulo">{{data.tema ? g('botones.editar') : g('botones.crear')}} {{t('titulos.nombreModulo')}}</div>
+
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+            <man-lab-esta-tipeando></man-lab-esta-tipeando>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <p class="descripcion-modal">{{g('descripciones.modal')}}</p>
+          </div>
+
+          <div class="col-sm-12">
+            <ml-tema-formulario
+              [configuracionDisabled]="configuracionDisabled"
+              (empezoATipear)="establecerFormularioInvalido()"
+              (temaValido)="validarFormulario($event)"
+            ></ml-tema-formulario>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

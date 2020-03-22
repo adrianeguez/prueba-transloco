@@ -1,0 +1,62 @@
+
+<form novalidate [formGroup]="localizacion.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--coordenadaX-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CoordenadaX.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="localizacion.mensajesValidacionCoordenadaX.nombreInput">{{
+              localizacion.mensajesValidacionCoordenadaX.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="localizacion.mensajesValidacionCoordenadaX.nombreInput"
+                   [name]="localizacion.mensajesValidacionCoordenadaX.nombreInput"
+                   [formControlName]="localizacion.mensajesValidacionCoordenadaX.nombreInput"
+                   [placeholder]="localizacion.mensajesValidacionCoordenadaX.tooltip"
+                   [title]="localizacion.mensajesValidacionCoordenadaX.title"
+                   aria-describedby="localizacionCoordenadaXAyuda"
+
+            >
+            <small id="localizacionCoordenadaXAyuda" class="form-text text-muted">{{localizacion.mensajesValidacionCoordenadaX.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="localizacion.mensajesValidacionCoordenadaX.mensajes.length>0">
+              <div *ngFor="let mensaje of localizacion.mensajesValidacionCoordenadaX.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--coordenadaY-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CoordenadaY.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="localizacion.mensajesValidacionCoordenadaY.nombreInput">{{
+              localizacion.mensajesValidacionCoordenadaY.nombreAPresentarse}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="localizacion.mensajesValidacionCoordenadaY.nombreInput"
+                   [name]="localizacion.mensajesValidacionCoordenadaY.nombreInput"
+                   [formControlName]="localizacion.mensajesValidacionCoordenadaY.nombreInput"
+                   [placeholder]="localizacion.mensajesValidacionCoordenadaY.tooltip"
+                   [title]="localizacion.mensajesValidacionCoordenadaY.title"
+                   aria-describedby="localizacionCoordenadaYAyuda"
+            >
+            <small id="localizacionCoordenadaYAyuda" class="form-text text-muted">{{localizacion.mensajesValidacionCoordenadaY.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="localizacion.mensajesValidacionCoordenadaY.mensajes.length>0">
+              <div *ngFor="let mensaje of localizacion.mensajesValidacionCoordenadaY.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

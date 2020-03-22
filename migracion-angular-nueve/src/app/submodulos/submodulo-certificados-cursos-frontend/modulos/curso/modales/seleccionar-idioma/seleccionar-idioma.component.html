@@ -1,0 +1,35 @@
+<man-lab-modal-general
+  [nombreBotonAceptar]="data.idioma?'EDITAR':'ESTABLECER'"
+  [nombreBotonCancelar]="'Cancelar'"
+  [formularioValido]="formularioValido"
+  (dioClickEnCancelar)="cerrarModal()"
+  (dioClickEnAceptar)="editarOCrear()"
+>
+
+  <div class="titulo">{{data.idioma ? 'EDITAR' : 'ESTABLECER IDIOMA'}} </div>
+
+  <div class="contenido">
+
+    <div class="row">
+      <div class="col-md-12">
+        <man-lab-esta-tipeando></man-lab-esta-tipeando>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <p class="descripcion-modal">{{descripcion}}</p>
+      </div>
+
+      <div class="col-sm-12">
+        <ml-idioma-formulario
+          [configuracionDisabled]="configuracionDisabled"
+          (empezoATipear)="establecerFormularioInvalido()"
+          (idiomaValido)="validarFormulario($event)"
+        ></ml-idioma-formulario>
+      </div>
+      <div class="espacio"></div>
+    </div>
+
+  </div>
+</man-lab-modal-general>

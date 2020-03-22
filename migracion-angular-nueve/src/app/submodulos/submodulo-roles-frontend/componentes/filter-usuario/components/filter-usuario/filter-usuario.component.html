@@ -1,0 +1,17 @@
+<div class="col-sm-10" >
+  <form class="form-inline" novalidate>
+    <div class="col-sm-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="rol" aria-describedby="busquedaPermisoHelp"
+               placeholder="Ingrese su búsqueda....." #busqueda >
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="btn" id="button-addon2" (click)="buscarUsuario(busqueda.value)"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+      </div>
+      <small id="busquedaPermisoHelp" class="form-text text-muted ayuda-span"> Busque un usuario por nombre,apellido o cédula.
+      </small>
+    </div>
+
+  </form>
+</div>
+

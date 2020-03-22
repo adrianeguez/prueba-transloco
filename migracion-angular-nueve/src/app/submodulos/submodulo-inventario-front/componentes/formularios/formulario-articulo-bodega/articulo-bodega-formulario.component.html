@@ -1,0 +1,185 @@
+
+<form novalidate [formGroup]="articuloBodega.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--articuloEmpresa-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ArticuloEmpresa.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionArticuloEmpresa.nombreInput">{{
+                        articuloBodega.mensajesValidacionArticuloEmpresa.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="articuloBodega.mensajesValidacionArticuloEmpresa.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="articuloBodega.mensajesValidacionArticuloEmpresa.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.articuloPorEmpresas"
+                            (completeMethod)="buscarArticuloPorEmpresas($event)"
+                            [placeholder]="articuloBodega.mensajesValidacionArticuloEmpresa.tooltip"
+                            delay="1000"
+                            field="articulo.codigo">
+                                <ng-template let-articuloEmpresa pTemplate="item">
+                                    {{ articuloEmpresa.articulo.codigo }}
+                                </ng-template>
+                        </p-autoComplete>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionArticuloEmpresa.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionArticuloEmpresa.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--minimo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Minimo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionMinimo.nombreInput">{{
+                        articuloBodega.mensajesValidacionMinimo.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articuloBodega.mensajesValidacionMinimo.nombreInput"
+                                [name]="articuloBodega.mensajesValidacionMinimo.nombreInput"
+                                [formControlName]="articuloBodega.mensajesValidacionMinimo.nombreInput"
+                                [placeholder]="articuloBodega.mensajesValidacionMinimo.tooltip"
+                                [title]="articuloBodega.mensajesValidacionMinimo.title"
+                                aria-describedby="articuloBodegaMinimoAyuda"
+
+
+                        >
+                        <small id="articuloBodegaMinimoAyuda" class="form-text text-muted">{{articuloBodega.mensajesValidacionMinimo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionMinimo.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionMinimo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--maximo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Maximo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionMaximo.nombreInput">{{
+                        articuloBodega.mensajesValidacionMaximo.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articuloBodega.mensajesValidacionMaximo.nombreInput"
+                                [name]="articuloBodega.mensajesValidacionMaximo.nombreInput"
+                                [formControlName]="articuloBodega.mensajesValidacionMaximo.nombreInput"
+                                [placeholder]="articuloBodega.mensajesValidacionMaximo.tooltip"
+                                [title]="articuloBodega.mensajesValidacionMaximo.title"
+                                aria-describedby="articuloBodegaMaximoAyuda"
+
+
+                        >
+                        <small id="articuloBodegaMaximoAyuda" class="form-text text-muted">{{articuloBodega.mensajesValidacionMaximo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionMaximo.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionMaximo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--minimoAlerta-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.MinimoAlerta.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionMinimoAlerta.nombreInput">{{
+                        articuloBodega.mensajesValidacionMinimoAlerta.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articuloBodega.mensajesValidacionMinimoAlerta.nombreInput"
+                                [name]="articuloBodega.mensajesValidacionMinimoAlerta.nombreInput"
+                                [formControlName]="articuloBodega.mensajesValidacionMinimoAlerta.nombreInput"
+                                [placeholder]="articuloBodega.mensajesValidacionMinimoAlerta.tooltip"
+                                [title]="articuloBodega.mensajesValidacionMinimoAlerta.title"
+                                aria-describedby="articuloBodegaMinimoAlertaAyuda"
+
+
+                        >
+                        <small id="articuloBodegaMinimoAlertaAyuda" class="form-text text-muted">{{articuloBodega.mensajesValidacionMinimoAlerta.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionMinimoAlerta.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionMinimoAlerta.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--inventarioInicialCantidad-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.InventarioInicialCantidad.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionInventarioInicialCantidad.nombreInput">{{
+                        articuloBodega.mensajesValidacionInventarioInicialCantidad.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articuloBodega.mensajesValidacionInventarioInicialCantidad.nombreInput"
+                                [name]="articuloBodega.mensajesValidacionInventarioInicialCantidad.nombreInput"
+                                [formControlName]="articuloBodega.mensajesValidacionInventarioInicialCantidad.nombreInput"
+                                [placeholder]="articuloBodega.mensajesValidacionInventarioInicialCantidad.tooltip"
+                                [title]="articuloBodega.mensajesValidacionInventarioInicialCantidad.title"
+                                aria-describedby="articuloBodegaInventarioInicialCantidadAyuda"
+                        >
+                        <small id="articuloBodegaInventarioInicialCantidadAyuda" class="form-text text-muted">{{articuloBodega.mensajesValidacionInventarioInicialCantidad.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionInventarioInicialCantidad.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionInventarioInicialCantidad.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--inventarioInicialDinero-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.InventarioInicialDinero.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articuloBodega.mensajesValidacionInventarioInicialDinero.nombreInput">{{
+                        articuloBodega.mensajesValidacionInventarioInicialDinero.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articuloBodega.mensajesValidacionInventarioInicialDinero.nombreInput"
+                                [name]="articuloBodega.mensajesValidacionInventarioInicialDinero.nombreInput"
+                              currencyMask
+                               [maxLength]= 20
+                               [options]="opcionesCurrencyMask"
+                               [formControlName]="articuloBodega.mensajesValidacionInventarioInicialDinero.nombreInput"
+                                [placeholder]="articuloBodega.mensajesValidacionInventarioInicialDinero.tooltip"
+                                [title]="articuloBodega.mensajesValidacionInventarioInicialDinero.title"
+                                aria-describedby="articuloBodegaInventarioInicialDineroAyuda"
+
+
+                        >
+                        <small id="articuloBodegaInventarioInicialDineroAyuda" class="form-text text-muted">{{articuloBodega.mensajesValidacionInventarioInicialDinero.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articuloBodega.mensajesValidacionInventarioInicialDinero.mensajes.length>0">
+                            <div *ngFor="let mensaje of articuloBodega.mensajesValidacionInventarioInicialDinero.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

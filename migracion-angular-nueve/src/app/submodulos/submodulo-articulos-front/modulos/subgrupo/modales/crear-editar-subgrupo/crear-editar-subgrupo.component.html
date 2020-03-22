@@ -1,0 +1,36 @@
+<h1 class="text-primary" mat-dialog-title>
+    <span class="bold">{{data.subgrupo?'EDITAR':'CREAR'}} SUBGRUPO </span>
+  </h1>
+  <div mat-dialog-content>
+    <div class="row contenido-modal">
+      <div class="col-md-12">
+        <p class="descripcion-modal">{{descripcion}}</p>
+      </div>
+      <div class="col-md-4">
+        <man-lab-esta-tipeando></man-lab-esta-tipeando>
+      </div>
+      <div class="col-md-12">
+          <ml-subgrupo-formulario 
+          [configuracionDisabled]="configuracionSubgrupo"
+          (empezoATipear)="establecerFormularioInvalido()" 
+          (subgrupoValido)="validarFormulario($event)">
+          </ml-subgrupo-formulario>
+      </div>
+      <div class="espacio"></div>
+    </div>
+  
+  </div>
+  
+  <mat-dialog-actions class="justify-content-end">
+      <div class="d-flex flex-row-reverse">
+          <div class="p-2">
+            <button mat-button (click)="metodoCrearEditar()" class="btn btn-primary boton-modal"
+              [disabled]="!formularioValido">{{data.subgrupo?'Editar':'Crear'}}</button>
+          </div>
+          <div class="p-2">
+            <button mat-button mat-dialog-close
+              class="btn btn-outline-secondary boton-modal fondo-modal">Cancelar</button>
+          </div>
+        </div>
+  </mat-dialog-actions>
+    

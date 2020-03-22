@@ -1,0 +1,19 @@
+<!--<div *ngIf="!idTipoImpuesto">-->
+<p-autoComplete
+  [suggestions]="tarifas"
+  (completeMethod)="obtenerTarifa($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [emptyMessage]="noExistenRegistros"
+  (onSelect)="enviarTarifaSeleccionado($event)"
+  [size]="tamanioAutocomplete"
+  field="codigoSri"
+
+>
+  <ng-template let-tarifa pTemplate="item">
+    <div class="ui-helper-clearfix" style="text-align: center">
+      <div> <strong>Codigo Sri:</strong> {{tarifa.codigoSri}} - <strong>Porcentaje:</strong> {{tarifa.valorPorcentaje?(tarifa.valorPorcentaje | percent): 'N/A'}}</div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+<!--</div>-->

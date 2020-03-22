@@ -1,0 +1,238 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <mlab-titulo-pantalla
+      [titulo]="'Gestión de empresas'"
+      [descripcion]="'Gestiona a tu empresa, artículos, vendedores, clientes, proveedores y mucho más.'"
+      [imagen]="'assets/imagenes/sistema/empresa-menu.svg'"
+      [ayuda]="''"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form-inline" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="busquedaEmpresaHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)="buscarPorRazonSocialRUCEstado(busqueda.value)"><i class="fas fa-search"></i> BUSCAR
+                </button>
+              </div>
+            </div>
+            <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Busque una lubricadora, estación de
+              servicio,
+              refinería o distribuidor por razón social o RUC.
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3">
+        <div class="col-sm-12">
+          <div class="input-group mb-3">
+            <mlab-select-tipo-empresa
+              (tipoEmpresaSeleccionado)="escucharTipoEmpresaSeleccionado($event)"
+            ></mlab-select-tipo-empresa>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <ml-select-estado
+          (estadoSeleccionado)="escucharEstadoSeleccionado($event)"
+        ></ml-select-estado>
+      </div>
+    </div>
+
+    <div class="row espaciado-tabla-empresa">
+      <div class="col-sm-12">
+        <p-treeTable
+          [value]="subempresasTreeTable"
+          [columns]="columnas"
+          [paginator]="true"
+          (onNodeExpand)="expandirNodo($event)"
+          [lazy]="true"
+          (onLazyLoad)="cargarDatosLazy($event)"
+          [rows]="rows"
+          [totalRecords]="totalRecords"
+          [loading]="loading"
+          [resizableColumns]="true"
+          [first]="this.queryParams.skip"
+          [rowHover]=true
+        >
+          <ng-template pTemplate="header" let-columns>
+            <tr class="text-center">
+              <th width="30%">Información</th>
+              <th width="60%" class="priority-3">Menú</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+            <tr [ttRow]="rowNode"
+                [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id  || rowNode.node.data.nodoCoincide? null : null}">
+              <td>
+                <div>
+                  <p-card [style]="{width: 'auto'}">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <p-treeTableToggler [rowNode]="rowNode">
+                        </p-treeTableToggler>
+                      </div>
+                      <div class="col-sm-10 espacio-contenido-carta">
+                        <div *ngIf="rowNode.parent">
+                          <p class="bold">Empresa padre:</p>
+                          <h2 class="empresa-papa">
+                              {{rowNode?.parent?.data?.empresaActual?.razonSocial}}
+                          </h2>
+                        </div>
+
+                        <div *ngFor="let campo of camposInformacion">
+                          <div class="row">
+
+                            <p>
+                              <span class="bold">{{campo.nombreAMostrar + ': '}}</span>
+                              <span [className]="campo.mostrarEstilo?'color-nombre':''">
+                                {{(rowData.empresaActual[campo.nombreCampo] ? rowData.empresaActual[campo.nombreCampo] : 'NO TIENE')}}
+                              </span>
+
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="row visibility-sm">
+                      <br>
+                      <div class="">
+                        <p-fieldset legend="Menú" [toggleable]="true" [collapsed]="true">
+
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <div class="espaciado-item-menu">
+                                <img class="icono-item img-fluid mx-auto d-block"
+                                     [src]="'assets/imagenes/sistema/empresa-editar.svg'" alt="">
+                                <button class="btn btn-block btn-sm btn-outline-info"
+                                        (click)="abrirModalEditarSubempresa(rowNode)">EDITAR
+                                </button>
+                              </div>
+                            </div>
+                            <div class="col-sm-12">
+                              <div class="espaciado-item-menu">
+                                <img class="icono-item img-fluid mx-auto d-block"
+                                     [src]="'assets/imagenes/sistema/empresa-subempresa.svg'" alt="">
+                                <button class="btn btn-block btn-sm btn-outline-info"
+                                        (click)="abrirModalCrearEmpresaSubempresa(rowNode)">AGREGAR SUBEMPRESA
+                                </button>
+                              </div>
+                            </div>
+                            <div class="col-sm-12" *ngFor="let boton of menuBotonesResponsive">
+                              <div class="espaciado-item-menu">
+                                <img class="icono-item img-fluid mx-auto d-block"
+                                     [src]="boton.imagen" alt="">
+                                <button
+                                  class="btn btn-block btn-outline-info btn-sm"
+                                  (click)="irAGestionModuloHijo(rowData.empresaActual.id, boton.moduloHijo, boton.gestionHijo)">
+                                  {{boton.nombre}}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                        </p-fieldset>
+                      </div>
+                    </div>
+                  </p-card>
+                  <button class="btn btn-block btn-success btn-sm boton-activar"
+                          (click)="actualizarEstado(rowNode)"
+                          [ngClass]="{
+                  'btn-danger':rowData.empresaActual.habilitado=== estados.Inactivo,
+                  'btn-success':rowData.empresaActual.habilitado === estados.Activo
+                  }"
+                  >{{rowData.empresaActual.habilitado === estados.Activo ? 'ACTIVO' : 'INACTIVO'}}</button>
+                </div>
+              </td>
+
+              <td class="priority-3">
+                <div>
+                  <mat-tab-group dynamicHeight
+                                 [color]="'accent'" [backgroundColor]="'accent'">
+
+                    <div *ngFor="let opcionMenu of menuBotones">
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <img class="icono-menu" [src]="opcionMenu.imagen" alt="">
+                          {{opcionMenu.opcion}}
+                        </ng-template>
+                        <div class="contenedor-menu-empresa">
+                          <div class="row">
+                            <div class="col-sm-3" *ngFor="let boton of opcionMenu.botones">
+                              <div class="espaciado-item-menu">
+                                <img class="icono-item img-fluid mx-auto d-block" [src]="boton.imagen" alt="">
+                                <button class="btn btn-block btn-outline-info btn-sm boton-item"
+                                        (click)="irAGestionModuloHijo(rowData.empresaActual.id, boton.moduloHijo, boton.gestionHijo)">
+                                  {{boton.nombre}}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <!--                          <mat-grid-list cols="3" rowHeight="40px">-->
+                          <!--                            <mat-grid-tile-->
+                          <!--                              *ngFor="let boton of opcionMenu.botones"-->
+                          <!--                              [colspan]="boton.cols"-->
+                          <!--                              [rowspan]="boton.rows">-->
+                          <!--                             -->
+                          <!--                            </mat-grid-tile>-->
+                          <!--                          </mat-grid-list>-->
+                        </div>
+                      </mat-tab>
+                    </div>
+
+                    <mat-tab>
+                      <ng-template mat-tab-label>
+                        <img class="icono-menu" src="assets/imagenes/sistema/empresa-accion.svg" alt="">
+                        Acciones
+                      </ng-template>
+                      <div class="contenedor-menu-empresa">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <div class="espaciado-item-menu">
+                              <img class="icono-item img-fluid mx-auto d-block"
+                                   [src]="'assets/imagenes/sistema/empresa-editar.svg'" alt="">
+                              <button class="btn btn-block btn-outline-info btn-sm boton-item"
+                                      (click)="abrirModalEditarSubempresa(rowNode)">
+                                Editar
+                              </button>
+                            </div>
+                          </div>
+                          <div class="col-sm-3">
+                            <div class="espaciado-item-menu">
+                              <img class="icono-item img-fluid mx-auto d-block"
+                                   [src]="'assets/imagenes/sistema/empresa-subempresa.svg'" alt="">
+                              <button class="btn btn-block btn-outline-info btn-sm boton-item"
+                                      (click)="abrirModalCrearEmpresaSubempresa(rowNode)">
+                                Agregar subempresa
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </mat-tab>
+
+                  </mat-tab-group>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td [attr.colspan]="columnas.length">
+                No se encontraron registros.
+              </td>
+            </tr>
+          </ng-template>
+        </p-treeTable>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

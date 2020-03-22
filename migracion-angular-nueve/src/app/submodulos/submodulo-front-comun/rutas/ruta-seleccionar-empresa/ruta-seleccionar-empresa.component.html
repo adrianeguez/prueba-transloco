@@ -1,0 +1,34 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/empresa-seleccionar.svg'"
+      [titulo]="'Seleccionar empresa'"
+      [descripcion]="'Selecciona una de las empresas en las que puedes trabajar.'"
+      [ayuda]="'empezando.'"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let empresaSeleccion of auth0Service.empresasEnLasQueTrabaja">
+        <div class="card text-center" style="width: 100%; margin: 10px">
+          <div class="card-body">
+            <h5 class="card-title">{{empresaSeleccion.empresa.razonSocial}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{empresaSeleccion.empresa.ruc}}</h6>
+            <p class="card-text">{{empresaSeleccion.empresa.nombreComercial}}</p>
+            <p class="card-text">
+              {{empresaSeleccion.datoUsuario.apellidos}} {{empresaSeleccion.datoUsuario.nombres}}
+            </p>
+            <p class="card-text">
+              {{empresaSeleccion.contactoEmpresa.tipoCargo.nombre}} - {{empresaSeleccion.datoUsuario.identificacionPais}}
+            </p>
+            <button class="btn-block btn btn-info btn-sm" (click)="auth0Service.seleccionarEmpresa(empresaSeleccion)">Seleccionar</button>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</app-ruta-general>
+

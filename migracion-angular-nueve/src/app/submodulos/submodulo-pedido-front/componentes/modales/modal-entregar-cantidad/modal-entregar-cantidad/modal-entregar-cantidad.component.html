@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Cantidad a entregar</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <label class="col-sm-12" for="cantidadDarBaja">Cantidad a entregar</label>
+
+  <div class="col-sm-12">
+    <input
+      type="text"
+      class="form-control"
+      id="cantidadEntregada"
+      name="cantidadEntregada"
+      placeholder="EJ: {{data.cantidadAEntregar}}"
+      [(ngModel)]="cantidadIngresada"
+      (ngModelChange)="escucharCambioInput()"
+      [textMask]="mascaraNumericaDecimales"
+      aria-describedby="ingresarCantidadEntregadaAyuda">
+
+    <small id="ingresarCantidadEntregadaAyuda" class="form-text text-muted">Ingrese una cantidad a entregar, menor a {{data.cantidadAEntregar}}</small>
+  </div>
+</div>
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-6 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+
+    <div class="col-sm-6 p-2">
+      <button id="boton-aceptar" mat-button mat-dialog-close class="btn btn-outline-success" (click)="enviarDatosModal()">ACEPTAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>
+

@@ -1,0 +1,659 @@
+
+<ng-container *transloco="let t; read: 'submoduloMenu.horario.horarioFormulario'">
+    <ng-container *transloco="let m; read: 'formularios.comunes'">
+        <form novalidate [formGroup]="horario.formGroup">
+            <fieldset class="col-md-12">
+                <div class="row">
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionDescripcion.nombreInput">
+                        {{
+                            t('descripcion.' + horario.mensajesValidacionDescripcion.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionDescripcion.nombreInput"
+                                [name]="horario.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="horario.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="t('descripcion.' + horario.mensajesValidacionDescripcion.tooltip)"
+                                [title]="t('descripcion.' + horario.mensajesValidacionDescripcion.title)"
+                                aria-describedby="horarioDescripcionAyuda"
+
+
+                        >
+                        <small id="horarioDescripcionAyuda" class="form-text text-muted">
+                        {{
+                            t('descripcion.' + horario.mensajesValidacionDescripcion.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionDescripcion.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('descripcion.descripcion'),
+                                          minLength: horario.mensajesValidacionDescripcion.minlength.valor,
+                                          maxLength: horario.mensajesValidacionDescripcion.maxlength.valor,
+                                          min: horario.mensajesValidacionDescripcion.min.valor,
+                                          max: horario.mensajesValidacionDescripcion.max.valor
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--tipo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Tipo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionTipo.nombreInput">
+                        {{
+                            t('tipo.' + horario.mensajesValidacionTipo.nombreInput)
+                        }}
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm"
+                                [name]="horario.mensajesValidacionTipo.nombreInput"
+                                [id]="horario.mensajesValidacionTipo.nombreInput"
+                                [title]="t('tipo.' + horario.mensajesValidacionTipo.title)"
+                                [formControlName]="horario.mensajesValidacionTipo.nombreInput"
+                        >
+
+                            <option value="D"> {{ t('tipo.opciones.' + 'd') }}</option>
+                            <option value="F"> {{ t('tipo.opciones.' + 'f') }}</option>
+
+                        </select>
+                        <small id="horarioTipoAyuda" class="form-text text-muted">
+                            {{
+                                t('tipo.' + horario.mensajesValidacionTipo.title)
+                            }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionTipo.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionTipo.mensajes">
+                                {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('tipo.tipo'),
+                                          minLength: horario.mensajesValidacionTipo.minlength.valor,
+                                          maxLength: horario.mensajesValidacionTipo.maxlength.valor,
+                                          min: horario.mensajesValidacionTipo.min.valor,
+                                          max: horario.mensajesValidacionTipo.max.valor,
+                                          patternMensaje: t('tipo.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--fechaInicia-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaInicia.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionFechaInicia.nombreInput">
+                        {{
+                            t('fechaInicia.' + horario.mensajesValidacionFechaInicia.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="date"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionFechaInicia.nombreInput"
+                                [name]="horario.mensajesValidacionFechaInicia.nombreInput"
+                                [formControlName]="horario.mensajesValidacionFechaInicia.nombreInput"
+                                [placeholder]="t('fechaInicia.' + horario.mensajesValidacionFechaInicia.tooltip)"
+                                [title]="t('fechaInicia.' + horario.mensajesValidacionFechaInicia.title)"
+                                aria-describedby="horarioFechaIniciaAyuda"
+
+
+                        >
+                        <small id="horarioFechaIniciaAyuda" class="form-text text-muted">
+                        {{
+                            t('fechaInicia.' + horario.mensajesValidacionFechaInicia.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionFechaInicia.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionFechaInicia.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('fechaInicia.fechaInicia'),
+                                          minLength: horario.mensajesValidacionFechaInicia.minlength.valor,
+                                          maxLength: horario.mensajesValidacionFechaInicia.maxlength.valor,
+                                          min: horario.mensajesValidacionFechaInicia.min.valor,
+                                          max: horario.mensajesValidacionFechaInicia.max.valor,
+                                          patternMensaje: t('fechaInicia.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--fechaFinaliza-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaFinaliza.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionFechaFinaliza.nombreInput">
+                        {{
+                            t('fechaFinaliza.' + horario.mensajesValidacionFechaFinaliza.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="date"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionFechaFinaliza.nombreInput"
+                                [name]="horario.mensajesValidacionFechaFinaliza.nombreInput"
+                                [formControlName]="horario.mensajesValidacionFechaFinaliza.nombreInput"
+                                [placeholder]="t('fechaFinaliza.' + horario.mensajesValidacionFechaFinaliza.tooltip)"
+                                [title]="t('fechaFinaliza.' + horario.mensajesValidacionFechaFinaliza.title)"
+                                aria-describedby="horarioFechaFinalizaAyuda"
+
+
+                        >
+                        <small id="horarioFechaFinalizaAyuda" class="form-text text-muted">
+                        {{
+                            t('fechaFinaliza.' + horario.mensajesValidacionFechaFinaliza.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionFechaFinaliza.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionFechaFinaliza.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('fechaFinaliza.fechaFinaliza'),
+                                          minLength: horario.mensajesValidacionFechaFinaliza.minlength.valor,
+                                          maxLength: horario.mensajesValidacionFechaFinaliza.maxlength.valor,
+                                          min: horario.mensajesValidacionFechaFinaliza.min.valor,
+                                          max: horario.mensajesValidacionFechaFinaliza.max.valor,
+                                          patternMensaje: t('fechaFinaliza.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--horaInicia-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.HoraInicia.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionHoraInicia.nombreInput">
+                        {{
+                            t('horaInicia.' + horario.mensajesValidacionHoraInicia.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="time"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionHoraInicia.nombreInput"
+                                [name]="horario.mensajesValidacionHoraInicia.nombreInput"
+                                [formControlName]="horario.mensajesValidacionHoraInicia.nombreInput"
+                                [placeholder]="t('horaInicia.' + horario.mensajesValidacionHoraInicia.tooltip)"
+                                [title]="t('horaInicia.' + horario.mensajesValidacionHoraInicia.title)"
+                                aria-describedby="horarioHoraIniciaAyuda"
+
+
+                        >
+                        <small id="horarioHoraIniciaAyuda" class="form-text text-muted">
+                        {{
+                            t('horaInicia.' + horario.mensajesValidacionHoraInicia.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionHoraInicia.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionHoraInicia.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('horaInicia.horaInicia'),
+                                          minLength: horario.mensajesValidacionHoraInicia.minlength.valor,
+                                          maxLength: horario.mensajesValidacionHoraInicia.maxlength.valor,
+                                          min: horario.mensajesValidacionHoraInicia.min.valor,
+                                          max: horario.mensajesValidacionHoraInicia.max.valor,
+                                          patternMensaje: t('horaInicia.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--horaFinaliza-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.HoraFinaliza.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionHoraFinaliza.nombreInput">
+                        {{
+                            t('horaFinaliza.' + horario.mensajesValidacionHoraFinaliza.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="time"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionHoraFinaliza.nombreInput"
+                                [name]="horario.mensajesValidacionHoraFinaliza.nombreInput"
+                                [formControlName]="horario.mensajesValidacionHoraFinaliza.nombreInput"
+                                [placeholder]="t('horaFinaliza.' + horario.mensajesValidacionHoraFinaliza.tooltip)"
+                                [title]="t('horaFinaliza.' + horario.mensajesValidacionHoraFinaliza.title)"
+                                aria-describedby="horarioHoraFinalizaAyuda"
+
+
+                        >
+                        <small id="horarioHoraFinalizaAyuda" class="form-text text-muted">
+                        {{
+                            t('horaFinaliza.' + horario.mensajesValidacionHoraFinaliza.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionHoraFinaliza.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionHoraFinaliza.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('horaFinaliza.horaFinaliza'),
+                                          minLength: horario.mensajesValidacionHoraFinaliza.minlength.valor,
+                                          maxLength: horario.mensajesValidacionHoraFinaliza.maxlength.valor,
+                                          min: horario.mensajesValidacionHoraFinaliza.min.valor,
+                                          max: horario.mensajesValidacionHoraFinaliza.max.valor,
+                                          patternMensaje: t('horaFinaliza.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--lunes-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Lunes.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionLunes.nombreInput">
+                        {{
+                            t('lunes.' + horario.mensajesValidacionLunes.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionLunes.nombreInput"
+                                [name]="horario.mensajesValidacionLunes.nombreInput"
+                                [formControlName]="horario.mensajesValidacionLunes.nombreInput"
+                                [placeholder]="t('lunes.' + horario.mensajesValidacionLunes.tooltip)"
+                                [title]="t('lunes.' + horario.mensajesValidacionLunes.title)"
+                                aria-describedby="horarioLunesAyuda"
+
+
+                        >
+                        <small id="horarioLunesAyuda" class="form-text text-muted">
+                        {{
+                            t('lunes.' + horario.mensajesValidacionLunes.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionLunes.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionLunes.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('lunes.lunes'),
+                                          minLength: horario.mensajesValidacionLunes.minlength.valor,
+                                          maxLength: horario.mensajesValidacionLunes.maxlength.valor,
+                                          min: horario.mensajesValidacionLunes.min.valor,
+                                          max: horario.mensajesValidacionLunes.max.valor,
+                                          patternMensaje: t('lunes.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--martes-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Martes.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionMartes.nombreInput">
+                        {{
+                            t('martes.' + horario.mensajesValidacionMartes.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionMartes.nombreInput"
+                                [name]="horario.mensajesValidacionMartes.nombreInput"
+                                [formControlName]="horario.mensajesValidacionMartes.nombreInput"
+                                [placeholder]="t('martes.' + horario.mensajesValidacionMartes.tooltip)"
+                                [title]="t('martes.' + horario.mensajesValidacionMartes.title)"
+                                aria-describedby="horarioMartesAyuda"
+
+
+                        >
+                        <small id="horarioMartesAyuda" class="form-text text-muted">
+                        {{
+                            t('martes.' + horario.mensajesValidacionMartes.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionMartes.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionMartes.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('martes.martes'),
+                                          minLength: horario.mensajesValidacionMartes.minlength.valor,
+                                          maxLength: horario.mensajesValidacionMartes.maxlength.valor,
+                                          min: horario.mensajesValidacionMartes.min.valor,
+                                          max: horario.mensajesValidacionMartes.max.valor,
+                                          patternMensaje: t('martes.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--miercoles-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Miercoles.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionMiercoles.nombreInput">
+                        {{
+                            t('miercoles.' + horario.mensajesValidacionMiercoles.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionMiercoles.nombreInput"
+                                [name]="horario.mensajesValidacionMiercoles.nombreInput"
+                                [formControlName]="horario.mensajesValidacionMiercoles.nombreInput"
+                                [placeholder]="t('miercoles.' + horario.mensajesValidacionMiercoles.tooltip)"
+                                [title]="t('miercoles.' + horario.mensajesValidacionMiercoles.title)"
+                                aria-describedby="horarioMiercolesAyuda"
+
+
+                        >
+                        <small id="horarioMiercolesAyuda" class="form-text text-muted">
+                        {{
+                            t('miercoles.' + horario.mensajesValidacionMiercoles.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionMiercoles.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionMiercoles.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('miercoles.miercoles'),
+                                          minLength: horario.mensajesValidacionMiercoles.minlength.valor,
+                                          maxLength: horario.mensajesValidacionMiercoles.maxlength.valor,
+                                          min: horario.mensajesValidacionMiercoles.min.valor,
+                                          max: horario.mensajesValidacionMiercoles.max.valor,
+                                          patternMensaje: t('miercoles.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--jueves-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Jueves.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionJueves.nombreInput">
+                        {{
+                            t('jueves.' + horario.mensajesValidacionJueves.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionJueves.nombreInput"
+                                [name]="horario.mensajesValidacionJueves.nombreInput"
+                                [formControlName]="horario.mensajesValidacionJueves.nombreInput"
+                                [placeholder]="t('jueves.' + horario.mensajesValidacionJueves.tooltip)"
+                                [title]="t('jueves.' + horario.mensajesValidacionJueves.title)"
+                                aria-describedby="horarioJuevesAyuda"
+
+
+                        >
+                        <small id="horarioJuevesAyuda" class="form-text text-muted">
+                        {{
+                            t('jueves.' + horario.mensajesValidacionJueves.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionJueves.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionJueves.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('jueves.jueves'),
+                                          minLength: horario.mensajesValidacionJueves.minlength.valor,
+                                          maxLength: horario.mensajesValidacionJueves.maxlength.valor,
+                                          min: horario.mensajesValidacionJueves.min.valor,
+                                          max: horario.mensajesValidacionJueves.max.valor,
+                                          patternMensaje: t('jueves.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--viernes-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Viernes.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionViernes.nombreInput">
+                        {{
+                            t('viernes.' + horario.mensajesValidacionViernes.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionViernes.nombreInput"
+                                [name]="horario.mensajesValidacionViernes.nombreInput"
+                                [formControlName]="horario.mensajesValidacionViernes.nombreInput"
+                                [placeholder]="t('viernes.' + horario.mensajesValidacionViernes.tooltip)"
+                                [title]="t('viernes.' + horario.mensajesValidacionViernes.title)"
+                                aria-describedby="horarioViernesAyuda"
+
+
+                        >
+                        <small id="horarioViernesAyuda" class="form-text text-muted">
+                        {{
+                            t('viernes.' + horario.mensajesValidacionViernes.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionViernes.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionViernes.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('viernes.viernes'),
+                                          minLength: horario.mensajesValidacionViernes.minlength.valor,
+                                          maxLength: horario.mensajesValidacionViernes.maxlength.valor,
+                                          min: horario.mensajesValidacionViernes.min.valor,
+                                          max: horario.mensajesValidacionViernes.max.valor,
+                                          patternMensaje: t('viernes.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--sabado-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Sabado.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionSabado.nombreInput">
+                        {{
+                            t('sabado.' + horario.mensajesValidacionSabado.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionSabado.nombreInput"
+                                [name]="horario.mensajesValidacionSabado.nombreInput"
+                                [formControlName]="horario.mensajesValidacionSabado.nombreInput"
+                                [placeholder]="t('sabado.' + horario.mensajesValidacionSabado.tooltip)"
+                                [title]="t('sabado.' + horario.mensajesValidacionSabado.title)"
+                                aria-describedby="horarioSabadoAyuda"
+
+
+                        >
+                        <small id="horarioSabadoAyuda" class="form-text text-muted">
+                        {{
+                            t('sabado.' + horario.mensajesValidacionSabado.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionSabado.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionSabado.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('sabado.sabado'),
+                                          minLength: horario.mensajesValidacionSabado.minlength.valor,
+                                          maxLength: horario.mensajesValidacionSabado.maxlength.valor,
+                                          min: horario.mensajesValidacionSabado.min.valor,
+                                          max: horario.mensajesValidacionSabado.max.valor,
+                                          patternMensaje: t('sabado.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--domingo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Domingo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="horario.mensajesValidacionDomingo.nombreInput">
+                        {{
+                            t('domingo.' + horario.mensajesValidacionDomingo.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="checkbox"
+                                class="form-control form-control-sm"
+                                [id]="horario.mensajesValidacionDomingo.nombreInput"
+                                [name]="horario.mensajesValidacionDomingo.nombreInput"
+                                [formControlName]="horario.mensajesValidacionDomingo.nombreInput"
+                                [placeholder]="t('domingo.' + horario.mensajesValidacionDomingo.tooltip)"
+                                [title]="t('domingo.' + horario.mensajesValidacionDomingo.title)"
+                                aria-describedby="horarioDomingoAyuda"
+
+
+                        >
+                        <small id="horarioDomingoAyuda" class="form-text text-muted">
+                        {{
+                            t('domingo.' + horario.mensajesValidacionDomingo.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="horario.mensajesValidacionDomingo.mensajes.length>0">
+                            <div *ngFor="let mensaje of horario.mensajesValidacionDomingo.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('domingo.domingo'),
+                                          minLength: horario.mensajesValidacionDomingo.minlength.valor,
+                                          maxLength: horario.mensajesValidacionDomingo.maxlength.valor,
+                                          min: horario.mensajesValidacionDomingo.min.valor,
+                                          max: horario.mensajesValidacionDomingo.max.valor,
+                                          patternMensaje: t('domingo.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </ng-container>
+</ng-container>

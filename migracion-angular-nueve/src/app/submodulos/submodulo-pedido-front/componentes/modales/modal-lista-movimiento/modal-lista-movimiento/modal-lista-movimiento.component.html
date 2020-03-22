@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Lista de movimientos</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="col-sm-12">
+  <ml-filter-movimiento
+    [tipoMovimiento]="tipoMovimiento"
+    [empresaId]="data.empresaId"
+    (movimientosEncontrados)="setearMovimiento($event)"
+  ></ml-filter-movimiento>
+</div>
+
+<br>
+
+<div class="row">
+  <ml-tabla-movimiento
+    [movimientosEncontrados]="movimientosEncontrados"
+    [totalRegistros]="totalRegistros"
+    [columnas]="columnas"
+    (emitirSkip)="setearSkip($event)"
+    (movimientoSeleccionado)="obtenerMovimientoSeleccionado($event)"
+  ></ml-tabla-movimiento>
+</div>
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-12 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

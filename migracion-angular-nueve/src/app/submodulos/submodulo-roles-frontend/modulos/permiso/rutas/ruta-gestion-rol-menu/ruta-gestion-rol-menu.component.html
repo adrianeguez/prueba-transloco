@@ -1,0 +1,133 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3 class="text-primary">Filtros</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    Seleccione un rol:
+  </div>
+  <div class="col-sm-6">
+    <ml-select-rol (rolSeleccionadoEmitir)="setearRolSeleccionado($event)"></ml-select-rol>
+  </div>
+</div>
+<div class="row separacion-top-2">
+  <div class="col-sm-2">
+    Seleccione un nivel:
+  </div>
+  <div class="col-sm-6">
+    <ml-select-nivel-menu (menuEncontrado)="setearMenusEncontrados($event)"></ml-select-nivel-menu>
+  </div>
+</div>
+<div *ngIf="menusEncontrados" class="row separacion-top-1">
+  <div class="col-sm-12">
+    <h5 class="text-primary">Menús encontrados</h5>
+    <small class="text-secondary text-sm-left">resultados de busqueda</small>
+  </div>
+  <div class="col-sm-6">
+    <div>
+      <p-table [responsive]="true"
+               [columns]="columnas"
+               [value]="menusEncontrados"
+               [lazy]="false"
+               [paginator]="true"
+               [rows]="rows"
+               [totalRecords]="totalRegistros"
+
+
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columnas">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-menu>
+          <tr>
+            <td *ngFor="let col of columnas">
+              <div *ngIf="col.header === 'Icono'">
+                <i style="padding-left: 1.7rem;"
+                   class="{{menu[col.field]}} fa-3x"></i>
+              </div>
+              <div *ngIf="col.header === 'Ruta angular'">
+                <a [routerLink]="menu[col.field]" fragment=""
+                   target="_blank" class="btn btn-link">Probar</a>
+              </div>
+              <div *ngIf="col.header !== 'Acciones' && col.header !== 'Icono'">
+                {{menu[col.field]?menu[col.field]:'No tiene'}}
+              </div>
+              <div *ngIf="col.header==='Acciones'">
+                <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                  <button class="btn btn-block btn-info btn-sm" [disabled]="!rolEncontrado"  (click)="agrearARolMenu(menu)">Agregar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columnas.length">
+              No se encontraron registros
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>
+
+<div class="separacion-top-2" >
+  <div class="col-sm-12">
+    <h5 class="text-primary">Lisa menu del rol: {{rolEncontrado?.nombre.toUpperCase()}}</h5>
+  </div>
+  <div class="col-sm-12">
+    <div>
+      <p-table [responsive]="true"
+               [columns]="columnasRolMenu"
+               [value]="rolesMenu"
+               [lazy]="false"
+               [paginator]="true"
+               [rows]="rows"
+               [totalRecords]="totalRegistrosRolMenu"
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columnasRolMenu">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-menu>
+          <tr>
+            <td *ngFor="let col of columnasRolMenu">
+              <div *ngIf="col.header === 'Nombre'">
+                {{menu.menu?.nombre}}
+              </div>
+              <div *ngIf="col.header === 'Nivel'">
+                {{menu.menu?.nivel}}
+              </div>
+              <div *ngIf="col.header === 'Rol'">
+                {{menu.rol?.nombre}}
+              </div>
+              <div *ngIf="col.header==='Acciones'">
+                <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                  <button class="btn btn-block btn-danger btn-sm" (click)="quitarRolMenu(menu)">Quitar</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columnasRolMenu.length">
+              No se encontraron registros
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+  </div>
+</div>

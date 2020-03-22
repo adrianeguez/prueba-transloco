@@ -1,0 +1,44 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCursoModulo.rutas.rutaGestionModuloCurso'">
+    <man-lab-modal-general
+      [nombreBotonAceptar]="data.moduloCurso?g('botones.editar'):g('botones.crear')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="formularioValido"
+      (dioClickEnCancelar)="cancelarModal()"
+      (dioClickEnAceptar)="enviarDatosFormulario()"
+    >
+      <div class="titulo">{{data.moduloCurso ? g('botones.editar') : g('botones.crear')}} {{t('titulos.modalCaratulaTitulo')}}</div>
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div>
+              <h4>{{t('titulos.caratulaActual')}}</h4>
+              <app-visor-caratula
+                [url]="armarUrl()"
+              >
+              </app-visor-caratula>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <ez-form
+              [formConfig]="configuracionFormulario"
+              [styleFramework]="'bootstrap'"
+              [msgErrorAnimation]="'fadeInLeft'"
+              [showToaster]="false"
+              [fullWidth]="true"
+              (dataFromForm)="escucharDatosDelFormulario($event)"
+            >
+            </ez-form>
+          </div>
+          <div class="espacio"></div>
+        </div>
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

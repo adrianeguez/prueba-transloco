@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Cabecera de ajustes</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Llene los datos de cabecera para ingreso/egreso:</p>
+<div class="col-sm-12">
+  <mlab-ajustes
+    [empresaId]="data.empresaId"
+    [tipoAjuste]="data.tipoAjuste"
+    (seleccionoDatosAjustes)="cerrarModal($event)"
+  ></mlab-ajustes>
+</div>
+
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="col-sm-12 p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+  </div>
+</mat-dialog-actions>

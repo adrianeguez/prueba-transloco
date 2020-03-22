@@ -1,0 +1,91 @@
+
+<form novalidate [formGroup]="ingresarKardexCaja.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--valor-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="ingresarKardexCaja.mensajesValidacionValor.nombreInput">{{
+                        ingresarKardexCaja.mensajesValidacionValor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="ingresarKardexCaja.mensajesValidacionValor.nombreInput"
+                                [name]="ingresarKardexCaja.mensajesValidacionValor.nombreInput"
+                                [formControlName]="ingresarKardexCaja.mensajesValidacionValor.nombreInput"
+                                [placeholder]="ingresarKardexCaja.mensajesValidacionValor.tooltip"
+                                [title]="ingresarKardexCaja.mensajesValidacionValor.title"
+                                aria-describedby="ingresarKardexCajaValorAyuda"
+                                currencyMask
+                                [options]="ingresarKardexCaja.mensajesValidacionValor.mask"
+                        >
+                        <small id="ingresarKardexCajaValorAyuda" class="form-text text-muted">{{ingresarKardexCaja.mensajesValidacionValor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="ingresarKardexCaja.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of ingresarKardexCaja.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--operacionSuma-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.OperacionSuma.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="ingresarKardexCaja.mensajesValidacionOperacionSuma.nombreInput">{{
+                    ingresarKardexCaja.mensajesValidacionOperacionSuma.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="ingresarKardexCaja.mensajesValidacionOperacionSuma.nombreInput"
+                                [id]="ingresarKardexCaja.mensajesValidacionOperacionSuma.nombreInput"
+                                [formControlName]="ingresarKardexCaja.mensajesValidacionOperacionSuma.nombreInput"
+                        >
+
+                            <option value="Suma">Suma</option>
+                            <option value="Resta">Resta</option>
+
+                        </select>
+                      <small id="ingresarKardexCajaOperacionSumaAyuda" class="form-text text-muted">{{ingresarKardexCaja.mensajesValidacionOperacionSuma.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="ingresarKardexCaja.mensajesValidacionOperacionSuma.mensajes.length>0">
+                            <div *ngFor="let mensaje of ingresarKardexCaja.mensajesValidacionOperacionSuma.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                   
+
+            <!--razon-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Razon.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="ingresarKardexCaja.mensajesValidacionRazon.nombreInput">{{
+                        ingresarKardexCaja.mensajesValidacionRazon.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="ingresarKardexCaja.mensajesValidacionRazon.nombreInput"
+                                [name]="ingresarKardexCaja.mensajesValidacionRazon.nombreInput"
+                                [formControlName]="ingresarKardexCaja.mensajesValidacionRazon.nombreInput"
+                                [placeholder]="ingresarKardexCaja.mensajesValidacionRazon.tooltip"
+                                [title]="ingresarKardexCaja.mensajesValidacionRazon.title"
+                                aria-describedby="ingresarKardexCajaRazonAyuda"
+                                
+                                
+                        >
+                        <small id="ingresarKardexCajaRazonAyuda" class="form-text text-muted">{{ingresarKardexCaja.mensajesValidacionRazon.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="ingresarKardexCaja.mensajesValidacionRazon.mensajes.length>0">
+                            <div *ngFor="let mensaje of ingresarKardexCaja.mensajesValidacionRazon.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

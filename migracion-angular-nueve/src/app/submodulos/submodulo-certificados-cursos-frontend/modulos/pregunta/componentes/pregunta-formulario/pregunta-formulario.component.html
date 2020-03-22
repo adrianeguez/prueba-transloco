@@ -1,0 +1,160 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.pregunta.preguntaFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="pregunta.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--descripcion-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="pregunta.mensajesValidacionDescripcion.nombreInput">
+                {{
+                t('descripcion.' + pregunta.mensajesValidacionDescripcion.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="pregunta.mensajesValidacionDescripcion.nombreInput"
+                       [name]="pregunta.mensajesValidacionDescripcion.nombreInput"
+                       [formControlName]="pregunta.mensajesValidacionDescripcion.nombreInput"
+                       [placeholder]="t('descripcion.' + pregunta.mensajesValidacionDescripcion.tooltip)"
+                       [title]="t('descripcion.' + pregunta.mensajesValidacionDescripcion.title)"
+                       aria-describedby="preguntaDescripcionAyuda"
+
+
+                >
+                <small id="preguntaDescripcionAyuda" class="form-text text-muted">
+                  {{
+                  t('descripcion.' + pregunta.mensajesValidacionDescripcion.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="pregunta.mensajesValidacionDescripcion.mensajes.length>0">
+                  <div *ngFor="let mensaje of pregunta.mensajesValidacionDescripcion.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('descripcion.descripcion'),
+                        minLength: pregunta.mensajesValidacionDescripcion.minlength.valor,
+                        maxLength: pregunta.mensajesValidacionDescripcion.maxlength.valor,
+                        min: pregunta.mensajesValidacionDescripcion.min.valor,
+                        max: pregunta.mensajesValidacionDescripcion.max.valor,
+                        patternMensaje: t('descripcion.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--valor-->
+          <div class="col-sm-5 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="pregunta.mensajesValidacionValor.nombreInput">
+                {{
+                t('valor.' + pregunta.mensajesValidacionValor.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="number"
+                       class="form-control form-control-sm"
+                       [id]="pregunta.mensajesValidacionValor.nombreInput"
+                       [name]="pregunta.mensajesValidacionValor.nombreInput"
+                       [formControlName]="pregunta.mensajesValidacionValor.nombreInput"
+                       [placeholder]="t('valor.' + pregunta.mensajesValidacionValor.tooltip)"
+                       [title]="t('valor.' + pregunta.mensajesValidacionValor.title)"
+                       aria-describedby="preguntaValorAyuda"
+                       min="1" step="1"
+
+
+                >
+                <small id="preguntaValorAyuda" class="form-text text-muted">
+                  {{
+                  t('valor.' + pregunta.mensajesValidacionValor.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="pregunta.mensajesValidacionValor.mensajes.length>0">
+                  <div *ngFor="let mensaje of pregunta.mensajesValidacionValor.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('valor.valor'),
+                        minLength: pregunta.mensajesValidacionValor.minlength.valor,
+                        maxLength: pregunta.mensajesValidacionValor.maxlength.valor,
+                        min: pregunta.mensajesValidacionValor.min.valor,
+                        max: pregunta.mensajesValidacionValor.max.valor,
+                        patternMensaje: t('valor.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--tratarDeNuevo-->
+          <div class="col-sm-7 form-group" *ngIf="!configuracionDisabled.TratarDeNuevo.hidden">
+            <div class="row">
+              <label class="col-sm-5 control-label" [for]="pregunta.mensajesValidacionTratarDeNuevo.nombreInput">
+                {{
+                t('tratarDeNuevo.' + pregunta.mensajesValidacionTratarDeNuevo.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-7">
+                <select class="form-control form-control-sm"
+                        [name]="pregunta.mensajesValidacionTratarDeNuevo.nombreInput"
+                        [id]="pregunta.mensajesValidacionTratarDeNuevo.nombreInput"
+                        [title]="t('tratarDeNuevo.' + pregunta.mensajesValidacionTratarDeNuevo.title)"
+                        [formControlName]="pregunta.mensajesValidacionTratarDeNuevo.nombreInput"
+                >
+
+                  <option value="1"> {{ t('tratarDeNuevo.opciones.si') }}</option>
+                  <option value="0"> {{ t('tratarDeNuevo.opciones.no') }}</option>
+
+                </select>
+                <small id="preguntaTratarDeNuevoAyuda" class="form-text text-muted">
+                  {{
+                  t('tratarDeNuevo.' + pregunta.mensajesValidacionTratarDeNuevo.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="pregunta.mensajesValidacionTratarDeNuevo.mensajes.length>0">
+                  <div *ngFor="let mensaje of pregunta.mensajesValidacionTratarDeNuevo.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('TratarDeNuevo.nombre'),
+                        minLength: pregunta.mensajesValidacionTratarDeNuevo.minlength.valor,
+                        maxLength: pregunta.mensajesValidacionTratarDeNuevo.maxlength.valor,
+                        min: pregunta.mensajesValidacionTratarDeNuevo.min.valor,
+                        max: pregunta.mensajesValidacionTratarDeNuevo.max.valor,
+                        patternMensaje: t('TratarDeNuevo.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

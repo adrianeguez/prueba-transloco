@@ -1,0 +1,413 @@
+<div class="row">
+  <!--<div class="col-sm-12">
+    <div class="form-group">
+      <label for="pedido">Pedido</label>
+      <select class="form-control"
+              name="pedido"
+              id="pedido"
+              aria-describedby="ayudaPedido"
+              (ngModelChange)="cambioPedido()"
+              [(ngModel)]="formulario.esPedido">
+        <option value="si">Si</option>
+        <option value="no">No</option>
+      </select>
+    </div>
+    <small id="ayudaPedido" class="form-text text-muted ayuda-span">
+      Seleccione si va a realizar un pedido.
+    </small>
+  </div>
+  <div class="col-sm-12" *ngIf="formulario.esPedido === 'si'">
+    <form novalidate
+          (ngSubmit)="emitirDatosCompra(formularioDatosPedidoCompra)"
+          #formularioDatosPedidoCompra="ngForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="prioridadPedido">Prioridad del pedido</label>
+            <select class="form-control"
+                    id="prioridadPedido"
+                    name="prioridadPedido"
+                    required
+                    aria-describedby="ayudaPrioridadPedido"
+                    (ngModelChange)="cambioPedido()"
+                    [(ngModel)]="formulario.pedido.prioridad">
+              <option value="true">Urgente</option>
+              <option value="false">No urgente</option>
+            </select>
+          </div>
+          <small id="ayudaPrioridadPedido" class="form-text text-muted ayuda-span">
+            Seleccione la prioridad del pedido
+          </small>
+        </div>
+      </div>
+
+      <button class="btn btn-block btn-info"
+              [disabled]="formularioDatosPedidoCompra.invalid">
+        Aceptar
+      </button>
+    </form>
+  </div> -->
+  <div class="col-sm-12">
+    <form novalidate
+          (ngSubmit)="emitirDatosCompra(formularioDatosCompra)"
+          #formularioDatosCompra="ngForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroFactura">Número de factura:</label>
+            <input class="form-control"
+                   type="text"
+                   id="numeroFactura"
+                   name="numeroFactura"
+                   required
+                   aria-describedby="ayudaNumeroFactura"
+                   placeholder="EJ: 0000001"
+                   minlength="7"
+                   maxlength="9"
+                   [textMask]="mascaraNumeroFactura"
+                   [(ngModel)]="formulario.numeroFactura">
+          </div>
+          <small id="ayudaNumeroFactura" class="form-text text-muted ayuda-span">
+            Ingrese el número de la factura
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroSerie">Número de serie:</label>
+            <input class="form-control"
+                   type="text"
+                   id="numeroSerie"
+                   name="numeroSerie"
+                   pattern="^[0-9]*$"
+                   required
+                   aria-describedby="ayudaNumeroSerie"
+                   placeholder="EJ: 000001"
+                   minlength="6"
+                   [textMask]="mascaraNumeroSerie"
+                   [(ngModel)]="formulario.numeroSerie">
+          </div>
+          <small id="ayudaNumeroSerie" class="form-text text-muted ayuda-span">
+            Ingrese el número de serie
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="tipoFactura">Tipo factura:</label>
+            <select class="form-control"
+                    id="tipoFactura"
+                    name="tipoFactura"
+                    required
+                    aria-describedby="ayudaTipoFactura"
+                    (ngModelChange)="cambioTipoFactura($event)"
+                    [(ngModel)]="formulario.facturaElectronica">
+              <option value="1">Electrónica</option>
+              <option value="0">Física</option>
+            </select>
+          </div>
+          <small id="ayudaTipoFactura" class="form-text text-muted ayuda-span">
+            Seleccione el tipo de factura, electrónica o física.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroAutorizacion">Número de autorización:</label>
+            <input class="form-control"
+                   type="text"
+                   id="numeroAutorizacion"
+                   name="numeroAutorizacion"
+                   required
+                   aria-describedby="ayudaNumeroAutorizacion"
+                   placeholder="EJ: 12376125412983712983..."
+                   [textMask]="mascaraNumeroAutorizacion"
+                   [minlength]="longitudFactura"
+                   [maxlength]="longitudFactura"
+                   [disabled]="!formulario.facturaElectronica"
+                   [(ngModel)]="formulario.numeroAutorizacion">
+          </div>
+          <small id="ayudaNumeroAutorizacion" class="form-text text-muted ayuda-span">
+            Ingrese el número de la autorización
+          </small>
+        </div>
+
+        <!-- <div class="col-sm-12">
+          <div class="form-group">
+            <label for="prioridadPedidoCompra">Prioridad del pedido</label>
+            <select class="form-control"
+                    id="prioridadPedidoCompra"
+                    name="prioridadPedidoCompra"
+                    aria-describedby="ayudaPrioridadPedidoCompra"
+                    (ngModelChange)="cambioPedido()"
+                    [(ngModel)]="formulario.prioridad">
+              <option value="true">Urgente</option>
+              <option value="false">No urgente</option>
+            </select>
+          </div>
+          <small id="ayudaPrioridadPedidoCompra" class="form-text text-muted ayuda-span">
+            Seleccione la prioridad del pedido
+          </small>
+        </div> -->
+      </div>
+
+      <button class="btn btn-block btn-info"
+              [disabled]="formularioDatosCompra.invalid">
+        Aceptar
+      </button>
+    </form>
+  </div>
+  <!-- <div class="col-sm-12">
+    <div class="form-group">
+      <label for="tipoFactura">Tipo factura:</label>
+      <select class="form-control"
+              id="tipoFactura"
+              name="tipoFactura"
+              aria-describedby="ayudaTipoFactura"
+              (ngModelChange)="cambioTipoFactura()"
+              [(ngModel)]="formulario.tipoFactura">
+        <option value="electronica" selected>Electrónica</option>
+        <option value="fisica">Física</option>
+      </select>
+    </div>
+    <small id="ayudaTipoFactura" class="form-text text-muted ayuda-span">
+      Seleccione el tipo de factura, electrónica o física.
+    </small>
+  </div>
+
+  <div class="col-sm-12" *ngIf="formulario.tipoFactura === 'electronica'">
+    <form novalidate
+          (ngSubmit)="emitirDatosCompraSeleccionados(formularioDatosCompraElectronica)"
+          #formularioDatosCompraElectronica="ngForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroAutorizacion">Autorización:</label>
+            <input id="numeroAutorizacion"
+                   type="text"
+                   class="form-control"
+                   required
+                   pattern="^[0-9]*$"
+                   minlength="16"
+                   aria-describedby="ayudaNumeroAutorizacion"
+                   name="numeroAutorizacion"
+                   [(ngModel)]="formulario.numeroAutorizacion"
+                   placeholder="Ej: 12376125412983712983..."
+            >
+
+          </div>
+          <small id="ayudaNumeroAutorizacion" class="form-text text-muted ayuda-span">
+            Ingrese el número de autorización.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+
+          <div class="form-group">
+            <label for="numeroDocumentoBodega">Número de documento bodega:</label>
+            <input type="text"
+                   id="numeroDocumentoBodega"
+                   class="form-control"
+                   pattern="^[0-9]*$"
+                   aria-describedby="ayudaDocumentoBodega"
+                   name="numeroDocumentoBodega"
+                   [(ngModel)]="formulario.numeroDocumentoBodega"
+                   placeholder="# Documento bodega">
+          </div>
+
+          <small id="ayudaDocumentoBodega" class="form-text text-muted ayuda-span">
+            Ingrese el número de autorización.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="fechaCaducidad">Fecha de caducidad:</label>
+            <div class="input-group">
+              <input class="form-control"
+                     id="fechaCaducidad"
+                     type="date"
+                     readonly
+                     ngbDatepicker #fechaCaducidadToggle="ngbDatepicker"
+                     aria-describedby="ayudaFechaCaducidad"
+                     (dateSelect)="setearFechaAutorizacion($event)"
+              >
+
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="fechaCaducidadToggle.toggle()">
+                  <i class="fas fa-calendar-day"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <small id="ayudaFechaCaducidad" class="form-text text-muted ayuda-span">
+            Seleccione la fecha de caducidad de la factura.
+          </small>
+        </div>
+
+
+      </div> -->
+      <!-- <button class="btn btn-block btn-info"
+              [disabled]="formularioDatosCompraElectronica.invalid
+              || !formulario.fechaAutorizacion"
+      >
+        Aceptar
+      </button> -->
+      <!--<button class="btn btn-block btn-info">Aceptar</button>
+    </form>
+  </div>
+
+  <div class="col-sm-12" *ngIf="formulario.tipoFactura === 'fisica'">
+    <form novalidate
+          (ngSubmit)="emitirDatosCompraSeleccionados(formularioDatosCompraFisica)"
+          #formularioDatosCompraFisica="ngForm">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroSerie">Numero serie:</label>
+            <input id="numeroSerie"
+                   type="text"
+                   class="form-control"
+                   aria-describedby="ayudaNumeroSerie"
+                   pattern="^[0-9]*$"
+                   name="numeroSerie"
+                   [(ngModel)]="formulario.datosFacturafisica.numeroSerie"
+                   placeholder="Ej: 001123..."
+                   required
+            >
+
+          </div>
+          <small id="ayudaNumeroSerie" class="form-text text-muted ayuda-span">
+            Ingrese el número de serie.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroDesde">Desde:</label>
+            <input id="numeroDesde"
+                   type="text"
+                   class="form-control"
+                   aria-describedby="ayudaNumeroDesde"
+                   pattern="^[0-9]*$"
+                   name="numeroDesde"
+                   [(ngModel)]="formulario.datosFacturafisica.numeroDesde"
+                   placeholder="Ej: 1000"
+                   required
+            >
+
+          </div>
+          <small id="ayudaNumeroDesde" class="form-text text-muted ayuda-span">
+            Ingrese desde que número de facturas empieza el facturero.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroHasta">Hasta:</label>
+            <input id="numeroHasta"
+                   type="text"
+                   class="form-control"
+                   aria-describedby="ayudaNumeroHasta"
+                   pattern="^[0-9]*$"
+                   name="numeroHasta"
+                   [(ngModel)]="formulario.datosFacturafisica.numeroHasta"
+                   placeholder="Ej: 1500"
+                   required
+            >
+
+          </div>
+          <small id="ayudaNumeroHasta" class="form-text text-muted ayuda-span">
+            Ingrese desde que número de facturas empieza el facturero.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="numeroAutorizacionFisica">Autorización:</label>
+            <input id="numeroAutorizacionFisica"
+                   type="text"
+                   class="form-control"
+                   aria-describedby="ayudaNumeroAutorizacionFisica"
+                   name="numeroAutorizacion"
+                   pattern="^[0-9]*$"
+                   [(ngModel)]="formulario.datosFacturafisica.numeroAutorizacion"
+                   placeholder="Ej: 12376125412983712983..."
+                   required
+            >
+
+          </div>
+          <small id="ayudaNumeroAutorizacionFisica" class="form-text text-muted ayuda-span">
+            Ingrese el número de autorización.
+          </small>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="fechaImpresion">Fecha impresion:</label>
+
+            <div class="input-group">
+              <input class="form-control"
+                     id="fechaImpresion"
+                     name="fechaImpresion"
+                     type="date"
+                     readonly
+                     ngbDatepicker #fechaImpresionToggle="ngbDatepicker"
+                     aria-describedby="ayudaFechaImpresion"
+                     (dateSelect)="setearFechaImpresion($event)"
+                     required
+              >
+
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="fechaImpresionToggle.toggle()">
+                  <i class="fas fa-calendar-day"></i>
+                </button>
+              </div>
+            </div>
+            <small id="ayudaFechaImpresion" class="form-text text-muted ayuda-span">
+              Ingrese la fecha de impresión.
+            </small>
+          </div>
+        </div>
+
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="validoHasta">Fecha valido hasta:</label>
+
+            <div class="input-group">
+              <input class="form-control"
+                     id="validoHasta"
+                     name="validoHasta"
+                     type="date"
+                     readonly
+                     ngbDatepicker #fechaValidoHastaToggle="ngbDatepicker"
+                     aria-describedby="ayudaValidoHasta"
+                     (dateSelect)="setearFechaValidoHasta($event)"
+                     required
+              >
+
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" (click)="fechaValidoHastaToggle.toggle()">
+                  <i class="fas fa-calendar-day"></i>
+                </button>
+              </div>
+            </div>
+            <small id="ayudaValidoHasta" class="form-text text-muted ayuda-span">
+              Ingrese la fecha de validez del facturero.
+            </small>
+          </div>
+        </div>
+
+
+      </div>-->
+      <!-- <button class="btn btn-block btn-info"
+              [disabled]="formularioDatosCompraFisica.invalid
+              || !formulario.datosFacturafisica.fechaImpresion
+              || !formulario.datosFacturafisica.validoHasta"
+      >
+        Aceptar
+      </button> -->
+      <!-- <button class="btn btn-block btn-info">Aceptar</button>
+    </form>
+  </div>-->
+</div>

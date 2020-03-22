@@ -1,0 +1,36 @@
+<ng-container *transloco="let g; read:'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCurso.componentes.edificioDetalle'">
+    <div class="container">
+      <div class="row cabecera-tilulo-edificio">
+        <h2>{{edificio.nombre}}</h2>
+      </div>
+      <div class="row detalle-direccion fondo-detalles">
+        <h4 class="borde-inferior">
+          {{t('direccion')}}
+        </h4>
+        <ul>
+          <li>{{direccion.callePrincipal}}{{ direccion.calleSecundaria ? ', ' + direccion.calleSecundaria: ''}}</li>
+        </ul>
+      </div>
+      <div class="row detalle fondo-detalles redondeado-abajo">
+        <h4 class="borde-inferior">
+          {{t('establecimiento')}}
+        </h4>
+        <div *ngFor="let establecimiento of establecimientos;let indice" class="full-width">
+          <div class="d-flex flex-row justify-content-around item-establecimiento"
+               [ngClass]="{'separador': !!establecimientos[indice+1]}"
+          >
+            <div class="p-2">
+              {{establecimiento.nombre}}
+            </div>
+            <div class="p-2">
+              <button mat-dialog-close class="btn btn-info btn-block" (click)="irAHorarioEstablecimiento(establecimiento)">
+                {{t('botonHorarios')}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

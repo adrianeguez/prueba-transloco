@@ -1,0 +1,351 @@
+<form novalidate [formGroup]="cronoVendDetalle.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--orden-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Orden.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionOrden.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionOrden.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionOrden.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionOrden.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionOrden.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionOrden.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionOrden.title"
+                   aria-describedby="cronoVendDetalleOrdenAyuda"
+
+
+            >
+            <small id="cronoVendDetalleOrdenAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionOrden.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionOrden.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionOrden.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--fecha-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Fecha.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionFecha.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionFecha.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control"
+                       placeholder="yyyy-mm-dd"
+                       name="dp"
+                       [readonly]="true"
+                       [formControlName]="cronoVendDetalle.mensajesValidacionFecha.nombreInput"
+                       ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                    class="fas fa-calendar-alt"></i></button>
+                </div>
+              </div>
+            </div>
+            <small id="cronoVendDetalleFechaAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionFecha.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionFecha.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionFecha.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--lunes-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Lunes.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionLunes.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionLunes.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionLunes.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionLunes.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionLunes.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionLunes.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionLunes.title"
+                   aria-describedby="cronoVendDetalleLunesAyuda"
+
+
+            >
+            <small id="cronoVendDetalleLunesAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionLunes.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionLunes.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionLunes.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--martes-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Martes.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionMartes.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionMartes.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionMartes.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionMartes.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionMartes.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionMartes.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionMartes.title"
+                   aria-describedby="cronoVendDetalleMartesAyuda"
+
+
+            >
+            <small id="cronoVendDetalleMartesAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionMartes.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionMartes.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionMartes.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--miercoles-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Miercoles.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionMiercoles.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionMiercoles.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionMiercoles.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionMiercoles.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionMiercoles.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionMiercoles.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionMiercoles.title"
+                   aria-describedby="cronoVendDetalleMiercolesAyuda"
+
+
+            >
+            <small id="cronoVendDetalleMiercolesAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionMiercoles.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionMiercoles.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionMiercoles.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--jueves-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Jueves.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionJueves.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionJueves.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionJueves.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionJueves.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionJueves.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionJueves.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionJueves.title"
+                   aria-describedby="cronoVendDetalleJuevesAyuda"
+
+
+            >
+            <small id="cronoVendDetalleJuevesAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionJueves.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionJueves.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionJueves.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--viernes-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Viernes.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionViernes.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionViernes.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionViernes.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionViernes.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionViernes.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionViernes.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionViernes.title"
+                   aria-describedby="cronoVendDetalleViernesAyuda"
+
+
+            >
+            <small id="cronoVendDetalleViernesAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionViernes.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionViernes.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionViernes.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--sabado-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Sabado.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionSabado.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionSabado.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionSabado.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionSabado.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionSabado.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionSabado.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionSabado.title"
+                   aria-describedby="cronoVendDetalleSabadoAyuda"
+
+
+            >
+            <small id="cronoVendDetalleSabadoAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionSabado.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionSabado.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionSabado.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--domingo-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.Domingo.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionDomingo.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionDomingo.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="checkbox"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionDomingo.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionDomingo.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionDomingo.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionDomingo.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionDomingo.title"
+                   aria-describedby="cronoVendDetalleDomingoAyuda"
+
+
+            >
+            <small id="cronoVendDetalleDomingoAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionDomingo.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionDomingo.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionDomingo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--horaVisita-->
+      <div class="col-md-6 form-group" *ngIf="!configuracionDisabled.HoraVisita.hidden">
+        <div class="row">
+          <label class="col-md-4 control-label" [for]="cronoVendDetalle.mensajesValidacionHoraVisita.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionHoraVisita.nombreAPresentarse }}</label>
+          <div class="col-md-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendDetalle.mensajesValidacionHoraVisita.nombreInput"
+                   [name]="cronoVendDetalle.mensajesValidacionHoraVisita.nombreInput"
+                   [formControlName]="cronoVendDetalle.mensajesValidacionHoraVisita.nombreInput"
+                   [placeholder]="cronoVendDetalle.mensajesValidacionHoraVisita.tooltip"
+                   [title]="cronoVendDetalle.mensajesValidacionHoraVisita.title"
+                   aria-describedby="cronoVendDetalleHoraVisitaAyuda"
+
+
+            >
+            <small id="cronoVendDetalleHoraVisitaAyuda"
+                   class="form-text text-muted">{{cronoVendDetalle.mensajesValidacionHoraVisita.title}}.
+            </small>
+          </div>
+          <div class="col-md-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionHoraVisita.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionHoraVisita.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--rutaCliente-->
+      <div class="col-md-12 form-group" *ngIf="!configuracionDisabled.RutaCliente.hidden">
+        <div class="row">
+          <label class="col-md-2 control-label" [for]="cronoVendDetalle.mensajesValidacionRutaCliente.nombreInput">{{
+            cronoVendDetalle.mensajesValidacionRutaCliente.nombreAPresentarse }}</label>
+          <div class="col-md-10">
+            <p-autoComplete
+              [inputId]="cronoVendDetalle.mensajesValidacionRutaCliente.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="cronoVendDetalle.mensajesValidacionRutaCliente.nombreInput"
+              [suggestions]="objetoVariablesGlobales.rutaClientes"
+              (completeMethod)="buscarRutaClientes($event)"
+              [placeholder]="cronoVendDetalle.mensajesValidacionRutaCliente.tooltip"
+              delay="1000"
+              field="edificio.nombre">
+              <ng-template let-rutaCliente pTemplate="item">
+                {{rutaCliente.edificio.nombre}} / {{rutaCliente.ruta.nombre}}
+              </ng-template>
+            </p-autoComplete>
+          </div>
+          <div class="col-md-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendDetalle.mensajesValidacionRutaCliente.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendDetalle.mensajesValidacionRutaCliente.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

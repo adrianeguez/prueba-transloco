@@ -1,0 +1,117 @@
+<div *ngIf="ruta && habilitar">
+  <ng-container *transloco="let g; read: 'generales'">
+    <ng-container *transloco="let t; read: rutaConTraduccion">
+      <app-ruta-general [migasDePan]="migasDePan">
+        <div class="contenido">
+
+          <mlab-titulo-pantalla
+            [titulo]="g('titulos.gestion', {nombreModulos: t('titulos.nombreModulos')})"
+            [descripcion]="g('descripciones.gestion', {nombreModulos: t('titulos.nombreModulos')})"
+            [imagen]="'assets/imagenes/sistema/vehiculos.svg'"
+            [ayuda]="t('titulos.ayuda')"
+          >
+          </mlab-titulo-pantalla>
+          <!--        [ayuda]="usuario?.apellidos + ' ' + usuario?.nombres + ' ' + usuario?.identificacionPais"-->
+          <!--    busqueda-->
+          <div class="row separacion-fondo-2">
+            <div class="col-sm-6">
+              <form class="form-inline" ngForm>
+                <div class="col-sm-12">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-describedby="busquedaVehiculoHelp"
+                           placeholder="{{g('descripciones.busqueda')}}" #busqueda>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                              (click)="buscarPorNombreYDescripcion(busqueda.value)">
+                        <i class="fas fa-search"></i> {{g('botones.buscar')}}
+                      </button>
+                    </div>
+                  </div>
+                  <small id="busquedaRolHelp" class="form-text text-muted ayuda-span">
+                    {{t('descripciones.busqueda')}}
+                  </small>
+                </div>
+              </form>
+            </div>
+            <div class="col-sm-3">
+              <ml-select-estado
+                (estadoSeleccionado)="escucharEstadoSeleccionado($event, busqueda.value)"
+              ></ml-select-estado>
+            </div>
+            <div class="col-sm-3">
+              <button class="btn btn-outline-primary  btn-block"
+                      (click)="abrirModalCrearTema()"
+              >
+                <i class="fas fa-plus"></i> {{g('botones.nuevo')}}
+              </button>
+            </div>
+          </div>
+
+          <!--tabla-->
+          <div class="row">
+            <div class="col-sm-12">
+              <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                       (onLazyLoad)="cargarDatos($event)"
+                       [paginator]="true" [rows]="rows" [totalRecords]="totalRecords" [loading]="loading"
+                       [first]="first">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th *ngFor="let col of columns">
+                      {{col.traduccion}}
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                  <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                    <td *ngFor="let col of columns">
+                      <span class="ui-column-title">{{col.header}}</span>
+
+                      <div *ngIf="col.header ==='Nombre'">
+                        {{rowData[col.field]}}
+                      </div>
+                      <div *ngIf="col.header ==='Descripcion'">
+                        {{rowData[col.field]}}
+                      </div>
+
+                      <div *ngIf="col.header==='Estado'">
+                        <button class="btn btn-block btn-success btn-sm"
+                                (click)="actualizarEstado(rowData)" [ngClass]="{
+                      'btn-danger':rowData[col.field] === 0,
+                      'btn-success':rowData[col.field] === 1
+                      }">{{rowData[col.field] === 1 ? g('botones.activo') : g('botones.inactivo')}}</button>
+                      </div>
+
+                      <div *ngIf="col.header==='Acciones'">
+
+                        <button class="btn btn-block btn-info btn-sm" (click)="abrirModalEditarTema(rowData)">
+                          {{g('botones.editar')}}
+                        </button>
+                        <button class="btn btn-block btn-info btn-sm" (click)="abrirModalAudio(rowData)">
+                          {{t('botones.archivoAudio')}}
+                        </button>
+
+                        <button class="btn btn-block btn-info btn-sm" (click)="irAGestionModuloHijo(rowData.id)">
+                          {{g('titulos.gestion', {nombreModulos: t('botones.irDiapositivas')})}}
+                        </button>
+                      </div>
+
+                    </td>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage" let-columns>
+                  <tr>
+                    <td [attr.colspan]="columns.length">
+                      {{g('otros.sinRegistros')}}
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </app-ruta-general>
+    </ng-container>
+  </ng-container>
+</div>
+
+

@@ -1,0 +1,50 @@
+<div class="contenido">
+  <div class="row stripe-pago">
+    <div class="font-weight-bold" *transloco="let t; read: rutaTraduccion">{{t('titulos.titulo')}} </div>
+
+
+    <div class="col-sm-12">
+
+      <div *ngIf="metodosPago.length>0">
+        <div class="font-italic" *transloco="let t; read: rutaTraduccion">
+          {{t('titulos.usarGuardada')}}
+        </div>
+      </div>
+      <div class="col-sm-12" *ngFor="let tarjeta of metodosPago">
+        <img [src]="tiposTarjetas[tarjeta.card.brand]" alt="tipo de tarjeta {{tarjeta.card.brand}}"
+             class="iconos-tarjetas">
+        <p-radioButton
+          class="ui-chkbox-label"
+          name="grupo"
+          value="{{tarjeta.id}}"
+          label="XXXXXXXX{{tarjeta.card.last4}}"
+          (onClick)="enviarTarjeta(tarjeta)"
+        >
+        </p-radioButton>
+      </div>
+
+
+      <div class="col-sm-12 align-content-center stripe-pago">
+        <div class="font-italic" *transloco="let t; read: rutaTraduccion">
+          {{t('titulos.ingresarTarjeta')}}
+        </div>
+
+        <div id="card-element" class="StripeElement StripeElement--invalid">
+          <!-- A Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+        <p-checkbox
+          *transloco="let t; read: rutaTraduccion"
+          [(ngModel)]="guardarTarjeta"
+          binary="true"
+          label="{{t('descripciones.guardarTarjeta')}}"
+        ></p-checkbox>
+
+      </div>
+
+    </div>
+    <div class="espacio"></div>
+  </div>
+
+</div>

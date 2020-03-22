@@ -1,0 +1,11 @@
+<label for="estado">Estado:</label>
+<p-dropdown
+  [options]="estadosPedidos"
+  [showClear]="true"
+  [(ngModel)]="estadoPedido"
+  (onChange)="enviarEstadoAFiltrar()"
+  placeholder="Estados a filtrar"
+  id="estado"
+  optionLabel="nombre">
+</p-dropdown>
+<small _ngcontent-qni-c10="" class="form-text text-muted ayuda-span" id="estadoHelp">Selecciona un estado</small>

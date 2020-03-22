@@ -1,0 +1,163 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div class="container">
+      <div class="" *ngIf="!tieneCajaActiva">
+        <h1 class="text-center">No tiene una caja activa</h1>
+      </div>
+      <div class=""  *ngIf="tieneCajaActiva">
+        <h1 class="text-center"> Registro de Venta</h1>
+        <div>
+          <div *ngIf="!seCargaronDatos && !cierreForzado">
+            <p>No se han cargado los datos para articulos e impuestos. Para iniciar la carga de clic
+              <a [routerLink]="['/','pedidos','cargar-datos']" >aquí.</a></p>
+          </div>
+          <div *ngIf="cierreForzado">
+            <p>La carga ha sido interrumpida. Para restaurar la carga de clic
+              <a [routerLink]="['/','pedidos','cargar-datos']" >aquí.</a></p>
+          </div>
+        </div>
+        <div *ngIf="tieneCajaActiva">
+          <div *ngIf="cabecera && seSeleccionoEmpresa">
+            <h1>Cabecera</h1>
+            <div class="row" *ngIf="cabecera.movimiento">
+              <div class="col-md-9"></div>
+              <div class="col-md-3">
+                <button class="btn btn-success btn-block animated fadeInUp"
+                        (click)="crearCabecera()"
+                        *ngIf="cabecera.informacionTributaria && mostrarBotonCrearCabecera"
+                >
+                  {{(cabeceraCreada? 'Editar' : 'Crear') + ' cabecera'}}
+                  <i class="fas fa-check-square"></i>
+                </button>
+                <br>
+                <br>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <!-- Mostrar movimiento-->
+                    <strong>Movimiento: </strong>
+                    {{cabecera.movimiento?.codigo}} / {{cabecera.movimiento?.nombre}}
+                    - {{cabecera.movimiento?.tipoMovimiento?.nombre}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <!-- Mostrar bodega -->
+                    <p>
+                      <strong>Bodega: </strong>
+                      {{bodega?.codigo}} - {{bodega?.direccion}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- Mostrar Cliente o Proveedor -->
+                    <p *ngIf="cabecera.informacionTributaria">
+                      <strong>Cliente: </strong>
+                      {{cabecera.informacionTributaria.documento}}
+                      - {{cabecera.informacionTributaria.razonSocial}}
+                    </p>
+                  </div>
+                  <div class="col-sm-6" >
+                    <mlab-buscar-cliente-proveedor
+                      [esVenta]="true"
+                      (informacionTributariaSeleccionada)="seleccionoInformacionTributaria($event)"
+                      [informacionTributaria]="cabecera.informacionTributaria"
+                    >
+                    </mlab-buscar-cliente-proveedor>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6" *ngIf="cabecera.movimiento.tipoMovimiento.nombre === 'Clientes'"
+              >
+                <div class="row">
+                  <div class="col-sm-10">
+                    <div *ngIf="!datosCabeceraCliente">
+                      <p>Llenar cabeceras de clientes</p>
+                    </div>
+                    <div *ngIf="datosCabeceraCliente">
+                      <p>
+                        <strong>Comentario: </strong>{{datosCabeceraCliente?.comentario}}</p>
+                      <p>
+                        <strong>Observación: </strong>{{datosCabeceraCliente?.observacion}}</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                    <button class="btn btn-outline-secondary btn-sm"
+                            (click)="abrirModalIngresarCabeceraMovimientoClientes()"
+                    >
+                      <i class="fas fa-pen"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="mostrarTablaDetalle && tieneCajaActiva && seSeleccionoEmpresa" class="separacion-top-2">
+            <h1>Detalle</h1>
+            <div class="row" >
+              <ml-articulos
+                (enviarArregloArticulos)="recibirArticulo($event)"
+                [valores]="arregloArticulosDetalle"
+                [facturaDevolucionClientes]="facturaDevolucionClientes"
+                [esVenta]="true"
+                [idCabeceraVenta]="cabeceraCreada.id"
+              >
+              </ml-articulos>
+              <br>
+              <div class="col-sm-12 separacion-top-1">
+                <div class="row">
+                  <button *ngIf="crearDetalle" class="btn btn-success" (click)="guardarCabeceraYDetalleVenta()">GUARDAR VENTA</button>
+                </div>
+              </div>
+              <div class="col-sm-12 separacion-top-2" >
+                <div class="row">
+                  <div class="col-sm-8">
+                    <div class="" *ngIf="totalImpuestoFactura.length > 0">
+                      <p-fieldset legend="Detalle de Impuestos"  [toggleable]="true" [collapsed]="true" >
+                        <p-tabView>
+                          <div class="" *ngFor="let impuesto of totalImpuestoFactura">
+                            <p-tabPanel [header]='impuesto.nombreImpuesto + " - " + (impuesto.tarifa | percent)'>
+                              <p-card styleClass="ui-card-shadow">
+                                <h6><strong>Nombre: </strong>{{impuesto.nombreImpuesto}}</h6>
+                                <h6><strong>Tarifa: </strong>{{impuesto.tarifa | percent}}</h6>
+                                <h6><strong>Código: </strong>{{impuesto.codigo}}</h6>
+                                <h6><strong>Base: </strong>{{impuesto.baseImponible | currency}}</h6>
+                                <h6><strong>Valor: </strong>{{impuesto.valor | currency}}</h6>
+                              </p-card>
+                            </p-tabPanel>
+                          </div>
+                        </p-tabView>
+                      </p-fieldset>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <ul class="list-group">
+                      <div class="" *ngFor="let subtotal of subtotales">
+                        <li class="list-group-item">
+                          <div class="row">
+                            <div class="col-sm-8">
+                              <h5><strong>{{subtotal.etiqueta}}</strong></h5>
+                            </div>
+                            <div class="col-sm-4 ">
+                              <h5 class="justify-content-end">{{(subtotal.valor) | currency}}</h5>
+                            </div>
+                          </div>
+                        </li>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

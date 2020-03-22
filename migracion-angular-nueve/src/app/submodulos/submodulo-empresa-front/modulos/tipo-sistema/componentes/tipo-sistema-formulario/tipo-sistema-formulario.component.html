@@ -1,0 +1,61 @@
+
+<form novalidate [formGroup]="tipoSistema.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--tipo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Tipo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoSistema.mensajesValidacionTipo.nombreInput">{{
+                    tipoSistema.mensajesValidacionTipo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="tipoSistema.mensajesValidacionTipo.nombreInput"
+                                [id]="tipoSistema.mensajesValidacionTipo.nombreInput"
+                                [formControlName]="tipoSistema.mensajesValidacionTipo.nombreInput"
+                        >
+
+                            <option value="Ingreso">Ingreso</option>
+                            <option value="Egreso">Egreso</option>
+
+                        </select>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoSistema.mensajesValidacionTipo.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoSistema.mensajesValidacionTipo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                   
+
+            <!--valor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoSistema.mensajesValidacionValor.nombreInput">{{
+                        tipoSistema.mensajesValidacionValor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoSistema.mensajesValidacionValor.nombreInput"
+                                [name]="tipoSistema.mensajesValidacionValor.nombreInput"
+                                [formControlName]="tipoSistema.mensajesValidacionValor.nombreInput"
+                                [placeholder]="tipoSistema.mensajesValidacionValor.tooltip"
+                                [title]="tipoSistema.mensajesValidacionValor.title"
+                                aria-describedby="tipoSistemaValorAyuda"
+                                
+                                
+                        >
+                        <small id="tipoSistemaValorAyuda" class="form-text text-muted">{{tipoSistema.mensajesValidacionValor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoSistema.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoSistema.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

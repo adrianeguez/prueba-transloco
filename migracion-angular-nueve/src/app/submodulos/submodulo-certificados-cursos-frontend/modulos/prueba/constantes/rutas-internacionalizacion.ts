@@ -1,0 +1,1 @@
+export const RUTAS_INTERNACIONALIZACION_GESTION_PRUEBA = 'submoduloCertificadosCuros.pruebaModulo.rutas.rutaGestionPrueba';

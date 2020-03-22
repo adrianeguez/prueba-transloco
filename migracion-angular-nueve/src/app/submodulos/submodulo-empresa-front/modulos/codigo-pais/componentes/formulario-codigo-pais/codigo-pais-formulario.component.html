@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="codigoPais.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="codigoPais.mensajesValidacionNombre.nombreInput">{{
+                        codigoPais.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="codigoPais.mensajesValidacionNombre.nombreInput"
+                                [name]="codigoPais.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="codigoPais.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="codigoPais.mensajesValidacionNombre.tooltip"
+                                [title]="codigoPais.mensajesValidacionNombre.title"
+                                aria-describedby="codigoPaisNombreAyuda"
+                                
+                                
+                        >
+                        <small id="codigoPaisNombreAyuda" class="form-text text-muted">{{codigoPais.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="codigoPais.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of codigoPais.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigoIso3166-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CodigoIso3166.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="codigoPais.mensajesValidacionCodigoIso3166.nombreInput">{{
+                        codigoPais.mensajesValidacionCodigoIso3166.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="codigoPais.mensajesValidacionCodigoIso3166.nombreInput"
+                                [name]="codigoPais.mensajesValidacionCodigoIso3166.nombreInput"
+                                [formControlName]="codigoPais.mensajesValidacionCodigoIso3166.nombreInput"
+                                [placeholder]="codigoPais.mensajesValidacionCodigoIso3166.tooltip"
+                                [title]="codigoPais.mensajesValidacionCodigoIso3166.title"
+                                aria-describedby="codigoPaisCodigoIso3166Ayuda"
+                                
+                                
+                        >
+                        <small id="codigoPaisCodigoIso3166Ayuda" class="form-text text-muted">{{codigoPais.mensajesValidacionCodigoIso3166.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="codigoPais.mensajesValidacionCodigoIso3166.mensajes.length>0">
+                            <div *ngFor="let mensaje of codigoPais.mensajesValidacionCodigoIso3166.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

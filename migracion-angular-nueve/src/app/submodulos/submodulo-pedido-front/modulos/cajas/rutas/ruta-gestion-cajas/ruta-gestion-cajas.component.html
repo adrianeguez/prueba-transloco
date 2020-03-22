@@ -1,0 +1,152 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <div class="row">
+      <div class="col-md-9">
+        <h1>Gestionar cajas</h1>
+        <p>Crea nuevas cajas diariamente, cierralas agrega o disminuye la cantidad de efectivo y mira el historial de
+          las mismas.</p>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-success btn-block espacio-boton"
+                (click)="seleccionarEstablecimientos()"
+        >Asignar cajas
+        </button>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="estadoFiltrado">Estado</label>
+          <select [(ngModel)]="estadoFiltrado"
+                  name="estadoFiltrado"
+                  (ngModelChange)="cargarDatos()"
+                  class="form-control" id="estadoFiltrado"
+                  aria-describedby="estadoFiltradoHelp">
+            <option *ngFor="let estado of estadosPuntoEmisionOperario" [value]="estado.value">{{estado.label}}</option>
+          </select>
+          <small id="estadoFiltradoHelp" class="form-text text-muted">
+            Seleccione un estado.
+          </small>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <ml-filter-fechas (consultaFilterFechas)="fechasSeleccionada($event)"
+                          [emitirAlSeleccionarFechas]="true"
+                          [noMostrarBoton]="true"></ml-filter-fechas>
+      </div>
+    </div>
+
+
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatos($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [first]="this.queryParams.skip"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? null : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+
+
+                  <div *ngIf="col.header === 'Trabajadores'">
+                    <p>
+                      <span class="bold">Operario:</span> {{rowData?.operario?.nombreContacto}}
+                    </p>
+                    <p>
+                      <span class="bold">Supervisor:</span> {{rowData?.administradorEstablecimiento?.nombreContacto}}
+                    </p>
+                  </div>
+
+
+                  <div *ngIf="col.header === 'Fecha/Hora'">
+                    <p>
+                      <span class="bold">Inicio:</span> {{rowData.fechaHoraInicio | date:'dd-MM-yyyy'}}
+                      <span class="bold">Hora:</span> {{mostrarHoraYMinuto(rowData.fechaHoraInicio)}}h
+                    </p>
+                    <p *ngIf="rowData.fechaHoraCierre">
+                      <span class="bold">Fin:</span> {{rowData.fechaHoraCierre | date:'dd-MM-yyyy'}}
+                      <span class="bold">Hora:</span> {{mostrarHoraYMinuto(rowData.fechaHoraCierre)}}h
+                    </p>
+                  </div>
+
+                  <div *ngIf="col.header === 'Estado'">
+                    {{obtenerTitulo(rowData.estado)}}
+                  </div>
+                  <div *ngIf="col.header === 'Valores'">
+                    <p>
+                      <span class="bold">Inicia:</span> {{rowData.valorInicia | currency}}
+                    </p>
+                    <p>
+                      <span class="bold">Cuadre:</span> {{rowData.valorCuadre | currency}}
+                    </p>
+                    <p>
+                      <span class="bold">Valor faltante/sobrante:</span> {{(+rowData.valorNoCuadra) * -1| currency}}
+                    </p>
+                    <p>
+                      <span class="bold">Cierra:</span> {{rowData.valorCierra | currency}}
+                    </p>
+                  </div>
+                  <div *ngIf="col.header === 'Novedades'">
+                    <p *ngIf="!rowData.novedadInicio && !rowData.novedadCierre"> No hay novedades</p>
+                    <p *ngIf="rowData.novedadInicio">
+                      <span class="bold">Inicio:</span> {{rowData.novedadInicio}}
+                    </p>
+                    <p *ngIf="rowData.novedadCierre">
+                      <span class="bold">Cierre:</span> {{rowData.novedadCierre}}
+                    </p>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div *ngIf="rowData.estado==='ABI'">
+                      <button class="btn btn-block btn-info btn-sm" (click)="abrirModalAnadirKardexCaja(rowData)">
+                        Agregar / Retirar $$$
+                      </button>
+                    </div>
+                    <div *ngIf="rowData.estado==='CUA'">
+                      <button class="btn btn-block btn-warning btn-sm" (click)="aceptarCaja(rowData)">
+                        Cerrar caja
+                      </button>
+                    </div>
+
+                    <div
+                      *ngIf="rowData.estado==='CUA' || rowData.estado==='ABI' || rowData.estado==='CER' || rowData.estado==='CRE'">
+                      <button class="btn btn-block btn-secondary btn-sm" (click)="visitarCaja(rowData)">
+                        Ver caja
+                      </button>
+                    </div>
+                  </div>
+
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

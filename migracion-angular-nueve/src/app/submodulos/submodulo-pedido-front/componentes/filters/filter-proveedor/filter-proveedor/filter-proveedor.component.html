@@ -1,0 +1,18 @@
+<form novalidate (ngSubmit)="buscarPorRazonSocialRuc()">
+  <div class="col-sm-12 form-group">
+    <div class="input-group mb-3">
+      <input id="buscar-proveedor"
+             class="form-control"
+             type="text"
+             name="razonSocialRuc"
+             placeholder="Ingrese su búsqueda..."
+             [(ngModel)]="busqueda"
+      >
+      <div>
+        <button class="btn btn-outline-secondary" type="btn" (click)="buscarEmpresaProveedora()">
+          <i class="fas fa-search"></i>BUSCAR</button>
+      </div>
+    </div>
+    <small id="ayuda-cliente-proveedor" class="form-text text-muted">Busque por razón social o RUC</small>
+  </div>
+</form>

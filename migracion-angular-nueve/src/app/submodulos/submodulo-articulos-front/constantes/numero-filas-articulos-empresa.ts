@@ -1,0 +1,1 @@
+export const NUMERO_FILAS_ARTICULO_EMPRESA = 5;

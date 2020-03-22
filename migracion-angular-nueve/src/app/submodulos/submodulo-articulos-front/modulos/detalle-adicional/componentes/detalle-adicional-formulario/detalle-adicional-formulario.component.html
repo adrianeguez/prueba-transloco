@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="detalleAdicional.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="detalleAdicional.mensajesValidacionNombre.nombreInput">{{
+                        detalleAdicional.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="detalleAdicional.mensajesValidacionNombre.nombreInput"
+                                [name]="detalleAdicional.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="detalleAdicional.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="detalleAdicional.mensajesValidacionNombre.tooltip"
+                                [title]="detalleAdicional.mensajesValidacionNombre.title"
+                                aria-describedby="detalleAdicionalNombreAyuda"
+                                
+                                
+                        >
+                        <small id="detalleAdicionalNombreAyuda" class="form-text text-muted">{{detalleAdicional.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="detalleAdicional.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of detalleAdicional.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--valor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="detalleAdicional.mensajesValidacionValor.nombreInput">{{
+                        detalleAdicional.mensajesValidacionValor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="detalleAdicional.mensajesValidacionValor.nombreInput"
+                                [name]="detalleAdicional.mensajesValidacionValor.nombreInput"
+                                [formControlName]="detalleAdicional.mensajesValidacionValor.nombreInput"
+                                [placeholder]="detalleAdicional.mensajesValidacionValor.tooltip"
+                                [title]="detalleAdicional.mensajesValidacionValor.title"
+                                aria-describedby="detalleAdicionalValorAyuda"
+                                
+                                
+                        >
+                        <small id="detalleAdicionalValorAyuda" class="form-text text-muted">{{detalleAdicional.mensajesValidacionValor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="detalleAdicional.mensajesValidacionValor.mensajes.length>0">
+                            <div *ngFor="let mensaje of detalleAdicional.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

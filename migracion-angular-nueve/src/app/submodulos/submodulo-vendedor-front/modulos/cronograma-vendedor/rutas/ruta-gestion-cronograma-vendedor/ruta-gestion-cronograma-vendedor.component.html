@@ -1,0 +1,119 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+
+    <mlab-titulo-pantalla
+      [titulo]="'Cronogramas'"
+      [descripcion]="'Gestione los cronogramas de entrega, vendedor o visita para usarlos dentro de la ' +
+       'aplicación móvil.'"
+      [imagen]="'assets/imagenes/sistema/empresa-cronograma.svg'"
+      [ayuda]="''"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-lg-9" >
+            <div class="input-group mb-3">
+              <input type="text" class="form-control"  aria-describedby="busquedaEmpresaHelp"
+                     placeholder="Busca cronogramas Ej: Ventas" #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2" (click)="buscarPorNombreODescripcion(busqueda.value)"><i class="fas fa-search"></i> BUSCAR</button>
+              </div>
+            </div>
+            <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Busque un cronograma por nombre.
+            </small>
+      </div>
+      <div class="col-lg-3">
+          <button class="btn btn-outline-primary  btn-block"
+                  (click)="abrirModalCrearCronogramaCabecera()"
+          ><i class="fas fa-plus"></i> NUEVO</button>
+      </div>
+    </div>
+
+
+
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="values.length > 0">
+
+
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatos($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columns.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+
+              <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+
+
+                  <div *ngIf="col.header==='Nombre'">
+                    <h5>{{rowData[col.field]}}</h5>
+                    <p><span class="bold">Descripcion:</span>
+                      {{rowData.descripcion}}
+                    </p>
+                  </div>
+
+                  <div *ngIf="col.header==='Estado'">
+                    <button class="btn btn-block btn-success btn-sm"
+                            (click)="actualizarEstado(rowData)"
+                            [ngClass]="{
+                  'btn-danger':(rowData[col.field] === estados.Inactivo) || rowData[col.field] === false,
+                  'btn-success':rowData[col.field] === estados.Activo  || rowData[col.field] === true
+                  }"
+                    >{{rowData[col.field] === estados.Activo ? 'ACTIVO' : 'INACTIVO'}}</button>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div>
+                      <button class="btn btn-block btn-info btn-sm"
+                              (click)="abrirModalCrearCronogramaCabecera(rowData)">
+                        EDITAR
+                      </button>
+                      <button class="btn btn-block btn-info btn-sm" (click)="irRutaDetalle(rowData)">
+                        GESTIONAR HORARIOS CRONOGRAMA
+                      </button>
+                    </div>
+                  </div>
+
+
+                </td>
+              </tr>
+
+            </ng-template>
+          </p-table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</app-ruta-general>

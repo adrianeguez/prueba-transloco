@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-12">
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/menu.svg'"
+      [titulo]="'Menú principal'"
+      [descripcion]="'Selecciona una opción de las opciones: configurar parámetros, ir a ventas o gestionar tu empresa.'"
+      [ayuda]="'Selecciona una opción'"
+    >
+
+    </mlab-titulo-pantalla>
+  </div>
+  <div class="col-lg-1">
+  </div>
+  <div class="col-lg-10">
+    <div class="row espaciado-menu">
+      <div class="col-lg-4" mlabPermiso [permiso]="{nombreModulo: permisosMenuPrincipal.nombreModulo, nombrePermiso: permisosMenuPrincipal.verGestionEmpresa}">
+        <mlab-item-menu
+          [texto]="'Gestión de empresas'"
+          [descripcion]="'Gestione a su empresa.'"
+          [imagen]="'assets/imagenes/sistema/empresa-menu.svg'"
+          [url]="['/empresa-modulo']"
+        ></mlab-item-menu>
+      </div>
+      <div class="col-lg-4">
+        <mlab-item-menu
+          [texto]="'Client Module'"
+          [descripcion]="''"
+          [url]="['/cliente-modulo']"
+        ></mlab-item-menu>
+      </div>
+      <div class="col-lg-4" mlabPermiso [permiso]="{nombreModulo: permisosMenuPrincipal.nombreModulo, nombrePermiso: permisosMenuPrincipal.verConfiguraciones}">
+        <mlab-item-menu
+          [texto]="'Configuraciones'"
+          [descripcion]="'Configure los parámetros del sistema.'"
+          [url]="['/configuraciones']"
+          [imagen]="'assets/imagenes/sistema/configuracion.svg'"
+        ></mlab-item-menu>
+      </div>
+      <div class="col-lg-4" mlabPermiso [permiso]="{nombreModulo: permisosMenuPrincipal.nombreModulo, nombrePermiso: permisosMenuPrincipal.verVentas}">
+        <mlab-item-menu
+          [texto]="'Menú ventas'"
+          [descripcion]="'Venda nuevos items a usuarios.'"
+          [url]="['/cliente-empresa-modulo','menu-clientes-empresa']"
+          [imagen]="'assets/imagenes/sistema/menu-ventas.svg'"
+        ></mlab-item-menu>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-1">
+  </div>
+</div>
+

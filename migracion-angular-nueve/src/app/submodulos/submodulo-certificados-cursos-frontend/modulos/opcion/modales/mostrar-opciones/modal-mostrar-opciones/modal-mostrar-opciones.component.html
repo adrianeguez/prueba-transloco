@@ -1,0 +1,33 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.opcionModulo.rutas.rutaGestionOpcion'">
+
+    <man-lab-modal-general
+      [nombreBotonAceptar]="g('botones.aceptar')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      [formularioValido]="formularioValido"
+      (dioClickEnCancelar)="cerrarModal()"
+      (dioClickEnAceptar)="cerrarModal()"
+    >
+
+      <div class="titulo">{{t('titulos.nombreModulos')}} </div>
+
+      <div class="contenido">
+
+
+        <div class="row">
+          <div class="col-sm-12">
+            <p class="descripcion-modal">{{data.pregunta.descripcion}}</p>
+          </div>
+
+          <div class="col-sm-12">
+            <ml-tabla-opcion
+              [idPregunta]="data.idPregunta"
+            ></ml-tabla-opcion>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

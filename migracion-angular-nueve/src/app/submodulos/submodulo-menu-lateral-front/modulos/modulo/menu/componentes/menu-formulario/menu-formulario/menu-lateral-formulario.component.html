@@ -1,0 +1,123 @@
+
+<form novalidate [formGroup]="menu.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="menu.mensajesValidacionNombre.nombreInput">{{
+                        menu.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="menu.mensajesValidacionNombre.nombreInput"
+                                [name]="menu.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="menu.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="menu.mensajesValidacionNombre.tooltip"
+                                [title]="menu.mensajesValidacionNombre.title"
+                                aria-describedby="menuNombreAyuda"
+                                
+                                
+                        >
+                        <small id="menuNombreAyuda" class="form-text text-muted">{{menu.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="menu.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of menu.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--routerLink-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.RouterLink.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="menu.mensajesValidacionRouterLink.nombreInput">{{
+                        menu.mensajesValidacionRouterLink.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="menu.mensajesValidacionRouterLink.nombreInput"
+                                [name]="menu.mensajesValidacionRouterLink.nombreInput"
+                                [formControlName]="menu.mensajesValidacionRouterLink.nombreInput"
+                                [placeholder]="menu.mensajesValidacionRouterLink.tooltip"
+                                [title]="menu.mensajesValidacionRouterLink.title"
+                                aria-describedby="menuRouterLinkAyuda"
+                                
+                                
+                        >
+                        <small id="menuRouterLinkAyuda" class="form-text text-muted">{{menu.mensajesValidacionRouterLink.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="menu.mensajesValidacionRouterLink.mensajes.length>0">
+                            <div *ngFor="let mensaje of menu.mensajesValidacionRouterLink.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--url-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Url.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="menu.mensajesValidacionUrl.nombreInput">{{
+                        menu.mensajesValidacionUrl.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="menu.mensajesValidacionUrl.nombreInput"
+                                [name]="menu.mensajesValidacionUrl.nombreInput"
+                                [formControlName]="menu.mensajesValidacionUrl.nombreInput"
+                                [placeholder]="menu.mensajesValidacionUrl.tooltip"
+                                [title]="menu.mensajesValidacionUrl.title"
+                                aria-describedby="menuUrlAyuda"
+                                
+                                
+                        >
+                        <small id="menuUrlAyuda" class="form-text text-muted">{{menu.mensajesValidacionUrl.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="menu.mensajesValidacionUrl.mensajes.length>0">
+                            <div *ngFor="let mensaje of menu.mensajesValidacionUrl.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--icono-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Icono.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="menu.mensajesValidacionIcono.nombreInput">{{
+                        menu.mensajesValidacionIcono.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="menu.mensajesValidacionIcono.nombreInput"
+                                [name]="menu.mensajesValidacionIcono.nombreInput"
+                                [formControlName]="menu.mensajesValidacionIcono.nombreInput"
+                                [placeholder]="menu.mensajesValidacionIcono.tooltip"
+                                [title]="menu.mensajesValidacionIcono.title"
+                                aria-describedby="menuIconoAyuda"
+                                
+                                
+                        >
+                        <small id="menuIconoAyuda" class="form-text text-muted">{{menu.mensajesValidacionIcono.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="menu.mensajesValidacionIcono.mensajes.length>0">
+                            <div *ngFor="let mensaje of menu.mensajesValidacionIcono.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

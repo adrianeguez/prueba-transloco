@@ -1,0 +1,29 @@
+<div style="margin-top: 0.5rem;margin-bottom: 0.5rem">
+  <h1 class="text-primary" mat-dialog-title>
+    <span class="bold">UNIDAD MEDIDA</span>
+  </h1>
+</div>
+<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Seleccione la Unidad de Medida necesaria para el articulo</p>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 contenido-modal">
+  <div style="margin-top: 0.5rem;margin-bottom: 1.5rem">
+    <ml-select-unidad-medida (unidadMedidaSeleccionado)=seteoUnidadMedidaSeleccionado($event)>
+    </ml-select-unidad-medida>
+  </div>
+</div>
+<mat-dialog-actions class="justify-content-end">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button (click)="metodoCrearAsignacionUnidadMedida()" class="btn btn-primary boton-modal"
+        [disabled]="!unidadMedidaSeleccionada">Asignar</button>
+    </div>
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-secondary boton-modal fondo-modal">Cancelar</button>
+    </div>
+  </div>
+</mat-dialog-actions>

@@ -1,0 +1,17 @@
+<div *transloco="let g; read: 'generales'">
+  <div *transloco="let t; read: 'submoduloArticulos.articulo.componentes.filterArticuloServicio'">
+    <div class="col-sm-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" aria-describedby="busquedaArticuloHelp"
+               placeholder="{{g('descripciones.busqueda')}}" #busqueda>
+        <div>
+          <button class="btn btn-outline-secondary" (click)="buscar(busqueda.value)"><i
+            class="fas fa-search"></i> {{g('botones.buscar')}}
+          </button>
+        </div>
+      </div>
+      <small id="busquedaArticuloHelp" class="form-text text-muted ayuda-span"> {{t('descripciones.busqueda')}}
+      </small>
+    </div>
+  </div>
+</div>

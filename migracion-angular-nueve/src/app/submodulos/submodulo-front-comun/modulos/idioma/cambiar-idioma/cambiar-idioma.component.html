@@ -1,0 +1,23 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <p-dropdown [options]="idiomas" [(ngModel)]="idiomaSeleccionado" [placeholder]="g('idioma')">
+    <ng-template let-item pTemplate="selectedItem">
+      <div class="ui-helper-clearfix" style="width:16px;vertical-align:middle">
+        <img src="assets/imagenes/sistema/{{item.codigo}}.svg"/>
+        <div style="width:24px;position:absolute;top:1px;left:5px">
+          {{item.nombre}}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template let-idioma pTemplate="item">
+      <div class="ui-helper-clearfix item-contendedor" (click)="cambiarIdioma(idioma)">
+        <img src="assets/imagenes/sistema/{{idioma.codigo}}.svg"
+             class="imagen-select descripcion-select"/>
+        <div style="" class="descripcion-select">
+          {{idioma.nombre}}
+        </div>
+      </div>
+    </ng-template>
+  </p-dropdown>
+</ng-container>
+
+

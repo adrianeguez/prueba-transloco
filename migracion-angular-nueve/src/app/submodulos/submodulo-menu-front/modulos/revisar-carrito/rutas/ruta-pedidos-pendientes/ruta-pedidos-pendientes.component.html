@@ -1,0 +1,9 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div *ngFor="let cabecera of cabecerasCarrito">
+      {{cabecera.nombre}}
+      {{cabecera.estado}}
+      {{cabecera.id}}
+    </div>
+  </div>
+</app-ruta-general>

@@ -1,0 +1,110 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Gestionar horarios de cronograma'"
+      [descripcion]="'Gestione que días o fechas y a qué horas debe de realizar una visita un vendedor.'"
+      [imagen]="'assets/imagenes/sistema/empresa-cronograma-detalle.svg'"
+      [ayuda]="''"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row">
+      <div class="col-sm-9" >
+      </div>
+      <div class="col-sm-3">
+        <div class="col-sm-12">
+          <button class="btn btn-outline-primary  btn-block"
+                  (click)="abrirModalCrearEditar()"
+          ><i class="fas fa-plus"></i> NUEVO</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="values.length > 0">
+
+
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatos($event)"
+            [paginator]="true"
+            [rows]="rows"
+            [totalRecords]="totalRecords"
+            [loading]="loading"
+            [resizableColumns]="true"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columns.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+              <tr [ngClass]="optionalParams?.registroActual == rowData.id ? 'fila-activa' : null">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+
+
+                  <div *ngIf="col.header==='Orden'">
+                    <h4>{{rowData[col.field]}}</h4>
+                  </div>
+
+                  <div *ngIf="col.header==='Días de la semana / Fecha'">
+                    <div *ngIf="rowData.fecha">
+                      {{rowData.fecha}}
+                    </div>
+                    <div *ngIf="!rowData.fecha">
+                      <span *ngIf="rowData.lunes">Lunes,</span>
+                      <span *ngIf="rowData.martes">Martes,</span>
+                      <span *ngIf="rowData.miercoles">Miércoles,</span>
+                      <span *ngIf="rowData.jueves">Jueves,</span>
+                      <span *ngIf="rowData.viernes">Viernes,</span>
+                      <span *ngIf="rowData.sabado">Sábado,</span>
+                      <span *ngIf="rowData.domingo">Domingo,</span>
+                    </div>
+                  </div>
+
+                  <div *ngIf="col.header==='Hora visita'">
+                    <h4>{{rowData[col.field]}}</h4>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+                    <div>
+                      <button class="btn btn-block btn-info btn-sm"
+                              (click)="abrirModalCrearEditar(rowData)">
+                        EDITAR
+                      </button>
+                    </div>
+                  </div>
+
+
+                </td>
+              </tr>
+
+            </ng-template>
+          </p-table>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</app-ruta-general>

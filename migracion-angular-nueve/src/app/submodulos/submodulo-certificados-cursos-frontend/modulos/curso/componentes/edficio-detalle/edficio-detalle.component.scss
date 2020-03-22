@@ -1,0 +1,72 @@
+.cabecera-tilulo-edificio{
+  background-color: #0f6674;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 1rem;
+  transition: 1s;
+  border: solid 0.05rem black;
+}
+.cabecera-tilulo-edificio:hover{
+  background-color: #13746a;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: 1s;
+}
+
+.redondeado-abajo{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.detalle-direccion{
+  padding: 1rem;
+  border-left: solid 0.05rem black;
+  border-right: solid 0.05rem black;
+}
+
+.detalle{
+  padding: 1rem;
+  border-bottom: solid 0.05rem black;
+  border-left: solid 0.05rem black;
+  border-right: solid 0.05rem black;
+}
+
+.fondo-detalles{
+  background-color: #212121;
+  color: white;
+  transition: 1s;
+}
+
+.fondo-detalles:hover{
+  background-color: #333333;
+  transition: 1s;
+}
+
+.item-establecimiento{
+  width: 100%;
+  transition: 0.5s;
+
+}
+
+.item-establecimiento:hover{
+  transition: 0.5s;
+  transform: scale(1.04,1.04);
+}
+
+.separador{
+  border-bottom: solid 2px #313131;
+}
+
+.full-width{
+  width: 100%;
+}
+
+.container{
+  box-shadow: black;
+}
+
+.borde-inferior{
+  width: 100%;
+  border-bottom:solid #0f6674 0.05rem;
+}

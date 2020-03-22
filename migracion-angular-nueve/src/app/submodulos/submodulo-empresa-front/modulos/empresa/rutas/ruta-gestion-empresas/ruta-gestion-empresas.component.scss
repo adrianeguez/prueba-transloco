@@ -1,0 +1,81 @@
+.boton-activar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.icono-menu {
+  max-height: 25px;
+  margin-right: 14px;
+}
+
+.contenedor-menu-empresa {
+  height: 385px;
+  padding-top: 20px;
+  overflow-y: scroll;
+}
+
+.espaciado-tabla-empresa {
+  margin-top: 20px;
+}
+
+.espaciado-item-menu {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.boton-item {
+  font-size: 10px;
+  height: 45px;
+  font-weight: bolder;
+}
+
+.icono-item {
+  max-height: 50px;
+  margin-bottom: 14px;
+
+}
+
+.empresa-papa {
+  font-size: 1rem;
+  color: #ff9a00;
+}
+
+.espacio-contenido-carta {
+  margin: 25px;
+}
+
+.color-nombre {
+  color: #ff5023;;
+  font-weight: bolder;
+}
+
+// Logica para que funcione el tree table
+
+:host ::ng-deep .priority-3,
+:host ::ng-deep .visibility-sm {
+  display: none;
+}
+
+@media screen and (max-width: 860px) {
+  :host ::ng-deep .visibility-sm {
+    display: inline;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  :host ::ng-deep .visibility-sm-2 {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  :host ::ng-deep .priority-3 {
+    display: table-cell;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  :host ::ng-deep .priority-2 {
+    display: table-cell;
+  }
+}

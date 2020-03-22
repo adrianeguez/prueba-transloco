@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <p-table
+        [responsive]="true"
+        [columns]="columnas"
+        [value]="descuentosArticulo"
+        [paginator]="true"
+        [rows]="rows"
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columnas.length">
+              No existen registros
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <td class="text-center" *ngFor="let col of columns">
+              <span class="ui-column-title">{{col.header}}</span>
+              <div *ngIf="col.header === '#'">
+                {{descuentosArticulo.indexOf(rowData)+1}}
+              </div>
+              <div *ngIf="col.field==='orden'">
+                {{rowData.orden ? rowData.orden : 'NO TIENE'}}
+              </div>
+              <div *ngIf="col.field==='motivo'">
+                {{rowData.motivo ? rowData.motivo : 'NO TIENE'}}
+              </div>
+              <div *ngIf="col.field==='valor'">
+                {{(rowData.valor | number: '1.4-4')}}
+              </div>
+              <div *ngIf="col.field==='descuentoPorcentual'">
+                {{(rowData.descuentoPorcentual | number: '1.4-4' )  }}
+              </div>
+              <div *ngIf="col.field==='base'">
+                {{(rowData.base | number: '1.4-4')}}
+              </div>
+              <div *ngIf="col.field==='acciones'">
+                <button pButton type="button" class="btn btn-primary" (click)="abrirModalEditarDescuentoArticulo(rowData)"
+                ><i class="fas fa-edit"></i>
+                </button>
+                <button pButton type="button" class="btn btn-danger" (click)="eliminarDescuento(rowData)"
+                ><i class="fa fa-window-close"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

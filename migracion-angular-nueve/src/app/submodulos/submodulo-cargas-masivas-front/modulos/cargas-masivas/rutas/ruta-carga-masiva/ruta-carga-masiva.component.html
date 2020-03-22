@@ -1,0 +1,106 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <div class="row justify-content-between">
+            <div class="col-sm-12">
+              <h3 class="text-primary text-center">Carga masiva de {{nombreCarga}}</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-8">
+            <h4>Descripción:</h4>
+
+            <p>
+              Cargue el archivo excel relacionado con {{nombreCarga}}. Los datos deben encontrarse en la primera hoja de excel.
+              Para ver un ejemplo de como llenar el archivo, de click <a [href]="descargarArchivoEjemplo(nombreCarga)">AQUI</a>.
+              Para descargar la plantilla para el llenado de archivos, de click <a [href]="descargarPlantilla(nombreCarga)">AQUI</a>.
+            </p>
+          </div>
+          <div class="col-sm-2"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+
+          <div class="col-sm-4">
+            <div *ngIf="requiereId && nombreCarga === 'detalle-articulos' || nombreCarga === 'precios'">
+              <ml-carga-masiva-id-articulo></ml-carga-masiva-id-articulo>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'datos-contactos'">
+              <ml-carga-masiva-id-contacto-empresa></ml-carga-masiva-id-contacto-empresa>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'datos-edificio'">
+              <ml-carga-masiva-id-edificio></ml-carga-masiva-id-edificio>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'area-pisos'">
+              <ml-carga-masiva-id-piso></ml-carga-masiva-id-piso>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'subgrupos'">
+              <ml-carga-masiva-id-grupo></ml-carga-masiva-id-grupo>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'articulos'">
+              <ml-carga-masiva-id-subgrupo></ml-carga-masiva-id-subgrupo>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'articulos-bodega'">
+              <ml-carga-masiva-id-articulo-bodega></ml-carga-masiva-id-articulo-bodega>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'articulos-proveedor'">
+              <ml-carga-masiva-id-empresa-proveedor></ml-carga-masiva-id-empresa-proveedor>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'tarifas'">
+              <ml-carga-masiva-id-tipo-impuesto></ml-carga-masiva-id-tipo-impuesto>
+            </div>
+
+            <div *ngIf="requiereId && nombreCarga === 'datos-vendedores'">
+              <ml-carga-masiva-id-contacto-empresa></ml-carga-masiva-id-contacto-empresa>
+            </div>
+
+            <div *ngIf="!requiereId" class="row">
+              <div class="col-sm-12 text-center" *ngIf="archivoCargaMasiva.archivoASubir">
+                Archivo seleccionado: {{archivoCargaMasiva.archivoASubir.name}}
+              </div>
+
+              <div class="col-sm-12">
+                <input id="archivoCargaMasiva" class="inputfile" name="archivoCargaMasiva" type="file" (change)="seleccionoArchivo($event)"
+                       placeholder="Seleccionar archivo de cargas masivas" accept=".ods,.xls,.xlsx" hidden>
+              </div>
+
+              <div class="col-sm-12">
+                <label for="archivoCargaMasiva" class="btn btn-info btn-block btn-lg">
+                  Seleccionar
+                  {{archivoCargaMasiva.archivoASubir?'otro':'un'}}
+                  archivo
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+
+          <div class="col-sm-4" *ngIf="archivoSeleccionado">
+            <button class="btn btn-block btn-success btn-lg" (click)="subirArchivo()">Subir Archivo</button>
+          </div>
+
+          <div class="col-sm-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

@@ -1,0 +1,54 @@
+<div class="col-sm-12">
+  <div class="col-sm-12">
+    <p-table
+      [responsive]="true"
+      [columns]="columnas"
+      [value]="subgruposEncontrados"
+      [lazy]="true"
+      (onLazyLoad)="cargarDatosLazy($event)"
+      [paginator]="true"
+      [rows]="rows"
+      [totalRecords]="totalRegistros"
+      [first]="skip"
+      [selectionMode]="'single'"
+      (onRowSelect)="obtenerSubgrupoSeleccionado($event)"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columnas.length">
+            No existen registros
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td class="text-center" *ngFor="let col of columns">
+            <span class="ui-column-title">{{col.header}}</span>
+            <div *ngIf="col.header === '#'">
+              {{subgruposEncontrados.indexOf(rowData)+1}}
+            </div>
+            <div *ngIf="col.field==='codigo'">
+              {{rowData[col.field]}}
+            </div>
+            <div *ngIf="col.field==='nombre'">
+              {{rowData[col.field]}}
+            </div>
+            <div *ngIf="col.field === 'habilitado'">
+              <button class="btn btn-block btn-success btn-sm" [ngClass]="{
+                    'btn-danger':rowData[col.field] === estados.Inactivo,
+                    'btn-success':rowData[col.field] === estados.Activo
+                    }">{{rowData[col.field]  === estados.Activo? 'ACTIVO':'INACTIVO'}}</button>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

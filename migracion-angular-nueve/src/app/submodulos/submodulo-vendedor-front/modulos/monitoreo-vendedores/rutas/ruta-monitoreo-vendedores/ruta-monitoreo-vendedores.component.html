@@ -1,0 +1,43 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Monitoreo en vivo'"
+      [descripcion]="'Visualiza en donde está el vendedor.'"
+      [imagen]="'assets/imagenes/sistema/vendedor-monitoreo.svg'"
+      [ayuda]="vendedor.nombreVendedor + ' ' + vendedor.apellidoVendedor"
+    >
+    </mlab-titulo-pantalla>
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="display-3">Mapa</h4>
+        <p>Muevase por el mapa para revisar las posiciones del vendedor</p>
+        <div id="map" style="height: 600px;">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 2rem">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row">
+          <div class="col-sm-6 espaciado">
+            <img class="imagen" src="assets/imagenes/sistema/vendedor-monitoreo-empezar.svg" alt="">
+            <button type="button" [className]=" habilitarBotonSeguir?'btn btn-block btn-warning':'btn btn-block btn-outline-info'"
+                    (click)="seguimientoVendedorMapa()"
+                    [disabled]="habilitarBotonSeguir"
+            >{{habilitarBotonSeguir?'Siguiendo':'Empezar a seguir'}}
+            </button>
+          </div>
+          <div class="col-sm-6 espaciado">
+            <img class="imagen" src="assets/imagenes/sistema/vendedor-monitoreo-parar.svg" alt="">
+            <button type="button" [className]=" !habilitarBotonSeguir?'btn btn-block btn-outline-danger':'btn btn-block btn-danger'"
+                    [disabled]="!habilitarBotonSeguir" (click)="cancelarBusqueda()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+</app-ruta-general>

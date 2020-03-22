@@ -1,0 +1,209 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.pruebaModulo.pruebaFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="prueba.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--nombre-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="prueba.mensajesValidacionNombre.nombreInput">
+                {{
+                t('nombre.' + prueba.mensajesValidacionNombre.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="prueba.mensajesValidacionNombre.nombreInput"
+                       [name]="prueba.mensajesValidacionNombre.nombreInput"
+                       [formControlName]="prueba.mensajesValidacionNombre.nombreInput"
+                       [placeholder]="t('nombre.' + prueba.mensajesValidacionNombre.tooltip)"
+                       [title]="t('nombre.' + prueba.mensajesValidacionNombre.title)"
+                       aria-describedby="pruebaNombreAyuda"
+
+
+                >
+                <small id="pruebaNombreAyuda" class="form-text text-muted">
+                  {{
+                  t('nombre.' + prueba.mensajesValidacionNombre.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="prueba.mensajesValidacionNombre.mensajes.length>0">
+                  <div *ngFor="let mensaje of prueba.mensajesValidacionNombre.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('nombre.nombre'),
+                        minLength: prueba.mensajesValidacionNombre.minlength.valor,
+                        maxLength: prueba.mensajesValidacionNombre.maxlength.valor,
+                        min: prueba.mensajesValidacionNombre.min.valor,
+                        max: prueba.mensajesValidacionNombre.max.valor,
+                        patternMensaje: t('nombre.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--tipo-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Tipo.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="prueba.mensajesValidacionTipo.nombreInput">
+                {{
+                t('tipo.' + prueba.mensajesValidacionTipo.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <select class="form-control form-control-sm"
+                        [name]="prueba.mensajesValidacionTipo.nombreInput"
+                        [id]="prueba.mensajesValidacionTipo.nombreInput"
+                        [title]="t('tipo.' + prueba.mensajesValidacionTipo.title)"
+                        [formControlName]="prueba.mensajesValidacionTipo.nombreInput"
+                >
+
+                  <option value="test"> {{ t('tipo.opciones.' + 'test') }}</option>
+                  <option value="pretest"> {{ t('tipo.opciones.' + 'pretest') }}</option>
+
+                </select>
+                <small id="pruebaTipoAyuda" class="form-text text-muted">
+                  {{
+                  t('tipo.' + prueba.mensajesValidacionTipo.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="prueba.mensajesValidacionTipo.mensajes.length>0">
+                  <div *ngFor="let mensaje of prueba.mensajesValidacionTipo.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('tipo.tipo'),
+                        minLength: prueba.mensajesValidacionTipo.minlength.valor,
+                        maxLength: prueba.mensajesValidacionTipo.maxlength.valor,
+                        min: prueba.mensajesValidacionTipo.min.valor,
+                        max: prueba.mensajesValidacionTipo.max.valor,
+                        patternMensaje: t('tipo.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--tiempoMaximo-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TiempoMaximo.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="prueba.mensajesValidacionTiempoMaximo.nombreInput">
+                {{
+                t('tiempoMaximo.' + prueba.mensajesValidacionTiempoMaximo.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <ngb-timepicker
+                  seconds="true"
+                  size="small"
+                  [id]="prueba.mensajesValidacionTiempoMaximo.nombreInput"
+                  [formControlName]="prueba.mensajesValidacionTiempoMaximo.nombreInput"
+                  [title]="t('tiempoMaximo.' + prueba.mensajesValidacionTiempoMaximo.title)"
+                  aria-describedby="pruebaTiempoMaximoAyuda"
+
+
+                >
+                  <small id="pruebaTiempoMaximoAyuda" class="form-text text-muted">
+                    {{
+                    t('tiempoMaximo.' + prueba.mensajesValidacionTiempoMaximo.title)
+                    }}
+                    .</small>
+                </ngb-timepicker>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="prueba.mensajesValidacionTiempoMaximo.mensajes.length>0">
+                  <div *ngFor="let mensaje of prueba.mensajesValidacionTiempoMaximo.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('tiempoMaximo.tiempoMaximo'),
+                        minLength: prueba.mensajesValidacionTiempoMaximo.minlength.valor,
+                        maxLength: prueba.mensajesValidacionTiempoMaximo.maxlength.valor,
+                        min: prueba.mensajesValidacionTiempoMaximo.min.valor,
+                        max: prueba.mensajesValidacionTiempoMaximo.max.valor,
+                        patternMensaje: t('tiempoMaximo.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--numeroIntentos-->
+          <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NumeroIntentos.hidden">
+            <div class="row">
+              <label class="col-sm-4 control-label" [for]="prueba.mensajesValidacionNumeroIntentos.nombreInput">
+                {{
+                t('numeroIntentos.' + prueba.mensajesValidacionNumeroIntentos.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-8">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="prueba.mensajesValidacionNumeroIntentos.nombreInput"
+                       [name]="prueba.mensajesValidacionNumeroIntentos.nombreInput"
+                       [formControlName]="prueba.mensajesValidacionNumeroIntentos.nombreInput"
+                       [placeholder]="t('numeroIntentos.' + prueba.mensajesValidacionNumeroIntentos.tooltip)"
+                       [title]="t('numeroIntentos.' + prueba.mensajesValidacionNumeroIntentos.title)"
+                       aria-describedby="pruebaNumeroIntentosAyuda"
+
+
+                >
+                <small id="pruebaNumeroIntentosAyuda" class="form-text text-muted">
+                  {{
+                  t('numeroIntentos.' + prueba.mensajesValidacionNumeroIntentos.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="prueba.mensajesValidacionNumeroIntentos.mensajes.length>0">
+                  <div *ngFor="let mensaje of prueba.mensajesValidacionNumeroIntentos.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('numeroIntentos.numeroIntentos'),
+                        minLength: prueba.mensajesValidacionNumeroIntentos.minlength.valor,
+                        maxLength: prueba.mensajesValidacionNumeroIntentos.maxlength.valor,
+                        min: prueba.mensajesValidacionNumeroIntentos.min.valor,
+                        max: prueba.mensajesValidacionNumeroIntentos.max.valor,
+                        patternMensaje: t('numeroIntentos.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

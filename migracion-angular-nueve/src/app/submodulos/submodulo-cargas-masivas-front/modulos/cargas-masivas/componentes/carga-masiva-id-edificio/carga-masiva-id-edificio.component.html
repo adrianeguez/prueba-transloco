@@ -1,0 +1,33 @@
+<div class="col-sm-12 text-center" *ngIf="edificioSeleccionado">
+  Edificio seleccionado: {{edificioSeleccionado.nombre}}
+</div>
+
+<div class="col-sm-12">
+  <label class="btn btn-info btn-block btn-lg" (click)="abrirModal()">
+    Seleccionar
+    {{edificioSeleccionado ? 'otro' : 'un'}}
+    edificio para {{this.nombreCarga}}
+  </label>
+</div>
+
+<div class="col-sm-12 text-center" *ngIf="archivoCargaMasiva.archivoASubir">
+  Archivo seleccionado: {{archivoCargaMasiva.archivoASubir.name}}
+</div>
+
+<div class="col-sm-12">
+  <input id="archivoConArticulo" class="inputfile" name="archivoCargaMasiva" type="file"
+         (change)="seleccionoArchivo($event)"
+         placeholder="Seleccionar archivo de cargas masivas" accept=".ods,.xls,.xlsx" hidden>
+</div>
+
+<div class="col-sm-12">
+  <label *ngIf="edificioSeleccionado" for="archivoConArticulo" class="btn btn-info btn-block btn-lg">
+    Seleccionar
+    {{archivoCargaMasiva.archivoASubir ? 'otro' : 'un'}}
+    archivo
+  </label>
+</div>
+
+<div class="col-sm-12" *ngIf="archivoSeleccionado">
+  <button class="btn btn-block btn-success btn-lg" (click)="subirArchivoId()">Subir Archivo</button>
+</div>

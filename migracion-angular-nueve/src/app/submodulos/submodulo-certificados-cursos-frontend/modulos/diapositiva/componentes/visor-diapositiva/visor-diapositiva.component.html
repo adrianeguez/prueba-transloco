@@ -1,0 +1,122 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.diapositiva.rutas.rutaClienteDiapositiva'">
+<div class="container contenedor">
+    <img *ngIf="caratula" class="img-fluid fondo" [src]="caratula" alt="">
+  <div class="row">
+    <div class="titulo">
+      <h3>{{diapositiva.titulo}}</h3>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'A'">
+      <ul>
+        <li *ngFor="let texto of diapositiva.textos">
+          {{texto}}
+        </li>
+      </ul>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'B'">
+      <ul class="texto" *ngFor="let texto of diapositiva.textos">
+        <li>{{texto}}</li>
+      </ul>
+      <div class="d-flex justify-content-center">
+        <div class="p-2 centrar-contenido">
+          <img src="{{diapositiva.imagenes[0]}}" alt="" class="img-fluid imagen">
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'C' || diapositiva.clase === 'F' || diapositiva.clase === 'E'">
+      <div class="row">
+        <div class="col-md-6" >
+          <ul class="texto" *ngFor="let texto of diapositiva.textos">
+            <li>{{texto}}</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div class="row" *ngFor="let imagen of diapositiva.imagenes">
+            <img src="{{imagen}}" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'D'">
+      <div class="row">
+        <div class="col-md-12 texto">
+          {{diapositiva.textos.join()}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="p-2" *ngFor="let imagen of diapositiva.imagenes">
+          <img src="{{imagen}}" alt="" class="img-fluid imagen">
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'G'">
+      <div class="d-flex justify-content-center">
+        <div class="p-2" *ngFor="let imagen of diapositiva.imagenes">
+          <img src="{{imagen}}" alt="" class="img-fluid imagen">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 texto">
+          {{diapositiva.textos.join()}}
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'H'">
+      <div class="d-flex justify-content-lg-start">
+        <div class="p-2 texto">
+          {{diapositiva.textos.join()}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-lg-start" *ngFor="let link of diapositiva.links">
+        <div class="p-2">
+          <a href="{{link}}">{{link}}</a>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="p-2" *ngFor="let imagen of diapositiva.imagenes">
+          <img src="{{imagen}}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'P'">
+      <div class="d-flex justify-content-lg-start">
+        <div class="p-2 texto">
+          {{t('titulos.pruebaDiapositiva')}}
+        </div>
+      </div>
+      <div class="d-flex justify-content-lg-start" *ngFor="let prueba of diapositiva.pruebas">
+        <div class="p-2">
+          <button class="btn btn-block btn-primary"
+                  (click)="irPrueba(prueba)"
+          >{{t('botones.hacerPrueba')}} {{prueba.nombre}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'INICIO'">
+      <div class="d-flex justify-content-center">
+        <div class="p-2">
+            <ul *ngFor="let texto of diapositiva.textos">
+              <li class="descripcion">
+                {{texto}}
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="animated fadeInUp" *ngIf="diapositiva.clase === 'FIN'">
+      <div class="d-flex justify-content-lg-start">
+<!--        <div class="p-2 texto">-->
+<!--          {{diapositiva.textos.join()}}-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" *ngIf="diapositiva.urlAudio">
+    <div class="p-2">
+      <mat-basic-audio-player audioUrl="{{diapositiva.urlAudio}}" [title]="''"
+                              [displayTitle]="false" [displayVolumeControls]="true">
+      </mat-basic-audio-player>
+    </div>
+  </div>
+</div>
+</ng-container>

@@ -1,0 +1,35 @@
+<ng-container *transloco="let g; read: 'generales'">
+  <ng-container *transloco="let t; read: 'submoduloCertificadosCuros.pregunta.rutas.rutaGestionPregunta'">
+
+    <man-lab-modal-general
+      [nombreBotonAceptar]="g('botones.asignar')"
+      [nombreBotonCancelar]="g('botones.cancelar')"
+      (dioClickEnCancelar)="cerrarModal()"
+      (dioClickEnAceptar)="aceptarPreguntasSeleccionadas()"
+      [formularioValido]="modalValido"
+
+    >
+
+      <div class="titulo">{{g('botones.asignar')}} {{t('titulos.nombreModulo')}}</div>
+
+      <div class="contenido">
+
+        <div class="row">
+          <div class="col-md-12">
+            <p class="descripcion-modal"> {{t('descripciones.modalAsignacion')}}</p>
+          </div>
+
+          <div class="col-sm-12">
+            <ml-lista-pregunta
+              [idModuloCurso]="data.idModuloCurso"
+              (preguntasSeleccionadas)="obtenerPreguntasSeleccionadas($event)">
+
+            </ml-lista-pregunta>
+          </div>
+          <div class="espacio"></div>
+        </div>
+
+      </div>
+    </man-lab-modal-general>
+  </ng-container>
+</ng-container>

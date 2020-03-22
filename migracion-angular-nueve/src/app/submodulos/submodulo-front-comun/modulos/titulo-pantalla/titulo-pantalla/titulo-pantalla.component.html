@@ -1,0 +1,12 @@
+<div class="row animated slideInLeft">
+  <div *ngIf="imagen" class="col-lg-1">
+    <img class="img-fluid imagen mx-auto d-block" [src]="imagen" alt="">
+  </div>
+  <div [class]="'col-lg-1' + imagen ? 1 : 2">
+    <h1 class="display-1 titulo">
+      {{titulo.slice(0, 32)}} <span *ngIf="titulo.length > 32">...</span>
+      <small class="text-muted titulo-ayuda">{{ayuda}}</small>
+    </h1>
+    <p>{{descripcion}}</p>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Cabecera de compras</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div mat-dialog-content>
+  <div class="row contenido-modal">
+    <div class="col-md-12">
+      <p class="descripcion-modal">Llene los datos de cabecera para compras:</p>
+    </div>
+    <div class="col-sm-12">
+      <man-lab-esta-tipeando></man-lab-esta-tipeando>
+    </div>
+    <div class="col-sm-12">
+      <ml-cabecera-compra-formulario
+        (cabeceraCompraValido)="establecerCabeceraCompra($event)"
+        (empezoATipear)="establecerFormularioInvalido()"
+        [configuracionDisabled]="configuracionesCabeceraCompra">
+      </ml-cabecera-compra-formulario>
+    </div>
+  </div>
+</div>-->
+
+<p>Llene los datos de cabecera para compras:</p>
+<div class="col-sm-12">
+  <ml-compra
+    (seleccionoDatosCompra)="cerrarModal($event)"
+  >
+  </ml-compra>
+</div>
+
+
+<mat-dialog-actions class="justify-content-start">
+  <div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button mat-button mat-dialog-close class="btn btn-outline-primary">CANCELAR</button>
+    </div>
+
+    <!--<div class="p-2">
+      <button mat-button class="btn btn-info" [disabled]="!formularioCabeceraCompra">ACEPTAR</button>
+    </div>-->
+  </div>
+</mat-dialog-actions>

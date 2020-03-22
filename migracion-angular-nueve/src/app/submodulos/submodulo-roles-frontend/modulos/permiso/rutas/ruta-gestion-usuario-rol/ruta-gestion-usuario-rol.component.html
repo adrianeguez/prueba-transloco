@@ -1,0 +1,92 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="text-primary">Filtros</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="seletRol">Rol</label>
+          </div>
+          <div class="col-sm-8" id="seletRol">
+            <ml-select-rol (rolSeleccionadoEmitir)="setearRolSeleccionado($event)"></ml-select-rol>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-2">
+            <label for="selectUsuario">Usuario</label>
+          </div>
+          <div class="col-sm-10" id="selectUsuario">
+            <ml-select-usuario (usuarioSeleccionado)="usuarioSeleccionado = $event"></ml-select-usuario>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 separacion-top-2">
+        <button [ngStyle]="{'cursor': !(usuarioSeleccionado && rolSeleccionado) ? 'not-allowed':'default'}"
+                [disabled]="!(usuarioSeleccionado && rolSeleccionado)"
+                class="btn btn-outline-primary btn-block btn-sm"
+                (click)="agreagarUsuarioRol()"
+        >AGREGAR</button>
+      </div>
+    </div>
+    <div  class="row separacion-top-2">
+      <div class="col-sm-12">
+        <h5 class="text-primary">Lista de usuarios del rol: {{rolSeleccionado?.nombre.toUpperCase()}}</h5>
+      </div>
+      <div class="col-sm-12">
+        <div>
+          <p-table [responsive]="true"
+                   [columns]="columnas"
+                   [value]="usuariosRol"
+                   [lazy]="true"
+                   (onLazyLoad)="cargarMasDatos($event)"
+                   [paginator]="true"
+                   [rows]="rows"
+                   [totalRecords]="totalRegistros"
+          >
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th *ngFor="let col of columnas">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-usuario>
+              <tr>
+                <td *ngFor="let col of columnas">
+                  <div *ngIf="col.header === 'Nombre'">
+                    {{usuario.usuario.nombres}} {{usuario.usuario.apellidos}}
+                  </div>
+                  <div *ngIf="col.header === 'Rol'">
+                    {{usuario.rol?.nombre}}
+                  </div>
+                  <div *ngIf="col.header==='Acciones'">
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                      <button class="btn btn-block btn-danger btn-sm" (click)="quitarPermisoRol(usuario)">Quitar</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columns.length">
+                  No se encontraron registros
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+</app-ruta-general>

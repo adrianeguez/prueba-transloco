@@ -1,0 +1,25 @@
+.item{
+  cursor: pointer;
+  background-color: #e9ecef;
+  color: black;
+  border-radius: 0.3rem;
+  margin-bottom: 0.3rem;
+  padding-left: 1rem;
+}
+.item:hover{
+  background-color: #36546f ;
+  color: white;
+  transition: 0.3s;
+}
+
+.barra{
+  height: 15rem;
+  width: 15rem;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.item-marcado{
+  background-color: #36546f ;
+  color: white;
+}

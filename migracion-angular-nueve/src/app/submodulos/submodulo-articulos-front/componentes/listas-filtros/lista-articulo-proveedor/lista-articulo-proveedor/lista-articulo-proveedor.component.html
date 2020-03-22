@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <h3 class="text-primary text-center">Lista de artículos por empresas proveedores</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-sm-12">
+        <ml-filter-articulo-proveedor [idEmpresaProveedor]="idEmpresaProveedor"
+            (articulosProveedorEncontradas)="setearArticulosProveedores($event)"></ml-filter-articulo-proveedor>
+    </div>
+</div>
+<br>
+<div class="row">
+    <ml-tabla-articulo-proveedor [articulosProveedoresEncontradas]="articulosProveedoresEncontradas"
+        [totalRegistros]="totalRegistros" [columnas]="columnas" (emitirSkip)="setearSkip($event)"
+        (articuloProveedorSeleccionado)="obtenreArticuloProveedorSeleccionado($event)"></ml-tabla-articulo-proveedor>
+</div>

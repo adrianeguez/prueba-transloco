@@ -1,0 +1,98 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div *ngIf="!tieneCajaActiva">
+      <h1 class="text-center">No tiene caja activa</h1>
+    </div>
+
+    <div *ngIf="tieneCajaActiva">
+      <h1>Caja - {{datosPuntoEmisionOperario.puntoEmision.codigo}} </h1>
+      <h3>
+        Estado
+        <span *ngIf="datosPuntoEmisionOperario.estado === 'ABI'">
+          Abierto
+          <button *ngIf="esOperario" class="btn btn-warning" (click)="cuadrarCaja()">Cuadrar Caja</button>
+        </span>
+        <span *ngIf="datosPuntoEmisionOperario.estado === 'CER'">Cerrado</span>
+        <span *ngIf="datosPuntoEmisionOperario.estado === 'CUA'">Cuadrado</span>
+        <span *ngIf="datosPuntoEmisionOperario.estado === 'CRE'">
+          Creado
+          <button *ngIf="esOperario" class="btn btn-success" (click)="aceptarCaja()">Aceptar Caja</button>
+        </span>
+      </h3>
+      <h4>{{datosPuntoEmisionOperario.operario.nombreContacto}}
+        - {{datosPuntoEmisionOperario.operario.documentoContacto}}</h4>
+      <h4>
+        Inicia: {{datosPuntoEmisionOperario.valorInicia | currency}}
+        Cierra: {{datosPuntoEmisionOperario.valorCierra | currency}}
+        <span
+          *ngIf="datosPuntoEmisionOperario.novedadInicio">/ Observacion Inicio: {{datosPuntoEmisionOperario.novedadInicio}}
+        </span>
+      </h4>
+
+      <button class="btn btn-success" (click)="gestionarVentas()">Gestionar ventas</button>
+
+
+      <div class="row separacion-top-2 separacion-fondo-1">
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p-table
+              [responsive]="true"
+              [columns]="columnas"
+              [value]="values"
+              [lazy]="true"
+              (onLazyLoad)="cargarDatos($event)"
+              [paginator]="true"
+              [rows]="rows"
+              [totalRecords]="totalRecords"
+              [loading]="loading"
+              [first]="this.queryParams.skip"
+              [resizableColumns]="true"
+            >
+              <ng-template pTemplate="header" let-columns>
+                <tr>
+                  <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                    {{col.header}}
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                  <td [attr.colspan]="columnas.length">
+                    No existen registros
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+                <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? null : null}">
+                  <td class="text-center" *ngFor="let col of columns">
+                    <span class="ui-column-title">{{col.header}}</span>
+
+
+                    <div *ngIf="col.header === 'Valor'">
+                      {{rowData?.valor | currency}}
+                    </div>
+
+                    <div *ngIf="col.header === 'Suma / Resta'">
+                      {{rowData?.operacionSuma ? 'SUMA' : 'RESTA'}}
+                    </div>
+
+                    <div *ngIf="col.header === 'Fecha de creación'">
+                      {{rowData?.createdAt | date:'dd-MM-yyyy HH:MM'}}
+                    </div>
+
+
+                    <div *ngIf="col.header === 'Razón'">
+                      {{rowData?.razon}}
+                    </div>
+
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

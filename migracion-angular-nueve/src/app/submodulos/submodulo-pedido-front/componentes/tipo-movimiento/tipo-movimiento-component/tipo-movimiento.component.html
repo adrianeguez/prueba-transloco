@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-sm-2">
+    <div class="input-group-append">
+      <div class="col-sm-12">
+        Código: {{movimientoSeleccionado.codigo}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="input-group-append">
+      <div class="col-sm-12">
+        Nombre: {{movimientoSeleccionado.nombre}}
+      </div>
+
+      <div class="col-sm-1">
+        <button class="btn btn-outline-secondary btn-sm" id="button-editar-nombre" (click)="abrirModalMovimiento()">
+          <i class="fas fa-pen"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-2">
+    <div class="input-group-append">
+      <div class="col-sm-12">
+        Serie:
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <form class="form-inline" novalidate>
+      <div class="input-group sm-3">
+        <input type="text" class="form-control" aria-describedby="ayudaBusquedaDocumento"
+               placeholder="Documento" readonly>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" id="button-documento">
+            <i class="fas fa-file-alt"></i>
+            Buscar documento
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <br>
+
+    <small id="ayudaBusquedaDocumento" class="form-text text-muted ayuda-span">
+      Escoja un documento
+    </small>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-sm-2">
+    <div class="input-group-append">
+      <div class="col-sm-11">
+        Bodega:
+      </div>
+
+      <div class="col-sm-1">
+        <button class="btn btn-outline-secondary btn-sm" id="button-editar-bodega">
+          <i class="fas fa-pen"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-1"></div>
+
+  <div class="col-sm-3">
+    <p-dropdown
+      [options]="tiposFacturas"
+      [(ngModel)]="tipoFacturaSeleccionada"
+      placeholder="Escoja el tipo de factura"
+      optionLabel="tipo"
+      [showClear]="true"
+      aria-describedby="seleccionTipoFactura">
+    </p-dropdown>
+
+    <br><br>
+
+    <small id="seleccionTipoFactura" class="form-text text-muted ayuda-span">
+      Tipo de factura seleccionada: {{tipoFacturaSeleccionada ? tipoFacturaSeleccionada.tipo : 'Ninguno'}}
+    </small>
+  </div>
+</div>

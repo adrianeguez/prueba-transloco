@@ -1,0 +1,1 @@
+export const WIDTH_MODAL_CONTACTO_EMPRESA = '700px';

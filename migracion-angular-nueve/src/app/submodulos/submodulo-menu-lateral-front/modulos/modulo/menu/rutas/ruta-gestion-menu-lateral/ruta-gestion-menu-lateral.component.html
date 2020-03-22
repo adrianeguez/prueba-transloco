@@ -1,0 +1,19 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <button class="btn btn-sm btn-outline-info"
+            (click)="actualizarArbol()"
+    >Guardar</button>
+    <p-tree
+      [value]="files"
+      draggableNodes="true"
+      droppableNodes="true"
+      [validateDrop]="true"
+      (onNodeDrop)="onDrop($event)"
+      selectionMode="single"
+      [(selection)]="nodoSeleccionado"
+      (onNodeSelect)="nodeSelect($event)"
+      [loading]="loading"
+    ></p-tree>
+  </div>
+
+</app-ruta-general>

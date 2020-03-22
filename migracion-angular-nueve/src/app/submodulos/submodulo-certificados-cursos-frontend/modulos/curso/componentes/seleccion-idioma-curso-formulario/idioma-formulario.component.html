@@ -1,0 +1,61 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCurso.idiomaCursoFormulario'">
+    <ng-container *transloco="let m; read: 'formularios.comunes'">
+        <form novalidate [formGroup]="idioma.formGroup">
+            <fieldset class="col-md-12">
+                <div class="row">
+                  form
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="idioma.mensajesValidacionNombre.nombreInput">
+                        {{
+                            t('nombre.' + idioma.mensajesValidacionNombre.nombreInput)
+                        }}
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm"
+                                [name]="idioma.mensajesValidacionNombre.nombreInput"
+                                [id]="idioma.mensajesValidacionNombre.nombreInput"
+                                placeholder="t('nombre.' + idioma.mensajesValidacionNombre.tooltip)"
+                                [title]="t('nombre.' + idioma.mensajesValidacionNombre.title)"
+                                [formControlName]="idioma.mensajesValidacionNombre.nombreInput"
+                        >
+
+                            <option value="en"> {{ t('opciones.en') }}</option>
+                            <option value="es"> {{ t('opciones.es') }}</option>
+
+                        </select>
+                        <small id="idiomaNombreAyuda" class="form-text text-muted">
+                            {{
+                                t('nombre.' + idioma.mensajesValidacionNombre.title)
+                            }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="idioma.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of idioma.mensajesValidacionNombre.mensajes">
+                                {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('Nombre.nombre'),
+                                          minLength: idioma.mensajesValidacionNombre.minlength.valor,
+                                          maxLength: idioma.mensajesValidacionNombre.maxlength.valor,
+                                          min: idioma.mensajesValidacionNombre.min.valor,
+                                          max: idioma.mensajesValidacionNombre.max.valor,
+                                          patternMensaje: t('Nombre.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </ng-container>
+</ng-container>

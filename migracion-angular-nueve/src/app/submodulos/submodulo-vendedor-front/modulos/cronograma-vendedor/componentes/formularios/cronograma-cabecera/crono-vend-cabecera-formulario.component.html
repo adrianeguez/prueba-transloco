@@ -1,0 +1,102 @@
+<form novalidate [formGroup]="cronoVendCabecera.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--nombreCronograma-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreCronograma.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label"
+                 [for]="cronoVendCabecera.mensajesValidacionNombreCronograma.nombreInput">{{
+            cronoVendCabecera.mensajesValidacionNombreCronograma.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendCabecera.mensajesValidacionNombreCronograma.nombreInput"
+                   [name]="cronoVendCabecera.mensajesValidacionNombreCronograma.nombreInput"
+                   [formControlName]="cronoVendCabecera.mensajesValidacionNombreCronograma.nombreInput"
+                   [placeholder]="cronoVendCabecera.mensajesValidacionNombreCronograma.tooltip"
+                   [title]="cronoVendCabecera.mensajesValidacionNombreCronograma.title"
+                   aria-describedby="cronoVendCabeceraNombreCronogramaAyuda"
+
+
+            >
+            <small id="cronoVendCabeceraNombreCronogramaAyuda"
+                   class="form-text text-muted">{{cronoVendCabecera.mensajesValidacionNombreCronograma.title}}.
+            </small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendCabecera.mensajesValidacionNombreCronograma.mensajes.length>0">
+              <div
+                *ngFor="let mensaje of cronoVendCabecera.mensajesValidacionNombreCronograma.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--descripcion-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="cronoVendCabecera.mensajesValidacionDescripcion.nombreInput">{{
+            cronoVendCabecera.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="cronoVendCabecera.mensajesValidacionDescripcion.nombreInput"
+                   [name]="cronoVendCabecera.mensajesValidacionDescripcion.nombreInput"
+                   [formControlName]="cronoVendCabecera.mensajesValidacionDescripcion.nombreInput"
+                   [placeholder]="cronoVendCabecera.mensajesValidacionDescripcion.tooltip"
+                   [title]="cronoVendCabecera.mensajesValidacionDescripcion.title"
+                   aria-describedby="cronoVendCabeceraDescripcionAyuda"
+
+
+            >
+            <small id="cronoVendCabeceraDescripcionAyuda"
+                   class="form-text text-muted">{{cronoVendCabecera.mensajesValidacionDescripcion.title}}.
+            </small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendCabecera.mensajesValidacionDescripcion.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendCabecera.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--ruta-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Ruta.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="cronoVendCabecera.mensajesValidacionRuta.nombreInput">{{
+            cronoVendCabecera.mensajesValidacionRuta.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [inputId]="cronoVendCabecera.mensajesValidacionRuta.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="cronoVendCabecera.mensajesValidacionRuta.nombreInput"
+              [suggestions]="objetoVariablesGlobales.rutas"
+              (completeMethod)="buscarRutas($event)"
+              [placeholder]="cronoVendCabecera.mensajesValidacionRuta.tooltip"
+              delay="1000"
+              field="nombre">
+              <ng-template let-ruta pTemplate="item">
+                {{ruta.nombre}}
+              </ng-template>
+            </p-autoComplete>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="cronoVendCabecera.mensajesValidacionRuta.mensajes.length>0">
+              <div *ngFor="let mensaje of cronoVendCabecera.mensajesValidacionRuta.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="unidadMedida.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="unidadMedida.mensajesValidacionNombre.nombreInput">{{
+                        unidadMedida.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="unidadMedida.mensajesValidacionNombre.nombreInput"
+                                [name]="unidadMedida.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="unidadMedida.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="unidadMedida.mensajesValidacionNombre.tooltip"
+                                [title]="unidadMedida.mensajesValidacionNombre.title"
+                                aria-describedby="unidadMedidaNombreAyuda"
+                                
+                                
+                        >
+                        <small id="unidadMedidaNombreAyuda" class="form-text text-muted">{{unidadMedida.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="unidadMedida.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of unidadMedida.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--abreviacion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Abreviacion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="unidadMedida.mensajesValidacionAbreviacion.nombreInput">{{
+                        unidadMedida.mensajesValidacionAbreviacion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="unidadMedida.mensajesValidacionAbreviacion.nombreInput"
+                                [name]="unidadMedida.mensajesValidacionAbreviacion.nombreInput"
+                                [formControlName]="unidadMedida.mensajesValidacionAbreviacion.nombreInput"
+                                [placeholder]="unidadMedida.mensajesValidacionAbreviacion.tooltip"
+                                [title]="unidadMedida.mensajesValidacionAbreviacion.title"
+                                aria-describedby="unidadMedidaAbreviacionAyuda"
+                                
+                                
+                        >
+                        <small id="unidadMedidaAbreviacionAyuda" class="form-text text-muted">{{unidadMedida.mensajesValidacionAbreviacion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="unidadMedida.mensajesValidacionAbreviacion.mensajes.length>0">
+                            <div *ngFor="let mensaje of unidadMedida.mensajesValidacionAbreviacion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

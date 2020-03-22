@@ -1,0 +1,1 @@
+export const WIDTH_MODAL_CALIFICACION_CLIENTE = '500px';

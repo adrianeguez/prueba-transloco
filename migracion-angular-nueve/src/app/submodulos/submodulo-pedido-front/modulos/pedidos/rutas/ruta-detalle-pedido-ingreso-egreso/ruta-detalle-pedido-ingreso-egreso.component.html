@@ -1,0 +1,70 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/ajustes.svg'"
+      [titulo]="(pedidoIngresoEgreso?.tipoMovimiento === '01' ? 'Ingreso': 'Egreso' )"
+      [descripcion]="'Registre ajustes para aumentar o disminuir stock.'"
+      [ayuda]="'# ' + pedidoIngresoEgreso?.numeroDocumentoMovimiento"
+    >
+    </mlab-titulo-pantalla>
+
+    <div class="row separacion-top-1">
+      <div class="col-md-6">
+        <p><strong>Movimiento: </strong> {{pedidoIngresoEgreso?.tipoMovimiento}}</p>
+      </div>
+      <div class="col-md-6">
+        <p><strong>Bodega: </strong> {{pedidoIngresoEgreso?.bodega.codigo}} - {{pedidoIngresoEgreso?.bodega.nombre}}</p>
+      </div>
+    </div>
+
+    <div class="row separacion-top-2">
+      <div class="col-sm-12">
+        <div class="row">
+
+          <div *ngIf="pedidoIngresoEgreso?.estatus === 'CR'">
+            <ml-articulos
+              (enviarArticulos)="recibirArticulos($event)"
+              (enviarArregloArticulos)="recibirArregloArticulos($event)"
+              [articulosEnDetalle]="arregloArticulosDetalle"
+              [idBodega]="+pedidoIngresoEgreso.idBodegaOrigen"
+              [idEmpresa]="idEmpresa"
+              [detalleCreado]="detalleCreado"
+              [esVenta]="false"
+              [ingresoEgreso]="columnasIngresoEgreso"
+              [pedidoGuardado]="pedidoGuardado"
+              [valores]="pedidoIngresoEgreso.ingresoEgresoDetalles">
+            </ml-articulos>
+
+            <div class="row separacion-top-1">
+              <div class="col-md-6"></div>
+              <div class="col-md-3">
+                <button *ngIf="crearDetalle"
+                        class="btn btn-warning btn-block btn-sm animated fadeInUp"
+                        (click)="guardarDetalle(pedidoIngresoEgreso)">
+                  Guardar cambios artículo
+                </button>
+              </div>
+              <div class="col-md-3">
+                <button *ngIf="!pedidoGuardado"
+                        class="btn btn-sm btn-block btn-success"
+                        [disabled]="!detalleCreado"
+                        (click)="guardarPedido(pedidoIngresoEgreso?.id)">
+                  Guardar {{pedidoIngresoEgreso?.tipoMovimiento === '01' ? 'Ingreso' : 'Egreso'}}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="pedidoIngresoEgreso?.estatus === 'EN'">
+            <ml-articulos-detalle
+              [ingresoEgreso]="columnasIngresoEgresoDetalle"
+              [valores]="pedidoIngresoEgreso.ingresoEgresoDetalles"
+            >
+            </ml-articulos-detalle>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

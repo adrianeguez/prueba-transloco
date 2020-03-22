@@ -1,0 +1,10 @@
+<div class="container barra">
+  <div
+    class="row item {{diapositiva.id === idDiapositivaActual ? 'item-marcado' : ''}}"
+    *ngFor="let diapositiva of diapositivas;let indice=index"
+    (click)="emitirDiapositiva(diapositiva)"
+  >
+    {{indice + 1}} - {{diapositiva.titulo}}
+  </div>
+</div>
+

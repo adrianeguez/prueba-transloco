@@ -1,0 +1,115 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <div class="row justify-content-between">
+            <div class="col-sm-12">
+              <h3 class="text-primary text-center">Gestión de cargas masivas</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <form class="form-inline" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="ayudaBusquedaCargaMasiva"
+                     placeholder="Ingrese su búsqueda" #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-md btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)="buscarPorDescripcion(busqueda.value)">
+                  <i class="fas fa-search"></i>
+                  Buscar
+                </button>
+              </div>
+            </div>
+
+            <small id="ayudaBusquedaCargaMasiva" class="form-text text-muted ayuda-span">
+              Busque un archivo cargado masivamente por su descripción.
+            </small>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <ml-filter-fechas (consultaFilterFechas)="buscarPorFechas($event)"></ml-filter-fechas>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table
+            [responsive]="true"
+            [columns]="columnas"
+            [value]="values"
+            [lazy]="true"
+            (onLazyLoad)="cargarDatos($event)"
+            [paginator]="true"
+            [rows]="filas"
+            [totalRecords]="totalRegistros"
+            [loading]="loading"
+            [first]="first"
+          >
+            <ng-template pTemplate="header" let-columnas>
+              <tr>
+                <th *ngFor="let col of columnas">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="emptymessage" let-columnas>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No se encontraron registros
+                </td>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? '#b2ebff' : null}">
+                <td class="text-center" *ngFor="let col of columnas">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.lastIndexOf(rowData) + 1}}
+                  </div>
+
+                  <div *ngIf="col.field === 'nombre'">
+                    {{rowData[col.field]}}
+                  </div>
+
+                  <div *ngIf="col.field === 'fechaInicio'">
+                    {{rowData[col.field]}}
+                  </div>
+
+                  <div *ngIf="col.field === 'horaInicio'">
+                    {{rowData[col.field]}}
+                  </div>
+
+                  <div *ngIf="col.field === 'fechaFinalizacion'">
+                    {{rowData[col.field] || 'No tiene'}}
+                  </div>
+
+                  <div *ngIf="col.field === 'horaFin'">
+                    {{rowData[col.field] || 'No tiene'}}
+                  </div>
+
+                  <div *ngIf="col.field === 'descripcion'">
+                    {{rowData[col.field]}}
+                  </div>
+
+                  <div *ngIf="col.field === 'estado'">
+                    {{rowData[col.field]}}
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

@@ -1,0 +1,223 @@
+
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.moduloCursoModulo.moduloCursoFormulario'">
+    <ng-container *transloco="let m; read: 'formularios.comunes'">
+        <form novalidate [formGroup]="moduloCurso.formGroup">
+            <fieldset class="col-md-12">
+                <div class="row">
+            <!--idAnteriorModulo-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.AnteriorModulo.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="moduloCurso.mensajesValidacionIdAnteriorModulo.nombreInput">
+                    {{
+                            t('anteriorModulo.' + moduloCurso.mensajesValidacionIdAnteriorModulo.nombreInput)
+                    }}
+                    </label>
+                    <div class="col-sm-9">
+                        <p-autoComplete
+                            [inputId]="moduloCurso.mensajesValidacionIdAnteriorModulo.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="m('autocompleteSinRegistros')"
+                            [formControlName]="moduloCurso.mensajesValidacionIdAnteriorModulo.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.moduloAnteriorInterfaces"
+                            (completeMethod)="buscarAnteriorModuloInterfaces($event)"
+                            [placeholder]="t('anteriorModulo.' + moduloCurso.mensajesValidacionIdAnteriorModulo.tooltip)"
+                            delay="1000"
+                            field="nombre"
+                            [disabled]="estaEditando"
+                        >
+                                <ng-template let-idAnteriorModulo pTemplate="item">
+                                    {{ idAnteriorModulo.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                        <small id="moduloCursoIdAnteriorModuloAyuda" class="form-text text-muted">
+                        {{
+                            t('anteriorModulo.' + moduloCurso.mensajesValidacionIdAnteriorModulo.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="moduloCurso.mensajesValidacionIdAnteriorModulo.mensajes.length>0">
+                            <div *ngFor="let mensaje of moduloCurso.mensajesValidacionIdAnteriorModulo.mensajes">
+                                {{
+                                      m(
+                                            mensaje,
+                                            {
+                                              nombre: t('anteriorModulo.idAnteriorModulo'),
+                                              minLength: moduloCurso.mensajesValidacionIdAnteriorModulo.minlength.valor,
+                                              maxLength: moduloCurso.mensajesValidacionIdAnteriorModulo.maxlength.valor,
+                                              min: moduloCurso.mensajesValidacionIdAnteriorModulo.min.valor,
+                                              max: moduloCurso.mensajesValidacionIdAnteriorModulo.max.valor,
+                                              patternMensaje: t('anteriorModulo.patternMensaje')
+                                            }
+                                      )
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--idSiguienteModulo-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.SiguienteModulo.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="moduloCurso.mensajesValidacionIdSiguienteModulo.nombreInput">
+                    {{
+                            t('siguienteModulo.' + moduloCurso.mensajesValidacionIdSiguienteModulo.nombreInput)
+                    }}
+                    </label>
+                    <div class="col-sm-9">
+                        <p-autoComplete
+                            [inputId]="moduloCurso.mensajesValidacionIdSiguienteModulo.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="m('autocompleteSinRegistros')"
+                            [formControlName]="moduloCurso.mensajesValidacionIdSiguienteModulo.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.moduloSiguienteInterfaces"
+                            (completeMethod)="buscarModuloInterfaces($event)"
+                            [placeholder]="t('siguienteModulo.' + moduloCurso.mensajesValidacionIdSiguienteModulo.tooltip)"
+                            delay="1000"
+                            field="nombre"
+                            [disabled]="estaEditando"
+                        >
+                                <ng-template let-idSiguienteModulo pTemplate="item">
+                                    {{ idSiguienteModulo.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                        <small id="moduloCursoIdSiguienteModuloAyuda" class="form-text text-muted">
+                        {{
+                            t('siguienteModulo.' + moduloCurso.mensajesValidacionIdSiguienteModulo.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="moduloCurso.mensajesValidacionIdSiguienteModulo.mensajes.length>0">
+                            <div *ngFor="let mensaje of moduloCurso.mensajesValidacionIdSiguienteModulo.mensajes">
+                                {{
+                                      m(
+                                            mensaje,
+                                            {
+                                              nombre: t('idSiguienteModulo.idSiguienteModulo'),
+                                              minLength: moduloCurso.mensajesValidacionIdSiguienteModulo.minlength.valor,
+                                              maxLength: moduloCurso.mensajesValidacionIdSiguienteModulo.maxlength.valor,
+                                              min: moduloCurso.mensajesValidacionIdSiguienteModulo.min.valor,
+                                              max: moduloCurso.mensajesValidacionIdSiguienteModulo.max.valor,
+                                              patternMensaje: t('idSiguienteModulo.patternMensaje')
+                                            }
+                                      )
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="moduloCurso.mensajesValidacionNombre.nombreInput">
+                        {{
+                            t('nombre.' + moduloCurso.mensajesValidacionNombre.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="moduloCurso.mensajesValidacionNombre.nombreInput"
+                                [name]="moduloCurso.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="moduloCurso.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="t('nombre.' + moduloCurso.mensajesValidacionNombre.tooltip)"
+                                [title]="t('nombre.' + moduloCurso.mensajesValidacionNombre.title)"
+                                aria-describedby="moduloCursoNombreAyuda"
+
+
+                        >
+                        <small id="moduloCursoNombreAyuda" class="form-text text-muted">
+                        {{
+                            t('nombre.' + moduloCurso.mensajesValidacionNombre.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="moduloCurso.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of moduloCurso.mensajesValidacionNombre.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('nombre.nombre'),
+                                          minLength: moduloCurso.mensajesValidacionNombre.minlength.valor,
+                                          maxLength: moduloCurso.mensajesValidacionNombre.maxlength.valor,
+                                          min: moduloCurso.mensajesValidacionNombre.min.valor,
+                                          max: moduloCurso.mensajesValidacionNombre.max.valor,
+                                          patternMensaje: t('nombre.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--descripcion-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-3 control-label" [for]="moduloCurso.mensajesValidacionDescripcion.nombreInput">
+                        {{
+                            t('descripcion.' + moduloCurso.mensajesValidacionDescripcion.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-9">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="moduloCurso.mensajesValidacionDescripcion.nombreInput"
+                                [name]="moduloCurso.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="moduloCurso.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="t('descripcion.' + moduloCurso.mensajesValidacionDescripcion.tooltip)"
+                                [title]="t('descripcion.' + moduloCurso.mensajesValidacionDescripcion.title)"
+                                aria-describedby="moduloCursoDescripcionAyuda"
+
+
+                        >
+                        <small id="moduloCursoDescripcionAyuda" class="form-text text-muted">
+                        {{
+                            t('descripcion.' + moduloCurso.mensajesValidacionDescripcion.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="moduloCurso.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of moduloCurso.mensajesValidacionDescripcion.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('descripcion.descripcion'),
+                                          minLength: moduloCurso.mensajesValidacionDescripcion.minlength.valor,
+                                          maxLength: moduloCurso.mensajesValidacionDescripcion.maxlength.valor,
+                                          min: moduloCurso.mensajesValidacionDescripcion.min.valor,
+                                          max: moduloCurso.mensajesValidacionDescripcion.max.valor,
+                                          patternMensaje: t('descripcion.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </ng-container>
+</ng-container>

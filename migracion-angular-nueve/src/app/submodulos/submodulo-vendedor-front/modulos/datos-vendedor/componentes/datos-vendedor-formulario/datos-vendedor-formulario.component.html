@@ -1,0 +1,152 @@
+
+<form novalidate [formGroup]="datosVendedor.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombreVendedor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreVendedor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="datosVendedor.mensajesValidacionNombreVendedor.nombreInput">{{
+                        datosVendedor.mensajesValidacionNombreVendedor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="datosVendedor.mensajesValidacionNombreVendedor.nombreInput"
+                                [name]="datosVendedor.mensajesValidacionNombreVendedor.nombreInput"
+                                [formControlName]="datosVendedor.mensajesValidacionNombreVendedor.nombreInput"
+                                [placeholder]="datosVendedor.mensajesValidacionNombreVendedor.tooltip"
+                                [title]="datosVendedor.mensajesValidacionNombreVendedor.title"
+                                aria-describedby="datosVendedorNombreVendedorAyuda"
+                                
+                                
+                        >
+                        <small id="datosVendedorNombreVendedorAyuda" class="form-text text-muted">{{datosVendedor.mensajesValidacionNombreVendedor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="datosVendedor.mensajesValidacionNombreVendedor.mensajes.length>0">
+                            <div *ngFor="let mensaje of datosVendedor.mensajesValidacionNombreVendedor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--apellidoVendedor-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ApellidoVendedor.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="datosVendedor.mensajesValidacionApellidoVendedor.nombreInput">{{
+                        datosVendedor.mensajesValidacionApellidoVendedor.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="datosVendedor.mensajesValidacionApellidoVendedor.nombreInput"
+                                [name]="datosVendedor.mensajesValidacionApellidoVendedor.nombreInput"
+                                [formControlName]="datosVendedor.mensajesValidacionApellidoVendedor.nombreInput"
+                                [placeholder]="datosVendedor.mensajesValidacionApellidoVendedor.tooltip"
+                                [title]="datosVendedor.mensajesValidacionApellidoVendedor.title"
+                                aria-describedby="datosVendedorApellidoVendedorAyuda"
+                                
+                                
+                        >
+                        <small id="datosVendedorApellidoVendedorAyuda" class="form-text text-muted">{{datosVendedor.mensajesValidacionApellidoVendedor.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="datosVendedor.mensajesValidacionApellidoVendedor.mensajes.length>0">
+                            <div *ngFor="let mensaje of datosVendedor.mensajesValidacionApellidoVendedor.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--documento-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Documento.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="datosVendedor.mensajesValidacionDocumento.nombreInput">{{
+                        datosVendedor.mensajesValidacionDocumento.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="datosVendedor.mensajesValidacionDocumento.nombreInput"
+                                [name]="datosVendedor.mensajesValidacionDocumento.nombreInput"
+                                [formControlName]="datosVendedor.mensajesValidacionDocumento.nombreInput"
+                                [placeholder]="datosVendedor.mensajesValidacionDocumento.tooltip"
+                                [title]="datosVendedor.mensajesValidacionDocumento.title"
+                                aria-describedby="datosVendedorDocumentoAyuda"
+                                
+                                
+                        >
+                        <small id="datosVendedorDocumentoAyuda" class="form-text text-muted">{{datosVendedor.mensajesValidacionDocumento.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="datosVendedor.mensajesValidacionDocumento.mensajes.length>0">
+                            <div *ngFor="let mensaje of datosVendedor.mensajesValidacionDocumento.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--fechaIngreso-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaIngreso.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="datosVendedor.mensajesValidacionFechaIngreso.nombreInput">{{
+                        datosVendedor.mensajesValidacionFechaIngreso.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="Date"
+                                class="form-control form-control-sm"
+                                [id]="datosVendedor.mensajesValidacionFechaIngreso.nombreInput"
+                                [name]="datosVendedor.mensajesValidacionFechaIngreso.nombreInput"
+                                [formControlName]="datosVendedor.mensajesValidacionFechaIngreso.nombreInput"
+                                [placeholder]="datosVendedor.mensajesValidacionFechaIngreso.tooltip"
+                                [title]="datosVendedor.mensajesValidacionFechaIngreso.title"
+                                aria-describedby="datosVendedorFechaIngresoAyuda"
+                                
+                                
+                        >
+                        <small id="datosVendedorFechaIngresoAyuda" class="form-text text-muted">{{datosVendedor.mensajesValidacionFechaIngreso.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="datosVendedor.mensajesValidacionFechaIngreso.mensajes.length>0">
+                            <div *ngFor="let mensaje of datosVendedor.mensajesValidacionFechaIngreso.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--fechaSalida-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaSalida.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="datosVendedor.mensajesValidacionFechaSalida.nombreInput">{{
+                        datosVendedor.mensajesValidacionFechaSalida.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="Date"
+                                class="form-control form-control-sm"
+                                [id]="datosVendedor.mensajesValidacionFechaSalida.nombreInput"
+                                [name]="datosVendedor.mensajesValidacionFechaSalida.nombreInput"
+                                [formControlName]="datosVendedor.mensajesValidacionFechaSalida.nombreInput"
+                                [placeholder]="datosVendedor.mensajesValidacionFechaSalida.tooltip"
+                                [title]="datosVendedor.mensajesValidacionFechaSalida.title"
+                                aria-describedby="datosVendedorFechaSalidaAyuda"
+                                
+                                
+                        >
+                        <small id="datosVendedorFechaSalidaAyuda" class="form-text text-muted">{{datosVendedor.mensajesValidacionFechaSalida.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="datosVendedor.mensajesValidacionFechaSalida.mensajes.length>0">
+                            <div *ngFor="let mensaje of datosVendedor.mensajesValidacionFechaSalida.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

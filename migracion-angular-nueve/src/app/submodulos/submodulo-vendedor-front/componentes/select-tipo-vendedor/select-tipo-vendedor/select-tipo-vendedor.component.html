@@ -1,0 +1,18 @@
+<p-autoComplete
+  [suggestions]="tiposVendedores"
+  (completeMethod)="obtenerTipoVendedorActivo($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [(ngModel)]="tipoVendedor"
+  (onSelect)="enviarTipoVendedorSeleccionado($event)"
+  [emptyMessage]="noExistenRegistros"
+  field="nombre"
+>
+  <ng-template let-tipoVendedor pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <div>{{tipoVendedor.nombre}}</div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+
+

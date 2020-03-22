@@ -1,0 +1,108 @@
+<div class="row separacion-top-2">
+  <div class="col-md-12">
+    <div class="col-md-12">
+      <p-table
+        [responsive]="true"
+        [columns]="columnas"
+        [value]="valores"
+        [lazy]="true"
+        [paginator]="true"
+      >
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="columnas.length">
+              No existen registros
+            </td>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+          <tr>
+            <td class="text-center" *ngFor="let col of columns">
+              <span class="ui-column-title">{{col.header}}</span>
+              <div *ngIf="col.header === '#'">
+                {{valores.indexOf(rowData)+1}}
+              </div>
+
+              <div *ngIf="col.field === 'codigo'">
+                {{rowData[col.field]}}
+              </div>
+
+              <div *ngIf="col.field === 'descripcion'">
+                {{rowData['nombreArticulo'] || rowData['subgrupo']}}
+              </div>
+
+              <div *ngIf="col.field === 'unidadMedida'">
+                Aquí unidad medida
+              </div>
+
+              <div *ngIf="col.field === 'cantidad'">
+                {{rowData[col.field] || '0'}}
+              </div>
+
+              <div *ngIf="col.field === 'cantidadPromocion'">
+                {{rowData[col.field] || '0'}}
+              </div>
+
+              <div *ngIf="col.field === 'valorUnitario'">
+                {{(rowData[col.field] | currency: '': '$ ':'1.4-4') || '$ 0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuentoPorcentual' && rowData['compraDescuentos'].length > 0">
+                {{(rowData['compraDescuentos'][0].porcentaje | number: '1.4-4') || '0.0000'}} %
+              </div>
+
+              <div *ngIf="col.field === 'descuentoPorcentual' && rowData['compraDescuentos'].length === 0">
+                {{'0.0000'}} %
+              </div>
+
+              <div *ngIf="col.field === 'descuento' && rowData['compraDescuentos'].length > 0">
+                {{(rowData['compraDescuentos'][0].valor | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuento' && rowData['compraDescuentos'].length === 0">
+                {{'$ 0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuentos'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuentosPorcentuales'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}} %
+              </div>
+
+              <div *ngIf="col.field === 'totalDescuentos'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'totalBruto'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuentoValor'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'descuentoPromocion'">
+                {{(rowData[col.field] | number: '1.4-4') || '0.0000'}}
+              </div>
+
+              <div *ngIf="col.field === 'subtotal'">
+                {{(rowData[col.field] || rowData['subtotalNeto'] | currency: '':'$ ':'1.4-4') || '$ 0.0000'}}
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

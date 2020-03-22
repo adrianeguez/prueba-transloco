@@ -1,0 +1,152 @@
+
+<form novalidate [formGroup]="tipoImpuesto.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoImpuesto.mensajesValidacionNombre.nombreInput">{{
+                        tipoImpuesto.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoImpuesto.mensajesValidacionNombre.nombreInput"
+                                [name]="tipoImpuesto.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="tipoImpuesto.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="tipoImpuesto.mensajesValidacionNombre.tooltip"
+                                [title]="tipoImpuesto.mensajesValidacionNombre.title"
+                                aria-describedby="tipoImpuestoNombreAyuda"
+                                
+                                
+                        >
+                        <small id="tipoImpuestoNombreAyuda" class="form-text text-muted">{{tipoImpuesto.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoImpuesto.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoImpuesto.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--siglas-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Siglas.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoImpuesto.mensajesValidacionSiglas.nombreInput">{{
+                        tipoImpuesto.mensajesValidacionSiglas.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoImpuesto.mensajesValidacionSiglas.nombreInput"
+                                [name]="tipoImpuesto.mensajesValidacionSiglas.nombreInput"
+                                [formControlName]="tipoImpuesto.mensajesValidacionSiglas.nombreInput"
+                                [placeholder]="tipoImpuesto.mensajesValidacionSiglas.tooltip"
+                                [title]="tipoImpuesto.mensajesValidacionSiglas.title"
+                                aria-describedby="tipoImpuestoSiglasAyuda"
+                                
+                                
+                        >
+                        <small id="tipoImpuestoSiglasAyuda" class="form-text text-muted">{{tipoImpuesto.mensajesValidacionSiglas.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoImpuesto.mensajesValidacionSiglas.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoImpuesto.mensajesValidacionSiglas.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoImpuesto.mensajesValidacionDescripcion.nombreInput">{{
+                        tipoImpuesto.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoImpuesto.mensajesValidacionDescripcion.nombreInput"
+                                [name]="tipoImpuesto.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="tipoImpuesto.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="tipoImpuesto.mensajesValidacionDescripcion.tooltip"
+                                [title]="tipoImpuesto.mensajesValidacionDescripcion.title"
+                                aria-describedby="tipoImpuestoDescripcionAyuda"
+                                
+                                
+                        >
+                        <small id="tipoImpuestoDescripcionAyuda" class="form-text text-muted">{{tipoImpuesto.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoImpuesto.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoImpuesto.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigoSri-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CodigoSri.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoImpuesto.mensajesValidacionCodigoSri.nombreInput">{{
+                        tipoImpuesto.mensajesValidacionCodigoSri.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoImpuesto.mensajesValidacionCodigoSri.nombreInput"
+                                [name]="tipoImpuesto.mensajesValidacionCodigoSri.nombreInput"
+                                [formControlName]="tipoImpuesto.mensajesValidacionCodigoSri.nombreInput"
+                                [placeholder]="tipoImpuesto.mensajesValidacionCodigoSri.tooltip"
+                                [title]="tipoImpuesto.mensajesValidacionCodigoSri.title"
+                                aria-describedby="tipoImpuestoCodigoSriAyuda"
+                                
+                                
+                        >
+                        <small id="tipoImpuestoCodigoSriAyuda" class="form-text text-muted">{{tipoImpuesto.mensajesValidacionCodigoSri.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoImpuesto.mensajesValidacionCodigoSri.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoImpuesto.mensajesValidacionCodigoSri.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoImpuesto.mensajesValidacionCodigo.nombreInput">{{
+                        tipoImpuesto.mensajesValidacionCodigo.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoImpuesto.mensajesValidacionCodigo.nombreInput"
+                                [name]="tipoImpuesto.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="tipoImpuesto.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="tipoImpuesto.mensajesValidacionCodigo.tooltip"
+                                [title]="tipoImpuesto.mensajesValidacionCodigo.title"
+                                aria-describedby="tipoImpuestoCodigoAyuda"
+                                
+                                
+                        >
+                        <small id="tipoImpuestoCodigoAyuda" class="form-text text-muted">{{tipoImpuesto.mensajesValidacionCodigo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoImpuesto.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoImpuesto.mensajesValidacionCodigo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

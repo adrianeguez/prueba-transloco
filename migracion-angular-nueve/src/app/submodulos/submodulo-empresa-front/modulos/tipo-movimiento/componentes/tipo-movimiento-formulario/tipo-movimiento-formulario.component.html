@@ -1,0 +1,36 @@
+
+<form novalidate [formGroup]="tipoMovimiento.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoMovimiento.mensajesValidacionNombre.nombreInput">{{
+                        tipoMovimiento.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoMovimiento.mensajesValidacionNombre.nombreInput"
+                                [name]="tipoMovimiento.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="tipoMovimiento.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="tipoMovimiento.mensajesValidacionNombre.tooltip"
+                                [title]="tipoMovimiento.mensajesValidacionNombre.title"
+                                aria-describedby="tipoMovimientoNombreAyuda"
+                                maxlength="30"
+
+                        >
+                        <small id="tipoMovimientoNombreAyuda" class="form-text text-muted">{{tipoMovimiento.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoMovimiento.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoMovimiento.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

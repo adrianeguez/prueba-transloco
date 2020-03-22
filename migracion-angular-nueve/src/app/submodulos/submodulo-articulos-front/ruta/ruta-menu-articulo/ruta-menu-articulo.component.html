@@ -1,0 +1,46 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [imagen]="'assets/imagenes/sistema/articulos.svg'"
+      [titulo]="'Configuración de artículos'"
+      [descripcion]="'Gestione grupos, subgrupos y artiículos, ingrese nuevos impuestos y unidades de medida.'"
+      [ayuda]="'Grupos, impuestos y unidad medida.'"
+    >
+    </mlab-titulo-pantalla>
+
+
+    <div class="row">
+      <div class="col-lg-1"></div>
+      <div class="col-lg-10">
+        <div class="row espaciado-menu">
+          <div class="col-lg-4">
+            <mlab-item-menu
+              [texto]="'Gestión de grupos'"
+              [descripcion]="'Gestione a los grupos de artículos.'"
+              [imagen]="'assets/imagenes/sistema/grupos.svg'"
+              [url]="['/configuraciones', 'articulo', 'grupo-modulo']"
+            ></mlab-item-menu>
+          </div>
+          <div class="col-lg-4">
+            <mlab-item-menu
+              [texto]="'Gestión de tipo impuesto'"
+              [descripcion]="'Gestiones los impuestos de los artículos del sistema.'"
+              [url]="['/configuraciones', 'articulo', 'tipo-impuesto-modulo']"
+              [imagen]="'assets/imagenes/sistema/impuesto-menu.svg'"
+            ></mlab-item-menu>
+          </div>
+          <div class="col-lg-4">
+            <mlab-item-menu
+              [texto]="'Gestión de unidad medida'"
+              [descripcion]="'Gestione unidades de medida de artículos.'"
+              [url]="['/configuraciones', 'articulo', 'unidad-medida-modulo']"
+              [imagen]="'assets/imagenes/sistema/unidad-de-medida-icono.svg'"
+            ></mlab-item-menu>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+    </div>
+  </div>
+</app-ruta-general>

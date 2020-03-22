@@ -1,0 +1,34 @@
+<ng-container *transloco="let g; read: 'generales' ">
+  <ng-container *transloco="let t; read: 'modulosGenerales.clienteModulo'">
+    <app-ruta-general [migasDePan]="migasDePan">
+      <div class="contenido">
+
+        <mlab-titulo-pantalla
+          [titulo]="t('titulos.pantalla')"
+          [descripcion]="t('descripciones.pantalla')"
+          [ayuda]="''"
+        >
+        </mlab-titulo-pantalla>
+
+
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-10">
+            <div class="row espaciado-menu">
+              <div class="col-lg-4">
+                <mlab-item-menu
+                  [texto]="t('titulos.itemCurso')"
+                  [descripcion]="t('descripciones.itemCurso')"
+                  [imagen]="'assets/imagenes/sistema/grupos.svg'"
+                  [url]="['/cliente-modulo', 'curso-modulo', 'inicio-curso']"
+                ></mlab-item-menu>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-1"></div>
+        </div>
+      </div>
+    </app-ruta-general>
+  </ng-container>
+</ng-container>
+

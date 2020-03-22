@@ -1,0 +1,65 @@
+
+<form novalidate [formGroup]="tipoLogroVisita.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoLogroVisita.mensajesValidacionNombre.nombreInput">{{
+                        tipoLogroVisita.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoLogroVisita.mensajesValidacionNombre.nombreInput"
+                                [name]="tipoLogroVisita.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="tipoLogroVisita.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="tipoLogroVisita.mensajesValidacionNombre.tooltip"
+                                [title]="tipoLogroVisita.mensajesValidacionNombre.title"
+                                aria-describedby="tipoLogroVisitaNombreAyuda"
+                                
+                                
+                        >
+                        <small id="tipoLogroVisitaNombreAyuda" class="form-text text-muted">{{tipoLogroVisita.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoLogroVisita.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoLogroVisita.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="tipoLogroVisita.mensajesValidacionDescripcion.nombreInput">{{
+                        tipoLogroVisita.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="tipoLogroVisita.mensajesValidacionDescripcion.nombreInput"
+                                [name]="tipoLogroVisita.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="tipoLogroVisita.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="tipoLogroVisita.mensajesValidacionDescripcion.tooltip"
+                                [title]="tipoLogroVisita.mensajesValidacionDescripcion.title"
+                                aria-describedby="tipoLogroVisitaDescripcionAyuda"
+                                
+                                
+                        >
+                        <small id="tipoLogroVisitaDescripcionAyuda" class="form-text text-muted">{{tipoLogroVisita.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="tipoLogroVisita.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of tipoLogroVisita.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>                    
+
+        </div>
+    </fieldset>
+</form>

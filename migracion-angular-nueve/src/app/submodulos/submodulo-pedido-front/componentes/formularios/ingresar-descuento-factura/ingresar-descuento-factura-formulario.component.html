@@ -1,0 +1,98 @@
+
+<form novalidate [formGroup]="ingresarDescuentoFactura.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+
+      <!--motivo-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Motivo.hidden">
+        <div class="row">
+          <label class="col-sm-2 control-label" [for]="ingresarDescuentoFactura.mensajesValidacionMotivo.nombreInput">{{
+              ingresarDescuentoFactura.mensajesValidacionMotivo.nombreAPresentarse }}</label>
+          <div class="col-sm-10">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="ingresarDescuentoFactura.mensajesValidacionMotivo.nombreInput"
+                   [name]="ingresarDescuentoFactura.mensajesValidacionMotivo.nombreInput"
+                   [formControlName]="ingresarDescuentoFactura.mensajesValidacionMotivo.nombreInput"
+                   [placeholder]="ingresarDescuentoFactura.mensajesValidacionMotivo.tooltip"
+                   [title]="ingresarDescuentoFactura.mensajesValidacionMotivo.title"
+                   aria-describedby="ingresarDescuentoFacturaMotivoAyuda"
+
+            >
+            <small id="ingresarDescuentoFacturaMotivoAyuda" class="form-text text-muted">{{ingresarDescuentoFactura.mensajesValidacionMotivo.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="ingresarDescuentoFactura.mensajesValidacionMotivo.mensajes.length>0">
+              <div *ngFor="let mensaje of ingresarDescuentoFactura.mensajesValidacionMotivo.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!--descuentoPorcentual-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.DescuentoPorcentual.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.nombreInput">{{
+              ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.nombreInput"
+                   [name]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.nombreInput"
+                   [textMask]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.mask"
+                   [formControlName]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.nombreInput"
+                   [placeholder]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.tooltip "
+                   [title]="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.title"
+                   [(ngModel)]="descuentoPorcentualIngresado"
+                   (ngModelChange)="calcularValorDescuento()"
+                   aria-describedby="ingresarDescuentoFacturaDescuentoPorcentualAyuda"
+            >
+            <small id="ingresarDescuentoFacturaDescuentoPorcentualAyuda" class="form-text text-muted">{{ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.mensajes.length>0">
+              <div *ngFor="let mensaje of ingresarDescuentoFactura.mensajesValidacionDescuentoPorcentual.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--valor-->
+      <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Valor.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="ingresarDescuentoFactura.mensajesValidacionValor.nombreInput">{{
+              ingresarDescuentoFactura.mensajesValidacionValor.nombreAPresentarse }}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="ingresarDescuentoFactura.mensajesValidacionValor.nombreInput"
+                   [name]="ingresarDescuentoFactura.mensajesValidacionValor.nombreInput"
+                   currencyMask
+                   [options]="opcionesCurrencyMask"
+                   [formControlName]="ingresarDescuentoFactura.mensajesValidacionValor.nombreInput"
+                   [placeholder]="ingresarDescuentoFactura.mensajesValidacionValor.tooltip"
+                   [title]="ingresarDescuentoFactura.mensajesValidacionValor.title"
+                   [(ngModel)]="valorIngresado"
+                   (ngModelChange)="calcularPorcentajeDescuento()"
+                   aria-describedby="ingresarDescuentoFacturaValorAyuda"
+            >
+            <small id="ingresarDescuentoFacturaValorAyuda" class="form-text text-muted">{{ingresarDescuentoFactura.mensajesValidacionValor.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="ingresarDescuentoFactura.mensajesValidacionValor.mensajes.length>0">
+              <div *ngFor="let mensaje of ingresarDescuentoFactura.mensajesValidacionValor.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </fieldset>
+</form>

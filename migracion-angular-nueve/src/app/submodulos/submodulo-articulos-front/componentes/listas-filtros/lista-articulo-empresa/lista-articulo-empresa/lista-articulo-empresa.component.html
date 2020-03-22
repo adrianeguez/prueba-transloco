@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-12 ">
+          <h3 class="text-primary text-center">Lista de Articulos</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <ml-filter-articulo-empresa
+      (articulosEncontradas)="setearArticulosEmpresa($event)">
+    </ml-filter-articulo-empresa>
+  </div>
+</div>
+<br>
+<div class="row">
+  <ml-tabla-articulo-empresa
+    [articulosEncontradas]="articulosEncontradas"
+    [totalRegistros]="totalRegistros"
+    [columnas]="columnas"
+    (emitirSkip)="setearSkip($event)"
+    (articulosSeleccionado)="obtenreArticuloEmpresaSeleccionado($event)"></ml-tabla-articulo-empresa>
+</div>

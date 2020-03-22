@@ -1,0 +1,19 @@
+@import "~animate.css/animate.min.css";
+
+.oculto {
+  position: absolute;
+  opacity: 0.0;
+  z-index: -1;
+}
+
+.contenedor-mensaje {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  transition: 1s;
+  border-bottom: darkred 2px;
+}

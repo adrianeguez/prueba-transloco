@@ -1,0 +1,24 @@
+<div class="col-sm-12">
+  <div class="input-group mb-3">
+    <p-autoComplete
+      [suggestions]="modulos"
+      (completeMethod)="buscarModulos($event)"
+      [emptyMessage]="'No se encontraron módulos.'"
+      placeholder="Ingrese nombre del módulo"
+      [delay]="800"
+      [dropdown]="true"
+      (onSelect)="emitirModuloSeleccionado($event)"
+      [size]="50"
+      field="nombreModulo"
+      [disabled]="!habilitarBuscarModulo"
+    >
+      <ng-template let-modulo pTemplate="item">
+        <div>{{modulo.nombreModulo}}</div>
+      </ng-template>
+    </p-autoComplete>
+  </div>
+  <small id="busquedaPermisoHelp" class="form-text text-muted ayuda-span"> Seleccione un módulo del sistema.
+  </small>
+</div>
+
+

@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-sm-12" *ngIf="!proveedorSeleccionado">
+    <div class="col-sm-3">
+      <button class="btn btn-block btn-info"
+              id="button-seleccionar-tipo"
+              (click)="abrirModalProveedor()"
+      >
+        SELECCIONE UN PROVEEDOR
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-9" *ngIf="proveedorSeleccionado">
+    <p-fieldset legend="Proveedor">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="input-group-append">
+            <div class="col-sm-11">
+              Nombre: {{proveedorSeleccionado.empresaProveedor.razonSocial}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+          <div class="input-group-append">
+            <div class="col-sm-11">
+              RUC: {{proveedorSeleccionado.empresaProveedor.ruc}}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-1">
+          <button class="btn btn-outline-secondary btn-sm" type="btn" id="button-addon2" (click)="abrirModalProveedor()" ><i class="fas fa-pen"></i></button>
+        </div>
+      </div>
+    </p-fieldset>
+
+    <ml-datos-factura></ml-datos-factura>
+
+  </div>
+
+  <div class="col-sm-3" *ngIf="proveedorSeleccionado">
+    <br>
+    <p-card>
+      <p class="text-center">Estado: Actualizado</p>
+
+      <br>
+
+      <button class="btn btn-info btn-block btn-sm">Imprimir</button>
+
+      <button class="btn btn-info btn-block btn-sm">Actualizar</button>
+
+      <br>
+
+      <p class="text-center" style="font-size: 50px">0.00</p>
+    </p-card>
+  </div>
+</div>
+
+<br>
+
+<div *ngIf="proveedorSeleccionado">
+  <ml-articulos
+    [compraDevolucionProveedores]="compraDevolucionProveedores"
+    [proveedorRecibido]="proveedorSeleccionado"
+  ></ml-articulos>
+
+  <br>
+
+  <p-tabView>
+    <p-tabPanel header="Resumen">
+      <div class="row" >
+        <div class="col-sm-4">
+          <ml-informacion-articulos></ml-informacion-articulos>
+        </div>
+        <div class="col-sm-8">
+          <ml-informacion-impuestos></ml-informacion-impuestos>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Notas de crédito">
+      <ml-tabla-notas-credito></ml-tabla-notas-credito>
+    </p-tabPanel>
+  </p-tabView>
+</div>

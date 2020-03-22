@@ -1,0 +1,110 @@
+<ng-container *transloco="let t; read: 'submoduloCertificadosCuros.tema.temaFormulario'">
+  <ng-container *transloco="let m; read: 'formularios.comunes'">
+    <form novalidate [formGroup]="tema.formGroup">
+      <fieldset class="col-md-12">
+        <div class="row">
+          <!--nombre-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+            <div class="row">
+              <label class="col-sm-3 control-label" [for]="tema.mensajesValidacionNombre.nombreInput">
+                {{
+                t('nombre.' + tema.mensajesValidacionNombre.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-9">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="tema.mensajesValidacionNombre.nombreInput"
+                       [name]="tema.mensajesValidacionNombre.nombreInput"
+                       [formControlName]="tema.mensajesValidacionNombre.nombreInput"
+                       [placeholder]="t('nombre.' + tema.mensajesValidacionNombre.tooltip)"
+                       [title]="t('nombre.' + tema.mensajesValidacionNombre.title)"
+                       aria-describedby="temaNombreAyuda"
+
+
+                >
+                <small id="temaNombreAyuda" class="form-text text-muted">
+                  {{
+                  t('nombre.' + tema.mensajesValidacionNombre.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="tema.mensajesValidacionNombre.mensajes.length>0">
+                  <div *ngFor="let mensaje of tema.mensajesValidacionNombre.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('nombre.nombre'),
+                        minLength: tema.mensajesValidacionNombre.minlength.valor,
+                        maxLength: tema.mensajesValidacionNombre.maxlength.valor,
+                        min: tema.mensajesValidacionNombre.min.valor,
+                        max: tema.mensajesValidacionNombre.max.valor,
+                        patternMensaje: t('nombre.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--descripcion-->
+          <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+            <div class="row">
+              <label class="col-sm-3 control-label" [for]="tema.mensajesValidacionDescripcion.nombreInput">
+                {{
+                t('descripcion.' + tema.mensajesValidacionDescripcion.nombreInput)
+                }}
+              </label>
+              <div class="col-sm-9">
+                <input type="text"
+                       class="form-control form-control-sm"
+                       [id]="tema.mensajesValidacionDescripcion.nombreInput"
+                       [name]="tema.mensajesValidacionDescripcion.nombreInput"
+                       [formControlName]="tema.mensajesValidacionDescripcion.nombreInput"
+                       [placeholder]="t('descripcion.' + tema.mensajesValidacionDescripcion.tooltip)"
+                       [title]="t('descripcion.' + tema.mensajesValidacionDescripcion.title)"
+                       aria-describedby="temaDescripcionAyuda"
+
+
+                >
+                <small id="temaDescripcionAyuda" class="form-text text-muted">
+                  {{
+                  t('descripcion.' + tema.mensajesValidacionDescripcion.title)
+                  }}
+                  .</small>
+              </div>
+              <div class="col-sm-12">
+
+                <div class="animated fadeInUp alert alert-warning" role="alert"
+                     *ngIf="tema.mensajesValidacionDescripcion.mensajes.length>0">
+                  <div *ngFor="let mensaje of tema.mensajesValidacionDescripcion.mensajes">
+                    {{
+                    m(
+                      mensaje,
+                      {
+                        nombre: t('descripcion.descripcion'),
+                        minLength: tema.mensajesValidacionDescripcion.minlength.valor,
+                        maxLength: tema.mensajesValidacionDescripcion.maxlength.valor,
+                        min: tema.mensajesValidacionDescripcion.min.valor,
+                        max: tema.mensajesValidacionDescripcion.max.valor,
+                        patternMensaje: t('descripcion.patternMensaje')
+                      }
+                    )
+                    }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </ng-container>
+</ng-container>

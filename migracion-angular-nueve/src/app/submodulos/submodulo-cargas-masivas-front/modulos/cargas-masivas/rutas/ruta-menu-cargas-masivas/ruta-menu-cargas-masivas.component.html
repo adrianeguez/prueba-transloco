@@ -1,0 +1,33 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <div class="row justify-content-between">
+            <div class="col-sm-12">
+              <h3 class="text-primary text-center">Cargas masivas</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <button type="button" class="list-group-item list-group-item-action" (click)="irAGestionCargasMasivas()">Gestión de cargas masivas</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('empresa')">Carga masiva de empresas</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('grupos')">Carga masiva de grupos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('tarifas')">Carga masiva de tarifas</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('articulos-bodega')">Carga masiva de artículos en bodega</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('datos-edificio')">Carga masiva de datos de edificios</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('area-pisos')">Carga masiva de area de pisos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('datos-contactos')">Carga masiva de datos de contacto</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('subgrupos')">Carga masiva de subgrupos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('articulos')">Carga masiva de artículos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('detalle-articulos')">Carga masiva de detalle de artículos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('precios')">Carga masiva de precios</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('tipo-impuestos')">Carga masiva de tipo de impuestos</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('datos-vendedores')">Carga masiva de datos de vendedores</button>
+          <button type="button" class="list-group-item list-group-item-action" (click)="irACargaMasiva('articulos-proveedor')">Carga masiva de artículos por proveedor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

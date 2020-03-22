@@ -1,0 +1,720 @@
+
+<ng-container *transloco="let t; read: 'submoduloArticulos.articulo.articuloFormulario'">
+    <ng-container *transloco="let m; read: 'formularios.comunes'">
+        <form novalidate [formGroup]="articulo.formGroup">
+            <fieldset class="col-md-12">
+                <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionNombre.nombreInput">
+                        {{
+                            t('nombre.' + articulo.mensajesValidacionNombre.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionNombre.nombreInput"
+                                [name]="articulo.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="t('nombre.' + articulo.mensajesValidacionNombre.tooltip)"
+                                [title]="t('nombre.' + articulo.mensajesValidacionNombre.title)"
+                                aria-describedby="articuloNombreAyuda"
+
+
+                        >
+                        <small id="articuloNombreAyuda" class="form-text text-muted">
+                        {{
+                            t('nombre.' + articulo.mensajesValidacionNombre.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionNombre.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('nombre.nombre'),
+                                          minLength: articulo.mensajesValidacionNombre.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionNombre.maxlength.valor,
+                                          min: articulo.mensajesValidacionNombre.min.valor,
+                                          max: articulo.mensajesValidacionNombre.max.valor,
+                                          patternMensaje: t('nombre.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--nombreCorto-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.NombreCorto.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionNombreCorto.nombreInput">
+                        {{
+                            t('nombreCorto.' + articulo.mensajesValidacionNombreCorto.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionNombreCorto.nombreInput"
+                                [name]="articulo.mensajesValidacionNombreCorto.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionNombreCorto.nombreInput"
+                                [placeholder]="t('nombreCorto.' + articulo.mensajesValidacionNombreCorto.tooltip)"
+                                [title]="t('nombreCorto.' + articulo.mensajesValidacionNombreCorto.title)"
+                                aria-describedby="articuloNombreCortoAyuda"
+
+
+                        >
+                        <small id="articuloNombreCortoAyuda" class="form-text text-muted">
+                        {{
+                            t('nombreCorto.' + articulo.mensajesValidacionNombreCorto.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionNombreCorto.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionNombreCorto.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('nombreCorto.nombreCorto'),
+                                          minLength: articulo.mensajesValidacionNombreCorto.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionNombreCorto.maxlength.valor,
+                                          min: articulo.mensajesValidacionNombreCorto.min.valor,
+                                          max: articulo.mensajesValidacionNombreCorto.max.valor,
+                                          patternMensaje: t('nombreCorto.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--descripcion-->
+            <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-2 control-label" [for]="articulo.mensajesValidacionDescripcion.nombreInput">
+                        {{
+                            t('descripcion.' + articulo.mensajesValidacionDescripcion.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionDescripcion.nombreInput"
+                                [name]="articulo.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="t('descripcion.' + articulo.mensajesValidacionDescripcion.tooltip)"
+                                [title]="t('descripcion.' + articulo.mensajesValidacionDescripcion.title)"
+                                aria-describedby="articuloDescripcionAyuda"
+
+
+                        >
+                        <small id="articuloDescripcionAyuda" class="form-text text-muted">
+                        {{
+                            t('descripcion.' + articulo.mensajesValidacionDescripcion.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionDescripcion.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('descripcion.descripcion'),
+                                          minLength: articulo.mensajesValidacionDescripcion.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionDescripcion.maxlength.valor,
+                                          min: articulo.mensajesValidacionDescripcion.min.valor,
+                                          max: articulo.mensajesValidacionDescripcion.max.valor,
+                                          patternMensaje: t('descripcion.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--codigo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Codigo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionCodigo.nombreInput">
+                        {{
+                            t('codigo.' + articulo.mensajesValidacionCodigo.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionCodigo.nombreInput"
+                                [name]="articulo.mensajesValidacionCodigo.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionCodigo.nombreInput"
+                                [placeholder]="t('codigo.' + articulo.mensajesValidacionCodigo.tooltip)"
+                                [title]="t('codigo.' + articulo.mensajesValidacionCodigo.title)"
+                                aria-describedby="articuloCodigoAyuda"
+
+
+                        >
+                        <small id="articuloCodigoAyuda" class="form-text text-muted">
+                        {{
+                            t('codigo.' + articulo.mensajesValidacionCodigo.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionCodigo.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionCodigo.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('codigo.codigo'),
+                                          minLength: articulo.mensajesValidacionCodigo.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionCodigo.maxlength.valor,
+                                          min: articulo.mensajesValidacionCodigo.min.valor,
+                                          max: articulo.mensajesValidacionCodigo.max.valor,
+                                          patternMensaje: t('codigo.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--codigoAuxiliar-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CodigoAuxiliar.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionCodigoAuxiliar.nombreInput">
+                        {{
+                            t('codigoAuxiliar.' + articulo.mensajesValidacionCodigoAuxiliar.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionCodigoAuxiliar.nombreInput"
+                                [name]="articulo.mensajesValidacionCodigoAuxiliar.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionCodigoAuxiliar.nombreInput"
+                                [placeholder]="t('codigoAuxiliar.' + articulo.mensajesValidacionCodigoAuxiliar.tooltip)"
+                                [title]="t('codigoAuxiliar.' + articulo.mensajesValidacionCodigoAuxiliar.title)"
+                                aria-describedby="articuloCodigoAuxiliarAyuda"
+
+
+                        >
+                        <small id="articuloCodigoAuxiliarAyuda" class="form-text text-muted">
+                        {{
+                            t('codigoAuxiliar.' + articulo.mensajesValidacionCodigoAuxiliar.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionCodigoAuxiliar.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionCodigoAuxiliar.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('codigoAuxiliar.codigoAuxiliar'),
+                                          minLength: articulo.mensajesValidacionCodigoAuxiliar.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionCodigoAuxiliar.maxlength.valor,
+                                          min: articulo.mensajesValidacionCodigoAuxiliar.min.valor,
+                                          max: articulo.mensajesValidacionCodigoAuxiliar.max.valor,
+                                          patternMensaje: t('codigoAuxiliar.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--codigoBarras-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.CodigoBarras.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionCodigoBarras.nombreInput">
+                        {{
+                            t('codigoBarras.' + articulo.mensajesValidacionCodigoBarras.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionCodigoBarras.nombreInput"
+                                [name]="articulo.mensajesValidacionCodigoBarras.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionCodigoBarras.nombreInput"
+                                [placeholder]="t('codigoBarras.' + articulo.mensajesValidacionCodigoBarras.tooltip)"
+                                [title]="t('codigoBarras.' + articulo.mensajesValidacionCodigoBarras.title)"
+                                aria-describedby="articuloCodigoBarrasAyuda"
+
+
+                        >
+                        <small id="articuloCodigoBarrasAyuda" class="form-text text-muted">
+                        {{
+                            t('codigoBarras.' + articulo.mensajesValidacionCodigoBarras.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionCodigoBarras.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionCodigoBarras.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('codigoBarras.codigoBarras'),
+                                          minLength: articulo.mensajesValidacionCodigoBarras.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionCodigoBarras.maxlength.valor,
+                                          min: articulo.mensajesValidacionCodigoBarras.min.valor,
+                                          max: articulo.mensajesValidacionCodigoBarras.max.valor,
+                                          patternMensaje: t('codigoBarras.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--peso-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Peso.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionPeso.nombreInput">
+                        {{
+                            t('peso.' + articulo.mensajesValidacionPeso.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionPeso.nombreInput"
+                                [name]="articulo.mensajesValidacionPeso.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionPeso.nombreInput"
+                                [placeholder]="t('peso.' + articulo.mensajesValidacionPeso.tooltip)"
+                                [title]="t('peso.' + articulo.mensajesValidacionPeso.title)"
+                                aria-describedby="articuloPesoAyuda"
+
+
+                        >
+                        <small id="articuloPesoAyuda" class="form-text text-muted">
+                        {{
+                            t('peso.' + articulo.mensajesValidacionPeso.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionPeso.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionPeso.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('peso.peso'),
+                                          minLength: articulo.mensajesValidacionPeso.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionPeso.maxlength.valor,
+                                          min: articulo.mensajesValidacionPeso.min.valor,
+                                          max: articulo.mensajesValidacionPeso.max.valor,
+                                          patternMensaje: t('peso.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--empresaProductora-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EmpresaProductora.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionEmpresaProductora.nombreInput">
+                        {{
+                            t('empresaProductora.' + articulo.mensajesValidacionEmpresaProductora.nombreInput)
+                        }}
+                        </label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="articulo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [name]="articulo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [formControlName]="articulo.mensajesValidacionEmpresaProductora.nombreInput"
+                                [placeholder]="t('empresaProductora.' + articulo.mensajesValidacionEmpresaProductora.tooltip)"
+                                [title]="t('empresaProductora.' + articulo.mensajesValidacionEmpresaProductora.title)"
+                                aria-describedby="articuloEmpresaProductoraAyuda"
+
+
+                        >
+                        <small id="articuloEmpresaProductoraAyuda" class="form-text text-muted">
+                        {{
+                            t('empresaProductora.' + articulo.mensajesValidacionEmpresaProductora.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionEmpresaProductora.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionEmpresaProductora.mensajes">
+                                  {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('empresaProductora.empresaProductora'),
+                                          minLength: articulo.mensajesValidacionEmpresaProductora.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionEmpresaProductora.maxlength.valor,
+                                          min: articulo.mensajesValidacionEmpresaProductora.min.valor,
+                                          max: articulo.mensajesValidacionEmpresaProductora.max.valor,
+                                          patternMensaje: t('empresaProductora.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--habilitadoStock-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.HabilitadoStock.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionHabilitadoStock.nombreInput">
+                        {{
+                            t('habilitadoStock.' + articulo.mensajesValidacionHabilitadoStock.nombreInput)
+                        }}
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm"
+                                [name]="articulo.mensajesValidacionHabilitadoStock.nombreInput"
+                                [id]="articulo.mensajesValidacionHabilitadoStock.nombreInput"
+                                [title]="t('habilitadoStock.' + articulo.mensajesValidacionHabilitadoStock.title)"
+                                [formControlName]="articulo.mensajesValidacionHabilitadoStock.nombreInput"
+                        >
+
+                            <option value="Si"> {{ t('habilitadoStock.opciones.si') }}</option>
+                            <option value="No"> {{ t('habilitadoStock.opciones.no') }}</option>
+
+                        </select>
+                        <small id="articuloHabilitadoStockAyuda" class="form-text text-muted">
+                            {{
+                                t('habilitadoStock.' + articulo.mensajesValidacionHabilitadoStock.title)
+                            }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionHabilitadoStock.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionHabilitadoStock.mensajes">
+                                {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('habilitadoStock.habilitadoStock'),
+                                          minLength: articulo.mensajesValidacionHabilitadoStock.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionHabilitadoStock.maxlength.valor,
+                                          min: articulo.mensajesValidacionHabilitadoStock.min.valor,
+                                          max: articulo.mensajesValidacionHabilitadoStock.max.valor,
+                                          patternMensaje: t('habilitadoStock.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--esServicio-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EsServicio.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionEsServicio.nombreInput">
+                        {{
+                            t('esServicio.' + articulo.mensajesValidacionEsServicio.nombreInput)
+                        }}
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm"
+                                [name]="articulo.mensajesValidacionEsServicio.nombreInput"
+                                [id]="articulo.mensajesValidacionEsServicio.nombreInput"
+                                [title]="t('esServicio.' + articulo.mensajesValidacionEsServicio.title)"
+                                [formControlName]="articulo.mensajesValidacionEsServicio.nombreInput"
+                        >
+
+                            <option value="1"> {{ t('esServicio.opciones.si') }}</option>
+                            <option value="0"> {{ t('esServicio.opciones.no') }}</option>
+
+                        </select>
+                        <small id="articuloEsServicioAyuda" class="form-text text-muted">
+                            {{
+                                t('esServicio.' + articulo.mensajesValidacionEsServicio.title)
+                            }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionEsServicio.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionEsServicio.mensajes">
+                                {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('esServicio.esServicio'),
+                                          minLength: articulo.mensajesValidacionEsServicio.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionEsServicio.maxlength.valor,
+                                          min: articulo.mensajesValidacionEsServicio.min.valor,
+                                          max: articulo.mensajesValidacionEsServicio.max.valor,
+                                          patternMensaje: t('esServicio.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--unidadMedida-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.UnidadMedida.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionUnidadMedida.nombreInput">
+                    {{
+                            t('unidadMedida.' + articulo.mensajesValidacionUnidadMedida.nombreInput)
+                    }}
+                    </label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="articulo.mensajesValidacionUnidadMedida.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="m('autocompleteSinRegistros')"
+                            [formControlName]="articulo.mensajesValidacionUnidadMedida.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.unidadMedidas"
+                            (completeMethod)="buscarUnidadMedidas($event)"
+                            [placeholder]="t('unidadMedida.' + articulo.mensajesValidacionUnidadMedida.tooltip)"
+                            delay="1000"
+                            field="nombre">
+                                <ng-template let-unidadMedida pTemplate="item">
+                                    {{ unidadMedida.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                        <small id="articuloUnidadMedidaAyuda" class="form-text text-muted">
+                        {{
+                            t('unidadMedida.' + articulo.mensajesValidacionUnidadMedida.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionUnidadMedida.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionUnidadMedida.mensajes">
+                                {{
+                                      m(
+                                            mensaje,
+                                            {
+                                              nombre: t('unidadMedida.unidadMedida'),
+                                              minLength: articulo.mensajesValidacionUnidadMedida.minlength.valor,
+                                              maxLength: articulo.mensajesValidacionUnidadMedida.maxlength.valor,
+                                              min: articulo.mensajesValidacionUnidadMedida.min.valor,
+                                              max: articulo.mensajesValidacionUnidadMedida.max.valor,
+                                              patternMensaje: t('unidadMedida.patternMensaje')
+                                            }
+                                      )
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--esCurso-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.EsCurso.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionEsCurso.nombreInput">
+                        {{
+                            t('esCurso.' + articulo.mensajesValidacionEsCurso.nombreInput)
+                        }}
+                    </label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm"
+                                [name]="articulo.mensajesValidacionEsCurso.nombreInput"
+                                [id]="articulo.mensajesValidacionEsCurso.nombreInput"
+                                [title]="t('esCurso.' + articulo.mensajesValidacionEsCurso.title)"
+                                [formControlName]="articulo.mensajesValidacionEsCurso.nombreInput"
+                        >
+
+                            <option value="1"> {{ t('esCurso.opciones.si') }}</option>
+                            <option value="0"> {{ t('esCurso.opciones.no') }}</option>
+
+                        </select>
+                        <small id="articuloEsCursoAyuda" class="form-text text-muted">
+                            {{
+                                t('esCurso.' + articulo.mensajesValidacionEsCurso.title)
+                            }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionEsCurso.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionEsCurso.mensajes">
+                                {{
+                                      m(
+                                        mensaje,
+                                        {
+                                          nombre: t('esCurso.esCurso'),
+                                          minLength: articulo.mensajesValidacionEsCurso.minlength.valor,
+                                          maxLength: articulo.mensajesValidacionEsCurso.maxlength.valor,
+                                          min: articulo.mensajesValidacionEsCurso.min.valor,
+                                          max: articulo.mensajesValidacionEsCurso.max.valor,
+                                          patternMensaje: t('esCurso.patternMensaje')
+                                        }
+                                      )
+                                  }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--tipoImpuesto-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TipoImpuesto.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionTipoImpuesto.nombreInput">
+                    {{
+                            t('tipoImpuesto.' + articulo.mensajesValidacionTipoImpuesto.nombreInput)
+                    }}
+                    </label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="articulo.mensajesValidacionTipoImpuesto.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="m('autocompleteSinRegistros')"
+                            [formControlName]="articulo.mensajesValidacionTipoImpuesto.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.tipoImpuestos"
+                            (completeMethod)="buscarTipoImpuestos($event)"
+                            [placeholder]="t('tipoImpuesto.' + articulo.mensajesValidacionTipoImpuesto.tooltip)"
+                            delay="1000"
+                            field="nombre">
+                                <ng-template let-tipoImpuesto pTemplate="item">
+                                    {{ tipoImpuesto.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                        <small id="articuloTipoImpuestoAyuda" class="form-text text-muted">
+                        {{
+                            t('tipoImpuesto.' + articulo.mensajesValidacionTipoImpuesto.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionTipoImpuesto.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionTipoImpuesto.mensajes">
+                                {{
+                                      m(
+                                            mensaje,
+                                            {
+                                              nombre: t('tipoImpuesto.tipoImpuesto'),
+                                              minLength: articulo.mensajesValidacionTipoImpuesto.minlength.valor,
+                                              maxLength: articulo.mensajesValidacionTipoImpuesto.maxlength.valor,
+                                              min: articulo.mensajesValidacionTipoImpuesto.min.valor,
+                                              max: articulo.mensajesValidacionTipoImpuesto.max.valor,
+                                              patternMensaje: t('tipoImpuesto.patternMensaje')
+                                            }
+                                      )
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--tarifa-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Tarifa.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="articulo.mensajesValidacionTarifa.nombreInput">
+                    {{
+                            t('tarifa.' + articulo.mensajesValidacionTarifa.nombreInput)
+                    }}
+                    </label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="articulo.mensajesValidacionTarifa.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="m('autocompleteSinRegistros')"
+                            [formControlName]="articulo.mensajesValidacionTarifa.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.tarifas"
+                            (completeMethod)="buscarTarifas($event)"
+                            [placeholder]="t('tarifa.' + articulo.mensajesValidacionTarifa.tooltip)"
+                            delay="1000"
+                            field="nombre">
+                                <ng-template let-tarifa pTemplate="item">
+                                    {{ tarifa.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                        <small id="articuloTarifaAyuda" class="form-text text-muted">
+                        {{
+                            t('tarifa.' + articulo.mensajesValidacionTarifa.title)
+                        }}
+                        .</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="articulo.mensajesValidacionTarifa.mensajes.length>0">
+                            <div *ngFor="let mensaje of articulo.mensajesValidacionTarifa.mensajes">
+                                {{
+                                      m(
+                                            mensaje,
+                                            {
+                                              nombre: t('tarifa.tarifa'),
+                                              minLength: articulo.mensajesValidacionTarifa.minlength.valor,
+                                              maxLength: articulo.mensajesValidacionTarifa.maxlength.valor,
+                                              min: articulo.mensajesValidacionTarifa.min.valor,
+                                              max: articulo.mensajesValidacionTarifa.max.valor,
+                                              patternMensaje: t('tarifa.patternMensaje')
+                                            }
+                                      )
+                                }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                </div>
+            </fieldset>
+        </form>
+    </ng-container>
+</ng-container>

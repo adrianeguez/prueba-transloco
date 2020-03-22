@@ -1,0 +1,17 @@
+<p-autoComplete
+  [suggestions]="unidadesMedidas"
+  (completeMethod)="obtenerUnidadesMedidas($event)"
+  [dropdown]="true"
+  [placeholder]="text"
+  [emptyMessage]="noExistenRegistros"
+  (onSelect)="enviarUnidadMedidaSeleccionado($event)"
+  field="nombre"
+  [size]="tamanioAutocomplete">
+  <ng-template let-unidadMedida pTemplate="item">
+    <div class="ui-helper-clearfix">
+      <div>{{unidadMedida.nombre}}</div>
+    </div>
+  </ng-template>
+</p-autoComplete>
+
+

@@ -1,0 +1,100 @@
+
+<form novalidate [formGroup]="empresaClientes.formGroup">
+  <fieldset class="col-md-12">
+    <div class="row">
+      <!--empresaCliente-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.EmpresaCliente.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresaClientes.mensajesValidacionEmpresaCliente.nombreInput">{{
+              empresaClientes.mensajesValidacionEmpresaCliente.nombreAPresentarse + ' *' }}</label>
+          <div class="col-sm-8">
+            <p-autoComplete
+              [size]="33"
+              [inputId]="empresaClientes.mensajesValidacionEmpresaCliente.nombreInput"
+              inputStyleClass="undefined"
+              autoHighlight="true"
+              [dropdown]="true"
+              (onSelect) = "seleccionarEmpresa($event)"
+              [emptyMessage]="NO_EXISTEN_REGISTROS"
+              [formControlName]="empresaClientes.mensajesValidacionEmpresaCliente.nombreInput"
+              [suggestions]="objetoVariablesGlobales.empresas"
+              (completeMethod)="buscarEmpresas($event)"
+              [placeholder]="empresaClientes.mensajesValidacionEmpresaCliente.tooltip"
+              delay="1000"
+              field="razonSocial">
+              <ng-template let-empresaCliente pTemplate="item">
+                {{ empresaCliente.razonSocial }}
+              </ng-template>
+            </p-autoComplete>
+            <small id="empresaClientesEmpresaAyuda" class="form-text text-muted">{{empresaClientes.mensajesValidacionEmpresaCliente.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresaClientes.mensajesValidacionEmpresaCliente.mensajes.length>0">
+              <div *ngFor="let mensaje of empresaClientes.mensajesValidacionEmpresaCliente.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--razonSocial-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.RazonSocial.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresaClientes.mensajesValidacionRazonSocial.nombreInput">{{
+              empresaClientes.mensajesValidacionRazonSocial.nombreAPresentarse}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresaClientes.mensajesValidacionRazonSocial.nombreInput"
+                   [name]="empresaClientes.mensajesValidacionRazonSocial.nombreInput"
+                   [formControlName]="empresaClientes.mensajesValidacionRazonSocial.nombreInput"
+                   [placeholder]="empresaClientes.mensajesValidacionRazonSocial.tooltip"
+                   [title]="empresaClientes.mensajesValidacionRazonSocial.title"
+                   aria-describedby="empresaClientesRazonSocialAyuda"
+
+
+            >
+            <small id="empresaClientesRazonSocialAyuda" class="form-text text-muted">{{empresaClientes.mensajesValidacionRazonSocial.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresaClientes.mensajesValidacionRazonSocial.mensajes.length>0">
+              <div *ngFor="let mensaje of empresaClientes.mensajesValidacionRazonSocial.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--ruc-->
+      <div class="col-sm-12 form-group" *ngIf="!configuracionDisabled.Ruc.hidden">
+        <div class="row">
+          <label class="col-sm-4 control-label" [for]="empresaClientes.mensajesValidacionRuc.nombreInput">{{
+              empresaClientes.mensajesValidacionRuc.nombreAPresentarse}}</label>
+          <div class="col-sm-8">
+            <input type="text"
+                   class="form-control form-control-sm"
+                   [id]="empresaClientes.mensajesValidacionRuc.nombreInput"
+                   [name]="empresaClientes.mensajesValidacionRuc.nombreInput"
+                   [formControlName]="empresaClientes.mensajesValidacionRuc.nombreInput"
+                   [placeholder]="empresaClientes.mensajesValidacionRuc.tooltip"
+                   [title]="empresaClientes.mensajesValidacionRuc.title"
+                   aria-describedby="empresaClientesRucAyuda"
+
+
+            >
+            <small id="empresaClientesRucAyuda" class="form-text text-muted">{{empresaClientes.mensajesValidacionRuc.title}}.</small>
+          </div>
+          <div class="col-sm-12">
+
+            <div class="animated fadeInUp alert alert-warning" role="alert"
+                 *ngIf="empresaClientes.mensajesValidacionRuc.mensajes.length>0">
+              <div *ngFor="let mensaje of empresaClientes.mensajesValidacionRuc.mensajes">{{ mensaje }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </fieldset>
+</form>

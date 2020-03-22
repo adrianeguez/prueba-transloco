@@ -1,0 +1,154 @@
+
+<form novalidate [formGroup]="periodoVenta.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--nombre-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Nombre.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="periodoVenta.mensajesValidacionNombre.nombreInput">{{
+                        periodoVenta.mensajesValidacionNombre.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="periodoVenta.mensajesValidacionNombre.nombreInput"
+                                [name]="periodoVenta.mensajesValidacionNombre.nombreInput"
+                                [formControlName]="periodoVenta.mensajesValidacionNombre.nombreInput"
+                                [placeholder]="periodoVenta.mensajesValidacionNombre.tooltip"
+                                [title]="periodoVenta.mensajesValidacionNombre.title"
+                                aria-describedby="periodoVentaNombreAyuda"
+
+
+                        >
+                        <small id="periodoVentaNombreAyuda" class="form-text text-muted">{{periodoVenta.mensajesValidacionNombre.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="periodoVenta.mensajesValidacionNombre.mensajes.length>0">
+                            <div *ngFor="let mensaje of periodoVenta.mensajesValidacionNombre.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--fechaInicio-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaInicio.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="periodoVenta.mensajesValidacionFechaInicio.nombreInput">{{
+                        periodoVenta.mensajesValidacionFechaInicio.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="Date"
+                                class="form-control form-control-sm"
+                                [id]="periodoVenta.mensajesValidacionFechaInicio.nombreInput"
+                                [disabled]="true"
+                                [name]="periodoVenta.mensajesValidacionFechaInicio.nombreInput"
+                                [formControlName]="periodoVenta.mensajesValidacionFechaInicio.nombreInput"
+                                [placeholder]="periodoVenta.mensajesValidacionFechaInicio.tooltip"
+                                [title]="periodoVenta.mensajesValidacionFechaInicio.title"
+                                aria-describedby="periodoVentaFechaInicioAyuda"
+
+
+                        >
+                        <small id="periodoVentaFechaInicioAyuda" class="form-text text-muted">{{periodoVenta.mensajesValidacionFechaInicio.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="periodoVenta.mensajesValidacionFechaInicio.mensajes.length>0">
+                            <div *ngFor="let mensaje of periodoVenta.mensajesValidacionFechaInicio.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--fechaFin-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.FechaFin.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="periodoVenta.mensajesValidacionFechaFin.nombreInput">{{
+                        periodoVenta.mensajesValidacionFechaFin.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="Date"
+                                class="form-control form-control-sm"
+                                [id]="periodoVenta.mensajesValidacionFechaFin.nombreInput"
+                                [name]="periodoVenta.mensajesValidacionFechaFin.nombreInput"
+                                [formControlName]="periodoVenta.mensajesValidacionFechaFin.nombreInput"
+                                [placeholder]="periodoVenta.mensajesValidacionFechaFin.tooltip"
+                                [title]="periodoVenta.mensajesValidacionFechaFin.title"
+                                aria-describedby="periodoVentaFechaFinAyuda"
+
+
+                        >
+                        <small id="periodoVentaFechaFinAyuda" class="form-text text-muted">{{periodoVenta.mensajesValidacionFechaFin.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="periodoVenta.mensajesValidacionFechaFin.mensajes.length>0">
+                            <div *ngFor="let mensaje of periodoVenta.mensajesValidacionFechaFin.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--meta-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Meta.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="periodoVenta.mensajesValidacionMeta.nombreInput">{{
+                        periodoVenta.mensajesValidacionMeta.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="periodoVenta.mensajesValidacionMeta.nombreInput"
+                                [name]="periodoVenta.mensajesValidacionMeta.nombreInput"
+                                [textMask]="periodoVenta.mensajesValidacionMeta.mask"
+                                [formControlName]="periodoVenta.mensajesValidacionMeta.nombreInput"
+                                [placeholder]="periodoVenta.mensajesValidacionMeta.tooltip"
+                                [title]="periodoVenta.mensajesValidacionMeta.title"
+                                aria-describedby="periodoVentaMetaAyuda"
+
+
+                        >
+                        <small id="periodoVentaMetaAyuda" class="form-text text-muted">{{periodoVenta.mensajesValidacionMeta.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="periodoVenta.mensajesValidacionMeta.mensajes.length>0">
+                            <div *ngFor="let mensaje of periodoVenta.mensajesValidacionMeta.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--descripcion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Descripcion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="periodoVenta.mensajesValidacionDescripcion.nombreInput">{{
+                        periodoVenta.mensajesValidacionDescripcion.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="periodoVenta.mensajesValidacionDescripcion.nombreInput"
+                                [name]="periodoVenta.mensajesValidacionDescripcion.nombreInput"
+                                [formControlName]="periodoVenta.mensajesValidacionDescripcion.nombreInput"
+                                [placeholder]="periodoVenta.mensajesValidacionDescripcion.tooltip"
+                                [title]="periodoVenta.mensajesValidacionDescripcion.title"
+                                aria-describedby="periodoVentaDescripcionAyuda"
+
+
+                        >
+                        <small id="periodoVentaDescripcionAyuda" class="form-text text-muted">{{periodoVenta.mensajesValidacionDescripcion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="periodoVenta.mensajesValidacionDescripcion.mensajes.length>0">
+                            <div *ngFor="let mensaje of periodoVenta.mensajesValidacionDescripcion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>

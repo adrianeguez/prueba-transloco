@@ -1,0 +1,150 @@
+<app-ruta-general [migasDePan]="migasDePan">
+  <div class="contenido">
+
+    <mlab-titulo-pantalla
+      [titulo]="'Gestión de vendedores'"
+      [descripcion]="'Añada vendedores de sus trabajadores, revise las visitas de ellos y edite sus ' +
+       'datos de vendedor.'"
+      [imagen]="'assets/imagenes/sistema/vendedor-vendedores.svg'"
+      [ayuda]="nombrePadre"
+    >
+    </mlab-titulo-pantalla>
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="form-inline row" novalidate>
+          <div class="col-sm-12">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-describedby="busquedaDatosVendedorHelp"
+                     placeholder="Ingrese su búsqueda....." #busqueda>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="btn" id="button-addon2"
+                        (click)="buscarPorNombreTipoDocumentoOCodigo(busqueda.value)"><i class="fas fa-search"></i>
+                  Buscar
+                </button>
+              </div>
+            </div>
+            <small id="busquedaDatosVendedorHelp" class="form-text text-muted ayuda-span"> Busque un vendedor por
+              nombre, tipo, documento o código.
+            </small>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3">
+        <ml-select-estado (estadoSeleccionado)="escucharEstadoSeleccionado($event)"></ml-select-estado>
+      </div>
+      <div class="col-lg-3">
+        <button class="btn btn-outline-primary  btn-block" (click)="abrirModalAnadirDatosVendedor()">
+          <i class="fas fa-plus"></i>
+          Nuevo
+        </button>
+      </div>
+    </div>
+    <div class="row separacion-top-2 separacion-fondo-1">
+      <div class="col-sm-12">
+        <div class="col-sm-12">
+          <p-table [responsive]="true" [columns]="columnas" [value]="values" [lazy]="true"
+                   (onLazyLoad)="cargarDatosLazy($event)" [paginator]="true" [rows]="rows" [totalRecords]="totalRecords"
+                   [loading]="loading" [first]="this.queryParams.skip" [resizableColumns]="true">
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="text-center" *ngFor="let col of columns" [style.width]="col.width">
+                  {{col.header}}
+                </th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+              <tr>
+                <td [attr.colspan]="columnas.length">
+                  No existen registros
+                </td>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-rowIndex let-columns="columns">
+
+              <tr [ngStyle]="{'background-color': optionalParams?.registroActual == rowData.id ? '#b2ebff' : null}">
+                <td class="text-center" *ngFor="let col of columns">
+                  <span class="ui-column-title">{{col.header}}</span>
+                  <div *ngIf="col.header === '#'">
+                    {{values.indexOf(rowData) + 1}}
+                  </div>
+                  <div *ngIf="col.field==='nombreVendedor'">
+                    {{rowData.nombreVendedor}} {{rowData.apellidoVendedor}}
+                  </div>
+                  <div *ngIf="col.field==='documento'">
+                    {{rowData[col.field]}}
+                  </div>
+                  <div *ngIf="col.field==='fechaIngreso'">
+                    <p><span class="bold">Empieza: </span>{{rowData[col.field]}}</p>
+                    <p><span class="bold">Termina: </span>{{rowData.FechaSalida ? rowData.FechaSalida : 'No tiene'}}</p>
+                  </div>
+                  <div *ngIf="col.header === 'Estado'">
+                    <button class="btn btn-block btn-success btn-sm" (click)="actualizarEstado(rowData)" [ngClass]="{
+                        'btn-danger':rowData[col.field] === estados.Inactivo,
+                        'btn-success':rowData[col.field] === estados.Activo
+                        }">{{rowData[col.field] === estados.Activo ? 'Activo' : 'Inactivo'}}</button>
+                  </div>
+
+                  <div *ngIf="col.header==='Acciones'">
+
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem">
+                      <div class="row">
+                        <div class="col-md-6 item-accion">
+                          <img src="assets/imagenes/sistema/empresa-editar.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm"
+                                  (click)="abrirModalEditarDatosVendedor(rowData)">Editar
+                          </button>
+
+                        </div>
+                        <div class="col-md-6 item-accion">
+                          <img src="assets/imagenes/sistema/vendedor-visita.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm"
+                                  (click)="irAGestionModuloHijo(rowData[col.field],'visita','visitas')">Ver
+                            visitas
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div style="padding-top: 0.2rem; padding-bottom: 0.2rem"
+                         *ngIf="rowData['habilitado'] === estados.Activo">
+                      <div class="row">
+                        <div class="col-md-3 item-accion">
+                          <img src="assets/imagenes/sistema/empresa-cronograma.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm boton-accion"
+                                  (click)="abrirModalAsignarPeriodoVenta(rowData[col.field])">Asignar periodo venta
+                          </button>
+                        </div>
+                        <div class="col-md-3 item-accion">
+                          <img src="assets/imagenes/sistema/empresa-cronograma-detalle.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm boton-accion"
+                                  (click)="irAGestionModuloHijo(rowData[col.field],'periodo-vendedor','periodos-vendedor')">
+                            Periodos asignados
+                          </button>
+                        </div>
+
+                        <div class="col-md-3 item-accion">
+                          <img src="assets/imagenes/sistema/vendedor-tipos-vendedor.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm boton-accion"
+                                  (click)="irAGestionModuloHijo(rowData[col.field],'tipo-datos-vendedor','tipo-datos-vendedor')">
+                            Roles de vendedor asignado
+                          </button>
+                        </div>
+                        <div class="col-md-3 item-accion">
+                          <img src="assets/imagenes/sistema/vendedor-monitoreo.svg" alt="" class="item-menu">
+                          <button class="btn btn-block btn-info btn-sm boton-accion"
+                                  (click)="irAGestionModuloHijo(rowData[col.field],'monitoreo-vendedores','monitoreo-vendedores')">
+                            Monitorear vendedor
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-ruta-general>

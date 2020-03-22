@@ -1,0 +1,17 @@
+<div class="col-sm-10" >
+  <form class="form-inline" novalidate>
+    <div class="col-sm-12">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="rol" aria-describedby="busquedaRolHelp"
+               placeholder="Ingrese su búsqueda....." #busqueda>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="btn" id="button-addon2" (click)="buscarRol(busqueda.value)"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+      </div>
+      <small id="busquedaRolHelp" class="form-text text-muted ayuda-span"> Busque un rol por nombre.
+      </small>
+    </div>
+
+  </form>
+</div>
+

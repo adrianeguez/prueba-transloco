@@ -1,0 +1,265 @@
+
+<form novalidate [formGroup]="informacionTributaria.formGroup">
+    <fieldset class="col-md-12">
+        <div class="row">
+            <!--tipoIdentificacion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TipoIdentificacion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionTipoIdentificacion.nombreInput">{{
+                        informacionTributaria.mensajesValidacionTipoIdentificacion.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <p-autoComplete
+                            [inputId]="informacionTributaria.mensajesValidacionTipoIdentificacion.nombreInput"
+                            inputStyleClass="undefined"
+                            autoHighlight="true"
+                            [dropdown]="true"
+                            [emptyMessage]="NO_EXISTEN_REGISTROS"
+                            [formControlName]="informacionTributaria.mensajesValidacionTipoIdentificacion.nombreInput"
+                            [suggestions]="objetoVariablesGlobales.tipoIdentificacions"
+                            (completeMethod)="buscarTipoIdentificacions($event)"
+                            [placeholder]="informacionTributaria.mensajesValidacionTipoIdentificacion.tooltip"
+                            delay="1000"
+                            field="nombre">
+                                <ng-template let-tipoIdentificacion pTemplate="item">
+                                    {{ tipoIdentificacion.nombre }}
+                                </ng-template>
+                        </p-autoComplete>
+                      <small id="informacionTributariaTipoIdentificacionAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionTipoIdentificacion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionTipoIdentificacion.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionTipoIdentificacion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--documento-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Documento.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionDocumento.nombreInput">{{
+                        informacionTributaria.mensajesValidacionDocumento.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionDocumento.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionDocumento.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionDocumento.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionDocumento.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionDocumento.title"
+                                aria-describedby="informacionTributariaDocumentoAyuda"
+                               maxlength="50"
+
+                        >
+                        <small id="informacionTributariaDocumentoAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionDocumento.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionDocumento.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionDocumento.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--razonSocial-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.RazonSocial.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionRazonSocial.nombreInput">{{
+                        informacionTributaria.mensajesValidacionRazonSocial.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionRazonSocial.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionRazonSocial.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionRazonSocial.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionRazonSocial.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionRazonSocial.title"
+                                aria-describedby="informacionTributariaRazonSocialAyuda"
+                               maxlength="150"
+
+                        >
+                        <small id="informacionTributariaRazonSocialAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionRazonSocial.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionRazonSocial.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionRazonSocial.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--direccion-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Direccion.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionDireccion.nombreInput">{{
+                        informacionTributaria.mensajesValidacionDireccion.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionDireccion.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionDireccion.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionDireccion.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionDireccion.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionDireccion.title"
+                                aria-describedby="informacionTributariaDireccionAyuda"
+                               maxlength="100"
+
+                        >
+                        <small id="informacionTributariaDireccionAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionDireccion.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionDireccion.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionDireccion.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--telefono-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Telefono.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionTelefono.nombreInput">{{
+                        informacionTributaria.mensajesValidacionTelefono.nombreAPresentarse + ' *' }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionTelefono.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionTelefono.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionTelefono.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionTelefono.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionTelefono.title"
+                                aria-describedby="informacionTributariaTelefonoAyuda"
+                               maxlength="10"
+
+                        >
+                        <small id="informacionTributariaTelefonoAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionTelefono.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionTelefono.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionTelefono.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--correo-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.Correo.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionCorreo.nombreInput">{{
+                        informacionTributaria.mensajesValidacionCorreo.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionCorreo.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionCorreo.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionCorreo.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionCorreo.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionCorreo.title"
+                                aria-describedby="informacionTributariaCorreoAyuda"
+                               maxlength="60"
+                        >
+                        <small id="informacionTributariaCorreoAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionCorreo.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionCorreo.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionCorreo.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--tipoContribuyente-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.TipoContribuyente.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionTipoContribuyente.nombreInput">{{
+                    informacionTributaria.mensajesValidacionTipoContribuyente.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="informacionTributaria.mensajesValidacionTipoContribuyente.nombreInput"
+                                [id]="informacionTributaria.mensajesValidacionTipoContribuyente.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionTipoContribuyente.nombreInput"
+                        >
+
+                          <option value="Sociedades">Sociedades</option>
+                          <option value="Persona Natural">Persona Natural</option>
+
+                        </select>
+                      <small id="informacionTributariaTipoContribuyenteAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionTipoContribuyente.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionTipoContribuyente.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionTipoContribuyente.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--contribuyenteEspecial-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ContribuyenteEspecial.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionContribuyenteEspecial.nombreInput">{{
+                        informacionTributaria.mensajesValidacionContribuyenteEspecial.nombreAPresentarse }}</label>
+                    <div class="col-sm-8">
+                        <input type="text"
+                                class="form-control form-control-sm"
+                                [id]="informacionTributaria.mensajesValidacionContribuyenteEspecial.nombreInput"
+                                [name]="informacionTributaria.mensajesValidacionContribuyenteEspecial.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionContribuyenteEspecial.nombreInput"
+                                [placeholder]="informacionTributaria.mensajesValidacionContribuyenteEspecial.tooltip"
+                                [title]="informacionTributaria.mensajesValidacionContribuyenteEspecial.title"
+                                aria-describedby="informacionTributariaContribuyenteEspecialAyuda"
+                               maxlength="5"
+
+                        >
+                        <small id="informacionTributariaContribuyenteEspecialAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionContribuyenteEspecial.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionContribuyenteEspecial.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionContribuyenteEspecial.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--obligadoContabilidad-->
+            <div class="col-sm-6 form-group" *ngIf="!configuracionDisabled.ObligadoContabilidad.hidden">
+                <div class="row">
+                    <label class="col-sm-4 control-label" [for]="informacionTributaria.mensajesValidacionObligadoContabilidad.nombreInput">{{
+                    informacionTributaria.mensajesValidacionObligadoContabilidad.nombreAPresentarse + ' *'}}</label>
+                    <div class="col-sm-8">
+                        <select class="form-control form-control-sm" [name]="informacionTributaria.mensajesValidacionObligadoContabilidad.nombreInput"
+                                [id]="informacionTributaria.mensajesValidacionObligadoContabilidad.nombreInput"
+                                [formControlName]="informacionTributaria.mensajesValidacionObligadoContabilidad.nombreInput"
+                        >
+
+                            <option value=1>Si</option>
+                            <option value=0>No</option>
+
+                        </select>
+                      <small id="informacionTributariaObligadoContabilidadAyuda" class="form-text text-muted">{{informacionTributaria.mensajesValidacionObligadoContabilidad.title}}.</small>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="animated fadeInUp alert alert-warning" role="alert"
+                            *ngIf="informacionTributaria.mensajesValidacionObligadoContabilidad.mensajes.length>0">
+                            <div *ngFor="let mensaje of informacionTributaria.mensajesValidacionObligadoContabilidad.mensajes">{{ mensaje }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+</form>
