@@ -133,6 +133,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-prueba-submodulos"
+    }
+  },
+  "defaultProject": "front-prueba-submodulos",
+  "cli": {
+    "analytics": false
+  }
 }
