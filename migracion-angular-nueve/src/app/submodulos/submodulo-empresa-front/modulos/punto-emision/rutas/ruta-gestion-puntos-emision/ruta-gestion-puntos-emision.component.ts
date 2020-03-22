@@ -3,7 +3,7 @@ import { ESTADOS } from '../../../../../../enums/estados';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { NUMERO_FILAS_TABLAS } from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import {
   MigaDePanInterface,

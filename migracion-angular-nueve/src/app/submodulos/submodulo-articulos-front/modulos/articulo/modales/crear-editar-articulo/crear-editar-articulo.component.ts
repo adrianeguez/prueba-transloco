@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { establecerValoresConfiguracionAbstractControl } from '@manticore-labs/ng-api';
 import { ToasterService } from 'angular2-toaster';
 import { CargandoService, EstaTipeandoComponent } from 'man-lab-ng';

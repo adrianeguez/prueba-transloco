@@ -4,7 +4,7 @@ import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PuntoEmisionRestService} from '../../../../servicios/rest/punto-emision-rest.service';
 import {ToasterService} from 'angular2-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {NUMERO_FILAS_TABLAS} from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import {RUTAS_PUNTOS_EMISION} from '../../../punto-emision/rutas/definicion-rutas/rutas-punto-emision';
 import {

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ToasterService} from 'angular2-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {PedidoDetalleInterface} from '../../../interfaces/pedido-detalle.interface';
 import {FormaCalculoInterface} from '../../../interfaces/forma-calculo.interface';
 import {FORMA_CALCULO} from '../../../constantes/forma-calculo';

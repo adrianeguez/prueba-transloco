@@ -6,7 +6,7 @@ import {
 } from '../../componentes/tema-formulario/tema-formulario.component';
 import {TemaRestService} from '../../servicios/rest/tema.rest.service';
 import {TemaInterface} from '../../interfaces/tema.interface';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {Toast, ToasterService} from 'angular2-toaster';
 import {CargandoService, EstaTipeandoComponent} from 'man-lab-ng';
 import {TranslocoService} from '@ngneat/transloco';

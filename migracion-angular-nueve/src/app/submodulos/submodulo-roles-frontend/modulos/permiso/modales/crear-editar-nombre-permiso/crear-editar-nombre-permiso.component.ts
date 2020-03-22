@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CargandoService, EstaTipeandoComponent } from 'man-lab-ng';
 import { establecerValoresConfiguracionAbstractControl } from '@manticore-labs/ng-api';
 import { NombrePermisoInterface } from '../../../../interfaces/nombre-permiso-interface';

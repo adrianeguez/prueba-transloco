@@ -8,7 +8,7 @@ import {NUMERO_FILAS_TABLAS} from '../../../../../submodulo-front-comun/constant
 import {ESTADOS} from '../../../../../../enums/estados';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {CronogramaVendedorInterface} from '../../../../interfaces/cronograma-vendedor-interface';
 import {CronogramaDetalleRestService} from '../../../../servicios/rest/cronograma-detalle-rest.service';
 import {RUTAS_GESTION_CRONOGRAMAS} from '../definicion-rutas/gestion-cronograma';

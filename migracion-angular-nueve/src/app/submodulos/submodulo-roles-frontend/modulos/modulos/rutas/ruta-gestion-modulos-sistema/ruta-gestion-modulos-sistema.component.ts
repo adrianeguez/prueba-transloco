@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ToasterService} from 'angular2-toaster';
 import {ModulosSistemaRestService} from '../../../../servicios/rest/modulos-sistema-rest.service';
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {CrearEditarModulosSistemaComponent} from '../../modales/crear-editar-modulos-sistema/crear-editar-modulos-sistema.component';
 import {MigaDePanInterface, RutaConMigasDePanTablaBusqueda} from '@manticore-labs/ng-api';

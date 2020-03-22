@@ -6,7 +6,7 @@ import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CajasService} from '../../../../servicios/rest/cajas.service';
 import {Auth0Service} from '../../../../../submodulo-front-comun/servicios/auth0/auth0.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {KardexCaja} from '../../../../interfaces/cajas/kardex-caja';
 import {KardexCajaRestService} from '../../../../servicios/rest/kardex-caja-rest.service';
 import {RUTAS_CAJAS} from '../definicion-rutas/rutas-cajas';

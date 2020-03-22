@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CargandoService, EstaTipeandoComponent } from 'man-lab-ng';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { TipoMovimientoRestService } from '../../../../servicios/rest/tipo-movimiento-rest.service';
 import { establecerValoresConfiguracionAbstractControl } from '@manticore-labs/ng-api';

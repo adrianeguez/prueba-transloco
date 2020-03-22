@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CargandoService, EmitirMigaPanService, ESTADOS} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ToasterService} from 'angular2-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {TipoDatosVenRestService} from '../../../../servicios/rest/tipo-datos-ven-rest.service';
 import {NUMERO_FILAS_TABLAS} from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import {MigaDePanInterface, RutaConMigasDePanTablaBusqueda} from '@manticore-labs/ng-api';

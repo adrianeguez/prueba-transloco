@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalListaEdificiosComponent } from './modal-lista-edificios/modal-lista-edificios.component';
 import { FilterEdificioModule } from '../../componentes/filters/filter-edificio/filter-edificio.module';
 import { TablaEdificioModule } from '../../componentes/tablas/tabla-edificio/tabla-edificio.module';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ModalListaEdificiosComponent],

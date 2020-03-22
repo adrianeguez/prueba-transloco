@@ -9,7 +9,7 @@ import {ToasterService} from 'angular2-toaster';
 import {NUMERO_FILAS_TABLAS} from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {VisitaRestService} from '../../../../servicios/rest/visita-rest.service';
 import {DatosVendedorRestService} from '../../../../servicios/rest/datos-vendedor-rest.service';
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';

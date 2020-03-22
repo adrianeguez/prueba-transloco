@@ -3,7 +3,7 @@ import {establecerValoresConfiguracionAbstractControl, FormularioModal} from '@m
 import {
   CONFIGURACION_TIPOSISTEMA,
 } from '../../../../../submodulo-empresa-front/modulos/tipo-sistema/componentes/tipo-sistema-formulario/tipo-sistema-formulario.component';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {ToasterService} from 'angular2-toaster';
 import {CargandoService} from 'man-lab-ng';
 import {Auth0Service} from '../../../../../submodulo-front-comun/servicios/auth0/auth0.service';

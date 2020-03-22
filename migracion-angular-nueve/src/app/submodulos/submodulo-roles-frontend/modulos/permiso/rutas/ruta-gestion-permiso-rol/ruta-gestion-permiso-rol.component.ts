@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RolInterface } from '../../../../interfaces/rol-interface';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 // tslint:disable-next-line:max-line-length
 import { ToasterService } from 'angular2-toaster';
 import { NombrePermisoInterface } from '../../../../interfaces/nombre-permiso-interface';

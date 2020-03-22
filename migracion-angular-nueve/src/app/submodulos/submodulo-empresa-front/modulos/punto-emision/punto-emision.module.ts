@@ -6,7 +6,7 @@ import { CrearEditarPuntoEmisionComponent } from './modales/crear-editar-punto-e
 import { RutaGestionPuntosEmisionComponent } from './rutas/ruta-gestion-puntos-emision/ruta-gestion-puntos-emision.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { PuntoEmisionFormularioComponent } from './componentes/punto-emision-formulario/punto-emision-formulario.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';

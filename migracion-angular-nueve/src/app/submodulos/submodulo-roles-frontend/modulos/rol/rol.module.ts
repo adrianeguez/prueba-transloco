@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RolFormularioComponent } from './componentes/rol-formulario/rol-formulario.component';
 import { RutaGestionRolesComponent } from './rutas/ruta-gestion-roles/ruta-gestion-roles.component';
 import { CrearEditarRolComponent } from './modales/crear-editar-rol/crear-editar-rol.component';

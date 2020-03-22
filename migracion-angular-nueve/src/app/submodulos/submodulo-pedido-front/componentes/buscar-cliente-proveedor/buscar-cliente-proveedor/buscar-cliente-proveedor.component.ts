@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ModalBuscarClienteComponent } from '../../modales/modal-buscar-cliente/modal-buscar-cliente/modal-buscar-cliente.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { InformacionTributariaInterface } from '../../../../submodulo-empresa-front/interfaces/informacion-tributaria.interface';
 
 @Component({

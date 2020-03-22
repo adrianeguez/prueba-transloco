@@ -6,7 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ToasterService } from 'angular2-toaster';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CargandoService, EstaTipeandoComponent } from 'man-lab-ng';
 import {establecerValoresConfiguracionAbstractControl, FormularioModal} from '@manticore-labs/ng-api';
 import { RutaGestionUsuarioComponent } from '../../rutas/ruta-gestion-usuario/ruta-gestion-usuario.component';

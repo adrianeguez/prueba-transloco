@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ArticuloEmpresaRoutingModule } from './articulo-empresa-routing.module';
 import { GestionArticulosEmpresaComponent } from './rutas/gestion-articulos-empresa/gestion-articulos-empresa.component';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // tslint:disable-next-line:max-line-length

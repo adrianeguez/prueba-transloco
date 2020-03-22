@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 // tslint:disable-next-line: max-line-length
 import { FilterTipoVendedoresComponent } from '../../../componentes/filters/filter-tipo-vendedores/filter-tipo-vendedores/filter-tipo-vendedores.component';
 import { TipoVendedorInterface } from '../../../../../../submodulo-vendedor-front/interfaces/tipo-vendedor-interface';

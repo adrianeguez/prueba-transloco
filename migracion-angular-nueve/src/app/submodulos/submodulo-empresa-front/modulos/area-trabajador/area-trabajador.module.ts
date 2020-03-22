@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule, TreeTableModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AreaTrabajadorFormularioComponent } from './componentes/area-trabajador-formulario/area-trabajador-formulario.component';
 import {TituloPantallaModule} from '../../../submodulo-front-comun/modulos/titulo-pantalla/titulo-pantalla.module';
 

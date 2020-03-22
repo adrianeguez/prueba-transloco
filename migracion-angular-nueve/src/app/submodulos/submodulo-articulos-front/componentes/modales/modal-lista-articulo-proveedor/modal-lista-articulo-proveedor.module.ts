@@ -2,7 +2,7 @@ import { ListaArticuloProveedorModule } from './../../listas-filtros/lista-artic
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalListaArticuloProveedorComponent } from './modal-lista-articulo-proveedor/modal-lista-articulo-proveedor.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ModalListaArticuloProveedorComponent],

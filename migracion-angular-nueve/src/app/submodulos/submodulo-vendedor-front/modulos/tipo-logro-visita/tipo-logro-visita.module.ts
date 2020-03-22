@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
 import { TableModule } from 'primeng/table';
 import { TipoLogroVisitaFormularioComponent } from './componentes/tipo-logro-visita-formulario/tipo-logro-visita-formulario.component';

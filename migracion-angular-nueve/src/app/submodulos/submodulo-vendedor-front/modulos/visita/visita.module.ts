@@ -7,7 +7,7 @@ import {
   ManLabNgBootstrapModule,
   SelectEstadoModule,
 } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { RutaGestionVisitaComponent } from './rutas/ruta-gestion-visita/ruta-gestion-visita.component';

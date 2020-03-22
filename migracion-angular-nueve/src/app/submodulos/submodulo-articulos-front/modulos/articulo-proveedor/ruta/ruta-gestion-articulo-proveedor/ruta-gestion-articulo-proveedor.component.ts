@@ -3,7 +3,7 @@ import {RUTAS_ARTICULO_PROVEEDOR} from '../definicion-rutas/rutas-articulo-prove
 import {AsignarArticuloProveedorComponent} from '../../modales/asignar-articulo-proveedor/asignar-articulo-proveedor.component';
 import {ArticuloProveedorInterface} from '../../../../interfaces/articulo-proveedor.interface';
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ToasterService} from 'angular2-toaster';

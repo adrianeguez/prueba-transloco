@@ -1,5 +1,5 @@
 import { ArticuloInterface } from './../../../../interfaces/articulo.interface';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ArticulosEmpresaRestService } from '../../../../servicios/rest/articulo-empresa-rest.service';
 import {

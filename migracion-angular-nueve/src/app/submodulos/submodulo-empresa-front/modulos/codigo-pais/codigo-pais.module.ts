@@ -4,7 +4,7 @@ import { CodigoPaisFormularioComponent } from './componentes/formulario-codigo-p
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionCodigosPaisComponent } from './rutas/ruta-gestion-codigos-pais/ruta-gestion-codigos-pais.component';
 import { CrearEditarCodigoPaisComponent } from './modales/crear-editar-codigo-pais/crear-editar-codigo-pais.component';
 import { CodigoPaisRoutingModule } from './codigo-pais-routing.module';

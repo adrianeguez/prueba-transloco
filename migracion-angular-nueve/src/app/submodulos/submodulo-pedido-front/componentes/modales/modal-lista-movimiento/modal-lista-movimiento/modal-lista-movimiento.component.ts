@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MovimientoInterface } from '../../../../interfaces/movimiento.interface';
 import { FilterMovimientoComponent } from '../../../filters/filter-movimiento/filter-movimiento/filter-movimiento.component';
 import { CargandoService } from 'man-lab-ng';

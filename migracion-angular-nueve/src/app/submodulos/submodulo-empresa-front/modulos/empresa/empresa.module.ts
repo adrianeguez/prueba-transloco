@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmpresaRoutingModule } from './empresa-routing.module';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionEmpresasComponent } from './rutas/ruta-gestion-empresas/ruta-gestion-empresas.component';
 import { CrearEditarEmpresaComponent } from './modales/crear-editar-empresa/crear-editar-empresa.component';
 import { TreeTableModule } from 'primeng/primeng';

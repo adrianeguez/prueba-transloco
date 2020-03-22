@@ -4,7 +4,7 @@ import { BodegaFormularioComponent } from './componentes/formulario-bodega/bodeg
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionBodegasComponent } from './rutas/ruta-gestion-bodegas/ruta-gestion-bodegas.component';
 import { CrearEditarBodegaComponent } from './modales/crear-editar-bodega/crear-editar-bodega.component';
 import { BodegaRoutingModule } from './bodega-routing.module';

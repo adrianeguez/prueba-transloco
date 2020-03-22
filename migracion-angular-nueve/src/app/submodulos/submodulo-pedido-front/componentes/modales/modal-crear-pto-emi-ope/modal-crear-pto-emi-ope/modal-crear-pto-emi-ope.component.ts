@@ -8,7 +8,7 @@ import {
   ConfiguracionFormluarioCrearPtoEmiOpe,
 } from '../../../formularios/crear-pto-emi-ope-form/crear-pto-emi-ope-formulario.component';
 import {establecerValoresConfiguracionAbstractControl} from '@manticore-labs/ng-api';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {CrearPtoEmiOpe} from '../../../formularios/crear-pto-emi-ope-form/crear-pto-emi-ope';
 import {ClaseFormularioContenedor} from './clase-formulario-contenedor';
 import {OperarioInterface} from '../../../../../submodulo-empresa-front/interfaces/operario.interface';

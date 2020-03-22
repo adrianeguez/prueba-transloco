@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalListaSubgruposComponent } from './modal-lista-subgrupos/modal-lista-subgrupos.component';
 import { FilterSubgruposModule } from '../../componentes/filters/filter-subgrupos/filter-subgrupos.module';
 import { TablaSubgruposModule } from '../../componentes/tablas/tabla-subgrupos/tabla-subgrupos.module';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ModalListaSubgruposComponent],

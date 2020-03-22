@@ -12,7 +12,7 @@ import {EstadoPuntoEmisionOperario} from '../../../../enums/estado-punto-emision
 import {ARREGLO_ESTADO_PUNTO_EMISION_OPERARIO} from '../../../../constantes/arreglo-estado-punto-emision-operario';
 import {CajasService} from '../../../../servicios/rest/cajas.service';
 import {toastErrorConexionServidor, ToastErrorTrayendoDatos} from '../../../../../../constantes/mensajes-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {
   ModalSeleccionarEstablecimientoComponent
   // tslint:disable-next-line: max-line-length

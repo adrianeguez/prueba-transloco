@@ -3,7 +3,7 @@ import {environment} from '../../../../../../environments/environment';
 import {Auth0Service} from '../../../servicios/auth0/auth0.service';
 import * as moment from 'moment';
 import {CrearEditarUsuarioComponent} from '../../../../submodulo-roles-frontend/modulos/usuario/modales/crear-editar-usuario/crear-editar-usuario.component';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'mlab-cabecera',

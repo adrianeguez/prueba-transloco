@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule, TreeTableModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 // tslint:disable-next-line:max-line-length
 import { RutaGestionDepartamentosEmpresaComponent } from './rutas/ruta-gestion-departamentos-empresa/ruta-gestion-departamentos-empresa.component';
 // tslint:disable-next-line:max-line-length

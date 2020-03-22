@@ -4,7 +4,7 @@ import {
   ModalListaBodegasComponent
 } from '../../../../submodulo-empresa-front/componentes/modales/modal-lista-bodegas/modal-lista-bodegas/modal-lista-bodegas.component';
 
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {NgForm} from '@angular/forms';
 import {NgbDate, NgbDatepickerConfig} from '@ng-bootstrap/ng-bootstrap';
 

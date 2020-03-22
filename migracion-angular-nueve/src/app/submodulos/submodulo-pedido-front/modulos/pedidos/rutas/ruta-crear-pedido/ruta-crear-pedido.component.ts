@@ -8,7 +8,7 @@ import {QueryParamsMovimientos} from '../../../../interfaces/query-params-movimi
 import {
   ModalListaMovimientoComponent
 } from '../../../../componentes/modales/modal-lista-movimiento/modal-lista-movimiento/modal-lista-movimiento.component';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {MovimientoRestService} from '../../../../servicios/rest/movimiento-rest.service';
 import {ToasterService} from 'angular2-toaster';
 import {flatMap, map} from 'rxjs/operators';

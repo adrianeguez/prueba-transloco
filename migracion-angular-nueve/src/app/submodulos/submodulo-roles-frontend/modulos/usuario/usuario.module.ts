@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ManLabNgBootstrapModule, ModalModule} from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TextMaskModule } from 'angular2-text-mask';
 import { RutaGestionUsuarioComponent } from './rutas/ruta-gestion-usuario/ruta-gestion-usuario.component';
 import { CrearEditarUsuarioComponent } from './modales/crear-editar-usuario/crear-editar-usuario.component';

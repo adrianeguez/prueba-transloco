@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CodigoPaisRestService } from '../../../../servicios/rest/codigo-pais-rest.service';

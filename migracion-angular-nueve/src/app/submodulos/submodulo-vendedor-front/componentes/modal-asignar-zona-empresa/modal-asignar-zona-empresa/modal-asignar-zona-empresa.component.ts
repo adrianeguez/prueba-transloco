@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {LugarInterface} from '../../../interfaces/lugar-interface';
 import {RutaRestService} from '../../../servicios/rest/ruta-rest.service';
 import {RutaGestionRutaComponent} from '../../../modulos/ruta/rutas/ruta-gestion-ruta/ruta-gestion-ruta.component';

@@ -7,7 +7,7 @@ import { ToasterService } from 'angular2-toaster';
 import { CalificacionClienteRestService } from '../../../../servicios/rest/calificacion-cliente-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_EMPRESA_CLIENTES } from '../../../empresa-clientes/rutas/definicion-rutas/rutas-empresa-clientes';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_CALIFICACION_CLIENTE } from '../definicion-rutas/rutas-calificacion-cliente';

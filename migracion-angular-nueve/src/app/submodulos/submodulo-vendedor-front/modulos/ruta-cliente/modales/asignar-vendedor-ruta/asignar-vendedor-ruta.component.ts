@@ -1,7 +1,7 @@
 import {element} from 'protractor';
 import {DatosVendedorRestService} from '../../../../servicios/rest/datos-vendedor-rest.service';
 import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {RutaClienteRestService} from '../../../../servicios/rest/ruta-cliente-rest.service';
 import {RutaAsignacionVendedorEmpresaComponent} from '../../rutas/ruta-asignacion-vendedor-empresa/ruta-asignacion-vendedor-empresa.component';
 import {CargandoService} from 'man-lab-ng';

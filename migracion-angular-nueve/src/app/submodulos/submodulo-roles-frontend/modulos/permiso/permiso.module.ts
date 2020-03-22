@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ConfirmacionModule, ManLabNgBootstrapModule, ModalConfirmacionComponent} from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FilterPermisoNombreModule } from '../../componentes/filter-permiso-nombre/filter-permiso-nombre.module';
 import { NombrePermisoModule } from './componentes/nombre-permiso/nombre-permiso.module';
 import { TableModule } from 'primeng/table';

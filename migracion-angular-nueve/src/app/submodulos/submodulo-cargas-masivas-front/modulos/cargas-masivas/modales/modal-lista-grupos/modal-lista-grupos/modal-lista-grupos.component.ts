@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FilterGruposComponent } from '../../../componentes/filters/filter-grupos/filter-grupos/filter-grupos.component';
 import { GrupoInterface } from '../../../../../../submodulo-articulos-front/interfaces/grupo.interface';
 import { CargandoService } from 'man-lab-ng';

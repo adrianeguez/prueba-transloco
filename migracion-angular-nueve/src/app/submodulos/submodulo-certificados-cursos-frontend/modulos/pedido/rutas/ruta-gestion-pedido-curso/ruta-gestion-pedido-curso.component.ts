@@ -5,7 +5,7 @@ import {MigaDePanInterface, RutaConMigasDePanTablaBusqueda} from '@manticore-lab
 import {ToasterService} from 'angular2-toaster';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import {RUTAS_PEDIDO_CURSO} from '../definicion-rutas/rutas-pedido-curso';
 import {RUTAS_EMPRESA} from '../../../../../submodulo-empresa-front/modulos/empresa/rutas/definicion-rutas/rutas-empresa';

@@ -7,7 +7,7 @@ import {
 import { ESTADOS } from './../../../../../../enums/estados';
 import { NUMERO_FILAS_TABLAS } from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CrearEditarPrecioComponent } from '../../modales/crear-editar-precio/crear-editar-precio.component';
 import { ToasterService } from 'angular2-toaster';

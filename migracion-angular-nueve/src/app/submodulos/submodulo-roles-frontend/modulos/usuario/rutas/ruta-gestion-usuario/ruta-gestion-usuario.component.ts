@@ -3,7 +3,7 @@ import {ToasterService} from 'angular2-toaster';
 import {MigaDePanInterface, RutaConMigasDePanTablaBusqueda} from '@manticore-labs/ng-api';
 import { DatosUsuarioInterface } from 'src/app/submodulos/submodulo-empresa-front/interfaces/datos-usuario.interface';
 import {DatosUsuarioRestService} from '../../../../servicios/rest/datos-usuario-rest.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {RUTAS_USUARIO} from '../definicion-rutas/rutas-usuario';

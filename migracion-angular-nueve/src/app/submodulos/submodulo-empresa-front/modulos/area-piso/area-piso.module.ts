@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { TreeTableModule } from 'primeng/primeng';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { CrearEditarAreaPisoComponent } from './modales/crear-editar-area-piso/crear-editar-area-piso.component';
 import { RutaGestionAreasPisoComponent } from './rutas/ruta-gestion-areas-piso/ruta-gestion-areas-piso.component';
 import { AreaPisoRoutingModule } from './area-piso-routing.module';

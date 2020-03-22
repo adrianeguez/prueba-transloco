@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MenuInterfazComponent } from './components/menu-interfaz/menu-interfaz.component';
 import { MenuPanelComponent } from './components/menu-panel/menu-panel.component';
 import { MenuLateralIconosComponent } from './components/menu-lateral-iconos/menu-lateral-iconos.component';
-import { MatSidenavModule } from '@angular/material';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { InputTextModule, MenuModule, PanelMenuModule } from 'primeng/primeng';
 
 @NgModule({

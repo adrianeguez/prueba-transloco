@@ -4,7 +4,7 @@ import {
   ModalIngresarCabeceraMovimientoTransferenciasComponent
 } from './modal-ingresar-cabecera-movimiento-transferencias/modal-ingresar-cabecera-movimiento-transferencias.component';
 import { TransferenciaModule } from '../../transferencia/transferencia.module';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [ModalIngresarCabeceraMovimientoTransferenciasComponent],

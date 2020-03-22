@@ -7,7 +7,7 @@ import { ToasterService } from 'angular2-toaster';
 import { AreaTrabajadorRestService } from '../../../../servicios/rest/area-trabajador-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_AREA_TRABAJADOR } from '../definicion-rutas/rutas-area-trabajador';
 import { RUTAS_EDIFICIO } from '../../../edificio/rutas/definicion-rutas/rutas-edificio';

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CargandoService } from 'man-lab-ng';
 import { ToasterService } from 'angular2-toaster';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CronogramaVendedorInterface } from '../../../../../interfaces/cronograma-vendedor-interface';
 import {
   establecerValoresConfiguracionAbstractControl,

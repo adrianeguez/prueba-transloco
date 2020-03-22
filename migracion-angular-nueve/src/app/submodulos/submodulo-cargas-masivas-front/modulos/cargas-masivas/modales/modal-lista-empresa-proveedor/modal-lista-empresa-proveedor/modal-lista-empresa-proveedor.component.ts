@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { CargandoService } from 'man-lab-ng';
 import {FilterEmpresaProveedorComponent} from '../../../../../../submodulo-empresa-front/componentes/filters/filter-empresa-proveedor/filter-empresa-proveedor/filter-empresa-proveedor.component';
 import {EmpresaProveedoresInterface} from '../../../../../../submodulo-empresa-front/interfaces/empresa-proveedores.interface';

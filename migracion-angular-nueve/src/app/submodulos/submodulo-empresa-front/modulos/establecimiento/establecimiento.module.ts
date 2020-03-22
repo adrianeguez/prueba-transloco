@@ -4,7 +4,7 @@ import { EstablecimientoFormularioComponent } from './componentes/establecimient
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionEstablecimientosComponent } from './rutas/ruta-gestion-establecimientos/ruta-gestion-establecimientos.component';
 import { CrearEditarEstablecimientoComponent } from './modales/crear-editar-establecimiento/crear-editar-establecimiento.component';
 import { EstablecimientoRoutingModule } from './establecimiento-routing.module';

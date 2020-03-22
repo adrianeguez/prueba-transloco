@@ -9,7 +9,7 @@ import { ArticulosEmpresaRestService } from '../../../../../submodulo-articulos-
 import { EmpresaRestService } from '../../../../servicios/rest/empresa-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { NUMERO_FILAS_TABLAS } from '../../../../../submodulo-front-comun/constantes/numero-filas-tablas';
 import { RUTAS_PRINCIPAL } from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';

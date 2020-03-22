@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { CrearEditarNombrePermisoComponent } from '../../modales/crear-editar-nombre-permiso/crear-editar-nombre-permiso.component';
 import { NombrePermisoInterface } from '../../../../interfaces/nombre-permiso-interface';

@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { EmpresaProveedoresInterface } from '../../../../interfaces/empresa-proveedores.interface';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FilterEmpresaProveedorComponent } from '../../../filters/filter-empresa-proveedor/filter-empresa-proveedor/filter-empresa-proveedor.component';
 import { CargandoService } from 'man-lab-ng';
 

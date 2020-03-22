@@ -1,5 +1,5 @@
 import { ArticuloProveedorInterface } from '../../../../interfaces/articulo-proveedor.interface';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
 import { CargandoService } from 'man-lab-ng';
 

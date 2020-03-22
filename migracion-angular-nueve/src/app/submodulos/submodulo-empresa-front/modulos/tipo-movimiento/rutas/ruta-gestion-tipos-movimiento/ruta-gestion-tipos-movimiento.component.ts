@@ -5,7 +5,7 @@ import { EmpresaRestService } from '../../../../servicios/rest/empresa-rest.serv
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {
   MigaDePanInterface,
   RutaConMigasDePanTablaBusqueda,

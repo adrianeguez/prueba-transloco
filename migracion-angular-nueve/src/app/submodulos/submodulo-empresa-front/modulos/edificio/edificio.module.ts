@@ -4,7 +4,7 @@ import { EdificioFormularioComponent } from './componentes/formularios/edificio-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EdificioRoutingModule } from './edificio-routing.module';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionEdificiosComponent } from './rutas/ruta-gestion-edificios/ruta-gestion-edificios.component';
 import { CrearEditarEdificioComponent } from './modales/crear-editar-edificio/crear-editar-edificio.component';
 import { TableModule } from 'primeng/table';

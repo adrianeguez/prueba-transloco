@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { UnidadMedidaInterface } from '../../../../interfaces/unidad-medida.interface';
 import { UnidadMedidaPorArticuloRestService } from '../../../../servicios/rest/unidad-medida-por-articulo-rest.service';

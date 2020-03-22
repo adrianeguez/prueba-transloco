@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FilterArticulosComponent } from '../../../componentes/filters/filter-articulos/filter-articulos/filter-articulos.component';
 import { ArticuloInterface } from '../../../../../../submodulo-articulos-front/interfaces/articulo.interface';
 import { CargandoService } from 'man-lab-ng';

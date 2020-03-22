@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import {CrearEditarHorarioComponent} from './modal-crear-editar-horario/crear-editar-horario.component';
 import {TituloPantallaModule} from '../../../../../submodulo-front-comun/modulos/titulo-pantalla/titulo-pantalla.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';

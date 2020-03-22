@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {
   ModalIngresarCabeceraMovimientoAjustesComponent
 } from './modal-ingresar-cabecera-movimiento-ajustes/modal-ingresar-cabecera-movimiento-ajustes.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AjustesModule } from '../../ajustes/ajustes.module';
 
 @NgModule({

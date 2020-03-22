@@ -3,7 +3,7 @@ import {
   InformacionTributariaRestService,
   RespuestaBuscarEmpresaOInformacionTributariaPorCedulaRucOPasaporte
 } from '../../../../../submodulo-empresa-front/servicios/rest/informacion-tributaria-rest.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { InformacionTributariaInterface } from '../../../../../submodulo-empresa-front/interfaces/informacion-tributaria.interface';
 import {CargandoService} from 'man-lab-ng';
 import {FilterClienteComponent} from '../../../filters/filter-cliente/filter-cliente/filter-cliente.component';

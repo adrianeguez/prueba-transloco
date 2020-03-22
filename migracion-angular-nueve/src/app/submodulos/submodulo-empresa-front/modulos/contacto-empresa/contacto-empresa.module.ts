@@ -6,7 +6,7 @@ import { ContactoEmpresaFormularioComponent } from './componentes/contacto-empre
 import { ContactoEmpresaRoutingModule } from './contacto-empresa-routing.module';
 import { TableModule } from 'primeng/table';
 import {ManLabNgBootstrapModule, ManLabNgModule, SelectEstadoModule} from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionContactosEmpresaComponent } from './rutas/ruta-gestion-contactos-empresa/ruta-gestion-contactos-empresa.component';
 import { CrearEditarContactoEmpresaComponent } from './modales/modal-crear-contacto-empresa/crear-editar-contacto-empresa/crear-editar-contacto-empresa.component';
 import { AutoCompleteModule } from 'primeng/primeng';

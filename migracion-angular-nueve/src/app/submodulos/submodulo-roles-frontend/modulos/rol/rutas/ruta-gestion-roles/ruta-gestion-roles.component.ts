@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RolRestService} from '../../../../servicios/rest/rol.service';
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {RolInterface} from '../../../../interfaces/rol-interface';
 import {ToasterService} from 'angular2-toaster';

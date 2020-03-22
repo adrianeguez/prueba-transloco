@@ -8,7 +8,7 @@ import { NUMERO_FILAS_TABLAS } from '../../../../../submodulo-front-comun/consta
 import { ESTADOS } from '../../../../../../enums/estados';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_PRINCIPAL } from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import {

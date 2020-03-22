@@ -5,7 +5,7 @@ import { EmpresaProveedoresRoutingModule } from './empresa-proveedores-routing.m
 import { RutaGestionEmpresasProveedoresComponent } from './rutas/ruta-gestion-empresas-proveedores/ruta-gestion-empresas-proveedores.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { AutoCompleteModule } from 'primeng/primeng';
 import { CrearEditarEmpresaProveedoresComponent } from './modales/crear-editar-empresa-proveedores/crear-editar-empresa-proveedores.component';

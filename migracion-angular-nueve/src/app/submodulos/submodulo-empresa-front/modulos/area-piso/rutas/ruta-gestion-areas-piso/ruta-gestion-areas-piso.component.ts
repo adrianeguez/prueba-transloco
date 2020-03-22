@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TreeNode } from 'primeng/api';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { ActivatedRoute, Router } from '@angular/router';
 import { generarNodo } from '../../../../funciones/funciones-tree-table/generar-nodo';

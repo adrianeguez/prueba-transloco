@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { RutaGestionDatosVendedorComponent } from '../../../datos-vendedor/rutas/ruta-gestion-datos-vendedor/ruta-gestion-datos-vendedor.component';
 import { DatosVendedorInterface } from '../../../../interfaces/datos-vendedor-interface';

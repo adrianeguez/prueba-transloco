@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {PedidoRoutingModule} from './pedido-routing.module';
 import {RutaGestionPedidoCursoComponent} from './rutas/ruta-gestion-pedido-curso/ruta-gestion-pedido-curso.component';
 import {CrearEditarPedidoCursoComponent} from './modales/crear-pedido-curso/crear-editar-pedido-curso/crear-editar-pedido-curso.component';
-import {MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import {TableModule} from 'primeng/table';
 import {ManLabNgBootstrapModule, ManLabNgModule} from 'man-lab-ng';
 import {TituloPantallaModule} from '../../../submodulo-front-comun/modulos/titulo-pantalla/titulo-pantalla.module';

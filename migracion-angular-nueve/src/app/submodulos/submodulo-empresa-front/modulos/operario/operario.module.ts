@@ -6,7 +6,7 @@ import { CrearEditarOperarioComponent } from './modales/crear-editar-operario/cr
 import { RutaGestionOperariosComponent } from './rutas/ruta-gestion-operarios/ruta-gestion-operarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { OperarioFormularioComponent } from './componentes/operario-formulario/operario-formulario.component';
 import { AutoCompleteModule } from 'primeng/primeng';

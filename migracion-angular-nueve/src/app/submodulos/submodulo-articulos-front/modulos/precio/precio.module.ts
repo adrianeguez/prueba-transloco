@@ -5,7 +5,7 @@ import { PrecioFormularioComponent } from './componentes/precio-formulario/preci
 import { RutaGestionPreciosComponent } from './rutas/ruta-gestion-precios/ruta-gestion-precios.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {ConfirmacionModule, ManLabNgBootstrapModule, ModalConfirmacionComponent, SelectEstadoModule} from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { CrearEditarPrecioComponent } from './modales/crear-editar-precio/crear-editar-precio.component';
 import { TextMaskModule } from 'angular2-text-mask';

@@ -6,7 +6,7 @@ import {
   ConfiguracionFormluarioIngresarKardexCaja
 } from '../../../formularios/formulario-ingresar-kardex-caja/ingresar-kardex-caja-formulario.component';
 import {KardexCajaRestService} from '../../../../servicios/rest/kardex-caja-rest.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {ToasterService} from 'angular2-toaster';
 import {CargandoService} from 'man-lab-ng';
 import {Observable} from 'rxjs';

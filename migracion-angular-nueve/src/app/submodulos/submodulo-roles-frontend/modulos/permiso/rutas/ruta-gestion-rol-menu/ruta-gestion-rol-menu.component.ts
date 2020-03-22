@@ -3,7 +3,7 @@ import { MenuInterface } from '../../../../interfaces/menu-interface';
 import { RolInterface } from '../../../../interfaces/rol-interface';
 import { RolMenuRestService } from '../../../../servicios/rest/rol-menu.service';
 import { RolMenuInterface } from '../../../../interfaces/rol-menu.interface';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 // tslint:disable-next-line:max-line-length
 import { ToasterService } from 'angular2-toaster';
 import { CargandoService, ModalConfirmacionComponent } from 'man-lab-ng';

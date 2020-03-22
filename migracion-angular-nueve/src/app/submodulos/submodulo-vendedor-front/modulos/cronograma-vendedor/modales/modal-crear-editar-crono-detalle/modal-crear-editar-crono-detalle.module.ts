@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalCrearEditarCronoDetalleComponent } from './modal-crear-editar-crono-detalle/modal-crear-editar-crono-detalle.component';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ManLabNgBootstrapModule, ManLabNgModule } from 'man-lab-ng';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';

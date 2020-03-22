@@ -3,7 +3,7 @@ import {MigaDePanInterface, RutaConMigasDePanTablaBusqueda} from '@manticore-lab
 import {ToasterService} from 'angular2-toaster';
 import {CargandoService, EmitirMigaPanService} from 'man-lab-ng';
 import {ActivatedRoute, Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {HorarioServicioRestService} from '../../servicios/rest/horario-servicio.rest.service';
 import {RUTAS_CLIENTE} from '../../../../../../modulos-generales/cliente/rutas/definicion-rutas/definicion-rutas-cliente';
 import {HorarioServicioInterface} from '../../interfaces/horario-servicio.interface';

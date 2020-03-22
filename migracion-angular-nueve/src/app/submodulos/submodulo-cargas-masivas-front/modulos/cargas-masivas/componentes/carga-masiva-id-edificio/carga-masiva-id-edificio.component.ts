@@ -10,7 +10,7 @@ import { CargaMasivaCreateDto } from '../../../../clases/carga-masiva-create-dto
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CargaMasivaRestService } from '../../../../servicios/rest/carga-masiva-rest.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { formatearFecha } from '../../../../funciones/formatear-fecha';
 import { setearHora } from '../../../../funciones/setear-hora';
 import { RUTAS_CARGAS_MASIVAS } from '../../rutas/definicion-rutas/rutas-cargas-masivas';

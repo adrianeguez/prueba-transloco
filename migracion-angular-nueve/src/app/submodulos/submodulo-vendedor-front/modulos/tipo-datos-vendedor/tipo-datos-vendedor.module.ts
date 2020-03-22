@@ -5,7 +5,7 @@ import { TipoDatosVendedorRoutingModule } from './tipo-datos-vendedor-routing.mo
 import { RutaTipoDatosVendedorComponent } from './rutas/ruta-tipo-datos-vendedor/ruta-tipo-datos-vendedor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ManLabNgBootstrapModule, SelectEstadoModule} from 'man-lab-ng';
-import {MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import {TableModule} from 'primeng/table';
 import {AsignarTipoVendedorComponent} from './modales/asignar-tipo-vendedor/asignar-tipo-vendedor.component';
 import {SelectTipoVendedorModule} from '../../componentes/select-tipo-vendedor/select-tipo-vendedor.module';

@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {RutaGestionPeriodoVentaComponent} from '../../rutas/ruta-gestion-periodo-venta/ruta-gestion-periodo-venta.component';
 import {ToasterService} from 'angular2-toaster';
 import {PeriodoVentaRestService} from '../../../../servicios/rest/periodo-venta-rest.service';

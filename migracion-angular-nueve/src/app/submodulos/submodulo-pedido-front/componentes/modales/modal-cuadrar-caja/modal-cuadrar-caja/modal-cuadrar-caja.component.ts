@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {establecerValoresConfiguracionAbstractControl, FormularioModal} from '@manticore-labs/ng-api';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {ToasterService} from 'angular2-toaster';
 import {CargandoService} from 'man-lab-ng';
 import {CuadrarCaja} from '../../../formularios/formulario-cuadrar-caja/cuadrar-caja';

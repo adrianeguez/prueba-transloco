@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule, TreeTableModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { environment } from '../../../../../environments/environment';
 // tslint:disable-next-line:max-line-length
 import { CrearEditarDepartamentoTrabajadorComponent } from './modales/crear-editar-departamento-trabajador/crear-editar-departamento-trabajador.component';

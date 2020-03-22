@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { EdificioInterface } from '../../../../../../submodulo-empresa-front/interfaces/edificio.interface';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FilterPisosComponent } from '../../../componentes/filters/filter-pisos/filter-pisos/filter-pisos.component';
 import { PisoInterface } from '../../../../../../submodulo-empresa-front/interfaces/piso.interface';
 import { CargandoService } from 'man-lab-ng';

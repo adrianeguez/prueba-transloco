@@ -12,7 +12,7 @@ import {CronogramaVendedorCabeceraInterface} from '../../../../interfaces/cronog
 import {RUTAS_PRINCIPAL} from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import {RUTAS_GESTION_CRONOGRAMAS} from '../definicion-rutas/gestion-cronograma';
 import {RUTAS_EMPRESA} from '../../../../../submodulo-empresa-front/modulos/empresa/rutas/definicion-rutas/rutas-empresa';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {ModalCrearEditarCronoCabeceraComponent} from '../../modales/modal-crear-editar-crono-cabecera/modal-crear-editar-crono-cabecera/modal-crear-editar-crono-cabecera.component';
 import {ModalCrearEditarCronoDetalleComponent} from '../../modales/modal-crear-editar-crono-detalle/modal-crear-editar-crono-detalle/modal-crear-editar-crono-detalle.component';
 import {ESTADOS} from '../../../../../../enums/estados';

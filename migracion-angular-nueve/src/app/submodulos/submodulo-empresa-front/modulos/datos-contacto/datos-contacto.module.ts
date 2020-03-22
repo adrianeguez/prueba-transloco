@@ -4,7 +4,7 @@ import { DatosContactoFormularioComponent } from './componentes/formulario-datos
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionDatosContactoComponent } from './rutas/ruta-gestion-datos-contacto/ruta-gestion-datos-contacto.component';
 import { CrearEditarDatosContactoComponent } from './modales/crear-editar-datos-contacto/crear-editar-datos-contacto.component';
 import { DatosContactoRoutingModule } from './datos-contacto-routing.module';

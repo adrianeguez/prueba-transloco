@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import {CabeceraCompra} from '../../../formularios/formulario-cabecera-compra/cabecera-compra';
 import {
   CONFIGURACION_CABECERACOMPRA,

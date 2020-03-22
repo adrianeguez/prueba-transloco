@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import { FilterEdificioComponent } from '../../../componentes/filters/filter-edificio/filter-edificio/filter-edificio.component';
 import { EdificioInterface } from '../../../../../../submodulo-empresa-front/interfaces/edificio.interface';
 import { CargandoService } from 'man-lab-ng';

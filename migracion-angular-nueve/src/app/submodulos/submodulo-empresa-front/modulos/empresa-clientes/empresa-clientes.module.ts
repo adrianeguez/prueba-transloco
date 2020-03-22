@@ -6,7 +6,7 @@ import { RutaGestionEmpresasClientesComponent } from './rutas/ruta-gestion-empre
 import { CrearEditarEmpresaClientesComponent } from './modales/crear-editar-empresa-clientes.ts/crear-editar-empresa-clientes.ts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { EmpresaClientesFormularioComponent } from './componentes/empresa-clientes-formulario/empresa-clientes-formulario.component';
 import { AutoCompleteModule } from 'primeng/primeng';

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 // tslint:disable-next-line: max-line-length
 import { FilterTipoImpuestoComponent } from '../../../componentes/filters/filter-tipo-impuesto/filter-tipo-impuesto/filter-tipo-impuesto.component';
 import { TipoImpuestoInterface } from '../../../../../../submodulo-articulos-front/interfaces/tipo-impuesto.interface';

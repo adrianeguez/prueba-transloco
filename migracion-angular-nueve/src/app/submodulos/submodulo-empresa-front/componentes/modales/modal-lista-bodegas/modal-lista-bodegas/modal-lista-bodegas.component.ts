@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FilterBodegaComponent } from '../../../filters/filter-bodega/filter-bodega/filter-bodega.component';
 import { BodegaInterface } from '../../../../interfaces/bodega.interface';
 import { CargandoService } from 'man-lab-ng';

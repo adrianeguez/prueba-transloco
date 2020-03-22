@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RutaConMigasDePanTablaBusqueda } from '@manticore-labs/ng-api';
 import { ToasterService } from 'angular2-toaster';

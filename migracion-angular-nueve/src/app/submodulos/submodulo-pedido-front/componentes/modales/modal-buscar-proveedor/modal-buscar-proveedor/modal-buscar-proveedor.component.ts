@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FilterProveedorComponent} from '../../../filters/filter-proveedor/filter-proveedor/filter-proveedor.component';
 import {EmpresaProveedorInterface} from '../../../../servicios/rest/empresa-proveedores/interfaces/empresa-proveedor.interface';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {CargandoService} from 'man-lab-ng';
 
 @Component({

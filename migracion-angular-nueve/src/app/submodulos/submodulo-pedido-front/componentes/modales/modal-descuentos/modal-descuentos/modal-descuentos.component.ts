@@ -6,7 +6,7 @@ import {
   ConfiguracionFormluarioIngresarDescuentoFactura
 } from '../../../formularios/ingresar-descuento-factura/ingresar-descuento-factura-formulario.component';
 import {establecerValoresConfiguracionAbstractControl} from '@manticore-labs/ng-api';
-import {MatDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {PedidoDetalleInterface} from '../../../../interfaces/pedido-detalle.interface';
 import {DescuentoInterface} from '../../../../interfaces/descuento.interface';

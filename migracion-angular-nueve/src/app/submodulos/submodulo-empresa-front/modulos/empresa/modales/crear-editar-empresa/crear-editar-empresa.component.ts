@@ -10,7 +10,7 @@ import {
   CONFIGURACION_EMPRESA,
   ConfiguracionFormluarioEmpresa,
 } from '../../componentes/formularios/empresa-formulario/empresa-formulario.component';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { EmpresaRestService } from '../../../../servicios/rest/empresa-rest.service';
 import { establecerValoresConfiguracionAbstractControl } from '@manticore-labs/ng-api';

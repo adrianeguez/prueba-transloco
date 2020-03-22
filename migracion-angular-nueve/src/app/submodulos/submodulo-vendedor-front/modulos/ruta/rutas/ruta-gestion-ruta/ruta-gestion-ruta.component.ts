@@ -3,7 +3,7 @@ import { RutaConMigasDePanTablaBusqueda } from '@manticore-labs/ng-api';
 import { ToasterService } from 'angular2-toaster';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_RUTA } from '../definicion-rutas/rutas-ruta-vendedor';
 import { MigaDePanInterface } from 'man-lab-ng/rutas/interfaces/miga-de-pan-interface';
 import { CrearEditarRutaVendedorComponent } from '../../modales/crear-editar-ruta-vendedor/crear-editar-ruta-vendedor.component';

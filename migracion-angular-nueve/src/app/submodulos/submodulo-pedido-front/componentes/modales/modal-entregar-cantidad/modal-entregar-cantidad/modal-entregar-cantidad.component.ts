@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {MASK_NUMEROS_DECIMALES} from '../../../../constantes/mascaras';
 import {ToasterService} from 'angular2-toaster';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'ml-modal-entregar-cantidad',

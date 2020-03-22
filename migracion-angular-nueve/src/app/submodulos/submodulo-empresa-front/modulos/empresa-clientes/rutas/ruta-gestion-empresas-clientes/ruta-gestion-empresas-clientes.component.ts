@@ -7,7 +7,7 @@ import { ToasterService } from 'angular2-toaster';
 import { EmpresaClientesRestService } from '../../../../servicios/rest/empresa-clientes-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_EMPRESA_CLIENTES } from '../definicion-rutas/rutas-empresa-clientes';
 import { CrearEditarEmpresaClientesComponent } from '../../modales/crear-editar-empresa-clientes.ts/crear-editar-empresa-clientes.ts.component';

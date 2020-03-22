@@ -1,6 +1,6 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CrearEditarUsuarioComponent} from './crear-editar-usuario.component';
-import {MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import {ManLabNgBootstrapModule, ModalModule} from 'man-lab-ng';
 import {TextMaskModule} from 'angular2-text-mask';
 import {DatosUsuarioFormularioComponent} from '../../componentes/datos-usuario-formulario/datos-usuario-formulario.component';

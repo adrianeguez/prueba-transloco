@@ -16,7 +16,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { CargandoService, EstaTipeandoComponent } from 'man-lab-ng';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 import { establecerValoresConfiguracionAbstractControl } from '@manticore-labs/ng-api';
 import { PreciosInterface } from '../../../../interfaces/precios.interface';

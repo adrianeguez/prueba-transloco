@@ -6,7 +6,7 @@ import { RutaGestionCalificacionesProveedorComponent } from './rutas/ruta-gestio
 import { CrearEditarCalificacionProveedorComponent } from './modales/crear-editar-calificacion-proveedor/crear-editar-calificacion-proveedor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { CalificacionProveedorFormularioComponent } from './componentes/calificacion-proveedor-formulario/calificacion-proveedor-formulario.component';
 import {RatingModule} from 'primeng/primeng';

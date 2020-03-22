@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ToasterService} from 'angular2-toaster';
 import {EmpresaRestService} from '../../../../servicios/rest/empresa-rest.service';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {CrearEditarEmpresaComponent} from '../../modales/crear-editar-empresa/crear-editar-empresa.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import {

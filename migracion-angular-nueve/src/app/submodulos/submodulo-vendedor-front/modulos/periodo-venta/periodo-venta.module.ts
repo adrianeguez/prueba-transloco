@@ -10,7 +10,7 @@ import {
   ManLabNgBootstrapModule, ModalConfirmacionComponent,
   SelectEstadoModule,
 } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { PeriodoVentaFormularioComponent } from './componentes/periodo-venta-formulario/periodo-venta-formulario.component';
 import { TextMaskModule } from 'angular2-text-mask';

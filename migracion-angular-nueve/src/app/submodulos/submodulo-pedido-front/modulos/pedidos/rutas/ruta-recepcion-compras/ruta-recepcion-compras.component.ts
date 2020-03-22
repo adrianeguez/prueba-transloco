@@ -4,7 +4,7 @@ import { MigaDePanInterface, RutaConMigasDePan } from '@manticore-labs/ng-api';
 import { RUTAS_PRINCIPAL } from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import { RUTAS_PEDIDOS } from '../definicion-rutas/rutas-pedidos';
 import { EmitirMigaPanService } from 'man-lab-ng';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ModalListaMovimientoComponent } from '../../../../componentes/modales/modal-lista-movimiento/modal-lista-movimiento/modal-lista-movimiento.component';
 import { MovimientoInterface } from '../../../../interfaces/movimiento.interface';
 

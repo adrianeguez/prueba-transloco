@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ToasterService } from 'angular2-toaster';
 // tslint:disable-next-line: max-line-length
 import { RutaGestionUnidadMedidaArticuloComponent } from '../../rutas/ruta-gestion-unidad-medida-articulo/ruta-gestion-unidad-medida-articulo.component';

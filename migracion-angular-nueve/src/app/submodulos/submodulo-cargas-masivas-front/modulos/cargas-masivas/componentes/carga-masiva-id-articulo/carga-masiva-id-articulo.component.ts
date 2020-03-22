@@ -6,7 +6,7 @@ import {
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { RUTAS_PRINCIPAL } from '../../../../../submodulo-front-comun/rutas/definicion-rutas/rutas-principal';
 import { RUTAS_CARGAS_MASIVAS } from '../../rutas/definicion-rutas/rutas-cargas-masivas';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToasterService } from 'angular2-toaster';
 import { CargaMasivaInterface } from '../../../../interfaces/carga-masiva.interface';

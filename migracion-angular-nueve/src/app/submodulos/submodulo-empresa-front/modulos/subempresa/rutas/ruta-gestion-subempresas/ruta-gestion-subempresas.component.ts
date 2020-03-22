@@ -7,7 +7,7 @@ import { SubempresaRestService } from '../../../../servicios/rest/subempresa-res
 import { ToasterService } from 'angular2-toaster';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_SUBEMPRESA } from '../definicion/rutas-subempresa';
 import { TreeNode } from 'primeng/api';

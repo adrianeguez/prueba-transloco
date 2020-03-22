@@ -4,7 +4,7 @@ import {TipoFacturaInterface} from '../../../interfaces/tipo-factura.interface';
 import {EmpresaProveedoresInterface} from '../../../../submodulo-empresa-front/interfaces/empresa-proveedores.interface';
 import {MovimientoInterface} from '../../../interfaces/movimiento.interface';
 import {ToasterService} from 'angular2-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {ModalListaMovimientoComponent} from '../../modales/modal-lista-movimiento/modal-lista-movimiento/modal-lista-movimiento.component';
 
 @Component({

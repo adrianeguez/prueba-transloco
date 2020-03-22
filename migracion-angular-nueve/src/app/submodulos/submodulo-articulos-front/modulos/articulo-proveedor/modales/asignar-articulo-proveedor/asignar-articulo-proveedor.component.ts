@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ArticulosRestService} from '../../../../servicios/rest/articulos-rest.service';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {CargandoService} from 'man-lab-ng';
 import {ToasterService} from 'angular2-toaster';
 import {ArticulosProveedorRestService} from '../../../../servicios/rest/articulo-proveedor-rest.service';

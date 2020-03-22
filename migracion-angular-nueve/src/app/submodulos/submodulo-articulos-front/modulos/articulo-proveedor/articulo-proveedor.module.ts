@@ -5,7 +5,7 @@ import { ArticuloProveedorRoutingModule } from './articulo-proveedor-routing.mod
 import { RutaGestionArticuloProveedorComponent } from './ruta/ruta-gestion-articulo-proveedor/ruta-gestion-articulo-proveedor.component';
 import { AsignarArticuloProveedorComponent } from './modales/asignar-articulo-proveedor/asignar-articulo-proveedor.component';
 import {ManLabNgBootstrapModule} from 'man-lab-ng';
-import {MatDialogModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TableModule} from 'primeng/table';
 

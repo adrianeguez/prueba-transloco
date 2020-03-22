@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ManLabNgBootstrapModule } from 'man-lab-ng';
 import { DragDropModule, DropdownModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';

@@ -4,7 +4,7 @@ import { CalificacionClienteRoutingModule } from './calificacion-cliente-routing
 import { RutaGestionCalificacionesClienteComponent } from './rutas/ruta-gestion-calificaciones-cliente/ruta-gestion-calificaciones-cliente.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManLabNgBootstrapModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { CrearEditarCalificacionClienteComponent } from './modales/crear-editar-calificacion-cliente/crear-editar-calificacion-cliente.component';
 import { CalificacionClienteFormularioComponent } from './componentes/calificacion-cliente-formulario/calificacion-cliente-formulario.component';

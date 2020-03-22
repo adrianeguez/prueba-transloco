@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ToasterService} from 'angular2-toaster';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {
   ModalListaEmpresaProveedorComponent
 // tslint:disable-next-line:max-line-length

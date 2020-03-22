@@ -4,7 +4,7 @@ import { PisoFormularioComponent } from './componentes/piso-formulario/piso-form
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { RutaGestionPisosComponent } from './rutas/ruta-gestion-pisos/ruta-gestion-pisos.component';
 import { CrearEditarPisoComponent } from './modales/crear-editar-piso/crear-editar-piso.component';
 import { PisoRoutingModule } from './piso-routing.module';

@@ -7,7 +7,7 @@ import { ToasterService } from 'angular2-toaster';
 import { CalificacionProveedorRestService } from '../../../../servicios/rest/calificacion-proveedor-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_CALIFICACION_PROVEEDOR } from '../definicion-rutas/rutas-calificacion-proveedor';
 import { RUTAS_EMPRESA_PROVEEDORES } from '../../../empresa-proveedores/rutas/definicion-rutas/rutas-empresa-proveedores';

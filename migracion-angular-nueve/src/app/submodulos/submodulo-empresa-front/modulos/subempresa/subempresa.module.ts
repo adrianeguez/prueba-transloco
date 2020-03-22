@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SubempresaRoutingModule } from './subempresa-routing.module';
 import { RutaGestionSubempresasComponent } from './rutas/ruta-gestion-subempresas/ruta-gestion-subempresas.component';
 import { ManLabNgBootstrapModule, SelectEstadoModule } from 'man-lab-ng';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { TableModule } from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CrearEditarSubempresaComponent } from './modales/crear-editar-subempresa/crear-editar-subempresa.component';

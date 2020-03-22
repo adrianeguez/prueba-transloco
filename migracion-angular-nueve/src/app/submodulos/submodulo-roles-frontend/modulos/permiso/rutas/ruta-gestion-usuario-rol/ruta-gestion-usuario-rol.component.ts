@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioRolInterface } from '../../../../interfaces/usuario-rol.interface';
 import { UsuarioRolRestService } from '../../../../servicios/rest/usuario-rol.service';
 // tslint:disable-next-line:max-line-length
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { UsuarioInterface } from '../../../../interfaces/usuario.interface';
 import { ToasterService } from 'angular2-toaster';
 import {CargandoService, EmitirMigaPanService, ModalConfirmacionComponent} from 'man-lab-ng';

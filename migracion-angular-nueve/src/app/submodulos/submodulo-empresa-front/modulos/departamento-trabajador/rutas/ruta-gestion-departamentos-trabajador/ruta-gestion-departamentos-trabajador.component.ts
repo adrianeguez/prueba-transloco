@@ -8,7 +8,7 @@ import { ToasterService } from 'angular2-toaster';
 import { DepartamentoTrabajadorRestService } from '../../../../servicios/rest/departamento-trabajador-rest.service';
 import { CargandoService, EmitirMigaPanService } from 'man-lab-ng';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { RUTAS_DEPARTAMENTO_EMPRESA } from '../../../departamento-empresa/rutas/definicion-rutas/rutas-departamento-empresa';
 import { RUTAS_EMPRESA } from '../../../empresa/rutas/definicion-rutas/rutas-empresa';
 import { RUTAS_DEPARTAMENTO_TRABAJADOR } from '../definicion-rutas/rutas-departamento-trabajador';
