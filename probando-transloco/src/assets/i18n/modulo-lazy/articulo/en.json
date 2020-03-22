@@ -1,0 +1,1720 @@
+{
+  "ejemplo": {
+    "hola": "HOLA INTERNO"
+  },
+  "moduloPrincipal": {
+    "cabecera": {
+      "botonPerfil": "Profile"
+    }
+  },
+  "formularios": {
+    "comunes": {
+      "requerido": "The field \"{{nombre}}\" is required.",
+      "minLength": "The field \"{{nombre}}\" must have more than {{minLength}} characters.",
+      "maxLength": "The field \"{{nombre}}\" must have less than {{maxLength}} characters.",
+      "min": "The field \"{{nombre}}\" must have a minimum value of {{minLength}}.",
+      "max": "The field \"{{nombre}}\" must have a maximum value of {{maxLength}}.",
+      "ngbDate": "The field \"{{nombre}}\" is not valid. Date format incorrect. Format: YYYY-MM-DD",
+      "pattern": "The field \"{{nombre}}\" is not valid. {{patternMensaje}}",
+      "correo": "The field \"{{nombre}}\" does not look like an email.",
+      "valido": "Valid",
+      "cuidado": "Warning",
+      "autocompleteSinRegistros": "There are no records"
+    }
+  },
+  "componentes": {
+  },
+  "generales": {
+    "sinRegistros": "There are no records",
+    "idioma": "Change languaje",
+    "botones": {
+      "activo": "ACTIVE",
+      "inactivo": "INACTIVE",
+      "nuevo": "NEW",
+      "editar": "EDIT",
+      "buscar": "SEARCH",
+      "aceptar": "ACCEPT",
+      "cancelar": "CANCEL",
+      "crear": "CREATE",
+      "asignar": "ASSIGN",
+      "desasignar": "UNASSIGN"
+    },
+    "titulos": {
+      "crearVacio": "CREATE",
+      "crear": "CREATE {{nombreModulo}}",
+      "editarVacio": "EDIT",
+      "editar": "EDIT {{nombreModulo}}",
+      "gestion": "{{nombreModulos}} Management",
+      "gestionVacio": "Management",
+      "asignacion": "{{nombreModulos}} Assignment",
+      "asignacionVacio": "Assignment"
+    },
+    "descripciones": {
+      "modal": "Fill in the required fields. ",
+      "gestion": "Manage {{nombreModulos}}",
+      "asignacion": "Assign {{nombreModulos}}",
+      "busqueda": "Enter your search",
+      "cliente": "Review {{nombreModulos}}"
+    },
+    "toasters": {
+      "toastExitoCrear": {
+        "title": "Success",
+        "body": "{{nombre}} created succesfully"
+      },
+      "toastExitoEditar": {
+        "title": "Success",
+        "body": "{{nombre}} edited succesfully"
+      },
+      "toastExitoEliminar": {
+        "title": "Success",
+        "body": "{{nombre}} deleted succesfully"
+      },
+      "toastErrorCrear": {
+        "title": "Error",
+        "body": "Error creating {{nombre}}"
+      },
+      "toastErrorEditar": {
+        "title": "Error",
+        "body": "Error uploading {{nombre}}"
+      },
+      "toastErrorEliminar": {
+        "title": "Error",
+        "body": "Error deleting {{nombre}}"
+      },
+      "toastExitoEstado": {
+        "title": "Success",
+        "body": "{{nombre}} state updated"
+      },
+      "toastErrorEstado": {
+        "title": "Error",
+        "body": "Error updating {{nombre}}"
+      },
+      "toastErrorConexionServidor": {
+        "title": "Error",
+        "body": "Failed conection {{nombre}}"
+      },
+      "toastErrorMostrar": {
+        "title": "Error",
+        "body": "Error displaying {{nombre}}"
+      },
+      "toastExitoReset": {
+        "title": "Success",
+        "body": "{{nombre}} was successfully restored"
+      },
+      "toastErrorCrearCampoRequerido": {
+        "title": "Error",
+        "body": "Error creating, maybe the field {{campo}} is already registered"
+      },
+      "toastErrorEditarCampoRequerido": {
+        "title": "Error",
+        "body": "Error updating, maybe the field {{campo}} is already registered"
+      },
+      "toastExitoEliminarVacio": {
+        "title": "Success",
+        "body": "Deleted succesfully"
+      },
+      "toastExitoCrearVacio": {
+        "title": "Success",
+        "body": "Created succesfully"
+      },
+      "toastExitoEditarVacio": {
+        "title": "Success",
+        "body": "Edited succesfully"
+      },
+      "toastErrorCrearVacio": {
+        "title": "Error",
+        "body": "Error creating"
+      },
+      "toastErrorEditarVacio": {
+        "title": "Error",
+        "body": "Error uploading"
+      },
+      "toastErrorEliminarVacio": {
+        "title": "Error",
+        "body": "Error deleting"
+      },
+      "toastExitoEstadoVacio": {
+        "title": "Success",
+        "body": "State updated"
+      },
+      "toastErrorEstadoVacio": {
+        "title": "Error",
+        "body": "Error updating"
+      },
+      "toastErrorConexionServidorVacio": {
+        "title": "Error",
+        "body": "Failed connection"
+      },
+      "toastErrorMostrarVacio": {
+        "title": "Error",
+        "body": "Error displaying register"
+      },
+      "toastErrorReset": {
+        "title": "Error",
+        "body": "Reset error"
+      },
+      "ToastErrorTrayendoDatos": {
+        "title": "Error",
+        "body": "Error reading data"
+      },
+      "toastExitoCargarDatos": {
+        "title": "Success",
+        "body": "Successful loading data"
+      },
+      "toastErrorCargarDatos": {
+        "title": "Error",
+        "body": "Error loading data"
+      },
+      "toastExitoOrdenVacio": {
+        "title": "Success",
+        "body": "Order Edited succesfully"
+      },
+      "toastErrorOrdenVacio": {
+        "title": "Error",
+        "body": "Error edit order"
+      },
+      "toastExitoReverso": {
+        "title": "Success",
+        "body": "Payment cancelled"
+      },
+      "toastExitoPagar": {
+        "title": "Success",
+        "body": "Payment succeeded"
+      },
+      "toastErrorPagar": {
+        "title": "Error",
+        "body": "Payment failed"
+      },
+      "toastExitoTarjeta": {
+        "title": "Success",
+        "body": "Correct card, please verify the payment"
+      },
+      "toastErrorServicio": {
+        "title": "Error",
+        "body": "The service is already added"
+      },
+      "toastErrorCargarArchivo": {
+        "title": "Error",
+        "body": "The file you want to upload does not match with the accepted format"
+      },
+      "toastErrorClienteStripe": {
+        "title": "Error",
+        "body": "Error loading client data"
+      }
+    },
+    "otros": {
+      "estadoFiltro": {
+        "opciones": {
+          "defaut": "Filter by state",
+          "activo": "Active",
+          "inactivo": "Inactive"
+        },
+        "ayuda": "Filter by state"
+      },
+      "sinRegistros": "No records found",
+      "nombre": "{{nombre}}",
+      "opcionesSiNo": {
+        "si": "Yes",
+        "no": "No"
+      }
+    }
+  },
+  "modulosGenerales": {
+    "clienteModulo": {
+      "titulos": {
+        "pantalla": "Client Menu",
+        "itemCurso": "Courses"
+      },
+      "descripciones": {
+        "pantalla": "Choose one of the options below",
+        "itemCurso": "Check our online courses"
+      },
+      "migasDePan": {
+        "inicio": "Client Menu"
+      }
+    }
+  },
+  "submoduloFrontComun": {
+    "idiomas": {
+      "es": {
+        "nombre": "Spanish",
+        "codigo": "es"
+      },
+      "en": {
+        "nombre": "English",
+        "codigo": "en"
+      }
+    }
+  },
+  "submoduloArticulos": {
+    "articulo": {
+      "articuloFormulario": {
+        "toasterGeneral": "Valid item",
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "MVA practice road test",
+          "ayuda": "Enter the name for the item",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a valid name"
+        },
+        "nombreCorto": {
+          "nombreCorto": "Short name *",
+          "ejemplo": "MVA test",
+          "ayuda": "Enter the short name for the item",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a valid short name"
+        },
+        "descripcion": {
+          "descripcion": "Description",
+          "ejemplo": "This is a course item...",
+          "ayuda": "Enter the description for the item",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a valid description"
+        },
+        "codigo": {
+          "codigo": "Code *",
+          "ejemplo": "C001",
+          "ayuda": "Enter the item's code",
+          "patternMensaje": "Enter only letters and numbers",
+          "toaster": "Write a valid code"
+        },
+        "codigoAuxiliar": {
+          "codigoAuxiliar": "Auxiliar code",
+          "ejemplo": "S009",
+          "ayuda": "Enter the item's auxiliar code",
+          "patternMensaje": "Enter only letters and numbers",
+          "toaster": "Write a valid code"
+        },
+        "codigoBarras": {
+          "codigoBarras": "Barcode *",
+          "ejemplo": "01235467",
+          "ayuda": "Enter the item's barcode",
+          "patternMensaje": "Enter only letters and numbers",
+          "toaster": "Write a valid barcode"
+        },
+        "peso": {
+          "peso": "Weight *",
+          "ejemplo": "10",
+          "ayuda": "Enter the item's weight",
+          "patternMensaje": "Enter only numbers",
+          "toaster": "Write a valid weight"
+        },
+        "empresaProductora": {
+          "empresaProductora": "Owner Company",
+          "ejemplo": "PetroEcuador",
+          "ayuda": "Enter the owner company for the item",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a valid company"
+        },
+        "habilitadoStock": {
+          "habilitadoStock": "Stock available *",
+          "ejemplo": "Yes",
+          "ayuda": "Is the stock available for this item?",
+          "patternMensaje": "Enter only yes or no",
+          "toaster": "Write a valid stock",
+          "opciones": {
+            "si": "YES",
+            "no": "NO"
+          }
+        },
+        "esServicio": {
+          "esServicio": "Is service *",
+          "ejemplo": "Yes",
+          "ayuda": "Is this item a service?",
+          "patternMensaje": "Enter only yes or no",
+          "toaster": "Write a valid service",
+          "opciones": {
+            "si": "YES",
+            "no": "NO"
+          }
+        },
+        "unidadMedida": {
+          "unidadMedida": "Unit of measurement *",
+          "ejemplo": "Kg",
+          "ayuda": "Enter the unit of measurement for the item",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Write a valid unit"
+        },
+        "esCurso": {
+          "esCurso": "Is course",
+          "ejemplo": "Is this item a course?",
+          "ayuda": "Enter the text for the content",
+          "patternMensaje": "Enter only yes or no",
+          "toaster": "Write a valid course",
+          "opciones": {
+            "si": "YES",
+            "no": "NO"
+          }
+        },
+        "tipoImpuesto": {
+          "tipoImpuesto": "Tax type *",
+          "ejemplo": "I.V.A",
+          "ayuda": "Enter the text for the content",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a valid tax type"
+        },
+        "tarifa": {
+          "tarifa": "Rate *",
+          "ejemplo": "12%",
+          "ayuda": "Enter the rate for the content",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Write a valid rate"
+        }
+      },
+      "componentes": {
+        "filterArticuloServicio": {
+          "descripciones": {
+            "busqueda": "Search a service by its name or code"
+          },
+          "errores": {},
+          "tablas": {},
+          "botones": {},
+          "títulos": {},
+          "otros": {}
+        },
+        "listaArticuloServicio": {
+          "titulos": {
+            "titulo": "Services list"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "codigo": "Code",
+            "descripcion": "Description"
+          }
+        },
+        "mostrarArticulo": {
+          "titulos": {
+            "titulo": "Service details"
+          },
+          "descripciones": {
+            "articulo": "See the service details"
+          }
+        }
+      }
+    },
+    "moduloGrupo": {
+      "grupoFormulario": {
+        "toasterGeneral": "Group not valid",
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "EX: Grease",
+          "ayuda": "Enter the name of the group",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Select a name"
+        },
+        "dia": {
+          "nombre": "Day *",
+          "ejemplo": "EX: Monday",
+          "ayuda": "Select a day of the week",
+          "toaster": "Select a day",
+          "opciones": {
+            "lunes": "Monday",
+            "martes": "Tuesday",
+            "miercoles": "Wednesday",
+            "jueves": "Thursday",
+            "viernes": "Friday",
+            "sabado": "Saturday",
+            "domingo": "Sunday"
+          }
+        }
+      }
+    }
+  },
+  "submoduloCertificadosCuros": {
+    "moduloCurso": {
+      "fomularioBuscarEdificio": {
+        "edificio": {
+          "label": "Building",
+          "placeholder": "EX: ROXOR",
+          "hint": "Search a building by name"
+        }
+      },
+      "componentes": {
+        "edificioDetalle": {
+          "edificio": "Building",
+          "direccion": "Address",
+          "establecimiento": "Establishments",
+          "botonHorarios": "Go to Schedules"
+        }
+      },
+      "modales": {
+        "mapaEdificios": {
+          "titulo": "Avalible Buildings"
+        }
+      },
+      "rutas": {
+        "rutaGestionCurso": {
+          "titulos": {
+            "nombreModulo": "Course",
+            "nombreModulos": "Courses",
+            "irModulos": "Modules",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Search courses by name",
+            "menuInicio": "Choose an option below",
+            "seleccionarCurso": "Choose one of our courses",
+            "menuMisCursos": "Here you can see your courses"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "duracion": "Duration",
+            "habilitado": "State",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Courses Management",
+            "menu": "Courses Menu",
+            "inicio": "Courses Module",
+            "menuInicio": "Courses Start Menu",
+            "menuMisCursos": "My Courses Menu",
+            "seleccionarCurso": "Select Course Menu"
+          }
+        },
+        "rutaSeleccionarCurso": {
+          "botones": {
+            "registrarse": "Sign Up"
+          },
+          "titulos": {
+            "nombreModulo": "Course",
+            "nombreModulos": "Courses",
+            "irModulos": "Modules",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Search courses by name",
+            "menuInicio": "Choose an option below",
+            "seleccionarCurso": "Choose one of our courses",
+            "menuMisCursos": "Here you can see your courses"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "duracion": "Duration",
+            "valor": "Price",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Courses Management",
+            "menu": "Courses Menu",
+            "inicio": "Courses Module",
+            "menuInicio": "Courses Start Menu",
+            "menuMisCursos": "My Courses Menu",
+            "seleccionarCurso": "Select Course Menu"
+          }
+        },
+        "rutaMisCursos": {
+          "titulos": {
+            "nombreModulo": "Course",
+            "nombreModulos": "Courses",
+            "irModulos": "Go to Modules",
+            "ayuda": " ",
+            "verEstablecimientos": "Select Establishment",
+            "mapa": "Establishment Map",
+            "verCertificado": "Certificate"
+          },
+          "descripciones": {
+            "busqueda": "Search courses by name",
+            "menuInicio": "Choose an option below",
+            "seleccionarCurso": "Choose one of our courses",
+            "menuMisCursos": "Here you can see your courses"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "progreso": "Progress",
+            "estado": "State",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Courses Management",
+            "menu": "Courses Menu",
+            "inicio": "Courses Module",
+            "menuInicio": "Courses Start Menu",
+            "menuMisCursos": "My Courses Menu",
+            "seleccionarCurso": "Select Course Menu"
+          }
+        }
+      },
+      "cursoFormulario": {
+        "toasterGeneral": "valid",
+        "descripcion": {
+          "descripcion": "Description *",
+          "ejemplo": "EX: Funny course",
+          "ayuda": "Enter the description of the course",
+          "patternMensaje": "Enter only letters, blank spaces and number",
+          "toaster": "Enter a description"
+        },
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "EX: First steps",
+          "ayuda": "Enter the name of the course",
+          "patternMensaje": "Enter only letters, blank spaces and number",
+          "toaster": "Enter a name"
+        },
+        "imagen": {
+          "imagen": "Price *",
+          "ejemplo": "",
+          "ayuda": "Upload an image",
+          "toaster": "Select an image"
+        },
+        "duracion": {
+          "duracion": "Duration *",
+          "ejemplo": "EX: 04:00:10",
+          "ayuda": "Duration of course",
+          "toaster": ""
+        },
+        "articulo": {
+          "articulo": "Item",
+          "ejemplo": "DIP course",
+          "ayuda": "Select the course",
+          "patternMensaje": "Enter only valid courses",
+          "toaster": "Enter a valid item"
+        }
+      },
+      "idiomaCursoFormulario": {
+        "toasterGeneral": "valid",
+        "opciones": {
+          "en": "English",
+          "es": "Spanish"
+        },
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "EX: English",
+          "ayuda": "Select course language",
+          "toaster": "Select a languahe"
+        }
+      }
+    },
+    "moduloCursoModulo": {
+      "rutas": {
+        "rutaGestionModuloCurso": {
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "tiempo": "Time",
+            "habilitado": "Status",
+            "acciones": "Actions"
+          },
+          "botones": {
+            "editarSelecciona": "Edit",
+            "opcionesBatch": "Bulk actions",
+            "gestionOrden": "Manage Order",
+            "gestionTemas": "Manage Themes",
+            "gestionPruebas": "Manage Test",
+            "caratula": "Cover"
+          },
+          "migasDePan": {
+            "segmentoRutaInicial": "Module Course Start",
+            "segmentoRutaGestion": "Module Course Management",
+            "segmentoRutaMenu": "Course Modules Menu"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Manage your Course Modules",
+            "busqueda": "Search modules by name"
+          },
+          "titulos": {
+            "tituloPantalla": "Course Modules Management ",
+            "nombreModulo": "COURSE MODULES",
+            "nombreModulos": "Course Modules",
+            "ayuda": " ",
+            "modalCaratulaTitulo": "COVER",
+            "modalGestionOrden": "ORDER MANAGEMENT",
+            "ordenActual": "Actual Order",
+            "ordenNuevo": "New Order",
+            "caratulaActual": "Actual Cover"
+          }
+        },
+        "rutaClienteModuloCurso": {
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "imagen": "Cover",
+            "estado": "Status",
+            "fechaInicio": "Start Date",
+            "fechaFinalizacion": "Finish Date",
+            "progresoDiapositivas": "Slides Progress",
+            "progresoPruebas": "Test Progress",
+            "diapositivaActual": "Actual Slide",
+            "id": "Actions"
+          },
+          "botones": {
+            "verTemas": "Watch Themas",
+            "revisarModulo": "Review Module",
+            "continuarModulo": "Continue Module"
+          },
+          "migasDePan": {
+            "segmentoRutaMenu": "Course Module Menu"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Modules Menu",
+            "busqueda": "Search Modules By Name"
+          },
+          "titulos": {
+            "nombreModulo": "Course Module",
+            "nombreModulos": "Course Modules",
+            "ayuda": " "
+          }
+        }
+      },
+      "error": {
+        "validacionDuplicado": "You can not have multiple items."
+      },
+      "moduloCursoFormulario": {
+        "toasterGeneral": "Valid module",
+        "toasterArchivo": "Wait until your file upload is finished",
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "Description module",
+          "ayuda": "Enter the name of the module",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a name"
+        },
+        "descripcion": {
+          "descripcion": "Description *",
+          "ejemplo": "EX: This module is about...",
+          "ayuda": "Enter a description for the module",
+          "patternMensaje": "Enter only letters spaces and numbers",
+          "toaster": "Write a description"
+        },
+        "duracion": {
+          "duracion": "Duration time",
+          "ejemplo": "00:01:03",
+          "ayuda": "What time it lasts",
+          "patternMensaje": "Enter only valid time",
+          "toaster": "Enter the duration time"
+        },
+        "siguienteModulo": {
+          "siguienteModulo": "Next module",
+          "ejemplo": "Introduction module",
+          "ayuda": "Select the module that starts after this",
+          "patternMensaje": "Enter only valid modules",
+          "toaster": "Enter a valid module"
+        },
+        "anteriorModulo": {
+          "anteriorModulo": "Previous module",
+          "ejemplo": "Introduction module",
+          "ayuda": "Select the module that starts before this",
+          "patternMensaje": "Enter only valid modules",
+          "toaster": "Enter a valid module"
+        }
+      }
+    },
+    "diapositiva": {
+      "rutas": {
+        "rutaGestionDiapositiva": {
+          "tablas": {
+            "titulo": "Tittle",
+            "duracion": "Duration",
+            "estado": "Status",
+            "pruebas": "Tests",
+            "id": "Actions"
+          },
+          "botones": {
+            "gestionContenido": "Manage Content",
+            "gestionPreguntas": "Manage Questions",
+            "gestionOrden": "Manage Order",
+            "asignarPrueba": "Asign Test",
+            "guardarAsignacion": "Save test Asign"
+          },
+          "migasDePan": {
+            "segmentoRutaInicial": "Slide Module",
+            "segmentoRutaGestion": "Slides Management",
+            "segmentoRutaMenu": "Slides Menu"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Manage your Slides",
+            "busqueda": "Search slides by name"
+          },
+          "titulos": {
+            "tituloPantalla": "Slides Management ",
+            "nombreModulo": "SLIDE",
+            "nombreModulos": "Slides",
+            "ayuda": " ",
+            "modalGestionOrden": "ORDER MANAGEMENT",
+            "ordenActual": "Actual Order",
+            "ordenNuevo": "New Order",
+            "pruebasDisponibles": "Available Tests",
+            "pruebasAsignadas": "Assigned Tests",
+            "modalAsignarPrueba": "ASIGN TEST",
+            "descripcionPrueba": "Asign tests to slide: "
+          }
+        },
+        "rutaClienteDiapositiva": {
+          "tablas": {
+          },
+          "botones": {
+            "hacerPrueba": "Do test"
+          },
+          "migasDePan": {
+            "segmentoRutaMenu": "Slides Menu",
+            "segmentoRutaInicio": "Slides Start"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Slides Menu",
+            "busqueda": ""
+          },
+          "titulos": {
+            "pruebaDiapositiva": "TEST",
+            "nombreModulo": "Slides",
+            "nombreModulos": "Slides Modules",
+            "ayuda": " "
+          }
+        }
+      },
+      "diapositivaFormulario": {
+        "toasterGeneral": "Valid slide",
+        "toasterArchivo": "Wait until your file upload is finished",
+        "toasterSelectDiapositiva": "'Next slide' and 'Previous slide' must be differents",
+        "titulo": {
+          "titulo": "Title *",
+          "ejemplo": "Breath test",
+          "ayuda": "Enter the title of the slide",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a title"
+        },
+        "notas": {
+          "notas": "Notes",
+          "ejemplo": "Don't forget to take the final exam",
+          "ayuda": "Enter notes for the slide",
+          "patternMensaje": "Enter only letters, spaces and numbers",
+          "toaster": "Write a note"
+        },
+        "segundoEmpieza": {
+          "segundoEmpieza": "Start at second",
+          "ejemplo": "00:00:03",
+          "ayuda": "At what time starts",
+          "patternMensaje": "Enter only valid time",
+          "toaster": "Enter complete time"
+        },
+        "duracion": {
+          "duracion": "Duration time",
+          "ejemplo": "00:01:03",
+          "ayuda": "What time it lasts",
+          "patternMensaje": "Enter only valid time",
+          "toaster": "Enter the duration time"
+        },
+        "siguienteDiapositiva": {
+          "siguienteDiapositiva": "Next slide",
+          "ejemplo": "Why are you here?",
+          "ayuda": "Select the slide that starts after this",
+          "patternMensaje": "Enter only valid slides",
+          "toaster": "Enter a valid slide"
+        },
+        "anteriorDiapositiva": {
+          "anteriorDiapositiva": "Previous slide",
+          "ejemplo": "Why are you here?",
+          "ayuda": "Select the slide that starts before this",
+          "patternMensaje": "Enter only valid slides",
+          "toaster": "Enter a valid slide"
+        }
+      }
+    },
+    "contenido": {
+      "rutas": {
+        "rutaGestionContenido": {
+          "botones": {
+            "archivoImagen": "IMAGE FILE",
+            "subirImagen": "Upload image file",
+            "imagen1": "Image file 1",
+            "imagen2": "Image file 2"
+          },
+          "titulos": {
+            "nombreModulo": "Content",
+            "nombreModulos": "Contents",
+            "ayuda": " ",
+            "imagenTitulo": "UPDATE IMAGE:",
+            "imagenEnUso": "Image in use",
+            "imagenNuevo": "New image file"
+          },
+          "descripciones": {
+            "busqueda": "Search content by text",
+            "imagenSeleccionada": "Image selected:",
+            "seleccionaImagen": "Select an image",
+            "imagenNoSubida": "You have not upload an image file yet.",
+            "imagenNoSeleccionada": "You have not selected an image file yet."
+          },
+          "tablas": {
+            "texto": "Text",
+            "urlImagen1": "Image 1",
+            "urlImagen2": "Image 2",
+            "link": "Link",
+            "estado": "State",
+            "acciones": "Actions"
+          }
+        }
+      },
+      "migasDePan": {
+        "gestion": "Content Management",
+        "inicio": "Content Module"
+      },
+      "contenidoFormulario": {
+        "toasterGeneral": "Valid content",
+        "texto": {
+          "texto": "Text *",
+          "ejemplo": "Road signs dated from...",
+          "ayuda": "Enter the text for the content",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Write a valid text"
+        },
+        "link": {
+          "link": "Link",
+          "ejemplo": "google.com",
+          "ayuda": "Enter a link related with the content",
+          "patternMensaje": "Enter a valid link. Spaces are not allowed",
+          "toaster": "Write a valid link"
+        }
+      }
+    },
+    "tema": {
+      "rutas": {
+        "rutaGestionTema": {
+          "botones": {
+            "archivoAudio": "AUDIO FILE",
+            "irDiapositivas": "Slides",
+            "subirAudio": "Upload audio file"
+          },
+          "titulos": {
+            "nombreModulo": "Page",
+            "nombreModulos": "Pages",
+            "ayuda": " ",
+            "audioTitulo": "UPDATE AUDIO:",
+            "audioEnUso": "Audio file in use",
+            "audioNuevo": "New audio file"
+          },
+          "descripciones": {
+            "busqueda": "Search pages by name or description",
+            "audioSeleccionado": "Audio selected",
+            "audioNoSubido": "You have not upload an audio file yet.",
+            "audioNoSeleccionado": "You have not selected an audio file yet."
+          },
+          "tablas": {
+            "nombre": "Name",
+            "descripcion": "Description",
+            "estado": "State",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Pages Management",
+            "menu": "Pages Menu",
+            "inicio": "Pages Module"
+          }
+        },
+        "rutaMenuTema": {
+          "botones": {
+          },
+          "titulos": {
+            "nombreModulo": "Page",
+            "nombreModulos": "Pages",
+            "ayuda": "Make sure you review all content and pages of each module."
+          },
+          "descripciones": {
+            "menuTema": "Pick a page to start"
+          },
+          "migasDePan": {
+            "gestion": "Pages Management",
+            "menu": "Pages Menu",
+            "inicio": "Pages Module"
+          }
+        }
+      },
+      "temaFormulario": {
+        "toasterGeneral": "Valid subject",
+        "toasterArchivo": "Wait until your file upload is finished",
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "Why i am here?",
+          "ayuda": "Enter the name of the subject",
+          "patternMensaje": "Ingrese solo letras espacios y numeros",
+          "toaster": "Write a name"
+        },
+        "descripcion": {
+          "descripcion": "Description *",
+          "ejemplo": "EX: This subject is about...",
+          "ayuda": "Enter a description for the subject",
+          "patternMensaje": "Enter only letters spaces and numbers",
+          "toaster": "Write a description"
+        },
+        "urlAudio": {
+          "urlAudio": "Audio file",
+          "ejemplo": "roadSigns.mp3",
+          "ayuda": "Choose an audio file",
+          "patternMensaje": "Enter only mp3 files",
+          "toaster": "Select a file"
+        }
+      }
+    },
+    "pruebaModulo": {
+      "componentes": {
+        "testPretestComponente": {
+          "botones": {
+            "intentaDeNuevo": "Try Again",
+            "regresar": "Return to {{nombre}}",
+            "subirPrueba": "Submit",
+            "diapositivas": "Slides",
+            "modulos": "Modules"
+          },
+          "descripciones": {
+            "descripcionPrueba": "Please answer the cuestions. ",
+            "tiempoRestante": "Time left:"
+          },
+          "mensajes": {
+            "mensajePruebaHecha": "This test has already been sent",
+            "mensajePretest": "(Don't worry it's a Pretest)",
+            "mensajePuntaje": "Score: {{puntaje}}/100"
+          }
+        }
+      },
+      "rutas": {
+        "rutaGestionPrueba": {
+          "botones": {
+            "irPreguntas": "Questions Assignment"
+          },
+          "titulos": {
+            "nombreModulo": "Test",
+            "nombreModulos": "Tests",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Search tests by name"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "tipo": "Type",
+            "tiempoMaximo": "Max. time",
+            "numeroIntentos": "Attempts",
+            "estado": "State",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Test Management",
+            "menu": "Tests Menu",
+            "inicio": "Test Module",
+            "prueba": "Test"
+          }
+        }
+      },
+      "pruebaFormulario": {
+        "toasterGeneral": "Valid quiz",
+        "nombre": {
+          "nombre": "Name *",
+          "ejemplo": "Module 1 test",
+          "ayuda": "Enter the name of the quiz",
+          "patternMensaje": "Enter only letters spaces and numbers",
+          "toaster": "Write a name"
+        },
+        "tipo": {
+          "tipo": "Type *",
+          "opciones": {
+            "test": "Test",
+            "pretest": "Pretest"
+          },
+          "ayuda": "Select the quiz's type",
+          "patternMensaje": "Select one",
+          "toaster": "Select a valid option"
+        },
+        "tiempoMaximo": {
+          "tiempoMaximo": "Max time",
+          "ejemplo": "01:00:00",
+          "ayuda": "Enter the maximum time of the quiz",
+          "patternMensaje": "Time format: HH:MM:SS",
+          "toaster": "Enter a duration of time"
+        },
+        "numeroIntentos": {
+          "numeroIntentos": "Number of attempts",
+          "ejemplo": "3",
+          "ayuda": "Enter the number of attempts of the quiz",
+          "toaster": "Enter only numbers",
+          "patternMensaje": "Enter only numbers"
+        }
+      }
+    },
+    "opcionModulo": {
+      "migasDePan": {
+        "segmentoRutaInicial": "Option Module",
+        "segmentoRutaGestion": "Option Managament"
+      },
+      "rutas": {
+        "rutaGestionOpcion": {
+          "botones": {
+            "si": "YES",
+            "no": "NO"
+          },
+          "descripciones": {
+            "parrafoTitulo": "Manage your Options",
+            "busqueda": "Searh Options by name"
+          },
+          "titulos": {
+            "tituloPantalla": "Option Managenement ",
+            "nombreModulo": "OPTION",
+            "nombreModulos": "Options",
+            "ayuda": " "
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "esRespuesta": "Is the Answer",
+            "habilitado": "State",
+            "id": "Actions"
+          }
+        },
+        "opcionFormulario": {
+          "toasterGeneral": "Valid option",
+          "descripcion": {
+            "descripcion": "Description *",
+            "ejemplo": "12 points",
+            "ayuda": "Enter the description of the option",
+            "toaster": "Write a description"
+          },
+          "Descripcion": {
+            "nombre": "Description",
+            "patternMensaje": "A description is required"
+          },
+          "esRespuesta": {
+            "esRespuesta": "Is the answer *",
+            "opciones": {
+              "YES": "YES",
+              "NO": "NO"
+            },
+            "ayuda": "Is the correct answer?",
+            "toaster": "Select a valid option"
+          },
+          "EsRespuesta": {
+            "nombre": "Is the answer",
+            "patternMensaje": "Select one option"
+          }
+        }
+      },
+      "opcionFormulario": {
+        "toasterGeneral": "Opción válida",
+        "descripcion": {
+          "descripcion": "Description *",
+          "ejemplo": "True",
+          "ayuda": "Enter option description",
+          "toaster": "Write a description"
+        },
+        "Descripcion": {
+          "nombre": "Description",
+          "patternMensaje": "A description is required"
+        },
+        "esRespuesta": {
+          "esRespuesta": "Is the answer *",
+          "opciones": {
+            "YES": "YES",
+            "NO": "NO"
+          },
+          "ayuda": "¿Is the correct answer?",
+          "toaster": "Select a valid option"
+        },
+        "EsRespuesta": {
+          "nombre": "Is the answer",
+          "patternMensaje": "Select one option"
+        }
+      },
+      "componentes": {
+        "mostrarOpciones": {
+          "titulos": {
+            "titulo": "Options"
+          },
+          "descripciones": {
+            "modal": "{pregunta}"
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "esRespuesta": "Is the answer",
+            "#": "#"
+          }
+        }
+      }
+    },
+    "pregunta": {
+      "componentes": {
+        "filterComponente": {
+          "descripciones": {
+            "busqueda": "Search questions by description"
+          }
+        },
+        "listaComponente": {
+          "descripciones": {
+            "lista": "Questions list"
+          }
+        }
+      },
+      "rutas": {
+        "rutaGestionPregunta": {
+          "botones": {
+            "irOpciones": "Options Management",
+            "verOpciones": "Options View"
+          },
+          "titulos": {
+            "nombreModulo": "Question",
+            "nombreModulos": "Questions",
+            "ayuda": " "
+          },
+          "descripciones": {
+            "busqueda": "Search questions by description",
+            "modalAsignacion": "Assign questions to the test"
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "valor": "Value",
+            "tratarDeNuevo": "Try Again",
+            "estado": "State",
+            "acciones": "Actions"
+          },
+          "migasDePan": {
+            "gestion": "Question Management",
+            "asignacion": "Questions Assignment",
+            "inicio": "Question Module",
+            "pregunta": "Question"
+          }
+        }
+      },
+      "preguntaFormulario": {
+        "toasterGeneral": "Valid question",
+        "toasterArchivo": "Wait until your file upload is finished",
+        "preguntas": "Error adding questions, many of them are already added",
+        "descripcion": {
+          "descripcion": "Description *",
+          "ejemplo": "EX: ¿What are the road signs?",
+          "ayuda": "Enter the question",
+          "patternMensaje": "Enter only letters spaces and numbers",
+          "toaster": "Write a question"
+        },
+        "valor": {
+          "valor": "Value",
+          "ejemplo": "1",
+          "ayuda": "Choose the value of the question",
+          "patternMensaje": "Enter only numbers",
+          "toaster": "Write a number"
+        },
+        "tratarDeNuevo": {
+          "tratarDeNuevo": "Try again *",
+          "ejemplo": "Yes",
+          "ayuda": "Choose if the question could be answered more than once",
+          "patternMensaje": "Enter only yes or no",
+          "toaster": "Enter only yes or no",
+          "opciones": {
+            "si": "Yes",
+            "no": "No"
+          }
+        }
+      }
+    },
+    "pedido": {
+      "pedidoFormulario": {
+        "toasterGeneral": "valid",
+        "curso": {
+          "curso": "Course* :",
+          "ejemplo": "DIP",
+          "ayuda": "The course you are buying"
+        },
+        "valor": {
+          "valor": "Price",
+          "ejemplo": "$45.80",
+          "ayuda": "The price you are going to pay"
+        },
+        "horarioServicio": {
+          "horarioServicio": "Schedule* :",
+          "ejemplo": "Thursday",
+          "ayuda": "The schedule you will take the exam"
+        },
+        "nombres": {
+          "nombres": "Name",
+          "ejemplo": "Rose",
+          "ayuda": "Write the card owner's name",
+          "patternMensaje": "Enter only letters"
+        },
+        "apellidos": {
+          "apellidos": "Last name",
+          "ejemplo": "Dickens",
+          "ayuda": "Write the card owner's last name",
+          "patternMensaje": "Enter only letters"
+        }
+      },
+      "rutas": {
+        "rutaGestionpedidoCurso": {
+          "titulos": {
+            "tituloPantalla": "Orders",
+            "nombreModulo": "Order",
+            "nombreModulos": "Orders",
+            "ayuda": "See your service's orders"
+          },
+          "descripciones": {
+            "busqueda": "Search an order by course name"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "fecha": "Date",
+            "acciones": "Actions",
+            "habilitado": "State"
+          },
+          "migasDePan": {
+            "gestionPedidoCurso": "Orders",
+            "clientePedidoCurso": "Orders"
+          },
+          "botones": {
+            "verMas": "Details"
+          }
+        }
+      },
+      "componentes": {
+        "crearEditarPedido": {
+          "titulos": {
+            "verPedido": "Order details",
+            "hacerPedido": "Order"
+          },
+          "descripciones": {
+            "descripcionDetalle": "Course, schedule and student details",
+            "descripcionPedido": "Llene los campos necesarios"
+          },
+          "botones": {
+            "pagar": "Pay"
+          }
+        }
+      }
+    },
+    "stripeModulo": {
+      "componentes": {
+        "pagarStripe": {
+          "toasterGeneral": "valid card",
+          "titulos": {
+            "titulo": "Pay with a card",
+            "usarGuardada": "Use a saved card",
+            "ingresarTarjeta": "Enter a card"
+          },
+          "descripciones": {
+            "guardarTarjeta": "Save card"
+          }
+        }
+      }
+    }
+  },
+  "submoduloMenu": {
+    "horario": {
+      "horarioFormulario": {
+        "toasterGeneral": "Valid schedule",
+        "descripcion": {
+          "descripcion": "Description*:",
+          "ejemplo": "EJ: Everyday",
+          "ayuda": "Write a description",
+          "patternMensaje": "Enter only letters, spaces and numbers"
+        },
+        "empresa": {
+          "empresa": "Enterprise*:",
+          "ejemplo": "EJ: Alitas",
+          "ayuda": "Select a kind of schedule"
+        },
+        "horaInicia": {
+          "horaInicia": "Starts at*:",
+          "ayuda": "Write an hour in AM/PM format"
+        },
+        "horaFinaliza": {
+          "horaFinaliza": "Ends at*:",
+          "ayuda": "Write an hour in AM/PM format ",
+          "toaster": "Select an hour in a valid range ('Starts at' can not be later than 'Ends at')"
+        },
+        "fechaInicia": {
+          "fechaInicia": "Start date:",
+          "ayuda": "Select a date"
+        },
+        "fechaFinaliza": {
+          "fechaFinaliza": "Finish date:",
+          "ayuda": "Select a date",
+          "toaster": "Select a date in a valid range ('Start date' can not be later than 'Finish date')"
+        },
+        "lunes": {
+          "lunes": "Monday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "martes": {
+          "martes": "Tuesday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "miercoles": {
+          "miercoles": "Wednesday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "jueves": {
+          "jueves": "Thursday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "viernes": {
+          "viernes": "Friday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "sabado": {
+          "sabado": "Saturday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "domingo": {
+          "domingo": "Sunday",
+          "ayuda": "Marcar si el horario contiene este dia"
+        },
+        "tipo": {
+          "tipo": "Type*:",
+          "ayuda": "Select a kind of shedule",
+          "opciones": {
+            "d": "Day",
+            "f": "Date time"
+          }
+        }
+      }
+    }
+  },
+  "submoduloEmpresa": {
+    "moduloContactoHorarioServicio": {
+      "rutas": {
+        "rutaGestionContactoHorarioServicio": {
+          "titulos": {
+            "tituloPantalla": "Contacts Assignment",
+            "nombreModulo": "Contact",
+            "nombreModulos": "Contacts",
+            "ayuda": "Assign contacts (workers) for your schedule"
+          },
+          "descripciones": {
+            "busqueda": "Search a contact by its name or last name"
+          },
+          "tablas": {
+            "nombres": "Name",
+            "apellidos": "Last name",
+            "identificacionPais": "Identity card",
+            "tipoCargo": "Occupation",
+            "acciones": "Actions",
+            "habilitado": "State"
+          },
+          "migasDePan": {
+            "contactoHorarioServicio": "Contacts Assignment"
+          },
+          "botones": {
+            "desasignar": "Remove contact",
+            "irDatosContacto": "Contact information"
+          }
+        }
+      },
+      "componentes": {
+        "Errores": {},
+        "Tablas": {},
+        "Botones": {},
+        "Descripciones": {},
+        "Títulos": {},
+        "Otros": {}
+      }
+    },
+    "moduloHorarioServicio": {
+      "rutas": {
+        "rutaGestionHorarioServicio": {
+          "titulos": {
+            "tituloPantalla": "Schedules",
+            "nombreModulo": "Schedule",
+            "nombreModulos": "Schedules",
+            "ayuda": "Create schedules for your service"
+          },
+          "descripciones": {
+            "busqueda": "Search a schedule by its name"
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "acciones": "Actions",
+            "habilitado": "State"
+          },
+          "migasDePan": {
+            "horarioServicio": "Schedules"
+          },
+          "botones": {
+            "editar": "Edit",
+            "irContactoEmpresa": "Contact Management"
+          }
+        },
+        "rutaHorarioServicioCurso": {
+          "titulos": {
+            "tituloPantalla": "Stablishment Schedules",
+            "nombreModulo": "Stablishment Schedule",
+            "nombreModulos": "Stablishment Schedules",
+            "ayuda": "Search schedules for take the exam"
+          },
+          "descripciones": {
+            "busqueda": "Search a schedule by its name"
+          },
+          "tablas": {
+            "descripcion": "Description",
+            "acciones": "Actions",
+            "horario": "Schedule"
+          },
+          "migasDePan": {
+            "menu": "Courses Menu",
+            "inicio": "Courses Module",
+            "menuInicio": "Courses Start Menu",
+            "menuMisCursos": "My Courses Menu",
+            "seleccionarCurso": "Select Course Menu",
+            "establecimientosCurso": "Course stablishments",
+            "horarioEstablecimientoCurso": "Stablishment Schedules"
+          },
+          "botones": {
+            "buy": "Buy"
+          }
+        }
+      }
+    },
+    "moduloServicioEstablecimiento": {
+      "rutas": {
+        "rutaGestionServicioEstablecimiento": {
+          "titulos": {
+            "tituloPantalla": "Establishment services",
+            "nombreModulo": "Establishment service",
+            "nombreModulos": "Establishment services",
+            "ayuda": "Assign services to your establishment"
+          },
+          "descripciones": {
+            "busqueda": "Search a service by its name or short name"
+          },
+          "tablas": {
+            "nombre": "Name",
+            "nombreCorto": "Short name",
+            "precio": "Price",
+            "acciones": "Actions",
+            "habilitado": "State"
+          },
+          "migasDePan": {
+            "gestionServicio": "Establishment services"
+          },
+          "botones": {
+            "verMas": "Details",
+            "precio": "Price",
+            "irGestionHorarios": "Schedules Management",
+            "irGestionPedidos": "Orders Management"
+          }
+        },
+        "rutaEstablecimientosCurso": {
+          "titulos": {
+            "tituloPantalla": "Stablishments",
+            "nombreModulo": "Stablishment",
+            "nombreModulos": "Stablishments",
+            "ayuda": "Search stablishments for take the exam"
+          },
+          "descripciones": {
+            "busqueda": "Search a stablishment by its name"
+          },
+          "tablas": {
+            "nombre": "Stablishment",
+            "acciones": "Actions",
+            "direccion": "Direction"
+          },
+          "migasDePan": {
+            "menu": "Courses Menu",
+            "inicio": "Courses Module",
+            "menuInicio": "Courses Start Menu",
+            "menuMisCursos": "My Courses Menu",
+            "seleccionarCurso": "Select Course Menu",
+            "establecimientosCurso": "Course stablishments"
+          },
+          "botones": {
+            "horario": "Availables schedules"
+          }
+        }
+      }
+    },
+    "moduloContactoEmpresa": {
+      "rutas": {
+        "rutaInicioContactoEmpresa": {
+          "migasDePan": {
+            "segmentoRutaInicio": "Módulo Contacto Empresa"
+          }
+        },
+        "rutaGestionContactoEmpresa": {
+          "titulos": {
+            "nombreModulo": "Trabajadores",
+            "nombreModal": "Contacto"
+          },
+          "descripciones": {
+            "gestion": "Gestiona los trabajadores de tu empresa, asignales un rol y si pueden ser operarios o administradores de un punto de emisión o un establecimiento",
+            "busqueda": "Busque un contacto por apellidos o identificación."
+          },
+          "migasDePan": {
+            "segmentoRutaGestionContactoEmpresa": "Gestión de Contactos"
+          },
+          "tablas": {
+            "nombres": "Nombres",
+            "apellidos": "Apellidos",
+            "identificacionPais": "Identificación",
+            "tipoCargo": "Cargo",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "botones": {
+            "irGestionDatosContacto": "DATOS CONTACTO"
+          }
+        }
+      },
+      "contactoEmpresaFormulario": {
+        "toasterGeneral": "Contacto empresa",
+        "datosUsuario": {
+          "nombre": "Usuario",
+          "ejemplo": "EJ: Adrían Eguez",
+          "ayuda": "Busque y seleccione el usuario",
+          "patternMensaje": "El usuario es incorrecto"
+        },
+        "nombres": {
+          "nombre": "Nombres",
+          "ejemplo": "EJ: Vicente Adrían",
+          "ayuda": "Ingrese los nombres del usuario",
+          "patternMensaje": "Los nombres son incorrectos"
+        },
+        "apellidos": {
+          "nombre": "Apellidos",
+          "ejemplo": "EJ: Eguez Sarzosa",
+          "ayuda": "Ingrese los apellidos del usuario",
+          "patternMensaje": "Los apellidos es incorrecto"
+        },
+        "tipoCargo": {
+          "nombre": "Cargo",
+          "ejemplo": "EJ: Vendedor",
+          "ayuda": "Busque y seleccione el cargo",
+          "patternMensaje": "El cargo es incorrecto"
+        },
+        "observacion": {
+          "nombre": "Observación",
+          "ejemplo": "EJ: Contratado a medio tiempo",
+          "ayuda": "Ingrese la observación del contacto",
+          "patternMensaje": "La observación es incorrecta"
+        },
+        "esOperario": {
+          "nombre": "Es operario",
+          "ayuda": "Indique si el contacto es un operario",
+          "patternMensaje": "La opción es incorrecta"
+        },
+        "esAdminPtoEmi": {
+          "nombre": "Es administrador de establecimientos",
+          "ayuda": "Indique si el contacto es un administrador de un establecimiento",
+          "patternMensaje": "La opción es incorrecta"
+        }
+      },
+      "componentes": {
+        "filtercontactosEmpresa": {
+          "descripciones": {
+            "busqueda": "Search a contact by its name or last name"
+          },
+          "errores": {},
+          "tablas": {},
+          "botones": {},
+          "títulos": {},
+          "otros": {}
+        },
+        "listacontactosEmpresa": {
+          "descripciones": {
+            "busqueda": "Search a contact by its name or identification.",
+            "modal": "Assign contacts to your schedule"
+          },
+          "errores": {},
+          "tablas": {
+            "nombre": "Name",
+            "apellido": "Last name",
+            "cargo": "Occupation"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Contact list"
+          },
+          "otros": {}
+        },
+        "modalSeleccionarcontactosEmpresa": {
+          "descripciones": {
+            "modal": "Assign contacts to your schedule"
+          },
+          "errores": {
+            "contactos": "Error adding contacts, many of them are already added"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Contact list"
+          },
+          "otros": {}
+        }
+      }
+    },
+    "moduloPrecio": {
+      "rutas": {
+        "rutaInicioPrecio": {
+          "migasDePan": {
+            "segmentoRutaInicio": "Módulo Precio"
+          }
+        },
+        "rutaGestionPrecio": {
+          "titulos": {
+            "nombreModulo": "Precios",
+            "nombreModal": "Precio"
+          },
+          "descripciones": {
+            "gestion": "Agrega o elimina precios de un artículo."
+          },
+          "migasDePan": {
+            "segmentoRutaGestionPrecio": "Gestión de Precios"
+          },
+          "tablas": {
+            "valor": "Precio",
+            "esPrincipal": "Es Principal",
+            "acciones": "Acciones",
+            "habilitado": "Estado"
+          },
+          "otros": {
+            "modalConfirmacion": {
+              "mensaje": "¿Está seguro que desea eliminar este registro?",
+              "titulo": "Eliminar precio",
+              "nombreBotonTrue": "ACEPTAR",
+              "nombreBotonFalse": "CANCELAR"
+            }
+          }
+        }
+      },
+      "precioFormulario": {
+        "toasterGeneral": "Precio",
+        "valor": {
+          "nombre": "Valor",
+          "ejemplo": "EJ: 15.00",
+          "ayuda": "Ingrese el valor del precio",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "valorIncentivo": {
+          "nombre": "Valor",
+          "ejemplo": "EJ: 10.00",
+          "ayuda": "Ingrese el valor incentivo del precio",
+          "patternMensaje": "Ingrese solo números"
+        },
+        "esPrincipal": {
+          "nombre": "Es principal",
+          "ayuda": "Indique si este precio es principal",
+          "patternMensaje": "La opción es incorrecta"
+        }
+      },
+      "componentes": {
+        "listaPrecios": {
+          "descripciones": {
+            "busqueda": "Search a price"
+          },
+          "tablas": {
+            "esPrincipal": "Main Price",
+            "valor": "Price"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "Price list"
+          },
+          "otros": {}
+        },
+        "modalSeleccionarPrecios": {
+          "descripciones": {
+            "modal": "Assign a price to your service"
+          },
+          "errores": {
+            "precios": "Error adding the price"
+          },
+          "botones": {},
+          "titulos": {
+            "titulo": "SELECT A PRICE"
+          },
+          "otros": {}
+        }
+      }
+    }
+  }
+}

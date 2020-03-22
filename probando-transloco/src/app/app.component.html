@@ -1,0 +1,13 @@
+<p>PENE</p>
+
+<ng-container *transloco="let t">
+  <p>{{ t('ejemploGlobal.hola') }}</p>
+</ng-container>
+
+<a [routerLink]="['/inicio']">
+  inici
+</a>
+<a [routerLink]="['/mmodulo-lazy','uno']">
+  Modulo lazy
+</a>
+<router-outlet></router-outlet>
